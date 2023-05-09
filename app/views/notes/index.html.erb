@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Notes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th class = "hilite" onclick = "Accendi()" ><%= link_to "Ordina per id", notes_path(sort_order: :id_n) %></th>
+      <th>User</th>
+      <th>Rating</th>
+      <th>Text</th>
+      <th class = "hilite"><%= link_to "Ordina per data", notes_path(sort_order: :release_date) %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notes.each do |note| %>
+      <tr>
+        <td><%= note.id_n %></td>
+        <td><%= note.user %></td>
+        <td><%= note.rating %></td>
+        <td><%= note.text %></td>
+        <td><%= note.release_date %></td>
+        <td><%= link_to 'Show', note %></td>
+        <td><%= link_to 'Edit', edit_note_path(note) %></td>
+        <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Note', new_note_path %>
