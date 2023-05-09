@@ -58,3 +58,5 @@ gem 'devise'
 
 gem 'omniauth-facebook'
 gem 'omniauth-rails_csrf_protection'
+
+gem 'canard', '~> 0.6.2.pre'
