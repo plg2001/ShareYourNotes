@@ -2,39 +2,15 @@
 <html>
   <head>
     <title>SharesYourNotes</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-      <div class="container">
-        <%= link_to "SharesYourNotes", root_path, class: "navbar-brand" %>
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><%= link_to "Home", root_path, class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to "About", about_path, class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to "Contact", contact_path, class: "nav-link" %></li>
-        </ul>
-      </div>
-    </nav>
-
-    <!-- Flash Messages -->
-    <% flash.each do |name, message| %>
-      <%= content_tag(:div, message, class: "alert alert-info #{name}") %>
-    <% end %>
-
     <%= yield %>
-      
-    <footer class="small text-muted">
-      <div class="container">
-        <hr>
-        <center>
-          <p> 2023 SharesYourNotes </p>
-        </center>
-      </div>
-    </footer>
   </body>
 </html>
-
