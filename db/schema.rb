@@ -10,36 +10,3 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_09_141638) do
-
-  create_table "admistrators", force: :cascade do |t|
-    t.integer "id_n"
-    t.string "user_name"
-    t.string "e_mail"
-    t.datetime "birth_date"
-    t.string "password_hash"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "notes", force: :cascade do |t|
-    t.integer "id_n"
-    t.string "user"
-    t.string "rating"
-    t.text "text"
-    t.datetime "release_date"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.integer "id_n"
-    t.string "user_name"
-    t.string "e_mail"
-    t.datetime "birth_date"
-    t.string "password_hash"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-end

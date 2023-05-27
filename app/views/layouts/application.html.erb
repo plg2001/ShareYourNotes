@@ -4,33 +4,37 @@
     <title>SharesYourNotes</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', '
-      data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <nav class="navbar navbar-inverse navbar-toggleable-md bg-inverse">
-      <div class"container">
-        <%= link_to "SharesYourNotes", root_path, class:"navbar-brand" %>
-          <ul class="nav navbar-nav">
-            <li class="nav-item"><%= link_to "Home", root_path, class: "nav-link" %></li>
-            <li class="nav-item"><%= link_to "About", about_path, class: "nav-link" %></li>
-            <li class="nav-item"><%= link_to "Contact", "#", class: "nav-link" %></li>
-          </ul>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div class="container">
+        <%= link_to "SharesYourNotes", root_path, class: "navbar-brand" %>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><%= link_to "Home", root_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "About", about_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Contact", contact_path, class: "nav-link" %></li>
+        </ul>
       </div>
     </nav>
+
+    <!-- Flash Messages -->
+    <% flash.each do |name, message| %>
+      <%= content_tag(:div, message, class: "alert alert-info #{name}") %>
+    <% end %>
 
     <%= yield %>
       
     <footer class="small text-muted">
-	    <div class = "container">
-	      <hr>
-		    <center>
-		      <p> 2023 SharesYoutNotes </p>
-	      </center>
-	    </div>
-	  </footer>
-	
+      <div class="container">
+        <hr>
+        <center>
+          <p> 2023 SharesYourNotes </p>
+        </center>
+      </div>
+    </footer>
   </body>
 </html>
+
