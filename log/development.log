@@ -546,3 +546,16 @@ Processing by PagesController#home as HTML
 Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.0ms | Allocations: 2771)
 
 
+Started GET "/" for 127.0.0.1 at 2023-06-02 12:29:10 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.3ms | Allocations: 222)
+  Rendered layout layouts/application.html.erb (Duration: 25.8ms | Allocations: 10145)
+Completed 200 OK in 37ms (Views: 30.2ms | ActiveRecord: 0.0ms | Allocations: 12787)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/stylesheets/application.css"):
+  
