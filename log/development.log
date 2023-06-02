@@ -11,3 +11,510 @@ Started GET "/" for 127.0.0.1 at 2023-05-30 12:32:48 +0200
   
 ActionController::RoutingError (uninitialized constant HomeController):
   
+Started GET "/" for 127.0.0.1 at 2023-06-02 11:35:20 +0200
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 2.4ms | Allocations: 221)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+yarn run v1.22.19
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+
+error Command "webpack" not found.
+
+  Rendered layout layouts/application.html.erb (Duration: 1620.1ms | Allocations: 17254)
+Completed 500 Internal Server Error in 1632ms (ActiveRecord: 0.0ms | Allocations: 19808)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /home/plg/SharesYourNotes/SharesYourNotes/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for 127.0.0.1 at 2023-06-02 11:36:01 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 36)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+yarn run v1.22.19
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+
+error Command "webpack" not found.
+
+  Rendered layout layouts/application.html.erb (Duration: 803.1ms | Allocations: 4945)
+Completed 500 Internal Server Error in 807ms (ActiveRecord: 0.0ms | Allocations: 5325)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /home/plg/SharesYourNotes/SharesYourNotes/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for 127.0.0.1 at 2023-06-02 11:36:02 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 36)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+yarn run v1.22.19
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+
+error Command "webpack" not found.
+
+  Rendered layout layouts/application.html.erb (Duration: 724.9ms | Allocations: 4785)
+Completed 500 Internal Server Error in 726ms (ActiveRecord: 0.0ms | Allocations: 5079)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /home/plg/SharesYourNotes/SharesYourNotes/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/pages/home" for 127.0.0.1 at 2023-06-02 11:36:10 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 36)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+yarn run v1.22.19
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+
+error Command "webpack" not found.
+
+  Rendered layout layouts/application.html.erb (Duration: 773.2ms | Allocations: 4787)
+Completed 500 Internal Server Error in 775ms (ActiveRecord: 0.0ms | Allocations: 5086)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /home/plg/SharesYourNotes/SharesYourNotes/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for 127.0.0.1 at 2023-06-02 11:37:41 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 221)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+yarn run v1.22.19
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+
+error Command "webpack" not found.
+
+  Rendered layout layouts/application.html.erb (Duration: 770.3ms | Allocations: 7364)
+Completed 500 Internal Server Error in 778ms (ActiveRecord: 0.0ms | Allocations: 9918)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /home/plg/SharesYourNotes/SharesYourNotes/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for 127.0.0.1 at 2023-06-02 11:38:54 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 221)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+node:internal/process/promises:288
+            triggerUncaughtException(err, true /* fromPromise */);
+            ^
+
+Error: Cannot find package '@babel/plugin-proposal-private-methods' imported from /home/plg/SharesYourNotes/SharesYourNotes/babel-virtual-resolve-base.js
+    at new NodeError (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:203:5)
+    at packageResolve (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:873:9)
+    at moduleResolve (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:902:20)
+    at defaultResolve (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:985:15)
+    at resolve (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:999:12)
+    at resolve (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/files/import-meta-resolve.js:13:10)
+    at tryImportMetaResolve (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/files/plugins.js:123:45)
+    at resolveStandardizedNameForImport (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/files/plugins.js:145:19)
+    at resolveStandardizedName (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/files/plugins.js:154:12)
+    at loadPlugin (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/files/plugins.js:47:20)
+    at loadPlugin.next (<anonymous>)
+    at createDescriptor (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/config-descriptors.js:139:16)
+    at createDescriptor.next (<anonymous>)
+    at step (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/gensync/index.js:261:32)
+    at evaluateAsync (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/gensync/index.js:291:5)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/gensync/index.js:44:11
+    at Array.forEach (<anonymous>)
+    at Function.async (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/gensync/index.js:43:15)
+    at Function.all (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/gensync/index.js:216:13)
+    at Generator.next (<anonymous>)
+    at createDescriptors (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/config-descriptors.js:101:41)
+    at createDescriptors.next (<anonymous>)
+    at createPluginDescriptors (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/config-descriptors.js:98:17)
+    at createPluginDescriptors.next (<anonymous>)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/gensync-utils/functional.js:21:23
+    at Generator.next (<anonymous>)
+    at mergeChainOpts (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/config-chain.js:349:34)
+    at mergeChainOpts.next (<anonymous>)
+    at chainWalker (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/config-chain.js:316:14)
+    at chainWalker.next (<anonymous>) {
+  code: 'ERR_MODULE_NOT_FOUND'
+}
+
+Node.js v18.16.0
+
+  Rendered layout layouts/application.html.erb (Duration: 1474.9ms | Allocations: 7369)
+Completed 500 Internal Server Error in 1481ms (ActiveRecord: 0.0ms | Allocations: 10004)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /home/plg/SharesYourNotes/SharesYourNotes/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for 127.0.0.1 at 2023-06-02 11:39:54 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 221)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+node:internal/process/promises:288
+            triggerUncaughtException(err, true /* fromPromise */);
+            ^
+
+Error: Cannot find package '@babel/plugin-proposal-private-methods' imported from /home/plg/SharesYourNotes/SharesYourNotes/babel-virtual-resolve-base.js
+    at new NodeError (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:203:5)
+    at packageResolve (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:873:9)
+    at moduleResolve (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:902:20)
+    at defaultResolve (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:985:15)
+    at resolve (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:999:12)
+    at resolve (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/files/import-meta-resolve.js:13:10)
+    at tryImportMetaResolve (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/files/plugins.js:123:45)
+    at resolveStandardizedNameForImport (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/files/plugins.js:145:19)
+    at resolveStandardizedName (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/files/plugins.js:154:12)
+    at loadPlugin (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/files/plugins.js:47:20)
+    at loadPlugin.next (<anonymous>)
+    at createDescriptor (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/config-descriptors.js:139:16)
+    at createDescriptor.next (<anonymous>)
+    at step (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/gensync/index.js:261:32)
+    at evaluateAsync (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/gensync/index.js:291:5)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/gensync/index.js:44:11
+    at Array.forEach (<anonymous>)
+    at Function.async (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/gensync/index.js:43:15)
+    at Function.all (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/gensync/index.js:216:13)
+    at Generator.next (<anonymous>)
+    at createDescriptors (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/config-descriptors.js:101:41)
+    at createDescriptors.next (<anonymous>)
+    at createPluginDescriptors (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/config-descriptors.js:98:17)
+    at createPluginDescriptors.next (<anonymous>)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/gensync-utils/functional.js:21:23
+    at Generator.next (<anonymous>)
+    at mergeChainOpts (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/config-chain.js:349:34)
+    at mergeChainOpts.next (<anonymous>)
+    at chainWalker (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/config-chain.js:316:14)
+    at chainWalker.next (<anonymous>) {
+  code: 'ERR_MODULE_NOT_FOUND'
+}
+
+Node.js v18.16.0
+
+  Rendered layout layouts/application.html.erb (Duration: 1294.0ms | Allocations: 9779)
+Completed 500 Internal Server Error in 1300ms (ActiveRecord: 0.0ms | Allocations: 12333)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /home/plg/SharesYourNotes/SharesYourNotes/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for 127.0.0.1 at 2023-06-02 11:40:45 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 221)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+node:internal/process/promises:288
+            triggerUncaughtException(err, true /* fromPromise */);
+            ^
+
+Error: Cannot find package '@babel/plugin-proposal-private-methods' imported from /home/plg/SharesYourNotes/SharesYourNotes/babel-virtual-resolve-base.js
+    at new NodeError (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:203:5)
+    at packageResolve (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:873:9)
+    at moduleResolve (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:902:20)
+    at defaultResolve (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:985:15)
+    at resolve (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:999:12)
+    at resolve (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/files/import-meta-resolve.js:13:10)
+    at tryImportMetaResolve (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/files/plugins.js:123:45)
+    at resolveStandardizedNameForImport (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/files/plugins.js:145:19)
+    at resolveStandardizedName (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/files/plugins.js:154:12)
+    at loadPlugin (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/files/plugins.js:47:20)
+    at loadPlugin.next (<anonymous>)
+    at createDescriptor (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/config-descriptors.js:139:16)
+    at createDescriptor.next (<anonymous>)
+    at step (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/gensync/index.js:261:32)
+    at evaluateAsync (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/gensync/index.js:291:5)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/gensync/index.js:44:11
+    at Array.forEach (<anonymous>)
+    at Function.async (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/gensync/index.js:43:15)
+    at Function.all (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/gensync/index.js:216:13)
+    at Generator.next (<anonymous>)
+    at createDescriptors (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/config-descriptors.js:101:41)
+    at createDescriptors.next (<anonymous>)
+    at createPluginDescriptors (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/config-descriptors.js:98:17)
+    at createPluginDescriptors.next (<anonymous>)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/gensync-utils/functional.js:21:23
+    at Generator.next (<anonymous>)
+    at mergeChainOpts (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/config-chain.js:349:34)
+    at mergeChainOpts.next (<anonymous>)
+    at chainWalker (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/config-chain.js:316:14)
+    at chainWalker.next (<anonymous>) {
+  code: 'ERR_MODULE_NOT_FOUND'
+}
+
+Node.js v18.16.0
+
+  Rendered layout layouts/application.html.erb (Duration: 1271.6ms | Allocations: 7363)
+Completed 500 Internal Server Error in 1280ms (ActiveRecord: 0.0ms | Allocations: 9917)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /home/plg/SharesYourNotes/SharesYourNotes/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for 127.0.0.1 at 2023-06-02 11:43:09 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 221)
+[Webpacker] Compiling...
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 5820)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms | Allocations: 8375)
+
+
+  
+ActionView::Template::Error (No such file or directory @ rb_sysopen - /home/plg/SharesYourNotes/SharesYourNotes/bin/webpacker):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for 127.0.0.1 at 2023-06-02 11:44:56 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 221)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+node:internal/process/promises:288
+            triggerUncaughtException(err, true /* fromPromise */);
+            ^
+
+Error: Cannot find package '@babel/plugin-proposal-private-methods' imported from /home/plg/SharesYourNotes/SharesYourNotes/babel-virtual-resolve-base.js
+    at new NodeError (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:203:5)
+    at packageResolve (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:873:9)
+    at moduleResolve (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:902:20)
+    at defaultResolve (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:985:15)
+    at resolve (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:999:12)
+    at resolve (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/files/import-meta-resolve.js:13:10)
+    at tryImportMetaResolve (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/files/plugins.js:123:45)
+    at resolveStandardizedNameForImport (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/files/plugins.js:145:19)
+    at resolveStandardizedName (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/files/plugins.js:154:12)
+    at loadPlugin (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/files/plugins.js:47:20)
+    at loadPlugin.next (<anonymous>)
+    at createDescriptor (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/config-descriptors.js:139:16)
+    at createDescriptor.next (<anonymous>)
+    at step (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/gensync/index.js:261:32)
+    at evaluateAsync (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/gensync/index.js:291:5)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/gensync/index.js:44:11
+    at Array.forEach (<anonymous>)
+    at Function.async (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/gensync/index.js:43:15)
+    at Function.all (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/gensync/index.js:216:13)
+    at Generator.next (<anonymous>)
+    at createDescriptors (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/config-descriptors.js:101:41)
+    at createDescriptors.next (<anonymous>)
+    at createPluginDescriptors (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/config-descriptors.js:98:17)
+    at createPluginDescriptors.next (<anonymous>)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/gensync-utils/functional.js:21:23
+    at Generator.next (<anonymous>)
+    at mergeChainOpts (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/config-chain.js:349:34)
+    at mergeChainOpts.next (<anonymous>)
+    at chainWalker (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/@babel/core/lib/config/config-chain.js:316:14)
+    at chainWalker.next (<anonymous>) {
+  code: 'ERR_MODULE_NOT_FOUND'
+}
+
+Node.js v18.16.0
+
+  Rendered layout layouts/application.html.erb (Duration: 1298.4ms | Allocations: 7363)
+Completed 500 Internal Server Error in 1306ms (ActiveRecord: 0.0ms | Allocations: 9917)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /home/plg/SharesYourNotes/SharesYourNotes/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for 127.0.0.1 at 2023-06-02 11:45:32 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 221)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 3682)
+Completed 200 OK in 12ms (Views: 5.9ms | ActiveRecord: 0.0ms | Allocations: 6268)
+
+
