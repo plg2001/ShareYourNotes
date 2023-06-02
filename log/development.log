@@ -518,3 +518,31 @@ Processing by PagesController#home as HTML
 Completed 200 OK in 12ms (Views: 5.9ms | ActiveRecord: 0.0ms | Allocations: 6268)
 
 
+Started GET "/" for 127.0.0.1 at 2023-06-02 11:50:45 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 221)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 3666)
+Completed 200 OK in 13ms (Views: 7.0ms | ActiveRecord: 0.0ms | Allocations: 6309)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 11:51:03 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1658)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.0ms | Allocations: 2764)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 11:51:09 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 103)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 1658)
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.0ms | Allocations: 2771)
+
+

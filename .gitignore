@@ -36,3 +36,5 @@ log/*
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+log/development.log
+tmp/miniprofiler/mp_views_127.0.0.1
