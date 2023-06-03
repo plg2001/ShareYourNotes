@@ -559,3 +559,1461 @@ Completed 200 OK in 37ms (Views: 30.2ms | ActiveRecord: 0.0ms | Allocations: 127
   
 ActionController::RoutingError (No route matches [GET] "/stylesheets/application.css"):
   
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:13:01 +0200
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.4ms | Allocations: 222)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 3984)
+Completed 200 OK in 25ms (Views: 18.2ms | ActiveRecord: 0.0ms | Allocations: 6570)
+
+
+Started GET "/about" for 127.0.0.1 at 2023-06-02 15:13:10 +0200
+Processing by PagesController#about as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (Duration: 0.4ms | Allocations: 103)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 1508)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.0ms | Allocations: 1994)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:13:59 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 222)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 3673)
+Completed 200 OK in 16ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 6316)
+
+
+Started GET "/about" for 127.0.0.1 at 2023-06-02 15:14:09 +0200
+Processing by PagesController#about as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (Duration: 0.4ms | Allocations: 103)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 1508)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.0ms | Allocations: 1990)
+
+
+Started GET "/about" for 127.0.0.1 at 2023-06-02 15:14:17 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/about"):
+  
+Started GET "/team" for 127.0.0.1 at 2023-06-02 15:14:21 +0200
+Processing by PagesController#about as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (Duration: 0.1ms | Allocations: 36)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1559)
+Completed 200 OK in 5ms (Views: 3.6ms | Allocations: 2126)
+
+
+Started GET "/notes" for 127.0.0.1 at 2023-06-02 15:15:23 +0200
+Processing by PagesController#notes as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/notes.html.erb within layouts/application
+  Rendered pages/notes.html.erb within layouts/application (Duration: 0.3ms | Allocations: 98)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1661)
+Completed 200 OK in 4ms (Views: 3.5ms | Allocations: 2696)
+
+
+Started GET "/notes" for 127.0.0.1 at 2023-06-02 15:15:32 +0200
+Processing by PagesController#notes as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/notes.html.erb within layouts/application
+  Rendered pages/notes.html.erb within layouts/application (Duration: 0.4ms | Allocations: 101)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 1654)
+Completed 200 OK in 6ms (Views: 4.8ms | Allocations: 2676)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:21:15 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 2.5ms | Allocations: 223)
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 3674)
+Completed 200 OK in 19ms (Views: 12.4ms | ActiveRecord: 0.0ms | Allocations: 6317)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:21:28 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 106)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1661)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.0ms | Allocations: 2774)
+
+
+Started GET "/about" for 127.0.0.1 at 2023-06-02 15:21:29 +0200
+Processing by PagesController#about as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (Duration: 0.3ms | Allocations: 103)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1507)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.0ms | Allocations: 1986)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:24:51 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 347)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 3794)
+Completed 200 OK in 12ms (Views: 7.0ms | ActiveRecord: 0.0ms | Allocations: 6437)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:25:43 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 207)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 1761)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.0ms | Allocations: 2874)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:25:48 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 207)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 1760)
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.0ms | Allocations: 2866)
+
+
+Started GET "/about" for 127.0.0.1 at 2023-06-02 15:25:51 +0200
+Processing by PagesController#about as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (Duration: 0.2ms | Allocations: 103)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 1508)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 1990)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:25:52 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 102)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 1503)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms | Allocations: 1877)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:26:03 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 206)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 1759)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.0ms | Allocations: 2865)
+
+
+Started GET "/about" for 127.0.0.1 at 2023-06-02 15:26:05 +0200
+Processing by PagesController#about as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (Duration: 0.3ms | Allocations: 153)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 1557)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.0ms | Allocations: 2035)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:26:06 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 97)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 1498)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 1872)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:27:19 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.6ms | Allocations: 210)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 1773)
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.0ms | Allocations: 2886)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:27:22 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 106)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 1660)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.0ms | Allocations: 2766)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:27:24 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 203)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 1757)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.0ms | Allocations: 2870)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:27:42 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 203)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 1757)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.0ms | Allocations: 2870)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:27:45 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 203)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 1756)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms | Allocations: 2862)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:27:48 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 203)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 1756)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.0ms | Allocations: 2863)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:29:26 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 107)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1669)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.0ms | Allocations: 2780)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:29:34 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 106)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 1758)
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.0ms | Allocations: 2864)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:29:38 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 106)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 1760)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.0ms | Allocations: 2867)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:29:44 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 111)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 1773)
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.0ms | Allocations: 2886)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:29:46 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 106)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 1759)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms | Allocations: 2865)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:29:54 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 36)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 1497)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.0ms | Allocations: 1871)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:29:59 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 106)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 1760)
+Completed 200 OK in 8ms (Views: 6.1ms | ActiveRecord: 0.0ms | Allocations: 2866)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:30:09 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 106)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 1760)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.0ms | Allocations: 2866)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:30:11 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 106)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 1759)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms | Allocations: 2865)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:30:14 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 106)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 1759)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.0ms | Allocations: 2866)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:30:28 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 107)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 1671)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.0ms | Allocations: 2782)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:30:29 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 106)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 1760)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.0ms | Allocations: 2866)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:30:34 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 109)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 1774)
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.0ms | Allocations: 2887)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:32:02 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 107)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 1786)
+Completed 200 OK in 4ms (Views: 3.2ms | Allocations: 2899)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:32:06 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 106)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 1795)
+Completed 200 OK in 4ms (Views: 3.4ms | Allocations: 2901)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:32:08 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 106)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1759)
+Completed 200 OK in 4ms (Views: 3.4ms | Allocations: 2865)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:49:41 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 36)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 5471)
+Completed 500 Internal Server Error in 12ms (Allocations: 5823)
+
+
+  
+ActionView::Template::Error (Error: File to import not found or unreadable: bootstrap.
+        on line 3:1 of app/assets/stylesheets/application.scss
+>> @import "bootstrap";
+
+   ^
+):
+     6:     <%= csrf_meta_tags %>
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+    12:   <body>
+  
+app/assets/stylesheets/application.scss:3
+app/views/layouts/application.html.erb:9
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:50:10 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 36)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 3440)
+Completed 500 Internal Server Error in 5ms (Allocations: 3868)
+
+
+  
+ActionView::Template::Error (Error: File to import not found or unreadable: bootstrap.
+        on line 2:1 of app/assets/stylesheets/application.scss
+>> @import "bootstrap";
+
+   ^
+):
+     6:     <%= csrf_meta_tags %>
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+    12:   <body>
+  
+app/assets/stylesheets/application.scss:2
+app/views/layouts/application.html.erb:9
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:50:17 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 36)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 5140)
+Completed 200 OK in 11ms (Views: 10.9ms | Allocations: 5522)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:51:04 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 224)
+  Rendered layout layouts/application.html.erb (Duration: 2427.9ms | Allocations: 84958)
+Completed 200 OK in 2437ms (Views: 2430.0ms | ActiveRecord: 0.0ms | Allocations: 87600)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:51:38 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 36)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 4800)
+Completed 200 OK in 12ms (Views: 11.9ms | ActiveRecord: 0.0ms | Allocations: 5174)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 224)
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 12474)
+Completed 200 OK in 27ms (Views: 21.9ms | ActiveRecord: 0.0ms | Allocations: 15116)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 224)
+  Rendered layout layouts/application.html.erb (Duration: 29.3ms | Allocations: 12474)
+Completed 200 OK in 39ms (Views: 33.2ms | ActiveRecord: 0.0ms | Allocations: 15116)
+
+
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 36)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 4852)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.0ms | Allocations: 5231)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 15:59:20 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 189)
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | Allocations: 12391)
+Completed 200 OK in 29ms (Views: 21.2ms | ActiveRecord: 0.0ms | Allocations: 15091)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:10:57 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 189)
+  Rendered layout layouts/application.html.erb (Duration: 21.8ms | Allocations: 12296)
+Completed 200 OK in 30ms (Views: 24.8ms | ActiveRecord: 0.0ms | Allocations: 15006)
+
+
+Started GET "/Img/lego-icon-12.ico" for 127.0.0.1 at 2023-06-02 16:10:57 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Img/lego-icon-12.ico"):
+  
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:11:48 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 189)
+  Rendered layout layouts/application.html.erb (Duration: 1841.2ms | Allocations: 78269)
+Completed 200 OK in 1849ms (Views: 1843.4ms | ActiveRecord: 0.0ms | Allocations: 81363)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:11:51 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 4723)
+Completed 200 OK in 14ms (Views: 12.2ms | ActiveRecord: 0.0ms | Allocations: 5155)
+
+
+Started GET "/Img/lego-icon-12.ico" for 127.0.0.1 at 2023-06-02 16:11:51 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Img/lego-icon-12.ico"):
+  
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:15:00 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 189)
+  Rendered layout layouts/application.html.erb (Duration: 31.5ms | Allocations: 19592)
+Completed 200 OK in 38ms (Views: 33.1ms | ActiveRecord: 0.0ms | Allocations: 22287)
+
+
+Started GET "/Img/lego-icon-12.ico" for 127.0.0.1 at 2023-06-02 16:15:00 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Img/lego-icon-12.ico"):
+  
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:15:16 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 74)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 5181)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.0ms | Allocations: 6444)
+
+
+Started GET "/Img/lego-icon-12.ico" for 127.0.0.1 at 2023-06-02 16:15:16 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Img/lego-icon-12.ico"):
+  
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:15:16 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 4721)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.0ms | Allocations: 5163)
+
+
+Started GET "/Img/lego-icon-12.ico" for 127.0.0.1 at 2023-06-02 16:15:16 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Img/lego-icon-12.ico"):
+  
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:15:27 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 74)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 5058)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.0ms | Allocations: 6227)
+
+
+Started GET "/Img/lego-icon-12.ico" for 127.0.0.1 at 2023-06-02 16:15:27 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Img/lego-icon-12.ico"):
+  
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:15:27 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 4813)
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.0ms | Allocations: 5242)
+
+
+Started GET "/Img/lego-icon-12.ico" for 127.0.0.1 at 2023-06-02 16:15:27 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Img/lego-icon-12.ico"):
+  
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:16:08 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 189)
+  Rendered layout layouts/application.html.erb (Duration: 25.6ms | Allocations: 19140)
+Completed 200 OK in 33ms (Views: 27.3ms | ActiveRecord: 0.0ms | Allocations: 21847)
+
+
+Started GET "/Img/lego-icon-12.ico" for 127.0.0.1 at 2023-06-02 16:16:08 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Img/lego-icon-12.ico"):
+  
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:16:20 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 189)
+  Rendered layout layouts/application.html.erb (Duration: 18.5ms | Allocations: 12589)
+Completed 200 OK in 26ms (Views: 20.4ms | ActiveRecord: 0.0ms | Allocations: 15297)
+
+
+Started GET "/Img/lego-icon-12.ico" for 127.0.0.1 at 2023-06-02 16:16:20 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Img/lego-icon-12.ico"):
+  
+Started GET "/book.png" for 127.0.0.1 at 2023-06-02 16:16:22 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/book.png"):
+  
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:17:11 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 4933)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.0ms | Allocations: 5439)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:17:16 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 189)
+  Rendered layout layouts/application.html.erb (Duration: 52.1ms | Allocations: 12589)
+Completed 200 OK in 61ms (Views: 56.2ms | ActiveRecord: 0.0ms | Allocations: 15291)
+
+
+Started GET "/book.png" for 127.0.0.1 at 2023-06-02 16:17:16 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/book.png"):
+  
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:17:43 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 74)
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 5172)
+Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.0ms | Allocations: 6432)
+
+
+Started GET "/book.png" for 127.0.0.1 at 2023-06-02 16:17:43 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/book.png"):
+  
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:17:44 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 4713)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.0ms | Allocations: 5140)
+
+
+Started GET "/book.png" for 127.0.0.1 at 2023-06-02 16:17:44 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/book.png"):
+  
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:17:53 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 74)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 5042)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.0ms | Allocations: 6212)
+
+
+Started GET "/book.png" for 127.0.0.1 at 2023-06-02 16:17:53 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/book.png"):
+  
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:21:14 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 189)
+  Rendered layout layouts/application.html.erb (Duration: 27.5ms | Allocations: 15078)
+Completed 200 OK in 37ms (Views: 29.1ms | ActiveRecord: 0.0ms | Allocations: 17778)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:21:54 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 74)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 3542)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 4695)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html>
+  <head>
+    <title>SharesYourNotes</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="navbar__container">
+        <a href="/" id="navbar__logo"><%= image_tag "nome_immagine.jpg", alt: "Descrizione dell'immagine" id='logo' %>SharesYourNotes</a>
+        <div class="navbar__toggle" id="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu">
+          <li class="navbar__item">
+            <a href="/" class="navbar__links">Home</a>
+          </li>
+          <li class="navbar__item">
+            <a href= "./SignUp_SignIn/Login_Registration.html" class="navbar__links">MySet</a>
+          </li>
+          <li class="navbar__item">
+            <a href="./SignUp_SignIn/Login_Registration.html" class="navbar__links">Recent</a>
+          </li>
+          <li class="navbar__btn">
+            <a href="/SignUp_SignIn/Login_Registration.html" class="button">Login</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <%= yield %>
+  </body>
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html>
+3:      <head>
+4:        <title>SharesYourNotes</title>
+5:        <meta name="viewport" content="width=device-width,initial-scale=1">
+6:        <%= csrf_meta_tags %>
+7:        <%= csp_meta_tag %>
+8:    
+9:        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+10:      </head>
+11:    
+12:      <body>
+13:        <nav class="navbar">
+14:          <div class="navbar__container">
+15:            <a href="/" id="navbar__logo"><%= image_tag "nome_immagine.jpg", alt: "Descrizione dell'immagine" id='logo' %>SharesYourNotes</a>
+16:            <div class="navbar__toggle" id="mobile-menu">
+17:              <span class="bar"></span>
+18:              <span class="bar"></span>
+19:              <span class="bar"></span>
+20:            </div>
+21:            <ul class="navbar__menu">
+22:              <li class="navbar__item">
+23:                <a href="/" class="navbar__links">Home</a>
+24:              </li>
+25:              <li class="navbar__item">
+26:                <a href= "./SignUp_SignIn/Login_Registration.html" class="navbar__links">MySet</a>
+27:              </li>
+28:              <li class="navbar__item">
+29:                <a href="./SignUp_SignIn/Login_Registration.html" class="navbar__links">Recent</a>
+30:              </li>
+31:              <li class="navbar__btn">
+32:                <a href="/SignUp_SignIn/Login_Registration.html" class="button">Login</a>
+33:              </li>
+34:            </ul>
+35:          </div>
+36:        </nav>
+37:        <%= yield %>
+38:      </body>
+39:    </html>
+  
+app/views/layouts/application.html.erb:15: syntax error, unexpected local variable or method, expecting ')'
+app/views/layouts/application.html.erb:15: syntax error, unexpected local variable or method, expecting ')'
+app/views/layouts/application.html.erb:15: syntax error, unexpected local variable or method, expecting ')'
+app/views/layouts/application.html.erb:15: syntax error, unexpected local variable or method, expecting ')'
+app/views/layouts/application.html.erb:15: syntax error, unexpected local variable or method, expecting ')'
+app/views/layouts/application.html.erb:15: syntax error, unexpected local variable or method, expecting ')'
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:22:17 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 189)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 1693)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 4368)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html>
+  <head>
+    <title>SharesYourNotes</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="navbar__container">
+        <a href="/" id="navbar__logo"><%= image_tag "nome_immagine.jpg", alt: "Descrizione dell'immagine", id='logo' %>SharesYourNotes</a>
+        <div class="navbar__toggle" id="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu">
+          <li class="navbar__item">
+            <a href="/" class="navbar__links">Home</a>
+          </li>
+          <li class="navbar__item">
+            <a href= "./SignUp_SignIn/Login_Registration.html" class="navbar__links">MySet</a>
+          </li>
+          <li class="navbar__item">
+            <a href="./SignUp_SignIn/Login_Registration.html" class="navbar__links">Recent</a>
+          </li>
+          <li class="navbar__btn">
+            <a href="/SignUp_SignIn/Login_Registration.html" class="button">Login</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <%= yield %>
+  </body>
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html>
+3:      <head>
+4:        <title>SharesYourNotes</title>
+5:        <meta name="viewport" content="width=device-width,initial-scale=1">
+6:        <%= csrf_meta_tags %>
+7:        <%= csp_meta_tag %>
+8:    
+9:        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+10:      </head>
+11:    
+12:      <body>
+13:        <nav class="navbar">
+14:          <div class="navbar__container">
+15:            <a href="/" id="navbar__logo"><%= image_tag "nome_immagine.jpg", alt: "Descrizione dell'immagine", id='logo' %>SharesYourNotes</a>
+16:            <div class="navbar__toggle" id="mobile-menu">
+17:              <span class="bar"></span>
+18:              <span class="bar"></span>
+19:              <span class="bar"></span>
+20:            </div>
+21:            <ul class="navbar__menu">
+22:              <li class="navbar__item">
+23:                <a href="/" class="navbar__links">Home</a>
+24:              </li>
+25:              <li class="navbar__item">
+26:                <a href= "./SignUp_SignIn/Login_Registration.html" class="navbar__links">MySet</a>
+27:              </li>
+28:              <li class="navbar__item">
+29:                <a href="./SignUp_SignIn/Login_Registration.html" class="navbar__links">Recent</a>
+30:              </li>
+31:              <li class="navbar__btn">
+32:                <a href="/SignUp_SignIn/Login_Registration.html" class="button">Login</a>
+33:              </li>
+34:            </ul>
+35:          </div>
+36:        </nav>
+37:        <%= yield %>
+38:      </body>
+39:    </html>
+  
+app/views/layouts/application.html.erb:15: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:42: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:15: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:42: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:15: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:42: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:15: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:42: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:15: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:42: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:15: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:42: syntax error, unexpected `end', expecting ')'
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:22:18 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | Allocations: 1192)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1690)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html>
+  <head>
+    <title>SharesYourNotes</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="navbar__container">
+        <a href="/" id="navbar__logo"><%= image_tag "nome_immagine.jpg", alt: "Descrizione dell'immagine", id='logo' %>SharesYourNotes</a>
+        <div class="navbar__toggle" id="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu">
+          <li class="navbar__item">
+            <a href="/" class="navbar__links">Home</a>
+          </li>
+          <li class="navbar__item">
+            <a href= "./SignUp_SignIn/Login_Registration.html" class="navbar__links">MySet</a>
+          </li>
+          <li class="navbar__item">
+            <a href="./SignUp_SignIn/Login_Registration.html" class="navbar__links">Recent</a>
+          </li>
+          <li class="navbar__btn">
+            <a href="/SignUp_SignIn/Login_Registration.html" class="button">Login</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <%= yield %>
+  </body>
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html>
+3:      <head>
+4:        <title>SharesYourNotes</title>
+5:        <meta name="viewport" content="width=device-width,initial-scale=1">
+6:        <%= csrf_meta_tags %>
+7:        <%= csp_meta_tag %>
+8:    
+9:        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+10:      </head>
+11:    
+12:      <body>
+13:        <nav class="navbar">
+14:          <div class="navbar__container">
+15:            <a href="/" id="navbar__logo"><%= image_tag "nome_immagine.jpg", alt: "Descrizione dell'immagine", id='logo' %>SharesYourNotes</a>
+16:            <div class="navbar__toggle" id="mobile-menu">
+17:              <span class="bar"></span>
+18:              <span class="bar"></span>
+19:              <span class="bar"></span>
+20:            </div>
+21:            <ul class="navbar__menu">
+22:              <li class="navbar__item">
+23:                <a href="/" class="navbar__links">Home</a>
+24:              </li>
+25:              <li class="navbar__item">
+26:                <a href= "./SignUp_SignIn/Login_Registration.html" class="navbar__links">MySet</a>
+27:              </li>
+28:              <li class="navbar__item">
+29:                <a href="./SignUp_SignIn/Login_Registration.html" class="navbar__links">Recent</a>
+30:              </li>
+31:              <li class="navbar__btn">
+32:                <a href="/SignUp_SignIn/Login_Registration.html" class="button">Login</a>
+33:              </li>
+34:            </ul>
+35:          </div>
+36:        </nav>
+37:        <%= yield %>
+38:      </body>
+39:    </html>
+  
+app/views/layouts/application.html.erb:15: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:42: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:15: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:42: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:15: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:42: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:15: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:42: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:15: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:42: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:15: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:42: syntax error, unexpected `end', expecting ')'
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:22:42 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 74)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 1271)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2433)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html>
+  <head>
+    <title>SharesYourNotes</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="navbar__container">
+        <a href="/" id="navbar__logo"><%= image_tag "book.jpg", alt: "Descrizione dell'immagine", id='logo' %>SharesYourNotes</a>
+        <div class="navbar__toggle" id="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu">
+          <li class="navbar__item">
+            <a href="/" class="navbar__links">Home</a>
+          </li>
+          <li class="navbar__item">
+            <a href= "./SignUp_SignIn/Login_Registration.html" class="navbar__links">MySet</a>
+          </li>
+          <li class="navbar__item">
+            <a href="./SignUp_SignIn/Login_Registration.html" class="navbar__links">Recent</a>
+          </li>
+          <li class="navbar__btn">
+            <a href="/SignUp_SignIn/Login_Registration.html" class="button">Login</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <%= yield %>
+  </body>
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html>
+3:      <head>
+4:        <title>SharesYourNotes</title>
+5:        <meta name="viewport" content="width=device-width,initial-scale=1">
+6:        <%= csrf_meta_tags %>
+7:        <%= csp_meta_tag %>
+8:    
+9:        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+10:      </head>
+11:    
+12:      <body>
+13:        <nav class="navbar">
+14:          <div class="navbar__container">
+15:            <a href="/" id="navbar__logo"><%= image_tag "book.jpg", alt: "Descrizione dell'immagine", id='logo' %>SharesYourNotes</a>
+16:            <div class="navbar__toggle" id="mobile-menu">
+17:              <span class="bar"></span>
+18:              <span class="bar"></span>
+19:              <span class="bar"></span>
+20:            </div>
+21:            <ul class="navbar__menu">
+22:              <li class="navbar__item">
+23:                <a href="/" class="navbar__links">Home</a>
+24:              </li>
+25:              <li class="navbar__item">
+26:                <a href= "./SignUp_SignIn/Login_Registration.html" class="navbar__links">MySet</a>
+27:              </li>
+28:              <li class="navbar__item">
+29:                <a href="./SignUp_SignIn/Login_Registration.html" class="navbar__links">Recent</a>
+30:              </li>
+31:              <li class="navbar__btn">
+32:                <a href="/SignUp_SignIn/Login_Registration.html" class="button">Login</a>
+33:              </li>
+34:            </ul>
+35:          </div>
+36:        </nav>
+37:        <%= yield %>
+38:      </body>
+39:    </html>
+  
+app/views/layouts/application.html.erb:15: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:42: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:15: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:42: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:15: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:42: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:15: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:42: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:15: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:42: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:15: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:42: syntax error, unexpected `end', expecting ')'
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:24:46 +0200
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 189)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 1694)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 4369)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html>
+  <head>
+    <title>SharesYourNotes</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="navbar__container">
+        <a href="/" id="navbar__logo"><%= image_tag "book.jpg", alt: "Descrizione dell'immagine", id="logo" %>SharesYourNotes</a>
+        <div class="navbar__toggle" id="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu">
+          <li class="navbar__item">
+            <a href="/" class="navbar__links">Home</a>
+          </li>
+          <li class="navbar__item">
+            <a href= "./SignUp_SignIn/Login_Registration.html" class="navbar__links">MySet</a>
+          </li>
+          <li class="navbar__item">
+            <a href="./SignUp_SignIn/Login_Registration.html" class="navbar__links">Recent</a>
+          </li>
+          <li class="navbar__btn">
+            <a href="/SignUp_SignIn/Login_Registration.html" class="button">Login</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <%= yield %>
+  </body>
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html>
+3:      <head>
+4:        <title>SharesYourNotes</title>
+5:        <meta name="viewport" content="width=device-width,initial-scale=1">
+6:        <%= csrf_meta_tags %>
+7:        <%= csp_meta_tag %>
+8:    
+9:        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+10:      </head>
+11:    
+12:      <body>
+13:        <nav class="navbar">
+14:          <div class="navbar__container">
+15:            <a href="/" id="navbar__logo"><%= image_tag "book.jpg", alt: "Descrizione dell'immagine", id="logo" %>SharesYourNotes</a>
+16:            <div class="navbar__toggle" id="mobile-menu">
+17:              <span class="bar"></span>
+18:              <span class="bar"></span>
+19:              <span class="bar"></span>
+20:            </div>
+21:            <ul class="navbar__menu">
+22:              <li class="navbar__item">
+23:                <a href="/" class="navbar__links">Home</a>
+24:              </li>
+25:              <li class="navbar__item">
+26:                <a href= "./SignUp_SignIn/Login_Registration.html" class="navbar__links">MySet</a>
+27:              </li>
+28:              <li class="navbar__item">
+29:                <a href="./SignUp_SignIn/Login_Registration.html" class="navbar__links">Recent</a>
+30:              </li>
+31:              <li class="navbar__btn">
+32:                <a href="/SignUp_SignIn/Login_Registration.html" class="button">Login</a>
+33:              </li>
+34:            </ul>
+35:          </div>
+36:        </nav>
+37:        <%= yield %>
+38:      </body>
+39:    </html>
+  
+app/views/layouts/application.html.erb:15: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:42: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:15: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:42: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:15: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:42: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:15: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:42: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:15: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:42: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:15: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:42: syntax error, unexpected `end', expecting ')'
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:25:13 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 74)
+  Rendered layout layouts/application.html.erb (Duration: 21.9ms | Allocations: 14820)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.0ms | Allocations: 16065)
+
+
+  
+ActionView::Template::Error (undefined method `symbolize_keys' for "logo":String):
+    12:   <body>
+    13:     <nav class="navbar">
+    14:       <div class="navbar__container">
+    15:         <a href="/" id="navbar__logo"><%= image_tag "book.jpg",id="logo" %>SharesYourNotes</a>
+    16:         <div class="navbar__toggle" id="mobile-menu">
+    17:           <span class="bar"></span>
+    18:           <span class="bar"></span>
+  
+app/views/layouts/application.html.erb:15
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:25:22 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 74)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 8832)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms | Allocations: 9984)
+
+
+  
+ActionView::Template::Error (The asset "book.jpg" is not present in the asset pipeline.
+):
+    12:   <body>
+    13:     <nav class="navbar">
+    14:       <div class="navbar__container">
+    15:         <a href="/" id="navbar__logo"><%= image_tag "book.jpg"%>SharesYourNotes</a>
+    16:         <div class="navbar__toggle" id="mobile-menu">
+    17:           <span class="bar"></span>
+    18:           <span class="bar"></span>
+  
+app/views/layouts/application.html.erb:15
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:25:24 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 8566)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 8974)
+
+
+  
+ActionView::Template::Error (The asset "book.jpg" is not present in the asset pipeline.
+):
+    12:   <body>
+    13:     <nav class="navbar">
+    14:       <div class="navbar__container">
+    15:         <a href="/" id="navbar__logo"><%= image_tag "book.jpg"%>SharesYourNotes</a>
+    16:         <div class="navbar__toggle" id="mobile-menu">
+    17:           <span class="bar"></span>
+    18:           <span class="bar"></span>
+  
+app/views/layouts/application.html.erb:15
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:25:39 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 74)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 5447)
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 0.0ms | Allocations: 6628)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:25:53 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 74)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 7064)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 8207)
+
+
+  
+ActionView::Template::Error (undefined method `symbolize_keys' for "logo":String):
+    12:   <body>
+    13:     <nav class="navbar">
+    14:       <div class="navbar__container">
+    15:         <a href="/" id="navbar__logo"><%= image_tag "book.png" ,id="logo" %>SharesYourNotes</a>
+    16:         <div class="navbar__toggle" id="mobile-menu">
+    17:           <span class="bar"></span>
+    18:           <span class="bar"></span>
+  
+app/views/layouts/application.html.erb:15
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:27:51 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 74)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 4972)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.0ms | Allocations: 6140)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:29:04 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 189)
+  Rendered layout layouts/application.html.erb (Duration: 1764.8ms | Allocations: 82292)
+Completed 200 OK in 1773ms (Views: 1767.0ms | ActiveRecord: 0.0ms | Allocations: 84991)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:29:09 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 20.1ms | Allocations: 4941)
+Completed 200 OK in 22ms (Views: 20.9ms | ActiveRecord: 0.0ms | Allocations: 5361)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:29:14 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 4941)
+Completed 200 OK in 15ms (Views: 14.7ms | ActiveRecord: 0.0ms | Allocations: 5378)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:29:14 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 4941)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 5382)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:29:58 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 189)
+  Rendered layout layouts/application.html.erb (Duration: 1763.7ms | Allocations: 84273)
+Completed 200 OK in 1771ms (Views: 1765.6ms | ActiveRecord: 0.0ms | Allocations: 86972)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:30:13 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 4941)
+Completed 200 OK in 9ms (Views: 8.7ms | ActiveRecord: 0.0ms | Allocations: 5379)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:30:24 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 1460.1ms | Allocations: 67923)
+Completed 200 OK in 1461ms (Views: 1460.4ms | ActiveRecord: 0.0ms | Allocations: 68368)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:31:49 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 81)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 5198)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.0ms | Allocations: 6367)
+
+
+Started GET "/image_path('book.png')" for 127.0.0.1 at 2023-06-02 16:31:49 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/image_path('book.png')"):
+  
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:32:09 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 74)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 5317)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 6567)
+
+
+Started GET "/image_path('book.png')" for 127.0.0.1 at 2023-06-02 16:32:09 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/image_path('book.png')"):
+  
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:32:17 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 74)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 5190)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.0ms | Allocations: 6368)
+
+
+Started GET "/image_path(book.png)" for 127.0.0.1 at 2023-06-02 16:32:17 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/image_path(book.png)"):
+  
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:32:42 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 74)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 5284)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.0ms | Allocations: 6449)
+
+
+Started GET "/(image_path('book.png'))" for 127.0.0.1 at 2023-06-02 16:32:42 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/(image_path('book.png'))"):
+  
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:32:43 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 4942)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.0ms | Allocations: 5373)
+
+
+Started GET "/(image_path('book.png'))" for 127.0.0.1 at 2023-06-02 16:32:43 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/(image_path('book.png'))"):
+  
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:32:43 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 5057)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.0ms | Allocations: 5492)
+
+
+Started GET "/(image_path('book.png'))" for 127.0.0.1 at 2023-06-02 16:32:43 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/(image_path('book.png'))"):
+  
+Started GET "/" for 127.0.0.1 at 2023-06-02 16:32:57 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 1447.0ms | Allocations: 66433)
+Completed 200 OK in 1448ms (Views: 1447.6ms | ActiveRecord: 0.0ms | Allocations: 66857)
+
+
+Started GET "/(image_path('book.png'))" for 127.0.0.1 at 2023-06-02 16:32:59 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/(image_path('book.png'))"):
+  
