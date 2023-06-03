@@ -10,42 +10,46 @@
 
   <body>
    
-    <nav class="navbar">
-    <!-- LOGO -->
-    <div class="logo"><%= image_tag("book.png", id: "img-logo") %>SharesYourNotes</div>
+      <nav class="navbar">
+      <!-- LOGO -->
+      <div class="logo"><%= image_tag("book.png", id: "img-logo") %>SharesYourNotes</div>
 
-    <!-- NAVIGATION MENU -->
-    <ul class="nav-links">
+      <!-- NAVIGATION MENU -->
+      <ul class="nav-links">
 
-      <!-- USING CHECKBOX HACK -->
-      <input type="checkbox" id="checkbox_toggle" />
-      <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+        <!-- USING CHECKBOX HACK -->
+        <input type="checkbox" id="checkbox_toggle" />
+        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
 
-      <!-- NAVIGATION MENUS -->
-      <div class="menu">
+        <!-- NAVIGATION MENUS -->
+        <div class="menu">
 
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Login", login_path %></li>
-       
-        <li class="services">
-          <%= link_to "Notes",root_path %>
-
-          <!-- DROPDOWN MENU -->
-          <ul class="dropdown">
-            <li><a href="/">Categoria 1 </a></li>
-            <li><a href="/">Categoria 2</a></li>
-            <li><a href="/">Categoria 2</a></li>
-            <li><a href="/">Categoria 3</a></li>
-            <li><a href="/">Categoria 4</a></li>
-          </ul>
-
-        </li>
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Login", login_path %></li>
         
-        <li><%= link_to "About",about_path %></li>
-        <li><a href="/">Contact</a></li>
-      </div>
-    </ul>
-  </nav>
+          <li class="services">
+            <%= link_to "Notes",root_path %>
+
+            <!-- DROPDOWN MENU -->
+            <ul class="dropdown">
+              <li><a href="/">Categoria 1 </a></li>
+              <li><a href="/">Categoria 2</a></li>
+              <li><a href="/">Categoria 2</a></li>
+              <li><a href="/">Categoria 3</a></li>
+              <li><a href="/">Categoria 4</a></li>
+            </ul>
+
+          </li>
+          
+          <li><%= link_to "About",about_path %></li>
+          <li><a href="/">Contact</a></li>
+        </div>
+      </ul>
+    </nav>
+
+    <%= flash.each do |name,message| %>
+      <%= content_tag(:div, message ,class: "alert alert-info#{name}") %>
+    <% end %>
 
     <%= yield %>
   </body>

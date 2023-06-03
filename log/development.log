@@ -4402,3 +4402,1143 @@ Processing by PagesController#login as HTML
 Completed 200 OK in 7ms (Views: 5.9ms | Allocations: 4107)
 
 
+Started GET "/" for 127.0.0.1 at 2023-06-03 18:14:22 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 186)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 1852)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 4626)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html>
+  <head>
+    <title>SharesYourNotes</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <%= csrf_meta_tags %> <%= csp_meta_tag %> 
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+   
+      <nav class="navbar">
+      <!-- LOGO -->
+      <div class="logo"><%= image_tag("book.png", id: "img-logo") %>SharesYourNotes</div>
+
+      <!-- NAVIGATION MENU -->
+      <ul class="nav-links">
+
+        <!-- USING CHECKBOX HACK -->
+        <input type="checkbox" id="checkbox_toggle" />
+        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+
+        <!-- NAVIGATION MENUS -->
+        <div class="menu">
+
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Login", login_path %></li>
+        
+          <li class="services">
+            <%= link_to "Notes",root_path %>
+
+            <!-- DROPDOWN MENU -->
+            <ul class="dropdown">
+              <li><a href="/">Categoria 1 </a></li>
+              <li><a href="/">Categoria 2</a></li>
+              <li><a href="/">Categoria 2</a></li>
+              <li><a href="/">Categoria 3</a></li>
+              <li><a href="/">Categoria 4</a></li>
+            </ul>
+
+          </li>
+          
+          <li><%= link_to "About",about_path %></li>
+          <li><a href="/">Contact</a></li>
+        </div>
+      </ul>
+    </nav>
+
+    <%= flash.each do |name,message| %>
+      <%= content_tag(:div,message,class: "alert alert-info #{name}") %>
+    <%= end %>
+
+    <%= yield %>
+  </body>
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html>
+3:      <head>
+4:        <title>SharesYourNotes</title>
+5:        <meta name="viewport" content="width=device-width,initial-scale=1" />
+6:        <%= csrf_meta_tags %> <%= csp_meta_tag %> 
+7:        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+8:        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+9:      </head>
+10:    
+11:      <body>
+12:       
+13:          <nav class="navbar">
+14:          <!-- LOGO -->
+15:          <div class="logo"><%= image_tag("book.png", id: "img-logo") %>SharesYourNotes</div>
+16:    
+17:          <!-- NAVIGATION MENU -->
+18:          <ul class="nav-links">
+19:    
+20:            <!-- USING CHECKBOX HACK -->
+21:            <input type="checkbox" id="checkbox_toggle" />
+22:            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+23:    
+24:            <!-- NAVIGATION MENUS -->
+25:            <div class="menu">
+26:    
+27:              <li><%= link_to "Home", root_path %></li>
+28:              <li><%= link_to "Login", login_path %></li>
+29:            
+30:              <li class="services">
+31:                <%= link_to "Notes",root_path %>
+32:    
+33:                <!-- DROPDOWN MENU -->
+34:                <ul class="dropdown">
+35:                  <li><a href="/">Categoria 1 </a></li>
+36:                  <li><a href="/">Categoria 2</a></li>
+37:                  <li><a href="/">Categoria 2</a></li>
+38:                  <li><a href="/">Categoria 3</a></li>
+39:                  <li><a href="/">Categoria 4</a></li>
+40:                </ul>
+41:    
+42:              </li>
+43:              
+44:              <li><%= link_to "About",about_path %></li>
+45:              <li><a href="/">Contact</a></li>
+46:            </div>
+47:          </ul>
+48:        </nav>
+49:    
+50:        <%= flash.each do |name,message| %>
+51:          <%= content_tag(:div,message,class: "alert alert-info #{name}") %>
+52:        <%= end %>
+53:    
+54:        <%= yield %>
+55:      </body>
+56:    </html>
+  
+app/views/layouts/application.html.erb:52: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:52: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:52: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:52: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:52: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:52: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected `end', expecting ')'
+Started GET "/" for 127.0.0.1 at 2023-06-03 18:15:02 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 186)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 1852)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 4626)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html>
+  <head>
+    <title>SharesYourNotes</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <%= csrf_meta_tags %> <%= csp_meta_tag %> 
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+   
+      <nav class="navbar">
+      <!-- LOGO -->
+      <div class="logo"><%= image_tag("book.png", id: "img-logo") %>SharesYourNotes</div>
+
+      <!-- NAVIGATION MENU -->
+      <ul class="nav-links">
+
+        <!-- USING CHECKBOX HACK -->
+        <input type="checkbox" id="checkbox_toggle" />
+        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+
+        <!-- NAVIGATION MENUS -->
+        <div class="menu">
+
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Login", login_path %></li>
+        
+          <li class="services">
+            <%= link_to "Notes",root_path %>
+
+            <!-- DROPDOWN MENU -->
+            <ul class="dropdown">
+              <li><a href="/">Categoria 1 </a></li>
+              <li><a href="/">Categoria 2</a></li>
+              <li><a href="/">Categoria 2</a></li>
+              <li><a href="/">Categoria 3</a></li>
+              <li><a href="/">Categoria 4</a></li>
+            </ul>
+
+          </li>
+          
+          <li><%= link_to "About",about_path %></li>
+          <li><a href="/">Contact</a></li>
+        </div>
+      </ul>
+    </nav>
+
+    <%= flash.each do |name,message| %>
+      <%= content_tag(:div,message,class: "alert alert-info #{name}") %>
+    <%= end %>
+
+    <%= yield %>
+  </body>
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html>
+3:      <head>
+4:        <title>SharesYourNotes</title>
+5:        <meta name="viewport" content="width=device-width,initial-scale=1" />
+6:        <%= csrf_meta_tags %> <%= csp_meta_tag %> 
+7:        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+8:        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+9:      </head>
+10:    
+11:      <body>
+12:       
+13:          <nav class="navbar">
+14:          <!-- LOGO -->
+15:          <div class="logo"><%= image_tag("book.png", id: "img-logo") %>SharesYourNotes</div>
+16:    
+17:          <!-- NAVIGATION MENU -->
+18:          <ul class="nav-links">
+19:    
+20:            <!-- USING CHECKBOX HACK -->
+21:            <input type="checkbox" id="checkbox_toggle" />
+22:            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+23:    
+24:            <!-- NAVIGATION MENUS -->
+25:            <div class="menu">
+26:    
+27:              <li><%= link_to "Home", root_path %></li>
+28:              <li><%= link_to "Login", login_path %></li>
+29:            
+30:              <li class="services">
+31:                <%= link_to "Notes",root_path %>
+32:    
+33:                <!-- DROPDOWN MENU -->
+34:                <ul class="dropdown">
+35:                  <li><a href="/">Categoria 1 </a></li>
+36:                  <li><a href="/">Categoria 2</a></li>
+37:                  <li><a href="/">Categoria 2</a></li>
+38:                  <li><a href="/">Categoria 3</a></li>
+39:                  <li><a href="/">Categoria 4</a></li>
+40:                </ul>
+41:    
+42:              </li>
+43:              
+44:              <li><%= link_to "About",about_path %></li>
+45:              <li><a href="/">Contact</a></li>
+46:            </div>
+47:          </ul>
+48:        </nav>
+49:    
+50:        <%= flash.each do |name,message| %>
+51:          <%= content_tag(:div,message,class: "alert alert-info #{name}") %>
+52:        <%= end %>
+53:    
+54:        <%= yield %>
+55:      </body>
+56:    </html>
+  
+app/views/layouts/application.html.erb:52: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:52: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:52: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:52: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:52: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:52: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected `end', expecting ')'
+Started GET "/" for 127.0.0.1 at 2023-06-03 18:18:41 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 71)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | Allocations: 1432)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2763)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html>
+  <head>
+    <title>SharesYourNotes</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <%= csrf_meta_tags %> <%= csp_meta_tag %> 
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+   
+      <nav class="navbar">
+      <!-- LOGO -->
+      <div class="logo"><%= image_tag("book.png", id: "img-logo") %>SharesYourNotes</div>
+
+      <!-- NAVIGATION MENU -->
+      <ul class="nav-links">
+
+        <!-- USING CHECKBOX HACK -->
+        <input type="checkbox" id="checkbox_toggle" />
+        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+
+        <!-- NAVIGATION MENUS -->
+        <div class="menu">
+
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Login", login_path %></li>
+        
+          <li class="services">
+            <%= link_to "Notes",root_path %>
+
+            <!-- DROPDOWN MENU -->
+            <ul class="dropdown">
+              <li><a href="/">Categoria 1 </a></li>
+              <li><a href="/">Categoria 2</a></li>
+              <li><a href="/">Categoria 2</a></li>
+              <li><a href="/">Categoria 3</a></li>
+              <li><a href="/">Categoria 4</a></li>
+            </ul>
+
+          </li>
+          
+          <li><%= link_to "About",about_path %></li>
+          <li><a href="/">Contact</a></li>
+        </div>
+      </ul>
+    </nav>
+
+    <%= flash.each do |name,message| %>
+      <%= content_tag(:div, message ,class: "alert") %>
+    <%= end %>
+
+    <%= yield %>
+  </body>
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html>
+3:      <head>
+4:        <title>SharesYourNotes</title>
+5:        <meta name="viewport" content="width=device-width,initial-scale=1" />
+6:        <%= csrf_meta_tags %> <%= csp_meta_tag %> 
+7:        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+8:        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+9:      </head>
+10:    
+11:      <body>
+12:       
+13:          <nav class="navbar">
+14:          <!-- LOGO -->
+15:          <div class="logo"><%= image_tag("book.png", id: "img-logo") %>SharesYourNotes</div>
+16:    
+17:          <!-- NAVIGATION MENU -->
+18:          <ul class="nav-links">
+19:    
+20:            <!-- USING CHECKBOX HACK -->
+21:            <input type="checkbox" id="checkbox_toggle" />
+22:            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+23:    
+24:            <!-- NAVIGATION MENUS -->
+25:            <div class="menu">
+26:    
+27:              <li><%= link_to "Home", root_path %></li>
+28:              <li><%= link_to "Login", login_path %></li>
+29:            
+30:              <li class="services">
+31:                <%= link_to "Notes",root_path %>
+32:    
+33:                <!-- DROPDOWN MENU -->
+34:                <ul class="dropdown">
+35:                  <li><a href="/">Categoria 1 </a></li>
+36:                  <li><a href="/">Categoria 2</a></li>
+37:                  <li><a href="/">Categoria 2</a></li>
+38:                  <li><a href="/">Categoria 3</a></li>
+39:                  <li><a href="/">Categoria 4</a></li>
+40:                </ul>
+41:    
+42:              </li>
+43:              
+44:              <li><%= link_to "About",about_path %></li>
+45:              <li><a href="/">Contact</a></li>
+46:            </div>
+47:          </ul>
+48:        </nav>
+49:    
+50:        <%= flash.each do |name,message| %>
+51:          <%= content_tag(:div, message ,class: "alert") %>
+52:        <%= end %>
+53:    
+54:        <%= yield %>
+55:      </body>
+56:    </html>
+  
+app/views/layouts/application.html.erb:52: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:52: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:52: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:52: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:52: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:52: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected `end', expecting ')'
+Started GET "/" for 127.0.0.1 at 2023-06-03 18:18:52 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 186)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 1852)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 4626)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html>
+  <head>
+    <title>SharesYourNotes</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <%= csrf_meta_tags %> <%= csp_meta_tag %> 
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+   
+      <nav class="navbar">
+      <!-- LOGO -->
+      <div class="logo"><%= image_tag("book.png", id: "img-logo") %>SharesYourNotes</div>
+
+      <!-- NAVIGATION MENU -->
+      <ul class="nav-links">
+
+        <!-- USING CHECKBOX HACK -->
+        <input type="checkbox" id="checkbox_toggle" />
+        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+
+        <!-- NAVIGATION MENUS -->
+        <div class="menu">
+
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Login", login_path %></li>
+        
+          <li class="services">
+            <%= link_to "Notes",root_path %>
+
+            <!-- DROPDOWN MENU -->
+            <ul class="dropdown">
+              <li><a href="/">Categoria 1 </a></li>
+              <li><a href="/">Categoria 2</a></li>
+              <li><a href="/">Categoria 2</a></li>
+              <li><a href="/">Categoria 3</a></li>
+              <li><a href="/">Categoria 4</a></li>
+            </ul>
+
+          </li>
+          
+          <li><%= link_to "About",about_path %></li>
+          <li><a href="/">Contact</a></li>
+        </div>
+      </ul>
+    </nav>
+
+    <%= flash.each do |name,message| %>
+      <%= content_tag(:div, message ,class: "alert") %>
+    <%= end %>
+
+    <%= yield %>
+  </body>
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html>
+3:      <head>
+4:        <title>SharesYourNotes</title>
+5:        <meta name="viewport" content="width=device-width,initial-scale=1" />
+6:        <%= csrf_meta_tags %> <%= csp_meta_tag %> 
+7:        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+8:        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+9:      </head>
+10:    
+11:      <body>
+12:       
+13:          <nav class="navbar">
+14:          <!-- LOGO -->
+15:          <div class="logo"><%= image_tag("book.png", id: "img-logo") %>SharesYourNotes</div>
+16:    
+17:          <!-- NAVIGATION MENU -->
+18:          <ul class="nav-links">
+19:    
+20:            <!-- USING CHECKBOX HACK -->
+21:            <input type="checkbox" id="checkbox_toggle" />
+22:            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+23:    
+24:            <!-- NAVIGATION MENUS -->
+25:            <div class="menu">
+26:    
+27:              <li><%= link_to "Home", root_path %></li>
+28:              <li><%= link_to "Login", login_path %></li>
+29:            
+30:              <li class="services">
+31:                <%= link_to "Notes",root_path %>
+32:    
+33:                <!-- DROPDOWN MENU -->
+34:                <ul class="dropdown">
+35:                  <li><a href="/">Categoria 1 </a></li>
+36:                  <li><a href="/">Categoria 2</a></li>
+37:                  <li><a href="/">Categoria 2</a></li>
+38:                  <li><a href="/">Categoria 3</a></li>
+39:                  <li><a href="/">Categoria 4</a></li>
+40:                </ul>
+41:    
+42:              </li>
+43:              
+44:              <li><%= link_to "About",about_path %></li>
+45:              <li><a href="/">Contact</a></li>
+46:            </div>
+47:          </ul>
+48:        </nav>
+49:    
+50:        <%= flash.each do |name,message| %>
+51:          <%= content_tag(:div, message ,class: "alert") %>
+52:        <%= end %>
+53:    
+54:        <%= yield %>
+55:      </body>
+56:    </html>
+  
+app/views/layouts/application.html.erb:52: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:52: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:52: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:52: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:52: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:52: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected `end', expecting ')'
+Started GET "/" for 127.0.0.1 at 2023-06-03 18:20:32 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 186)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 1838)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms | Allocations: 4917)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html>
+  <head>
+    <title>SharesYourNotes</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <%= csrf_meta_tags %> <%= csp_meta_tag %> 
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+   
+      <nav class="navbar">
+      <!-- LOGO -->
+      <div class="logo"><%= image_tag("book.png", id: "img-logo") %>SharesYourNotes</div>
+
+      <!-- NAVIGATION MENU -->
+      <ul class="nav-links">
+
+        <!-- USING CHECKBOX HACK -->
+        <input type="checkbox" id="checkbox_toggle" />
+        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+
+        <!-- NAVIGATION MENUS -->
+        <div class="menu">
+
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Login", login_path %></li>
+        
+          <li class="services">
+            <%= link_to "Notes",root_path %>
+
+            <!-- DROPDOWN MENU -->
+            <ul class="dropdown">
+              <li><a href="/">Categoria 1 </a></li>
+              <li><a href="/">Categoria 2</a></li>
+              <li><a href="/">Categoria 2</a></li>
+              <li><a href="/">Categoria 3</a></li>
+              <li><a href="/">Categoria 4</a></li>
+            </ul>
+
+          </li>
+          
+          <li><%= link_to "About",about_path %></li>
+          <li><a href="/">Contact</a></li>
+        </div>
+      </ul>
+    </nav>
+
+    <%= flash.each do |name,message| %>
+    <%= content_tag(:div, message ,class: "alert") %>
+    
+
+    <%= yield %>
+  </body>
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html>
+3:      <head>
+4:        <title>SharesYourNotes</title>
+5:        <meta name="viewport" content="width=device-width,initial-scale=1" />
+6:        <%= csrf_meta_tags %> <%= csp_meta_tag %> 
+7:        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+8:        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+9:      </head>
+10:    
+11:      <body>
+12:       
+13:          <nav class="navbar">
+14:          <!-- LOGO -->
+15:          <div class="logo"><%= image_tag("book.png", id: "img-logo") %>SharesYourNotes</div>
+16:    
+17:          <!-- NAVIGATION MENU -->
+18:          <ul class="nav-links">
+19:    
+20:            <!-- USING CHECKBOX HACK -->
+21:            <input type="checkbox" id="checkbox_toggle" />
+22:            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+23:    
+24:            <!-- NAVIGATION MENUS -->
+25:            <div class="menu">
+26:    
+27:              <li><%= link_to "Home", root_path %></li>
+28:              <li><%= link_to "Login", login_path %></li>
+29:            
+30:              <li class="services">
+31:                <%= link_to "Notes",root_path %>
+32:    
+33:                <!-- DROPDOWN MENU -->
+34:                <ul class="dropdown">
+35:                  <li><a href="/">Categoria 1 </a></li>
+36:                  <li><a href="/">Categoria 2</a></li>
+37:                  <li><a href="/">Categoria 2</a></li>
+38:                  <li><a href="/">Categoria 3</a></li>
+39:                  <li><a href="/">Categoria 4</a></li>
+40:                </ul>
+41:    
+42:              </li>
+43:              
+44:              <li><%= link_to "About",about_path %></li>
+45:              <li><a href="/">Contact</a></li>
+46:            </div>
+47:          </ul>
+48:        </nav>
+49:    
+50:        <%= flash.each do |name,message| %>
+51:        <%= content_tag(:div, message ,class: "alert") %>
+52:        
+53:    
+54:        <%= yield %>
+55:      </body>
+56:    </html>
+  
+app/views/layouts/application.html.erb:59: syntax error, unexpected end-of-input, expecting `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected end-of-input, expecting `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected end-of-input, expecting `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected end-of-input, expecting `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected end-of-input, expecting `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/" for 127.0.0.1 at 2023-06-03 18:20:50 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 258)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 2380)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.0ms | Allocations: 5717)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html>
+  <head>
+    <title>SharesYourNotes</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <%= csrf_meta_tags %> <%= csp_meta_tag %> 
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+   
+      <nav class="navbar">
+      <!-- LOGO -->
+      <div class="logo"><%= image_tag("book.png", id: "img-logo") %>SharesYourNotes</div>
+
+      <!-- NAVIGATION MENU -->
+      <ul class="nav-links">
+
+        <!-- USING CHECKBOX HACK -->
+        <input type="checkbox" id="checkbox_toggle" />
+        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+
+        <!-- NAVIGATION MENUS -->
+        <div class="menu">
+
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Login", login_path %></li>
+        
+          <li class="services">
+            <%= link_to "Notes",root_path %>
+
+            <!-- DROPDOWN MENU -->
+            <ul class="dropdown">
+              <li><a href="/">Categoria 1 </a></li>
+              <li><a href="/">Categoria 2</a></li>
+              <li><a href="/">Categoria 2</a></li>
+              <li><a href="/">Categoria 3</a></li>
+              <li><a href="/">Categoria 4</a></li>
+            </ul>
+
+          </li>
+          
+          <li><%= link_to "About",about_path %></li>
+          <li><a href="/">Contact</a></li>
+        </div>
+      </ul>
+    </nav>
+
+    <%= flash.each do |name,message| %>
+      <%= content_tag(:div, message ,class: "alert") %>
+    <%= end %>
+
+    <%= yield %>
+  </body>
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html>
+3:      <head>
+4:        <title>SharesYourNotes</title>
+5:        <meta name="viewport" content="width=device-width,initial-scale=1" />
+6:        <%= csrf_meta_tags %> <%= csp_meta_tag %> 
+7:        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+8:        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+9:      </head>
+10:    
+11:      <body>
+12:       
+13:          <nav class="navbar">
+14:          <!-- LOGO -->
+15:          <div class="logo"><%= image_tag("book.png", id: "img-logo") %>SharesYourNotes</div>
+16:    
+17:          <!-- NAVIGATION MENU -->
+18:          <ul class="nav-links">
+19:    
+20:            <!-- USING CHECKBOX HACK -->
+21:            <input type="checkbox" id="checkbox_toggle" />
+22:            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+23:    
+24:            <!-- NAVIGATION MENUS -->
+25:            <div class="menu">
+26:    
+27:              <li><%= link_to "Home", root_path %></li>
+28:              <li><%= link_to "Login", login_path %></li>
+29:            
+30:              <li class="services">
+31:                <%= link_to "Notes",root_path %>
+32:    
+33:                <!-- DROPDOWN MENU -->
+34:                <ul class="dropdown">
+35:                  <li><a href="/">Categoria 1 </a></li>
+36:                  <li><a href="/">Categoria 2</a></li>
+37:                  <li><a href="/">Categoria 2</a></li>
+38:                  <li><a href="/">Categoria 3</a></li>
+39:                  <li><a href="/">Categoria 4</a></li>
+40:                </ul>
+41:    
+42:              </li>
+43:              
+44:              <li><%= link_to "About",about_path %></li>
+45:              <li><a href="/">Contact</a></li>
+46:            </div>
+47:          </ul>
+48:        </nav>
+49:    
+50:        <%= flash.each do |name,message| %>
+51:          <%= content_tag(:div, message ,class: "alert") %>
+52:        <%= end %>
+53:    
+54:        <%= yield %>
+55:      </body>
+56:    </html>
+  
+app/views/layouts/application.html.erb:52: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:52: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:52: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:52: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:52: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:52: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:59: syntax error, unexpected `end', expecting ')'
+Started GET "/" for 127.0.0.1 at 2023-06-03 18:21:19 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 186)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 1835)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 4609)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html>
+  <head>
+    <title>SharesYourNotes</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <%= csrf_meta_tags %> <%= csp_meta_tag %> 
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+   
+      <nav class="navbar">
+      <!-- LOGO -->
+      <div class="logo"><%= image_tag("book.png", id: "img-logo") %>SharesYourNotes</div>
+
+      <!-- NAVIGATION MENU -->
+      <ul class="nav-links">
+
+        <!-- USING CHECKBOX HACK -->
+        <input type="checkbox" id="checkbox_toggle" />
+        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+
+        <!-- NAVIGATION MENUS -->
+        <div class="menu">
+
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Login", login_path %></li>
+        
+          <li class="services">
+            <%= link_to "Notes",root_path %>
+
+            <!-- DROPDOWN MENU -->
+            <ul class="dropdown">
+              <li><a href="/">Categoria 1 </a></li>
+              <li><a href="/">Categoria 2</a></li>
+              <li><a href="/">Categoria 2</a></li>
+              <li><a href="/">Categoria 3</a></li>
+              <li><a href="/">Categoria 4</a></li>
+            </ul>
+
+          </li>
+          
+          <li><%= link_to "About",about_path %></li>
+          <li><a href="/">Contact</a></li>
+        </div>
+      </ul>
+    </nav>
+
+    <%= flash.each do |name,message| %>
+    <%= end %>
+
+    <%= yield %>
+  </body>
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html>
+3:      <head>
+4:        <title>SharesYourNotes</title>
+5:        <meta name="viewport" content="width=device-width,initial-scale=1" />
+6:        <%= csrf_meta_tags %> <%= csp_meta_tag %> 
+7:        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+8:        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+9:      </head>
+10:    
+11:      <body>
+12:       
+13:          <nav class="navbar">
+14:          <!-- LOGO -->
+15:          <div class="logo"><%= image_tag("book.png", id: "img-logo") %>SharesYourNotes</div>
+16:    
+17:          <!-- NAVIGATION MENU -->
+18:          <ul class="nav-links">
+19:    
+20:            <!-- USING CHECKBOX HACK -->
+21:            <input type="checkbox" id="checkbox_toggle" />
+22:            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+23:    
+24:            <!-- NAVIGATION MENUS -->
+25:            <div class="menu">
+26:    
+27:              <li><%= link_to "Home", root_path %></li>
+28:              <li><%= link_to "Login", login_path %></li>
+29:            
+30:              <li class="services">
+31:                <%= link_to "Notes",root_path %>
+32:    
+33:                <!-- DROPDOWN MENU -->
+34:                <ul class="dropdown">
+35:                  <li><a href="/">Categoria 1 </a></li>
+36:                  <li><a href="/">Categoria 2</a></li>
+37:                  <li><a href="/">Categoria 2</a></li>
+38:                  <li><a href="/">Categoria 3</a></li>
+39:                  <li><a href="/">Categoria 4</a></li>
+40:                </ul>
+41:    
+42:              </li>
+43:              
+44:              <li><%= link_to "About",about_path %></li>
+45:              <li><a href="/">Contact</a></li>
+46:            </div>
+47:          </ul>
+48:        </nav>
+49:    
+50:        <%= flash.each do |name,message| %>
+51:        <%= end %>
+52:    
+53:        <%= yield %>
+54:      </body>
+55:    </html>
+  
+app/views/layouts/application.html.erb:51: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:58: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:51: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:58: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:51: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:58: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:51: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:58: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:51: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:58: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:51: syntax error, unexpected `end'
+app/views/layouts/application.html.erb:58: syntax error, unexpected `end', expecting ')'
+Started GET "/" for 127.0.0.1 at 2023-06-03 18:22:16 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 250)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 1972.6ms | Allocations: 85703)
+Completed 200 OK in 1983ms (Views: 1977.1ms | ActiveRecord: 0.0ms | Allocations: 89001)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-03 18:22:35 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 322.3ms | Allocations: 8254)
+Completed 200 OK in 324ms (Views: 322.8ms | ActiveRecord: 0.0ms | Allocations: 8677)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-03 18:23:43 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 76)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 3973)
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.0ms | Allocations: 5220)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-03 18:23:45 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 3549)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.0ms | Allocations: 3977)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-03 18:23:45 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 3551)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.0ms | Allocations: 3977)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-03 18:26:08 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 186)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 656.4ms | Allocations: 21135)
+Completed 200 OK in 665ms (Views: 659.7ms | ActiveRecord: 0.0ms | Allocations: 23933)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-03 18:26:22 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 76)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 7651)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.0ms | Allocations: 8921)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-03 18:26:23 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 4551)
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 4976)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-03 18:26:23 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 4549)
+Completed 200 OK in 13ms (Views: 12.5ms | ActiveRecord: 0.0ms | Allocations: 4964)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-03 18:26:23 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.1ms | Allocations: 4549)
+Completed 200 OK in 21ms (Views: 20.6ms | ActiveRecord: 0.0ms | Allocations: 4976)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-03 18:26:24 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 4551)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.0ms | Allocations: 4967)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-03 18:26:24 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 4549)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 4962)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-03 18:26:24 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 4549)
+Completed 200 OK in 6ms (Views: 5.9ms | ActiveRecord: 0.0ms | Allocations: 4974)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-03 18:27:40 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 74)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 4990)
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.0ms | Allocations: 6242)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-03 18:27:41 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 4549)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.0ms | Allocations: 4959)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-03 18:27:41 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 4549)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.0ms | Allocations: 4962)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-03 18:28:04 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.1ms | Allocations: 312)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 8507)
+Completed 200 OK in 22ms (Views: 15.5ms | ActiveRecord: 0.0ms | Allocations: 12166)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-03 18:28:42 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 71)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 3970)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.0ms | Allocations: 5236)
+
+
