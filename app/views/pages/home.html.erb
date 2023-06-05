@@ -9,6 +9,10 @@
 
 </head>
 <body>
-    <h1>Welcome</h1>
+    <% if user_signed_in? %>
+        <h1>Bentornato</h1>
+    <% else %>
+        <h2>Benvenuto in SharesYourNotes</h2>
+    <% end %>
 </body>
 </html>
