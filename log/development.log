@@ -4280,3 +4280,14 @@ Processing by PagesController#home as HTML
 Completed 200 OK in 133ms (Views: 127.1ms | ActiveRecord: 0.0ms | Allocations: 39658)
 
 
+Started GET "/" for 127.0.0.1 at 2023-06-07 19:32:46 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 31.8ms | Allocations: 16764)
+Completed 200 OK in 41ms (Views: 34.9ms | ActiveRecord: 0.0ms | Allocations: 19464)
+
+
