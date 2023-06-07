@@ -40,7 +40,7 @@
           <% if user_signed_in? %>
             <li class="nav-item"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
           <% else %>
-            <li class="nav-item"><%= link_to "SignIn", new_user_session_path,class: "nav-link"%></li>
+            <li class="nav-item"><%= link_to "Sign In", new_user_session_path,class: "nav-link"%></li>
           <% end %>
           <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

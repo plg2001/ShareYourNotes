@@ -4291,3 +4291,50 @@ Processing by PagesController#home as HTML
 Completed 200 OK in 41ms (Views: 34.9ms | ActiveRecord: 0.0ms | Allocations: 19464)
 
 
+Started GET "/" for 127.0.0.1 at 2023-06-07 19:33:10 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 127)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 7441)
+Completed 200 OK in 15ms (Views: 12.5ms | ActiveRecord: 0.0ms | Allocations: 8724)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 19:33:24 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 127)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 7441)
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.0ms | Allocations: 8707)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-07 19:33:26 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 592)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 9.7ms | Allocations: 6468)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 13297)
+Completed 200 OK in 25ms (Views: 17.5ms | ActiveRecord: 0.4ms | Allocations: 19388)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-06-07 19:33:30 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"grassopierluca@alice.it", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "grassopierluca@alice.it"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 205ms (ActiveRecord: 0.3ms | Allocations: 4636)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 19:33:30 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:40
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 7694)
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.1ms | Allocations: 8127)
+
+
