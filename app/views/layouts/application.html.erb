@@ -55,8 +55,9 @@
         </ul>
       </div>
     </nav>
+
     <% flash.each do |name, message| %>
-      <%= content_tag(:div, message, class: "alert alert-info alert-#{name} fade show") %>
+      <%= content_tag(:div, message, class: "alert alert-success alert-#{name} fade show") %>
     <% end %>
     <%= yield %>
   </body>
