@@ -6,13 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-
 </head>
 <body>
-    <% if user_signed_in? %>
-        <h1>Bentornato</h1>
-    <% else %>
-        <h2>Benvenuto in SharesYourNotes</h2>
-    <% end %>
+   <div class="content">
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="display-4">Benvenuto su Condivisione Appunti</h1>
+        <p class="lead">Il posto perfetto per trovare e condividere appunti</p>
+        <a href="#" class="btn btn-primary btn-lg">Inizia Ora</a>
+      </div>
+    </section>
+
+    <section class="features bg-light py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card mb-4">
+              <div class="card-body">
+                <h5 class="card-title">Cerca Appunti</h5>
+                <p class="card-text">Trova gli appunti che ti servono con facilità e rapidità.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4">
+              <div class="card-body">
+                <h5 class="card-title">Carica Appunti</h5>
+                <p class="card-text">Condividi i tuoi appunti con la community e aiuta gli altri studenti.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4">
+              <div class="card-body">
+                <h5 class="card-title">Interagisci</h5>
+                <p class="card-text">Commenta, valuta e discuti gli appunti con gli altri utenti.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="bg-light text-center py-3 footer col fixed-bottom">
+    <div class="container">
+      <p class="mb-0">Condivisione Appunti &copy; 2023. Tutti i diritti riservati.</p>
+    </div>
+  </footer>
 </body>
 </html>

@@ -1948,3 +1948,2335 @@ Processing by PagesController#home as HTML
 Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms | Allocations: 7537)
 
 
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:36:18 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.4ms | Allocations: 6541)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 10172)
+Completed 200 OK in 14ms (Views: 13.6ms | ActiveRecord: 0.0ms | Allocations: 11417)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:36:38 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.5ms | Allocations: 6333)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 9489)
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 9913)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:40:09 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.3ms | Allocations: 6534)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 10165)
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.0ms | Allocations: 11407)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:43:18 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 12.2ms | Allocations: 6631)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 10271)
+Completed 200 OK in 19ms (Views: 18.0ms | Allocations: 11527)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:43:18 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 5.6ms | Allocations: 6334)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 9490)
+Completed 200 OK in 9ms (Views: 9.0ms | Allocations: 9909)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:43:19 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 5.4ms | Allocations: 6426)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 9585)
+Completed 200 OK in 10ms (Views: 9.4ms | Allocations: 9997)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:43:19 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 5.5ms | Allocations: 6333)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 9489)
+Completed 200 OK in 9ms (Views: 8.8ms | Allocations: 9920)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:43:19 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.2ms | Allocations: 6334)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 9490)
+Completed 200 OK in 12ms (Views: 12.0ms | Allocations: 9911)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:44:49 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.5ms | Allocations: 6537)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.7ms | Allocations: 10168)
+Completed 200 OK in 16ms (Views: 15.1ms | Allocations: 11426)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:44:50 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 9.1ms | Allocations: 6425)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 9585)
+Completed 200 OK in 13ms (Views: 12.4ms | Allocations: 10000)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:44:50 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.2ms | Allocations: 6424)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 9583)
+Completed 200 OK in 10ms (Views: 9.9ms | Allocations: 9997)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:52:56 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 9.6ms | Allocations: 6629)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 10264)
+Completed 200 OK in 18ms (Views: 16.6ms | Allocations: 11518)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:53:49 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.8ms | Allocations: 6333)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 9489)
+Completed 200 OK in 14ms (Views: 13.1ms | Allocations: 9897)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:54:01 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.8ms | Allocations: 6333)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 9489)
+Completed 200 OK in 13ms (Views: 12.1ms | Allocations: 9898)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:54:02 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.0ms | Allocations: 6333)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 9489)
+Completed 200 OK in 11ms (Views: 9.8ms | Allocations: 9906)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:54:02 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 18.9ms | Allocations: 8389)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 22.3ms | Allocations: 11548)
+Completed 200 OK in 23ms (Views: 22.8ms | Allocations: 11974)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:54:56 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.8ms | Allocations: 6626)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 10261)
+Completed 200 OK in 13ms (Views: 12.4ms | Allocations: 11515)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:54:57 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 11.8ms | Allocations: 6424)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.5ms | Allocations: 9580)
+Completed 200 OK in 19ms (Views: 18.2ms | Allocations: 9998)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:54:57 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 5.8ms | Allocations: 6333)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 9492)
+Completed 200 OK in 11ms (Views: 10.3ms | Allocations: 9917)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:54:57 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 5.5ms | Allocations: 6333)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 9489)
+Completed 200 OK in 12ms (Views: 11.0ms | Allocations: 9930)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:54:57 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.3ms | Allocations: 6333)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 9489)
+Completed 200 OK in 10ms (Views: 10.1ms | Allocations: 9908)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:55:03 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 9.4ms | Allocations: 6626)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 10267)
+Completed 200 OK in 16ms (Views: 14.8ms | Allocations: 11517)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:55:11 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.0ms | Allocations: 6628)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 10263)
+Completed 200 OK in 13ms (Views: 11.9ms | Allocations: 11523)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:55:21 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.6ms | Allocations: 6624)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 10255)
+Completed 200 OK in 14ms (Views: 13.1ms | Allocations: 11507)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:55:30 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 5.6ms | Allocations: 6333)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 9492)
+Completed 200 OK in 9ms (Views: 8.8ms | Allocations: 9910)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:55:30 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 5.5ms | Allocations: 6333)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 9489)
+Completed 200 OK in 10ms (Views: 9.3ms | Allocations: 9904)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-07 17:55:36 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 512)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.7ms | Allocations: 3219)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 10097)
+Completed 200 OK in 20ms (Views: 18.0ms | Allocations: 11676)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-06-07 17:55:41 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"grassopierluca@alice.it", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "grassopierluca@alice.it"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 203ms (ActiveRecord: 1.4ms | Allocations: 4074)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:55:41 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.9ms | Allocations: 6434)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:25
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 10283)
+Completed 200 OK in 12ms (Views: 11.8ms | ActiveRecord: 0.2ms | Allocations: 10719)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:56:08 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.1ms | Allocations: 6633)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:26
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 10905)
+Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 0.1ms | Allocations: 12169)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:57:05 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.5ms | Allocations: 6623)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:25
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 10882)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.1ms | Allocations: 12136)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:57:26 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.3ms | Allocations: 6535)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:25
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 10794)
+Completed 200 OK in 14ms (Views: 13.1ms | ActiveRecord: 0.1ms | Allocations: 12057)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:57:44 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 12.2ms | Allocations: 6578)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:25
+  Rendered layout layouts/application.html.erb (Duration: 16.6ms | Allocations: 9274)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.2ms | Allocations: 10520)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-06-07 17:57:48 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 3ms (ActiveRecord: 0.1ms | Allocations: 1584)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:57:48 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 5.8ms | Allocations: 6431)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 8067)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.0ms | Allocations: 8491)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 17:58:51 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 49.8ms | Allocations: 14926)
+  Rendered layout layouts/application.html.erb (Duration: 53.5ms | Allocations: 17076)
+Completed 200 OK in 63ms (Views: 55.9ms | ActiveRecord: 0.0ms | Allocations: 19883)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:00:00 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.4ms | Allocations: 6535)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 8603)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.0ms | Allocations: 9847)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:00:06 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 5.7ms | Allocations: 6535)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 8586)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.0ms | Allocations: 9858)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:00:24 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 16.1ms | Allocations: 6631)
+  Rendered layout layouts/application.html.erb (Duration: 18.2ms | Allocations: 8699)
+Completed 200 OK in 20ms (Views: 19.6ms | ActiveRecord: 0.0ms | Allocations: 9943)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:00:24 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 5.8ms | Allocations: 6333)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 7938)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.0ms | Allocations: 8346)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:01:30 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.9ms | Allocations: 6557)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 8640)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.0ms | Allocations: 9903)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:02:36 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.7ms | Allocations: 6617)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 8685)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 9947)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:03:37 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 10.6ms | Allocations: 6535)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.7ms | Allocations: 10171)
+Completed 200 OK in 19ms (Views: 17.4ms | ActiveRecord: 0.0ms | Allocations: 11444)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:04:17 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 26.9ms | Allocations: 14926)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 33.1ms | Allocations: 18643)
+Completed 200 OK in 40ms (Views: 35.0ms | ActiveRecord: 0.0ms | Allocations: 21442)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:04:23 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.6ms | Allocations: 6334)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 9491)
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.0ms | Allocations: 9922)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-07 18:04:24 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 592)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 9.1ms | Allocations: 6319)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.2ms | Allocations: 13156)
+Completed 200 OK in 25ms (Views: 17.9ms | ActiveRecord: 0.5ms | Allocations: 19250)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-07 18:04:49 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.1ms | Allocations: 596)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 21.1ms | Allocations: 14489)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 30.5ms | Allocations: 21933)
+Completed 200 OK in 46ms (Views: 33.3ms | ActiveRecord: 0.7ms | Allocations: 29769)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:04:54 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.7ms | Allocations: 6541)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 9645)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.0ms | Allocations: 10724)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:05:04 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.2ms | Allocations: 6535)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 10009)
+Completed 200 OK in 12ms (Views: 11.7ms | ActiveRecord: 0.0ms | Allocations: 11273)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:05:05 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.0ms | Allocations: 6427)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 9524)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 9939)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:06:09 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 9.4ms | Allocations: 6538)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 10009)
+Completed 200 OK in 16ms (Views: 15.1ms | ActiveRecord: 0.0ms | Allocations: 11267)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:07:29 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+node:internal/crypto/hash:69
+  this[kHandle] = new _Hash(algorithm, xofLen);
+                  ^
+
+Error: error:0308010C:digital envelope routines::unsupported
+    at new Hash (node:internal/crypto/hash:69:19)
+    at Object.createHash (node:crypto:138:10)
+    at module.exports (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/util/createHash.js:135:53)
+    at NormalModule._initBuildHash (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:417:16)
+    at handleParseError (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:471:10)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:503:5
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:358:12
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:373:3
+    at iterateNormalLoaders (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:214:10)
+    at iterateNormalLoaders (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:221:10)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:236:3
+    at context.callback (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:111:13)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/babel-loader/lib/index.js:44:71 {
+  opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ],
+  library: 'digital envelope routines',
+  reason: 'unsupported',
+  code: 'ERR_OSSL_EVP_UNSUPPORTED'
+}
+
+Node.js v20.2.0
+
+  Rendered pages/home.html.erb within layouts/application (Duration: 3354.6ms | Allocations: 69206)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 3357.9ms | Allocations: 72703)
+Completed 200 OK in 3361ms (Views: 3359.5ms | ActiveRecord: 0.0ms | Allocations: 73966)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:08:09 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 12.0ms | Allocations: 6333)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | Allocations: 9429)
+Completed 200 OK in 19ms (Views: 18.4ms | ActiveRecord: 0.0ms | Allocations: 9858)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:08:49 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 17.9ms | Allocations: 6333)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 23.6ms | Allocations: 9429)
+Completed 200 OK in 26ms (Views: 24.4ms | ActiveRecord: 0.0ms | Allocations: 9854)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:09:27 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 53.8ms | Allocations: 20986)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 63.2ms | Allocations: 24543)
+Completed 200 OK in 78ms (Views: 65.8ms | ActiveRecord: 0.0ms | Allocations: 28291)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:09:37 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.5ms | Allocations: 6535)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 10009)
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.0ms | Allocations: 11279)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:09:48 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.7ms | Allocations: 6535)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 8454)
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.0ms | Allocations: 9704)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:09:48 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 17.1ms | Allocations: 6333)
+  Rendered layout layouts/application.html.erb (Duration: 18.5ms | Allocations: 7888)
+Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms | Allocations: 8309)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:09:48 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 5.9ms | Allocations: 6333)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 7881)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.0ms | Allocations: 8306)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:09:49 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 9.2ms | Allocations: 6333)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 7881)
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.0ms | Allocations: 8302)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:10:00 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.1ms | Allocations: 6538)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 8461)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.0ms | Allocations: 9727)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:10:00 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.1ms | Allocations: 6338)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 7886)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.0ms | Allocations: 8308)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:10:00 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.3ms | Allocations: 6333)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 7881)
+Completed 200 OK in 10ms (Views: 9.7ms | ActiveRecord: 0.0ms | Allocations: 8308)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-07 18:10:05 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 592)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.2ms | Allocations: 6321)
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 11463)
+Completed 200 OK in 23ms (Views: 14.4ms | ActiveRecord: 0.8ms | Allocations: 17544)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:10:08 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 24.2ms | Allocations: 8314)
+  Rendered layout layouts/application.html.erb (Duration: 34.0ms | Allocations: 9874)
+Completed 200 OK in 36ms (Views: 34.6ms | ActiveRecord: 0.0ms | Allocations: 10302)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:12:59 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 88.4ms | Allocations: 17301)
+  Rendered layout layouts/application.html.erb (Duration: 88.8ms | Allocations: 17370)
+Completed 500 Internal Server Error in 100ms (ActiveRecord: 0.0ms | Allocations: 20998)
+
+
+  
+ActionView::Template::Error (Error: File to import not found or unreadable: bootstrap-sprockets.
+        on line 2:1 of app/assets/stylesheets/application.scss
+>> @import "bootstrap-sprockets";
+
+   ^
+):
+     6:     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     7:     <title>Document</title>
+     8:     <%= csrf_meta_tags %> <%= csp_meta_tag %>
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    12: 
+  
+app/assets/stylesheets/application.scss:2
+app/views/pages/home.html.erb:9
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:13:37 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+node:internal/crypto/hash:69
+  this[kHandle] = new _Hash(algorithm, xofLen);
+                  ^
+
+Error: error:0308010C:digital envelope routines::unsupported
+    at new Hash (node:internal/crypto/hash:69:19)
+    at Object.createHash (node:crypto:138:10)
+    at module.exports (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/util/createHash.js:135:53)
+    at NormalModule._initBuildHash (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:417:16)
+    at handleParseError (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:471:10)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:503:5
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:358:12
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:373:3
+    at iterateNormalLoaders (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:214:10)
+    at iterateNormalLoaders (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:221:10)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:236:3
+    at context.callback (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:111:13)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/babel-loader/lib/index.js:44:71 {
+  opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ],
+  library: 'digital envelope routines',
+  reason: 'unsupported',
+  code: 'ERR_OSSL_EVP_UNSUPPORTED'
+}
+
+Node.js v20.2.0
+
+  Rendered pages/home.html.erb within layouts/application (Duration: 3921.6ms | Allocations: 92909)
+  Rendered layout layouts/application.html.erb (Duration: 3925.5ms | Allocations: 94908)
+Completed 200 OK in 3935ms (Views: 3927.8ms | ActiveRecord: 0.0ms | Allocations: 97712)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:14:11 +0200
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 1749.1ms | Allocations: 87296)
+  Rendered layout layouts/application.html.erb (Duration: 1754.5ms | Allocations: 89293)
+Completed 200 OK in 1761ms (Views: 1756.3ms | ActiveRecord: 0.0ms | Allocations: 92091)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:20:40 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+node:internal/crypto/hash:69
+  this[kHandle] = new _Hash(algorithm, xofLen);
+                  ^
+
+Error: error:0308010C:digital envelope routines::unsupported
+    at new Hash (node:internal/crypto/hash:69:19)
+    at Object.createHash (node:crypto:138:10)
+    at module.exports (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/util/createHash.js:135:53)
+    at NormalModule._initBuildHash (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:417:16)
+    at handleParseError (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:471:10)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:503:5
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:358:12
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:373:3
+    at iterateNormalLoaders (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:214:10)
+    at iterateNormalLoaders (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:221:10)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:236:3
+    at context.callback (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:111:13)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/babel-loader/lib/index.js:44:71 {
+  opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ],
+  library: 'digital envelope routines',
+  reason: 'unsupported',
+  code: 'ERR_OSSL_EVP_UNSUPPORTED'
+}
+
+Node.js v20.2.0
+
+  Rendered pages/home.html.erb within layouts/application (Duration: 3081.9ms | Allocations: 83945)
+  Rendered layout layouts/application.html.erb (Duration: 3086.3ms | Allocations: 85942)
+Completed 200 OK in 3094ms (Views: 3089.0ms | ActiveRecord: 0.0ms | Allocations: 88744)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:21:58 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Invalid configuration object. Webpack has been initialised using a configuration object that does not match the API schema.
+ - configuration.entry should be an non-empty object.
+   -> Multiple entry bundles are created. The key is the chunk name. The value can be a string or an array.
+
+  Rendered pages/home.html.erb within layouts/application (Duration: 973.2ms | Allocations: 7456)
+  Rendered layout layouts/application.html.erb (Duration: 975.7ms | Allocations: 9008)
+Completed 200 OK in 980ms (Views: 977.4ms | ActiveRecord: 0.0ms | Allocations: 9435)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:22:43 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Invalid configuration object. Webpack has been initialised using a configuration object that does not match the API schema.
+ - configuration.entry should be an non-empty object.
+   -> Multiple entry bundles are created. The key is the chunk name. The value can be a string or an array.
+
+  Rendered pages/home.html.erb within layouts/application (Duration: 930.2ms | Allocations: 7447)
+  Rendered layout layouts/application.html.erb (Duration: 932.8ms | Allocations: 8999)
+Completed 200 OK in 934ms (Views: 933.8ms | ActiveRecord: 0.0ms | Allocations: 9427)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:23:02 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered pages/home.html.erb within layouts/application (Duration: 14.0ms | Allocations: 6535)
+  Rendered layout layouts/application.html.erb (Duration: 18.8ms | Allocations: 8442)
+Completed 200 OK in 22ms (Views: 20.5ms | ActiveRecord: 0.0ms | Allocations: 9698)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:23:20 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 128)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 5888)
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 0.0ms | Allocations: 7153)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:23:33 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 130)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 5845)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.0ms | Allocations: 7103)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:24:20 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 127)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 5841)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.0ms | Allocations: 7095)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:24:22 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 5349)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.0ms | Allocations: 5782)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:24:22 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 5407)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.0ms | Allocations: 5814)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:24:56 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 128)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 5844)
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.0ms | Allocations: 7097)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:25:32 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 127)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 7508)
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.0ms | Allocations: 8747)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:25:33 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 6995)
+Completed 200 OK in 10ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 7415)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:25:34 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 7058)
+Completed 200 OK in 9ms (Views: 8.7ms | ActiveRecord: 0.0ms | Allocations: 7478)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:25:36 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.2ms | Allocations: 8965)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.0ms | Allocations: 9388)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:25:42 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 132)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 7513)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.0ms | Allocations: 8773)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:26:37 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 7017)
+Completed 200 OK in 9ms (Views: 8.7ms | Allocations: 7435)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:28:38 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 245)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Invalid configuration object. Webpack has been initialised using a configuration object that does not match the API schema.
+ - configuration.entry should be an non-empty object.
+   -> Multiple entry bundles are created. The key is the chunk name. The value can be a string or an array.
+
+  Rendered layout layouts/application.html.erb (Duration: 985.9ms | Allocations: 17131)
+Completed 200 OK in 996ms (Views: 987.8ms | ActiveRecord: 0.0ms | Allocations: 19928)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:29:12 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Invalid configuration object. Webpack has been initialised using a configuration object that does not match the API schema.
+ - configuration.entry should be an non-empty object.
+   -> Multiple entry bundles are created. The key is the chunk name. The value can be a string or an array.
+
+  Rendered layout layouts/application.html.erb (Duration: 967.9ms | Allocations: 8121)
+Completed 200 OK in 969ms (Views: 968.5ms | ActiveRecord: 0.0ms | Allocations: 8552)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:29:21 +0200
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 245)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 22.3ms | Allocations: 15989)
+Completed 200 OK in 30ms (Views: 24.0ms | ActiveRecord: 0.0ms | Allocations: 18786)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:29:27 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 127)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 7509)
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.0ms | Allocations: 8767)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:29:28 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 6997)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms | Allocations: 7422)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:30:45 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 245)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Invalid configuration object. Webpack has been initialised using a configuration object that does not match the API schema.
+ - configuration.entry should be an non-empty object.
+   -> Multiple entry bundles are created. The key is the chunk name. The value can be a string or an array.
+
+  Rendered layout layouts/application.html.erb (Duration: 943.7ms | Allocations: 17117)
+Completed 200 OK in 951ms (Views: 945.4ms | ActiveRecord: 0.0ms | Allocations: 19922)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:30:49 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 6997)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.0ms | Allocations: 7426)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:30:49 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 6995)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.0ms | Allocations: 7410)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:30:50 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.8ms | Allocations: 8978)
+Completed 200 OK in 21ms (Views: 20.4ms | ActiveRecord: 0.0ms | Allocations: 9393)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:30:57 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 130)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 7512)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 8764)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:31:19 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 82)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 7466)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 8727)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:31:24 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 127)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 7508)
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 8766)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:34:43 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 128)
+  Rendered layout layouts/application.html.erb (Duration: 15.2ms | Allocations: 14013)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms | Allocations: 15233)
+
+
+  
+ActionView::Template::Error (The asset "application.js" is not present in the asset pipeline.
+):
+     5:     <meta name="viewport" content="width=device-width,initial-scale=1" />
+     6:     <%= csrf_meta_tags %> <%= csp_meta_tag %>
+     7:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     8:     <%= javascript_include_tag 'application' %>
+     9:   </head>
+    10:   <body>
+    11:     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  
+app/views/layouts/application.html.erb:8
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:35:02 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 11321)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 11788)
+
+
+  
+ActionView::Template::Error (The asset "application.js" is not present in the asset pipeline.
+):
+     5:     <meta name="viewport" content="width=device-width,initial-scale=1" />
+     6:     <%= csrf_meta_tags %> <%= csp_meta_tag %>
+     7:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     8:     <%= javascript_include_tag 'application' %>
+     9:   </head>
+    10:   <body>
+    11:     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  
+app/views/layouts/application.html.erb:8
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:35:03 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 11189)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 11569)
+
+
+  
+ActionView::Template::Error (The asset "application.js" is not present in the asset pipeline.
+):
+     5:     <meta name="viewport" content="width=device-width,initial-scale=1" />
+     6:     <%= csrf_meta_tags %> <%= csp_meta_tag %>
+     7:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     8:     <%= javascript_include_tag 'application' %>
+     9:   </head>
+    10:   <body>
+    11:     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  
+app/views/layouts/application.html.erb:8
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:35:11 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 127)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 7569)
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 0.0ms | Allocations: 8829)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:35:32 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Invalid configuration object. Webpack has been initialised using a configuration object that does not match the API schema.
+ - configuration.entry should be an non-empty object.
+   -> Multiple entry bundles are created. The key is the chunk name. The value can be a string or an array.
+
+  Rendered layout layouts/application.html.erb (Duration: 924.1ms | Allocations: 8020)
+Completed 200 OK in 925ms (Views: 924.6ms | ActiveRecord: 0.0ms | Allocations: 8436)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:35:41 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 245)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 2459.3ms | Allocations: 99125)
+Completed 200 OK in 2465ms (Views: 2460.9ms | ActiveRecord: 0.0ms | Allocations: 101917)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:35:45 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 7214)
+Completed 200 OK in 13ms (Views: 12.5ms | ActiveRecord: 0.0ms | Allocations: 7635)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:36:32 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 132)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+node:internal/crypto/hash:69
+  this[kHandle] = new _Hash(algorithm, xofLen);
+                  ^
+
+Error: error:0308010C:digital envelope routines::unsupported
+    at new Hash (node:internal/crypto/hash:69:19)
+    at Object.createHash (node:crypto:138:10)
+    at module.exports (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/util/createHash.js:135:53)
+    at NormalModule._initBuildHash (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:417:16)
+    at handleParseError (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:471:10)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:503:5
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:358:12
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:373:3
+    at iterateNormalLoaders (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:214:10)
+    at iterateNormalLoaders (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:221:10)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:236:3
+    at context.callback (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:111:13)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/babel-loader/lib/index.js:44:71 {
+  opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ],
+  library: 'digital envelope routines',
+  reason: 'unsupported',
+  code: 'ERR_OSSL_EVP_UNSUPPORTED'
+}
+
+Node.js v20.2.0
+
+  Rendered layout layouts/application.html.erb (Duration: 1303.2ms | Allocations: 8916)
+Completed 200 OK in 1307ms (Views: 1305.0ms | ActiveRecord: 0.0ms | Allocations: 10172)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:36:50 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 127)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 18.4ms | Allocations: 7637)
+Completed 200 OK in 21ms (Views: 20.1ms | ActiveRecord: 0.0ms | Allocations: 8892)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:38:14 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 7121)
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.0ms | Allocations: 7545)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:38:14 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 7123)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.0ms | Allocations: 7545)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:38:15 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 7122)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.0ms | Allocations: 7547)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:38:15 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 7123)
+Completed 200 OK in 14ms (Views: 14.0ms | ActiveRecord: 0.0ms | Allocations: 7530)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:38:15 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 7121)
+Completed 200 OK in 14ms (Views: 13.4ms | ActiveRecord: 0.0ms | Allocations: 7528)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:38:16 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 7121)
+Completed 200 OK in 13ms (Views: 12.4ms | ActiveRecord: 0.0ms | Allocations: 7544)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:38:25 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 7121)
+Completed 200 OK in 15ms (Views: 14.6ms | ActiveRecord: 0.0ms | Allocations: 7534)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:38:27 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 7121)
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.0ms | Allocations: 7544)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:38:28 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 7130)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.0ms | Allocations: 7560)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-06-07 18:38:30 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 592)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 12.6ms | Allocations: 9760)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | Allocations: 16599)
+Completed 200 OK in 28ms (Views: 20.7ms | ActiveRecord: 0.6ms | Allocations: 22705)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:39:06 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+node:internal/crypto/hash:69
+  this[kHandle] = new _Hash(algorithm, xofLen);
+                  ^
+
+Error: error:0308010C:digital envelope routines::unsupported
+    at new Hash (node:internal/crypto/hash:69:19)
+    at Object.createHash (node:crypto:138:10)
+    at module.exports (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/util/createHash.js:135:53)
+    at NormalModule._initBuildHash (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:417:16)
+    at handleParseError (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:471:10)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:503:5
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:358:12
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:373:3
+    at iterateNormalLoaders (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:214:10)
+    at iterateNormalLoaders (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:221:10)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:236:3
+    at context.callback (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:111:13)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/babel-loader/lib/index.js:44:71 {
+  opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ],
+  library: 'digital envelope routines',
+  reason: 'unsupported',
+  code: 'ERR_OSSL_EVP_UNSUPPORTED'
+}
+
+Node.js v20.2.0
+
+  Rendered layout layouts/application.html.erb (Duration: 1251.9ms | Allocations: 8229)
+Completed 200 OK in 1253ms (Views: 1252.5ms | ActiveRecord: 0.0ms | Allocations: 8647)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:39:29 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 245)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 25.4ms | Allocations: 15997)
+Completed 200 OK in 32ms (Views: 27.1ms | ActiveRecord: 0.0ms | Allocations: 18806)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:39:38 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 7003)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.0ms | Allocations: 7426)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:39:38 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 8322)
+Completed 200 OK in 14ms (Views: 13.1ms | ActiveRecord: 0.0ms | Allocations: 8752)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:39:57 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 127)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 12022)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms | Allocations: 13251)
+
+
+  
+ActionView::Template::Error (The asset "application.js" is not present in the asset pipeline.
+):
+     5:     <meta name="viewport" content="width=device-width,initial-scale=1" />
+     6:     <%= csrf_meta_tags %> <%= csp_meta_tag %>
+     7:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     8:     <%= javascript_include_tag 'application' %>
+     9:     
+    10:   </head>
+    11:   <body>
+  
+app/views/layouts/application.html.erb:8
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:40:34 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 16.6ms | Allocations: 11358)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms | Allocations: 11836)
+
+
+  
+ActionView::Template::Error (The asset "application.js" is not present in the asset pipeline.
+):
+     5:     <meta name="viewport" content="width=device-width,initial-scale=1" />
+     6:     <%= csrf_meta_tags %> <%= csp_meta_tag %>
+     7:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     8:     <%= javascript_include_tag 'application' %>
+     9:     
+    10:   </head>
+    11:   <body>
+  
+app/views/layouts/application.html.erb:8
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:40:34 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 11197)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 11585)
+
+
+  
+ActionView::Template::Error (The asset "application.js" is not present in the asset pipeline.
+):
+     5:     <meta name="viewport" content="width=device-width,initial-scale=1" />
+     6:     <%= csrf_meta_tags %> <%= csp_meta_tag %>
+     7:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     8:     <%= javascript_include_tag 'application' %>
+     9:     
+    10:   </head>
+    11:   <body>
+  
+app/views/layouts/application.html.erb:8
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:40:35 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 11193)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 11581)
+
+
+  
+ActionView::Template::Error (The asset "application.js" is not present in the asset pipeline.
+):
+     5:     <meta name="viewport" content="width=device-width,initial-scale=1" />
+     6:     <%= csrf_meta_tags %> <%= csp_meta_tag %>
+     7:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     8:     <%= javascript_include_tag 'application' %>
+     9:     
+    10:   </head>
+    11:   <body>
+  
+app/views/layouts/application.html.erb:8
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:41:51 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 11216)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms | Allocations: 11604)
+
+
+  
+ActionView::Template::Error (The asset "application.js" is not present in the asset pipeline.
+):
+     5:     <meta name="viewport" content="width=device-width,initial-scale=1" />
+     6:     <%= csrf_meta_tags %> <%= csp_meta_tag %>
+     7:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     8:     <%= javascript_include_tag 'application' %>
+     9:     
+    10:   </head>
+    11:   <body>
+  
+app/views/layouts/application.html.erb:8
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:41:53 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 11193)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 11581)
+
+
+  
+ActionView::Template::Error (The asset "application.js" is not present in the asset pipeline.
+):
+     5:     <meta name="viewport" content="width=device-width,initial-scale=1" />
+     6:     <%= csrf_meta_tags %> <%= csp_meta_tag %>
+     7:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     8:     <%= javascript_include_tag 'application' %>
+     9:     
+    10:   </head>
+    11:   <body>
+  
+app/views/layouts/application.html.erb:8
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:41:59 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 127)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+node:internal/crypto/hash:69
+  this[kHandle] = new _Hash(algorithm, xofLen);
+                  ^
+
+Error: error:0308010C:digital envelope routines::unsupported
+    at new Hash (node:internal/crypto/hash:69:19)
+    at Object.createHash (node:crypto:138:10)
+    at module.exports (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/util/createHash.js:135:53)
+    at NormalModule._initBuildHash (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:417:16)
+    at handleParseError (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:471:10)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:503:5
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:358:12
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:373:3
+    at iterateNormalLoaders (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:214:10)
+    at iterateNormalLoaders (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:221:10)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:236:3
+    at context.callback (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:111:13)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/babel-loader/lib/index.js:44:71 {
+  opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ],
+  library: 'digital envelope routines',
+  reason: 'unsupported',
+  code: 'ERR_OSSL_EVP_UNSUPPORTED'
+}
+
+Node.js v20.2.0
+
+  Rendered layout layouts/application.html.erb (Duration: 1314.8ms | Allocations: 8703)
+Completed 200 OK in 1317ms (Views: 1315.9ms | ActiveRecord: 0.0ms | Allocations: 9971)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:42:12 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+node:internal/crypto/hash:69
+  this[kHandle] = new _Hash(algorithm, xofLen);
+                  ^
+
+Error: error:0308010C:digital envelope routines::unsupported
+    at new Hash (node:internal/crypto/hash:69:19)
+    at Object.createHash (node:crypto:138:10)
+    at module.exports (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/util/createHash.js:135:53)
+    at NormalModule._initBuildHash (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:417:16)
+    at handleParseError (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:471:10)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:503:5
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:358:12
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:373:3
+    at iterateNormalLoaders (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:214:10)
+    at iterateNormalLoaders (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:221:10)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:236:3
+    at context.callback (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:111:13)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/babel-loader/lib/index.js:44:71 {
+  opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ],
+  library: 'digital envelope routines',
+  reason: 'unsupported',
+  code: 'ERR_OSSL_EVP_UNSUPPORTED'
+}
+
+Node.js v20.2.0
+
+  Rendered layout layouts/application.html.erb (Duration: 1359.7ms | Allocations: 8099)
+Completed 200 OK in 1361ms (Views: 1360.2ms | ActiveRecord: 0.0ms | Allocations: 8519)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:43:56 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+node:internal/crypto/hash:69
+  this[kHandle] = new _Hash(algorithm, xofLen);
+                  ^
+
+Error: error:0308010C:digital envelope routines::unsupported
+    at new Hash (node:internal/crypto/hash:69:19)
+    at Object.createHash (node:crypto:138:10)
+    at module.exports (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/util/createHash.js:135:53)
+    at NormalModule._initBuildHash (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:417:16)
+    at handleParseError (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:471:10)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:503:5
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:358:12
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:373:3
+    at iterateNormalLoaders (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:214:10)
+    at iterateNormalLoaders (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:221:10)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:236:3
+    at context.callback (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:111:13)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/babel-loader/lib/index.js:44:71 {
+  opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ],
+  library: 'digital envelope routines',
+  reason: 'unsupported',
+  code: 'ERR_OSSL_EVP_UNSUPPORTED'
+}
+
+Node.js v20.2.0
+
+  Rendered layout layouts/application.html.erb (Duration: 1382.2ms | Allocations: 8096)
+Completed 200 OK in 1383ms (Views: 1382.6ms | ActiveRecord: 0.0ms | Allocations: 8521)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:44:33 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 245)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 22.5ms | Allocations: 15997)
+Completed 200 OK in 31ms (Views: 24.4ms | ActiveRecord: 0.0ms | Allocations: 18796)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:44:52 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 127)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 7514)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.0ms | Allocations: 8766)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:45:23 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+node:internal/crypto/hash:69
+  this[kHandle] = new _Hash(algorithm, xofLen);
+                  ^
+
+Error: error:0308010C:digital envelope routines::unsupported
+    at new Hash (node:internal/crypto/hash:69:19)
+    at Object.createHash (node:crypto:138:10)
+    at module.exports (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/util/createHash.js:135:53)
+    at NormalModule._initBuildHash (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:417:16)
+    at handleParseError (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:471:10)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:503:5
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:358:12
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:373:3
+    at iterateNormalLoaders (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:214:10)
+    at iterateNormalLoaders (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:221:10)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:236:3
+    at context.callback (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:111:13)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/babel-loader/lib/index.js:44:71 {
+  opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ],
+  library: 'digital envelope routines',
+  reason: 'unsupported',
+  code: 'ERR_OSSL_EVP_UNSUPPORTED'
+}
+
+Node.js v20.2.0
+
+  Rendered layout layouts/application.html.erb (Duration: 1445.4ms | Allocations: 8125)
+Completed 200 OK in 1447ms (Views: 1446.1ms | ActiveRecord: 0.0ms | Allocations: 8548)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:46:51 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 132)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+node:internal/crypto/hash:69
+  this[kHandle] = new _Hash(algorithm, xofLen);
+                  ^
+
+Error: error:0308010C:digital envelope routines::unsupported
+    at new Hash (node:internal/crypto/hash:69:19)
+    at Object.createHash (node:crypto:138:10)
+    at module.exports (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/util/createHash.js:135:53)
+    at NormalModule._initBuildHash (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:417:16)
+    at handleParseError (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:471:10)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:503:5
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/webpack/lib/NormalModule.js:358:12
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:373:3
+    at iterateNormalLoaders (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:214:10)
+    at iterateNormalLoaders (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:221:10)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:236:3
+    at context.callback (/home/plg/SharesYourNotes/SharesYourNotes/node_modules/loader-runner/lib/LoaderRunner.js:111:13)
+    at /home/plg/SharesYourNotes/SharesYourNotes/node_modules/babel-loader/lib/index.js:44:71 {
+  opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ],
+  library: 'digital envelope routines',
+  reason: 'unsupported',
+  code: 'ERR_OSSL_EVP_UNSUPPORTED'
+}
+
+Node.js v20.2.0
+
+  Rendered layout layouts/application.html.erb (Duration: 1326.5ms | Allocations: 8727)
+Completed 200 OK in 1338ms (Views: 1336.7ms | ActiveRecord: 0.0ms | Allocations: 9973)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:46:53 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 127)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 7514)
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.0ms | Allocations: 8771)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:46:58 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 127)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 7519)
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.0ms | Allocations: 8778)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:47:02 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 130)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 7618)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.0ms | Allocations: 8885)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:47:03 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 127)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 7516)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 8789)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:47:10 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 127)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 7527)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 8784)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:47:13 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 127)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 7525)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.0ms | Allocations: 8764)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:47:16 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 127)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 7540)
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.0ms | Allocations: 8800)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:47:18 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 132)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 7623)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.0ms | Allocations: 8873)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:47:20 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 127)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 7523)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.0ms | Allocations: 8770)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:47:26 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 7003)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.0ms | Allocations: 7432)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:47:40 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 128)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 5858)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.0ms | Allocations: 7114)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:47:42 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 5352)
+Completed 200 OK in 7ms (Views: 6.9ms | ActiveRecord: 0.0ms | Allocations: 5758)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:47:42 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 5352)
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.0ms | Allocations: 5783)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:47:43 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 5352)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.0ms | Allocations: 5767)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:47:57 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 5352)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.0ms | Allocations: 5773)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:48:07 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 127)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 5883)
+Completed 200 OK in 13ms (Views: 11.5ms | ActiveRecord: 0.0ms | Allocations: 7144)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:48:09 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 5355)
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.0ms | Allocations: 5773)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:48:19 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 22.5ms | Allocations: 14314)
+Completed 200 OK in 30ms (Views: 24.4ms | ActiveRecord: 0.0ms | Allocations: 17119)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:48:31 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 127)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 5852)
+Completed 200 OK in 13ms (Views: 11.7ms | ActiveRecord: 0.0ms | Allocations: 7100)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:48:41 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 25.0ms | Allocations: 14320)
+Completed 200 OK in 34ms (Views: 27.6ms | ActiveRecord: 0.0ms | Allocations: 17121)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:49:06 +0200
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 22.4ms | Allocations: 14318)
+Completed 200 OK in 36ms (Views: 24.8ms | ActiveRecord: 0.0ms | Allocations: 17123)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:49:08 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 5354)
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.0ms | Allocations: 5771)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:49:11 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 5354)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.0ms | Allocations: 5780)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:49:52 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 127)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 5845)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.0ms | Allocations: 7095)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:50:26 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 130)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 5944)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.0ms | Allocations: 7201)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:50:33 +0200
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 24.2ms | Allocations: 14314)
+Completed 200 OK in 34ms (Views: 26.9ms | ActiveRecord: 0.0ms | Allocations: 17617)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:51:26 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 23.4ms | Allocations: 14314)
+Completed 200 OK in 31ms (Views: 25.4ms | ActiveRecord: 0.0ms | Allocations: 17241)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:58:55 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 245)
+  Rendered layout layouts/application.html (Duration: 1.3ms | Allocations: 374)
+Completed 200 OK in 9ms (Views: 3.4ms | ActiveRecord: 0.0ms | Allocations: 3169)
+
+
+Started GET "/Bootstrap%20JS/bootstrap.js" for 127.0.0.1 at 2023-06-07 18:58:55 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Bootstrap%20JS/bootstrap.js"):
+  
+Started GET "/" for 127.0.0.1 at 2023-06-07 18:59:18 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 22.8ms | Allocations: 14313)
+Completed 200 OK in 31ms (Views: 24.9ms | ActiveRecord: 0.0ms | Allocations: 17126)
+
+
+Started GET "/Bootstrap%20JS/bootstrap.js" for 127.0.0.1 at 2023-06-07 18:59:18 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Bootstrap%20JS/bootstrap.js"):
+  
+Started GET "/" for 127.0.0.1 at 2023-06-07 19:00:21 +0200
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 28.3ms | Allocations: 20079)
+Completed 200 OK in 35ms (Views: 30.0ms | ActiveRecord: 0.0ms | Allocations: 22874)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 19:01:22 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 25.0ms | Allocations: 14312)
+Completed 200 OK in 33ms (Views: 26.7ms | ActiveRecord: 0.0ms | Allocations: 17192)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 19:01:44 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 28.4ms | Allocations: 14312)
+Completed 200 OK in 35ms (Views: 30.0ms | ActiveRecord: 0.0ms | Allocations: 17123)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 19:02:48 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 26.2ms | Allocations: 14313)
+Completed 200 OK in 33ms (Views: 28.2ms | ActiveRecord: 0.0ms | Allocations: 17110)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 19:03:00 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 127)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 5845)
+Completed 200 OK in 9ms (Views: 8.7ms | ActiveRecord: 0.0ms | Allocations: 7101)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 19:04:06 +0200
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 22.0ms | Allocations: 14316)
+Completed 200 OK in 30ms (Views: 24.0ms | ActiveRecord: 0.0ms | Allocations: 17117)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 19:07:34 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 24.7ms | Allocations: 14311)
+Completed 200 OK in 32ms (Views: 27.3ms | ActiveRecord: 0.0ms | Allocations: 17118)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 19:07:37 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 5354)
+Completed 200 OK in 6ms (Views: 5.9ms | ActiveRecord: 0.0ms | Allocations: 5769)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 19:10:06 +0200
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 28.5ms | Allocations: 14311)
+Completed 200 OK in 37ms (Views: 30.2ms | ActiveRecord: 0.0ms | Allocations: 17421)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 19:10:12 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 5354)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.0ms | Allocations: 5773)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 19:10:19 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 26.3ms | Allocations: 14311)
+Completed 200 OK in 33ms (Views: 27.9ms | ActiveRecord: 0.0ms | Allocations: 17102)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 19:27:50 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 25.8ms | Allocations: 14556)
+Completed 200 OK in 36ms (Views: 28.0ms | ActiveRecord: 0.0ms | Allocations: 17256)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 19:28:44 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 127)
+  Rendered layout layouts/application.html.erb (Duration: 30.3ms | Allocations: 19798)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.0ms | Allocations: 21032)
+
+
+  
+ActionView::Template::Error (Asset `application.js` was not declared to be precompiled in production.
+Declare links to your assets in `app/assets/config/manifest.js`.
+
+  //= link application.js
+
+and restart your server):
+     5:     <meta name="viewport" content="width=device-width,initial-scale=1" />
+     6:     <%= csrf_meta_tags %> <%= csp_meta_tag %>
+     7:     <%= stylesheet_link_tag 'application' %>
+     8:     <%= javascript_include_tag 'application' %>
+     9: 
+    10:   </head>
+    11:   <body>
+  
+app/views/layouts/application.html.erb:8
+Started GET "/" for 127.0.0.1 at 2023-06-07 19:28:58 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 23.7ms | Allocations: 18296)
+Completed 200 OK in 25ms (Views: 24.3ms | ActiveRecord: 0.0ms | Allocations: 18805)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-07 19:29:45 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 2.2ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 72.3ms | Allocations: 22370)
+Completed 500 Internal Server Error in 85ms (ActiveRecord: 0.0ms | Allocations: 25771)
+
+
+  
+ActionView::Template::Error (couldn't find file 'bootstrap.bundle.min' with type 'application/javascript'
+Checked in these paths: 
+  /home/plg/SharesYourNotes/SharesYourNotes/app/assets/config
+  /home/plg/SharesYourNotes/SharesYourNotes/app/assets/images
+  /home/plg/SharesYourNotes/SharesYourNotes/app/assets/javascript
+  /home/plg/SharesYourNotes/SharesYourNotes/app/assets/stylesheets
+  /usr/share/rvm/gems/ruby-2.7.2/gems/jquery-rails-4.5.1/vendor/assets/javascripts
+  /usr/share/rvm/gems/ruby-2.7.2/gems/actioncable-6.1.7.3/app/assets/javascripts
+  /usr/share/rvm/gems/ruby-2.7.2/gems/activestorage-6.1.7.3/app/assets/javascripts
+  /usr/share/rvm/gems/ruby-2.7.2/gems/actionview-6.1.7.3/lib/assets/compiled
+  /usr/share/rvm/gems/ruby-2.7.2/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /home/plg/SharesYourNotes/SharesYourNotes/node_modules
+  /usr/share/rvm/gems/ruby-2.7.2/gems/popper_js-2.11.7/assets/javascripts
+  /usr/share/rvm/gems/ruby-2.7.2/gems/bootstrap-5.3.0.alpha3/assets/stylesheets
+  /usr/share/rvm/gems/ruby-2.7.2/gems/bootstrap-5.3.0.alpha3/assets/javascripts):
+  
+app/assets/javascript/application.js:1
+Started GET "/" for 127.0.0.1 at 2023-06-07 19:30:00 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 35.8ms | Allocations: 22509)
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 0.0ms | Allocations: 25269)
+
+
+  
+ActionView::Template::Error (couldn't find file 'bootstrap.bundle.min.js' with type 'application/javascript'
+Checked in these paths: 
+  /home/plg/SharesYourNotes/SharesYourNotes/app/assets/config
+  /home/plg/SharesYourNotes/SharesYourNotes/app/assets/images
+  /home/plg/SharesYourNotes/SharesYourNotes/app/assets/javascript
+  /home/plg/SharesYourNotes/SharesYourNotes/app/assets/stylesheets
+  /usr/share/rvm/gems/ruby-2.7.2/gems/jquery-rails-4.5.1/vendor/assets/javascripts
+  /usr/share/rvm/gems/ruby-2.7.2/gems/actioncable-6.1.7.3/app/assets/javascripts
+  /usr/share/rvm/gems/ruby-2.7.2/gems/activestorage-6.1.7.3/app/assets/javascripts
+  /usr/share/rvm/gems/ruby-2.7.2/gems/actionview-6.1.7.3/lib/assets/compiled
+  /usr/share/rvm/gems/ruby-2.7.2/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /home/plg/SharesYourNotes/SharesYourNotes/node_modules
+  /usr/share/rvm/gems/ruby-2.7.2/gems/popper_js-2.11.7/assets/javascripts
+  /usr/share/rvm/gems/ruby-2.7.2/gems/bootstrap-5.3.0.alpha3/assets/stylesheets
+  /usr/share/rvm/gems/ruby-2.7.2/gems/bootstrap-5.3.0.alpha3/assets/javascripts):
+  
+app/assets/javascript/application.js:1
+Started GET "/" for 127.0.0.1 at 2023-06-07 19:30:11 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 125.1ms | Allocations: 36866)
+Completed 200 OK in 133ms (Views: 127.1ms | ActiveRecord: 0.0ms | Allocations: 39658)
+
+

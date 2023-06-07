@@ -292,6 +292,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.3)
   net-http
+  popper_js (~> 2.11.7)
   puma (~> 5.0)
   rack-livereload
   rails (~> 6.1.7, >= 6.1.7.3)
