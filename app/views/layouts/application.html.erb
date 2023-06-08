@@ -6,7 +6,6 @@
     <%= csrf_meta_tags %> <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application' %>
     <%= javascript_include_tag 'application' %>
-
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -16,29 +15,30 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
-          <li class="nav-item active">
+          <li class="nav-item active me-3">
             <%= link_to "Home",root_path,class: "nav-link" %>
           </li>
-          <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Dropdown
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-    </ul>
-</li>
-          <li class="nav-item">
+          <li class="nav-item dropdown me-3">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item me-3">
             <%= link_to "About",about_path,class: "nav-link" %>
           </li>
         </ul>
         <ul class="navbar-nav  ms-auto">
           <% if user_signed_in? %>
-            <li class="nav-item"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+            <li class="nav-item me-3"><%= link_to "Log out", signout_path, method: :delete, class: "nav-link" %></li>
           <% else %>
-            <li class="nav-item"><%= link_to "Sign In", new_user_session_path,class: "nav-link"%></li>
+            <li class="nav-item me-3"><%= link_to "Sign In", signin_path,class: "nav-link"%></li>
+            <li class="nav-item me-3"><%= link_to "Sign Up", signup_path,type: "button",class: " btn btn-primary"%></li>
           <% end %>
           <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -47,7 +47,6 @@
         </ul>
       </div>
     </nav>
-
     <% flash.each do |name, message| %>
       <%= content_tag(:div, message, class: "alert alert-success alert-#{name} fade show") %>
     <% end %>

@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users 
+  devise_for :users
+  devise_scope :user do
+    get "signin", to: 'devise/sessions#new'
+    delete "signout", to: "devise/sessions#destroy"
+    get "signup", to: "devise/registrations#new"
+  end
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root  'pages#home'
   get 'about' => 'pages#about'
