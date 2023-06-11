@@ -7999,3 +7999,23 @@ Processing by PagesController#home as HTML
 Completed 200 OK in 10ms (Views: 9.5ms | ActiveRecord: 0.1ms | Allocations: 9556)
 
 
+Started GET "/" for ::1 at 2023-06-11 16:08:35 +0200
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 2.2ms | Allocations: 247)
+  Rendered layout layouts/application.html.erb (Duration: 164.0ms | Allocations: 35144)
+Completed 200 OK in 180ms (Views: 169.8ms | ActiveRecord: 0.0ms | Allocations: 38069)
+
+
+Started GET "/" for ::1 at 2023-06-11 16:09:33 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 7931)
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.0ms | Allocations: 8365)
+
+
