@@ -6673,3 +6673,759 @@ Processing by PagesController#home as HTML
 Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.0ms | Allocations: 8403)
 
 
+Started GET "/" for 127.0.0.1 at 2023-06-10 18:21:01 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 2009)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms | Allocations: 5617)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html>
+  <head>
+    <title>SharesYourNotes</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <%= csrf_meta_tags %> <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#"><%= image_tag("book.png",style: "max-width: 2em; max-height: 2em;") %>SharesYourNotes</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item active me-3">
+            <%= link_to "Home",root_path,class: "nav-link" %>
+          </li>
+          <li class="nav-item dropdown me-3">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item me-3">
+            <%= link_to "About",about_path,class: "nav-link" %>
+          </li>
+        </ul>
+        <ul class="navbar-nav  ms-auto">
+          <% if user_signed_in? %>
+            <li class="nav-item me-3"><%= link_to "Log out", signout_path, method: :delete, class: "nav-link" %></li>
+            <%= if current_user.admin %>
+              <li class="nav-item me-3"><%= link_to "A facc ro cazz", signout_path, method: :delete, class: "nav-link" %></li>
+            <% end %>
+          <% else %>
+            <li class="nav-item me-3"><%= link_to "Sign In", signin_path,class: "nav-link"%></li>
+            <li class="nav-item me-3"><%= link_to "Sign Up", signup_path,type: "button",class: " btn btn-primary"%></li>
+          <% end %>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </ul>
+      </div>
+    </nav>
+    <% flash.each do |name, message| %>
+      <%= content_tag(:div, message, class: "alert alert-info alert-#{name} fade show") %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html>
+3:      <head>
+4:        <title>SharesYourNotes</title>
+5:        <meta name="viewport" content="width=device-width,initial-scale=1" />
+6:        <%= csrf_meta_tags %> <%= csp_meta_tag %>
+7:        <%= stylesheet_link_tag 'application' %>
+8:        <%= javascript_include_tag 'application' %>
+9:      </head>
+10:      <body>
+11:        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+12:          <a class="navbar-brand" href="#"><%= image_tag("book.png",style: "max-width: 2em; max-height: 2em;") %>SharesYourNotes</a>
+13:          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+14:            <span class="navbar-toggler-icon"></span>
+15:          </button>
+16:          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+17:            <ul class="navbar-nav me-auto">
+18:              <li class="nav-item active me-3">
+19:                <%= link_to "Home",root_path,class: "nav-link" %>
+20:              </li>
+21:              <li class="nav-item dropdown me-3">
+22:                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+23:                  Dropdown
+24:                </a>
+25:                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+26:                  <li><a class="dropdown-item" href="#">Action</a></li>
+27:                  <li><a class="dropdown-item" href="#">Another action</a></li>
+28:                  <li><hr class="dropdown-divider"></li>
+29:                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+30:                </ul>
+31:              </li>
+32:              <li class="nav-item me-3">
+33:                <%= link_to "About",about_path,class: "nav-link" %>
+34:              </li>
+35:            </ul>
+36:            <ul class="navbar-nav  ms-auto">
+37:              <% if user_signed_in? %>
+38:                <li class="nav-item me-3"><%= link_to "Log out", signout_path, method: :delete, class: "nav-link" %></li>
+39:                <%= if current_user.admin %>
+40:                  <li class="nav-item me-3"><%= link_to "A facc ro cazz", signout_path, method: :delete, class: "nav-link" %></li>
+41:                <% end %>
+42:              <% else %>
+43:                <li class="nav-item me-3"><%= link_to "Sign In", signin_path,class: "nav-link"%></li>
+44:                <li class="nav-item me-3"><%= link_to "Sign Up", signup_path,type: "button",class: " btn btn-primary"%></li>
+45:              <% end %>
+46:              <form class="d-flex">
+47:                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+48:                <button class="btn btn-outline-success" type="submit">Search</button>
+49:              </form>
+50:            </ul>
+51:          </div>
+52:        </nav>
+53:        <% flash.each do |name, message| %>
+54:          <%= content_tag(:div, message, class: "alert alert-info alert-#{name} fade show") %>
+55:        <% end %>
+56:        <%= yield %>
+57:      </body>
+58:    </html>
+  
+app/views/layouts/application.html.erb:39: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:45: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:61: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:39: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:45: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:61: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:39: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:45: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:61: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:39: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:45: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:61: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:39: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:45: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:61: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:39: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:45: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:61: syntax error, unexpected `end', expecting ')'
+Started GET "/" for 127.0.0.1 at 2023-06-10 18:21:31 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 2000)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms | Allocations: 5115)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html>
+  <head>
+    <title>SharesYourNotes</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <%= csrf_meta_tags %> <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#"><%= image_tag("book.png",style: "max-width: 2em; max-height: 2em;") %>SharesYourNotes</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item active me-3">
+            <%= link_to "Home",root_path,class: "nav-link" %>
+          </li>
+          <li class="nav-item dropdown me-3">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item me-3">
+            <%= link_to "About",about_path,class: "nav-link" %>
+          </li>
+        </ul>
+        <ul class="navbar-nav  ms-auto">
+          <% if user_signed_in? %>
+            <li class="nav-item me-3"><%= link_to "Log out", signout_path, method: :delete, class: "nav-link" %></li>
+            <%= if current_user.admin %>
+              <li class="nav-item me-3"><%= link_to "A facc ro cazz", signout_path, method: :delete, class: "nav-link" %></li>
+          <% else %>
+            <li class="nav-item me-3"><%= link_to "Sign In", signin_path,class: "nav-link"%></li>
+            <li class="nav-item me-3"><%= link_to "Sign Up", signup_path,type: "button",class: " btn btn-primary"%></li>
+          <% end %>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </ul>
+      </div>
+    </nav>
+    <% flash.each do |name, message| %>
+      <%= content_tag(:div, message, class: "alert alert-info alert-#{name} fade show") %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html>
+3:      <head>
+4:        <title>SharesYourNotes</title>
+5:        <meta name="viewport" content="width=device-width,initial-scale=1" />
+6:        <%= csrf_meta_tags %> <%= csp_meta_tag %>
+7:        <%= stylesheet_link_tag 'application' %>
+8:        <%= javascript_include_tag 'application' %>
+9:      </head>
+10:      <body>
+11:        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+12:          <a class="navbar-brand" href="#"><%= image_tag("book.png",style: "max-width: 2em; max-height: 2em;") %>SharesYourNotes</a>
+13:          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+14:            <span class="navbar-toggler-icon"></span>
+15:          </button>
+16:          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+17:            <ul class="navbar-nav me-auto">
+18:              <li class="nav-item active me-3">
+19:                <%= link_to "Home",root_path,class: "nav-link" %>
+20:              </li>
+21:              <li class="nav-item dropdown me-3">
+22:                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+23:                  Dropdown
+24:                </a>
+25:                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+26:                  <li><a class="dropdown-item" href="#">Action</a></li>
+27:                  <li><a class="dropdown-item" href="#">Another action</a></li>
+28:                  <li><hr class="dropdown-divider"></li>
+29:                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+30:                </ul>
+31:              </li>
+32:              <li class="nav-item me-3">
+33:                <%= link_to "About",about_path,class: "nav-link" %>
+34:              </li>
+35:            </ul>
+36:            <ul class="navbar-nav  ms-auto">
+37:              <% if user_signed_in? %>
+38:                <li class="nav-item me-3"><%= link_to "Log out", signout_path, method: :delete, class: "nav-link" %></li>
+39:                <%= if current_user.admin %>
+40:                  <li class="nav-item me-3"><%= link_to "A facc ro cazz", signout_path, method: :delete, class: "nav-link" %></li>
+41:              <% else %>
+42:                <li class="nav-item me-3"><%= link_to "Sign In", signin_path,class: "nav-link"%></li>
+43:                <li class="nav-item me-3"><%= link_to "Sign Up", signup_path,type: "button",class: " btn btn-primary"%></li>
+44:              <% end %>
+45:              <form class="d-flex">
+46:                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+47:                <button class="btn btn-outline-success" type="submit">Search</button>
+48:              </form>
+49:            </ul>
+50:          </div>
+51:        </nav>
+52:        <% flash.each do |name, message| %>
+53:          <%= content_tag(:div, message, class: "alert alert-info alert-#{name} fade show") %>
+54:        <% end %>
+55:        <%= yield %>
+56:      </body>
+57:    </html>
+  
+app/views/layouts/application.html.erb:39: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:44: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:60: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:39: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:44: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:60: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:39: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:44: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:60: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:39: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:44: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:60: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:39: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:44: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:60: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:39: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:44: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:60: syntax error, unexpected `end', expecting ')'
+Started GET "/" for 127.0.0.1 at 2023-06-10 18:22:43 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 120.8ms | Allocations: 35164)
+Completed 200 OK in 137ms (Views: 124.7ms | ActiveRecord: 0.0ms | Allocations: 38182)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-10 18:23:43 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 122.2ms | Allocations: 35217)
+Completed 200 OK in 132ms (Views: 124.6ms | ActiveRecord: 0.0ms | Allocations: 38228)
+
+
+Started GET "/signin" for 127.0.0.1 at 2023-06-10 18:23:47 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 4.4ms | Allocations: 596)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 16.6ms | Allocations: 4791)
+  Rendered layout layouts/application.html.erb (Duration: 37.7ms | Allocations: 12466)
+Completed 200 OK in 59ms (Views: 42.1ms | ActiveRecord: 2.2ms | Allocations: 19043)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-06-10 18:23:51 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"grassopierluca@alice.it", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "grassopierluca@alice.it"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 197ms (ActiveRecord: 0.2ms | Allocations: 5174)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-10 18:23:51 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 8787)
+Completed 200 OK in 11ms (Views: 10.6ms | ActiveRecord: 0.1ms | Allocations: 9225)
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2023-06-10 18:23:54 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 4ms (ActiveRecord: 0.1ms | Allocations: 2058)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-10 18:23:54 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 7952)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.0ms | Allocations: 8378)
+
+
+Started GET "/signin" for 127.0.0.1 at 2023-06-10 18:23:55 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 134)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 2694)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 10356)
+Completed 200 OK in 14ms (Views: 12.2ms | ActiveRecord: 0.0ms | Allocations: 10992)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-06-10 18:24:02 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"prova@prova.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "prova@prova.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 196ms (ActiveRecord: 0.1ms | Allocations: 2169)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-10 18:24:02 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 8528)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.1ms | Allocations: 8971)
+
+
+Started GET "/admin" for 127.0.0.1 at 2023-06-10 18:29:08 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 17ms (ActiveRecord: 0.7ms | Allocations: 7802)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-10 18:29:08 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 245)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 116.3ms | Allocations: 35722)
+Completed 200 OK in 121ms (Views: 118.3ms | ActiveRecord: 0.1ms | Allocations: 37951)
+
+
+Started GET "/admin" for 127.0.0.1 at 2023-06-10 18:29:11 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 13ms (ActiveRecord: 0.2ms | Allocations: 1668)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-10 18:29:11 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 22.8ms | Allocations: 8523)
+Completed 200 OK in 26ms (Views: 25.8ms | ActiveRecord: 0.2ms | Allocations: 8982)
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2023-06-10 18:29:14 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 4ms (ActiveRecord: 0.1ms | Allocations: 2223)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-10 18:29:14 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 7982)
+Completed 200 OK in 9ms (Views: 8.7ms | ActiveRecord: 0.0ms | Allocations: 8414)
+
+
+Started GET "/signin" for 127.0.0.1 at 2023-06-10 18:29:16 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 596)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.2ms | Allocations: 4791)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 12475)
+Completed 200 OK in 18ms (Views: 16.3ms | ActiveRecord: 0.0ms | Allocations: 14604)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-06-10 18:29:20 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"grassopierluca@alice.it", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "grassopierluca@alice.it"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 198ms (ActiveRecord: 0.2ms | Allocations: 4701)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-10 18:29:21 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 8593)
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.1ms | Allocations: 9029)
+
+
+Started GET "/admin" for 127.0.0.1 at 2023-06-10 18:29:23 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb (Duration: 27.7ms | Allocations: 17152)
+Completed 200 OK in 32ms (Views: 29.4ms | ActiveRecord: 0.1ms | Allocations: 18970)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-10 18:34:13 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 10.8ms | Allocations: 245)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 168.3ms | Allocations: 44764)
+Completed 500 Internal Server Error in 187ms (ActiveRecord: 0.5ms | Allocations: 47755)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `admin_dashboard' for #<ActionView::Base:0x0000000000c8f0>
+Did you mean?  admin_dashboard_url):
+    37:           <% if user_signed_in? %>
+    38:             <li class="nav-item me-3"><%= link_to "Log out", signout_path, method: :delete, class: "nav-link" %></li>
+    39:             <% if current_user.admin %>
+    40:               <li class="nav-item me-3"><%= link_to "Admin Dahsboard", admin_dashboard, class: "nav-link" %></li>
+    41:             <% end %>
+    42:           <% else %>
+    43:             <li class="nav-item me-3"><%= link_to "Sign In", signin_path,class: "nav-link"%></li>
+  
+app/views/layouts/application.html.erb:40
+Started GET "/" for 127.0.0.1 at 2023-06-10 18:34:25 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 128)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 9466)
+Completed 200 OK in 15ms (Views: 12.9ms | ActiveRecord: 0.1ms | Allocations: 11035)
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2023-06-10 18:34:28 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 4ms (ActiveRecord: 0.1ms | Allocations: 2255)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-10 18:34:28 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 7989)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.0ms | Allocations: 8425)
+
+
+Started GET "/signin" for 127.0.0.1 at 2023-06-10 18:34:30 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 597)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.9ms | Allocations: 4794)
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 12466)
+Completed 200 OK in 19ms (Views: 16.0ms | ActiveRecord: 0.0ms | Allocations: 14591)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-06-10 18:34:37 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"prova@prova.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "prova@prova.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 198ms (ActiveRecord: 0.2ms | Allocations: 2039)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"prova@prova.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 134)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 2684)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 10328)
+Completed 200 OK in 203ms (Views: 10.8ms | ActiveRecord: 0.0ms | Allocations: 10876)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-06-10 18:34:41 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"prova@prova.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "prova@prova.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 200ms (ActiveRecord: 0.2ms | Allocations: 3734)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-10 18:34:41 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 8538)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.1ms | Allocations: 8974)
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2023-06-10 18:34:43 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 3ms (ActiveRecord: 0.1ms | Allocations: 1603)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-10 18:34:43 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 7947)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.0ms | Allocations: 8374)
+
+
+Started GET "/signin" for 127.0.0.1 at 2023-06-10 18:34:44 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 134)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 2683)
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 10344)
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.0ms | Allocations: 10973)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-06-10 18:34:48 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"grassopierluca@alice.it", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "grassopierluca@alice.it"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 195ms (ActiveRecord: 0.1ms | Allocations: 2181)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-10 18:34:48 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 8563)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.1ms | Allocations: 9010)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2023-06-10 18:34:50 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb (Duration: 20.7ms | Allocations: 17843)
+Completed 200 OK in 32ms (Views: 21.9ms | ActiveRecord: 0.1ms | Allocations: 22210)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2023-06-10 18:34:51 +0200
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 44.1ms | Allocations: 39531)
+Completed 200 OK in 51ms (Views: 45.6ms | ActiveRecord: 0.3ms | Allocations: 42506)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-10 18:36:41 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 245)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 108.4ms | Allocations: 40560)
+Completed 200 OK in 121ms (Views: 114.1ms | ActiveRecord: 0.5ms | Allocations: 43588)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-10 18:36:48 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 245)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 114.9ms | Allocations: 40457)
+Completed 200 OK in 126ms (Views: 117.7ms | ActiveRecord: 0.5ms | Allocations: 43984)
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2023-06-10 18:36:51 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 11ms (ActiveRecord: 0.3ms | Allocations: 2237)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-10 18:36:51 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 23.1ms | Allocations: 7966)
+Completed 200 OK in 25ms (Views: 24.4ms | ActiveRecord: 0.0ms | Allocations: 8394)
+
+
+Started GET "/signin" for 127.0.0.1 at 2023-06-10 18:36:53 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 596)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 8.8ms | Allocations: 4793)
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 12490)
+Completed 200 OK in 18ms (Views: 17.6ms | ActiveRecord: 0.0ms | Allocations: 14633)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-06-10 18:36:58 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"grassopierluca@alice.it", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "grassopierluca@alice.it"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 197ms (ActiveRecord: 0.2ms | Allocations: 4686)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-10 18:36:58 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 8575)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.1ms | Allocations: 9018)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2023-06-10 18:38:03 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb (Duration: 20.3ms | Allocations: 17856)
+Completed 200 OK in 32ms (Views: 21.7ms | ActiveRecord: 0.1ms | Allocations: 22216)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-06-10 18:38:45 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 4ms (ActiveRecord: 0.1ms | Allocations: 1602)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-10 18:38:45 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 7957)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.0ms | Allocations: 8393)
+
+

@@ -36,6 +36,9 @@
         <ul class="navbar-nav  ms-auto">
           <% if user_signed_in? %>
             <li class="nav-item me-3"><%= link_to "Log out", signout_path, method: :delete, class: "nav-link" %></li>
+            <% if current_user.admin %>
+              <li class="nav-item me-3"><%= link_to "Admin Dahsboard", admin_dashboard_path, class: "nav-link" %></li>
+            <% end %>
           <% else %>
             <li class="nav-item me-3"><%= link_to "Sign In", signin_path,class: "nav-link"%></li>
             <li class="nav-item me-3"><%= link_to "Sign Up", signup_path,type: "button",class: " btn btn-primary"%></li>
