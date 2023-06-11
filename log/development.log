@@ -8030,3 +8030,24 @@ Processing by PagesController#home as HTML
 Completed 200 OK in 235ms (Views: 209.4ms | ActiveRecord: 0.0ms | Allocations: 40033)
 
 
+Started GET "/" for ::1 at 2023-06-11 16:15:45 +0200
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 2.8ms | Allocations: 375)
+  Rendered layout layouts/application.html.erb (Duration: 278.4ms | Allocations: 35559)
+Completed 200 OK in 318ms (Views: 303.9ms | ActiveRecord: 0.0ms | Allocations: 39906)
+
+
+Started GET "/signin" for ::1 at 2023-06-11 16:15:48 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.2ms | Allocations: 596)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 21.2ms | Allocations: 4817)
+  Rendered layout layouts/application.html.erb (Duration: 36.6ms | Allocations: 12492)
+Completed 200 OK in 66ms (Views: 42.4ms | ActiveRecord: 1.9ms | Allocations: 19054)
+
+
