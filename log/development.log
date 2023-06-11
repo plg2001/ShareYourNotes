@@ -7608,3 +7608,104 @@ Processing by PagesController#home as HTML
 Completed 200 OK in 14ms (Views: 13.1ms | ActiveRecord: 0.0ms | Allocations: 8422)
 
 
+Started GET "/" for 127.0.0.1 at 2023-06-11 15:41:48 +0200
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.8ms | Allocations: 352)
+  Rendered layout layouts/application.html.erb (Duration: 2448.8ms | Allocations: 291904)
+Completed 200 OK in 2464ms (Views: 2455.8ms | ActiveRecord: 0.0ms | Allocations: 295845)
+
+
+Started GET "/signup" for 127.0.0.1 at 2023-06-11 15:42:00 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.3ms | Allocations: 186)
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 509)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 12.3ms | Allocations: 8201)
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 15859)
+Completed 200 OK in 24ms (Views: 18.4ms | ActiveRecord: 0.4ms | Allocations: 22202)
+
+
+Started POST "/users" for 127.0.0.1 at 2023-06-11 15:42:22 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"prova@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "prova@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "prova@gmail.com"], ["encrypted_password", "$2a$12$HAWCqMvZbw5iJ1VXfMXfmuNGTm/COau01NSrntNNLm8QViTR6wT8K"], ["created_at", "2023-06-11 13:42:22.404448"], ["updated_at", "2023-06-11 13:42:22.404448"]]
+  [1m[36mTRANSACTION (11.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 223ms (ActiveRecord: 11.8ms | Allocations: 11497)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-11 15:42:22 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 8631)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.1ms | Allocations: 9093)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "prova@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "admin" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-06-11 13:44:38.353239"], ["admin", 1], ["id", 5]]
+  [1m[36mTRANSACTION (10.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/" for 127.0.0.1 at 2023-06-11 15:45:02 +0200
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 245)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 63.6ms | Allocations: 40016)
+Completed 200 OK in 69ms (Views: 65.4ms | ActiveRecord: 0.5ms | Allocations: 43039)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2023-06-11 15:45:07 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering /home/damiano/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb
+  Rendered /home/damiano/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb (Duration: 106.2ms | Allocations: 69524)
+Completed 200 OK in 113ms (Views: 107.7ms | ActiveRecord: 0.1ms | Allocations: 72136)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2023-06-11 15:45:12 +0200
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering /home/damiano/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /home/damiano/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 34.5ms | Allocations: 43563)
+Completed 200 OK in 42ms (Views: 36.0ms | ActiveRecord: 0.2ms | Allocations: 46758)
+
+
+Started GET "/admin/users?q%5Bemail_contains%5D=gmail&commit=Filter&order=id_desc" for 127.0.0.1 at 2023-06-11 15:45:39 +0200
+Processing by Admin::UsersController#index as HTML
+  Parameters: {"q"=>{"email_contains"=>"gmail"}, "commit"=>"Filter", "order"=>"id_desc"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering /home/damiano/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" LIKE '%gmail%' ORDER BY "users"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /home/damiano/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 26.1ms | Allocations: 35138)
+Completed 200 OK in 29ms (Views: 26.5ms | ActiveRecord: 0.2ms | Allocations: 37041)
+
+
+Started GET "/admin/users?commit=Filter&order=id_desc" for 127.0.0.1 at 2023-06-11 15:45:44 +0200
+Processing by Admin::UsersController#index as HTML
+  Parameters: {"commit"=>"Filter", "order"=>"id_desc"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering /home/damiano/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /home/damiano/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 23.4ms | Allocations: 38175)
+Completed 200 OK in 26ms (Views: 23.8ms | ActiveRecord: 0.2ms | Allocations: 39866)
+
+
