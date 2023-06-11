@@ -46,3 +46,5 @@ db/development.sqlite3
 log/development.log
 log/development.log
 log/development.log
+log/development.log
+.DS_Store
