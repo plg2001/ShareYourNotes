@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'about' => 'pages#about'
 
   
-  post 'invia_messaggio', to: 'admin/dashboard#invia_messaggio'
+
 
   
   
