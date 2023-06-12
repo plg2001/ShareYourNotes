@@ -53,7 +53,11 @@
       </div>
     </nav>
     <% flash.each do |name, message| %>
-      <%= content_tag(:div, message, class: "alert alert-info alert-#{name} fade show") %>
+      <% if current_user.present? %>
+        <% message.chomp!('.') if message.ends_with?('.') %>
+        <% message += " #{current_user.username}" %>
+        <%= content_tag(:div,message, class: "alert alert-info alert-#{name} fade show") %>
+      <% end %>
     <% end %>
     <%= yield %>
   </body>

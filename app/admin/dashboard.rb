@@ -5,6 +5,7 @@ ActiveAdmin.register_page "Dashboard" do
   content title: proc { I18n.t("active_admin.dashboard") } do    
     panel "Utenti registrati" do
       table_for User.all do
+        column :username
         column :email
         column :encrypted_password
         column :created_at
