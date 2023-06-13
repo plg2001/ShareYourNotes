@@ -13887,3 +13887,1189 @@ Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.1ms | Allocations: 9038)
 
 
   [1m[36mRichiestaAdmin Load (0.2ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/" for 127.0.0.1 at 2023-06-13 17:22:02 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 8562)
+Completed 200 OK in 12ms (Views: 10.3ms | ActiveRecord: 0.1ms | Allocations: 9007)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-13 17:22:30 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/layouts/application.html.erb:37
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 16.6ms | Allocations: 14098)
+Completed 200 OK in 19ms (Views: 17.3ms | ActiveRecord: 0.8ms | Allocations: 15215)
+
+
+Started POST "/richiesta_admins/create_richiesta_admin" for 127.0.0.1 at 2023-06-13 17:22:31 +0200
+Processing by RichiestaAdminsController#create_richiesta_admin as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/richiesta_admins_controller.rb:19:in `create_richiesta_admin'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/richiesta_admins_controller.rb:20:in `create_richiesta_admin'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/richiesta_admins_controller.rb:20:in `create_richiesta_admin'
+  [1m[36mRichiestaAdmin Create (0.2ms)[0m  [1m[32mINSERT INTO "richiesta_admins" ("user_id", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 8], ["content", "Salve desidero diventare un amministratore del vostro sito"], ["created_at", "2023-06-13 15:22:31.256458"], ["updated_at", "2023-06-13 15:22:31.256458"]]
+  ↳ app/controllers/richiesta_admins_controller.rb:20:in `create_richiesta_admin'
+  [1m[36mTRANSACTION (8.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/richiesta_admins_controller.rb:20:in `create_richiesta_admin'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 21ms (ActiveRecord: 9.7ms | Allocations: 8814)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-13 17:22:31 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 8590)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.1ms | Allocations: 9054)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-13 17:24:21 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/layouts/application.html.erb:37
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 14098)
+Completed 200 OK in 19ms (Views: 17.4ms | ActiveRecord: 0.7ms | Allocations: 15183)
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2023-06-13 17:24:23 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 5ms (ActiveRecord: 0.1ms | Allocations: 1873)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-13 17:24:23 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 7956)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.0ms | Allocations: 8389)
+
+
+Started GET "/signin" for 127.0.0.1 at 2023-06-13 17:24:23 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 523)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 3529)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 11202)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 13189)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-06-13 17:24:29 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"grassopierluca@alice.it", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "grassopierluca@alice.it"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 193ms (ActiveRecord: 0.2ms | Allocations: 1434)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"grassopierluca@alice.it", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 134)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 2684)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 10317)
+Completed 200 OK in 199ms (Views: 8.6ms | ActiveRecord: 0.0ms | Allocations: 10869)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-06-13 17:24:34 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"grassopierluca@alice.it", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "grassopierluca@alice.it"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 194ms (ActiveRecord: 0.2ms | Allocations: 3711)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-13 17:24:34 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 4)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 8591)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.1ms | Allocations: 9038)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2023-06-13 17:24:36 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/admin/dashboard.rb:7:in `block (3 levels) in <main>'
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/admin/dashboard.rb:16:in `block (3 levels) in <main>'
+  [1m[36mRichiestaAdmin Load (0.5ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins"[0m
+  ↳ app/admin/dashboard.rb:23:in `block (3 levels) in <main>'
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb (Duration: 39.8ms | Allocations: 28432)
+Completed 200 OK in 48ms (Views: 40.1ms | ActiveRecord: 1.8ms | Allocations: 30760)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2023-06-13 17:25:52 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/admin/dashboard.rb:7:in `block (3 levels) in <main>'
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/admin/dashboard.rb:16:in `block (3 levels) in <main>'
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins"[0m
+  ↳ app/admin/dashboard.rb:23:in `block (3 levels) in <main>'
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb (Duration: 31.3ms | Allocations: 27383)
+Completed 200 OK in 44ms (Views: 31.1ms | ActiveRecord: 1.8ms | Allocations: 35720)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2023-06-13 17:25:58 +0200
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 43.5ms | Allocations: 44113)
+Completed 200 OK in 50ms (Views: 45.4ms | ActiveRecord: 0.3ms | Allocations: 46957)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2023-06-13 17:26:17 +0200
+Processing by Admin::UsersController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 34.5ms | Allocations: 40941)
+Completed 200 OK in 48ms (Views: 35.6ms | ActiveRecord: 1.0ms | Allocations: 49870)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2023-06-13 17:26:18 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/admin/dashboard.rb:7:in `block (3 levels) in <main>'
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/admin/dashboard.rb:16:in `block (3 levels) in <main>'
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins"[0m
+  ↳ app/admin/dashboard.rb:23:in `block (3 levels) in <main>'
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb (Duration: 33.4ms | Allocations: 25263)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 1.2ms | Allocations: 26773)
+
+
+  
+ActionView::Template::Error (undefined method `username' for :user_id:Symbol):
+    1: # frozen_string_literal: true
+    2: insert_tag active_admin_application.view_factory["page"]
+  
+app/admin/dashboard.rb:24:in `block (4 levels) in <main>'
+app/admin/dashboard.rb:23:in `block (3 levels) in <main>'
+app/admin/dashboard.rb:22:in `block (2 levels) in <main>'
+Started GET "/admin/dashboard" for 127.0.0.1 at 2023-06-13 17:26:39 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/admin/dashboard.rb:7:in `block (3 levels) in <main>'
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/admin/dashboard.rb:16:in `block (3 levels) in <main>'
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins"[0m
+  ↳ app/admin/dashboard.rb:23:in `block (3 levels) in <main>'
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb (Duration: 26.7ms | Allocations: 27516)
+Completed 200 OK in 39ms (Views: 26.8ms | ActiveRecord: 1.7ms | Allocations: 35874)
+
+
+Started GET "/admin/users/7" for 127.0.0.1 at 2023-06-13 17:41:53 +0200
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/show.html.arb
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = ? AND "active_admin_comments"."resource_id" = ? AND "active_admin_comments"."namespace" = ?[0m  [["resource_type", "User"], ["resource_id", 7], ["namespace", "admin"]]
+  [1m[36mActiveAdmin::Comment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = ? AND "active_admin_comments"."resource_id" = ? AND "active_admin_comments"."namespace" = ? LIMIT ? OFFSET ?[0m  [["resource_type", "User"], ["resource_id", 7], ["namespace", "admin"], ["LIMIT", 1], ["OFFSET", 0]]
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/show.html.arb (Duration: 36.6ms | Allocations: 34116)
+Completed 200 OK in 51ms (Views: 37.5ms | ActiveRecord: 1.5ms | Allocations: 43512)
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2023-06-13 17:41:59 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 3ms (ActiveRecord: 0.1ms | Allocations: 1922)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-13 17:41:59 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 7980)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.0ms | Allocations: 8578)
+
+
+Started GET "/signin" for 127.0.0.1 at 2023-06-13 17:42:00 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 145)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 2714)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 10390)
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 11172)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-06-13 17:42:07 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"pierlucagrasso89@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "pierlucagrasso89@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 194ms (ActiveRecord: 0.2ms | Allocations: 2261)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-13 17:42:07 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 8598)
+Completed 200 OK in 8ms (Views: 7.9ms | ActiveRecord: 0.1ms | Allocations: 9038)
+
+
+Started POST "/richiesta_admins/create_richiesta_admin" for 127.0.0.1 at 2023-06-13 17:42:09 +0200
+Processing by RichiestaAdminsController#create_richiesta_admin as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/richiesta_admins_controller.rb:19:in `create_richiesta_admin'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/richiesta_admins_controller.rb:20:in `create_richiesta_admin'
+  [1m[36mRichiestaAdmin Create (0.3ms)[0m  [1m[32mINSERT INTO "richiesta_admins" ("user_id", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 8], ["content", "Salve desidero diventare un amministratore del vostro sito"], ["created_at", "2023-06-13 15:42:09.239815"], ["updated_at", "2023-06-13 15:42:09.239815"]]
+  ↳ app/controllers/richiesta_admins_controller.rb:20:in `create_richiesta_admin'
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/richiesta_admins_controller.rb:20:in `create_richiesta_admin'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 22ms (ActiveRecord: 6.5ms | Allocations: 9760)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-13 17:42:09 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 8586)
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.1ms | Allocations: 9038)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mRichiestaAdmin Destroy (7.0ms)[0m  [1m[31mDELETE FROM "richiesta_admins"[0m
+Started GET "/" for 127.0.0.1 at 2023-06-13 17:42:28 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 8579)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.1ms | Allocations: 9007)
+
+
+Started POST "/richiesta_admins/create_richiesta_admin" for 127.0.0.1 at 2023-06-13 17:42:29 +0200
+Processing by RichiestaAdminsController#create_richiesta_admin as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/richiesta_admins_controller.rb:19:in `create_richiesta_admin'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/richiesta_admins_controller.rb:20:in `create_richiesta_admin'
+  [1m[36mRichiestaAdmin Create (0.4ms)[0m  [1m[32mINSERT INTO "richiesta_admins" ("user_id", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 8], ["content", "Salve desidero diventare un amministratore del vostro sito"], ["created_at", "2023-06-13 15:42:29.158801"], ["updated_at", "2023-06-13 15:42:29.158801"]]
+  ↳ app/controllers/richiesta_admins_controller.rb:20:in `create_richiesta_admin'
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/richiesta_admins_controller.rb:20:in `create_richiesta_admin'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 15ms (ActiveRecord: 9.1ms | Allocations: 4776)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-13 17:42:29 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 8587)
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.1ms | Allocations: 9032)
+
+
+  [1m[36mRichiestaAdmin Load (0.2ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/" for 127.0.0.1 at 2023-06-13 17:46:06 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/layouts/application.html.erb:37
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 14115)
+Completed 200 OK in 18ms (Views: 16.7ms | ActiveRecord: 0.7ms | Allocations: 15215)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-13 17:47:09 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 132)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 9250)
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.1ms | Allocations: 10744)
+
+
+Started POST "/richiesta_admins/create_richiesta_admin" for 127.0.0.1 at 2023-06-13 17:47:12 +0200
+Processing by RichiestaAdminsController#create_richiesta_admin as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/richiesta_admins_controller.rb:19:in `create_richiesta_admin'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/richiesta_admins_controller.rb:20:in `create_richiesta_admin'
+  [1m[36mRichiestaAdmin Create (0.2ms)[0m  [1m[32mINSERT INTO "richiesta_admins" ("user_id", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 8], ["content", "Salve desidero diventare un amministratore del vostro sito"], ["created_at", "2023-06-13 15:47:12.604758"], ["updated_at", "2023-06-13 15:47:12.604758"]]
+  ↳ app/controllers/richiesta_admins_controller.rb:20:in `create_richiesta_admin'
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/richiesta_admins_controller.rb:20:in `create_richiesta_admin'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 20ms (ActiveRecord: 5.6ms | Allocations: 7594)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-13 17:47:12 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 8608)
+Completed 200 OK in 9ms (Views: 8.8ms | ActiveRecord: 0.1ms | Allocations: 9066)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/" for 127.0.0.1 at 2023-06-13 17:48:29 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 130)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 9240)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.1ms | Allocations: 10721)
+
+
+Started GET "/richiesta_admins/index" for 127.0.0.1 at 2023-06-13 17:48:37 +0200
+Processing by RichiestaAdminsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mRichiestaAdmin Load (0.3ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" WHERE "richiesta_admins"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/richiesta_admins_controller.rb:75:in `set_richiesta_admin'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.3ms | Allocations: 1159)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find RichiestaAdmin with 'id'=index):
+  
+app/controllers/richiesta_admins_controller.rb:75:in `set_richiesta_admin'
+Started GET "/richiesta_admins" for 127.0.0.1 at 2023-06-13 17:48:45 +0200
+Processing by RichiestaAdminsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering richiesta_admins/index.html.erb within layouts/application
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins"[0m
+  ↳ app/views/richiesta_admins/index.html.erb:15
+  Rendered richiesta_admins/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 2707)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 2771)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms | Allocations: 3980)
+
+
+  
+ActionView::Template::Error (undefined method `email' for 8:Integer):
+    14:   <tbody>
+    15:     <% @richiesta_admins.each do |richiesta_admin| %>
+    16:       <tr>
+    17:         <td><%= richiesta_admin.user_id.email %></td>
+    18:         <td><%= richiesta_admin.content %></td>
+    19:         <td><%= link_to 'Show', richiesta_admin %></td>
+    20:         <td><%= link_to 'Edit', edit_richiesta_admin_path(richiesta_admin) %></td>
+  
+app/views/richiesta_admins/index.html.erb:17
+app/views/richiesta_admins/index.html.erb:15
+Started GET "/richiesta_admins" for 127.0.0.1 at 2023-06-13 17:49:18 +0200
+Processing by RichiestaAdminsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering richiesta_admins/index.html.erb within layouts/application
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins"[0m
+  ↳ app/views/richiesta_admins/index.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/richiesta_admins/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/richiesta_admins/index.html.erb:17
+  Rendered richiesta_admins/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 2504)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 11611)
+Completed 200 OK in 16ms (Views: 15.1ms | ActiveRecord: 0.3ms | Allocations: 13100)
+
+
+Started DELETE "/richiesta_admins/16" for 127.0.0.1 at 2023-06-13 17:49:32 +0200
+Processing by RichiestaAdminsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"16"}
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" WHERE "richiesta_admins"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/richiesta_admins_controller.rb:75:in `set_richiesta_admin'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/richiesta_admins_controller.rb:63:in `destroy'
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" WHERE "richiesta_admins"."user_id" = ? AND "richiesta_admins"."id" = ? LIMIT ?[0m  [["user_id", 8], ["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/richiesta_admins_controller.rb:63:in `destroy'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/richiesta_admins_controller.rb:64:in `destroy'
+  [1m[36mRichiestaAdmin Destroy (0.2ms)[0m  [1m[31mDELETE FROM "richiesta_admins" WHERE "richiesta_admins"."id" = ?[0m  [["id", 16]]
+  ↳ app/controllers/richiesta_admins_controller.rb:64:in `destroy'
+  [1m[36mTRANSACTION (6.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/richiesta_admins_controller.rb:64:in `destroy'
+Redirected to http://127.0.0.1:3000/richiesta_admins
+Completed 302 Found in 15ms (ActiveRecord: 7.2ms | Allocations: 5492)
+
+
+Started GET "/richiesta_admins" for 127.0.0.1 at 2023-06-13 17:49:32 +0200
+Processing by RichiestaAdminsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering richiesta_admins/index.html.erb within layouts/application
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins"[0m
+  ↳ app/views/richiesta_admins/index.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/richiesta_admins/index.html.erb:17
+  Rendered richiesta_admins/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1269)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 9827)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.3ms | Allocations: 10302)
+
+
+Started GET "/richiesta_admins/17/edit" for 127.0.0.1 at 2023-06-13 17:49:34 +0200
+Processing by RichiestaAdminsController#edit as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" WHERE "richiesta_admins"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/richiesta_admins_controller.rb:75:in `set_richiesta_admin'
+  Rendering layout layouts/application.html.erb
+  Rendering richiesta_admins/edit.html.erb within layouts/application
+  Rendered richiesta_admins/_form.html.erb (Duration: 1.9ms | Allocations: 968)
+  Rendered richiesta_admins/edit.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1347)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 9914)
+Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 0.2ms | Allocations: 10903)
+
+
+Started DELETE "/richiesta_admins/17" for 127.0.0.1 at 2023-06-13 17:49:37 +0200
+Processing by RichiestaAdminsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"17"}
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" WHERE "richiesta_admins"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/richiesta_admins_controller.rb:75:in `set_richiesta_admin'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/richiesta_admins_controller.rb:63:in `destroy'
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" WHERE "richiesta_admins"."user_id" = ? AND "richiesta_admins"."id" = ? LIMIT ?[0m  [["user_id", 8], ["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/richiesta_admins_controller.rb:63:in `destroy'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/richiesta_admins_controller.rb:64:in `destroy'
+  [1m[36mRichiestaAdmin Destroy (0.2ms)[0m  [1m[31mDELETE FROM "richiesta_admins" WHERE "richiesta_admins"."id" = ?[0m  [["id", 17]]
+  ↳ app/controllers/richiesta_admins_controller.rb:64:in `destroy'
+  [1m[36mTRANSACTION (7.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/richiesta_admins_controller.rb:64:in `destroy'
+Redirected to http://127.0.0.1:3000/richiesta_admins
+Completed 302 Found in 14ms (ActiveRecord: 7.4ms | Allocations: 5462)
+
+
+Started GET "/richiesta_admins" for 127.0.0.1 at 2023-06-13 17:49:37 +0200
+Processing by RichiestaAdminsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering richiesta_admins/index.html.erb within layouts/application
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins"[0m
+  ↳ app/views/richiesta_admins/index.html.erb:15
+  Rendered richiesta_admins/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 525)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 9083)
+Completed 200 OK in 11ms (Views: 10.6ms | ActiveRecord: 0.2ms | Allocations: 9559)
+
+
+Started GET "/richiesta_admins/new" for 127.0.0.1 at 2023-06-13 17:49:40 +0200
+Processing by RichiestaAdminsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering richiesta_admins/new.html.erb within layouts/application
+  Rendered richiesta_admins/_form.html.erb (Duration: 0.7ms | Allocations: 607)
+  Rendered richiesta_admins/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 798)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 9347)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.1ms | Allocations: 9934)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Started GET "/" for 127.0.0.1 at 2023-06-13 17:53:12 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 132)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/layouts/application.html.erb:37
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 14416)
+Completed 200 OK in 20ms (Views: 17.9ms | ActiveRecord: 0.7ms | Allocations: 16188)
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2023-06-13 17:53:13 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 3ms (ActiveRecord: 0.1ms | Allocations: 1912)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-13 17:53:13 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 7951)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.0ms | Allocations: 8388)
+
+
+Started GET "/signin" for 127.0.0.1 at 2023-06-13 17:53:14 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 523)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 3527)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 11200)
+Completed 200 OK in 13ms (Views: 12.3ms | ActiveRecord: 0.0ms | Allocations: 13169)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-06-13 17:53:18 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"grassopierluca@alice.it", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "grassopierluca@alice.it"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 197ms (ActiveRecord: 0.1ms | Allocations: 3780)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-13 17:53:18 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 8591)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.1ms | Allocations: 9030)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2023-06-13 17:53:22 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/admin/dashboard.rb:7:in `block (3 levels) in <main>'
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/admin/dashboard.rb:16:in `block (3 levels) in <main>'
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins"[0m
+  ↳ app/admin/dashboard.rb:23:in `block (3 levels) in <main>'
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb (Duration: 21.3ms | Allocations: 24871)
+Completed 200 OK in 25ms (Views: 21.7ms | ActiveRecord: 0.7ms | Allocations: 26884)
+
+
+Started GET "/admin/richiesta_admins" for 127.0.0.1 at 2023-06-13 17:53:26 +0200
+Processing by Admin::RichiestaAdminsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" ORDER BY "richiesta_admins"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 26.2ms | Allocations: 28448)
+Completed 200 OK in 31ms (Views: 27.4ms | ActiveRecord: 0.7ms | Allocations: 31511)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-13 17:53:40 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 7962)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.0ms | Allocations: 8294)
+
+
+Started GET "/signin" for 127.0.0.1 at 2023-06-13 17:53:43 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 134)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 2698)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 10369)
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.0ms | Allocations: 11005)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-06-13 17:53:52 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"pierlucagrasso89@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "pierlucagrasso89@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 196ms (ActiveRecord: 0.1ms | Allocations: 2192)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-13 17:53:52 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 8598)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.1ms | Allocations: 9042)
+
+
+Started POST "/richiesta_admins/create_richiesta_admin" for 127.0.0.1 at 2023-06-13 17:53:55 +0200
+Processing by RichiestaAdminsController#create_richiesta_admin as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/richiesta_admins_controller.rb:19:in `create_richiesta_admin'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/richiesta_admins_controller.rb:20:in `create_richiesta_admin'
+  [1m[36mRichiestaAdmin Create (0.3ms)[0m  [1m[32mINSERT INTO "richiesta_admins" ("user_id", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 8], ["content", "Salve desidero diventare un amministratore del vostro sito"], ["created_at", "2023-06-13 15:53:55.727561"], ["updated_at", "2023-06-13 15:53:55.727561"]]
+  ↳ app/controllers/richiesta_admins_controller.rb:20:in `create_richiesta_admin'
+  [1m[36mTRANSACTION (7.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/richiesta_admins_controller.rb:20:in `create_richiesta_admin'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 17ms (ActiveRecord: 8.1ms | Allocations: 7028)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-13 17:53:55 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 8590)
+Completed 200 OK in 13ms (Views: 12.6ms | ActiveRecord: 0.1ms | Allocations: 9046)
+
+
+Started GET "/admin/richiesta_admins" for 127.0.0.1 at 2023-06-13 17:53:57 +0200
+Processing by Admin::RichiestaAdminsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mRichiestaAdmin Load (0.2ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" ORDER BY "richiesta_admins"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 33.7ms | Allocations: 35382)
+Completed 200 OK in 38ms (Views: 34.0ms | ActiveRecord: 0.5ms | Allocations: 37085)
+
+
+Started GET "/admin/users/8" for 127.0.0.1 at 2023-06-13 17:54:04 +0200
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/show.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = ? AND "active_admin_comments"."resource_id" = ? AND "active_admin_comments"."namespace" = ?[0m  [["resource_type", "User"], ["resource_id", 8], ["namespace", "admin"]]
+  [1m[36mActiveAdmin::Comment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = ? AND "active_admin_comments"."resource_id" = ? AND "active_admin_comments"."namespace" = ? LIMIT ? OFFSET ?[0m  [["resource_type", "User"], ["resource_id", 8], ["namespace", "admin"], ["LIMIT", 1], ["OFFSET", 0]]
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/show.html.arb (Duration: 24.0ms | Allocations: 28823)
+Completed 200 OK in 28ms (Views: 25.1ms | ActiveRecord: 0.4ms | Allocations: 31982)
+
+
+Started GET "/admin/richiesta_admins/18/edit" for 127.0.0.1 at 2023-06-13 17:54:12 +0200
+Processing by Admin::RichiestaAdminsController#edit as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" WHERE "richiesta_admins"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/edit.html.arb
+  [1m[36mCACHE RichiestaAdmin Load (0.0ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" WHERE "richiesta_admins"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/edit.html.arb (Duration: 26.7ms | Allocations: 27050)
+Completed 200 OK in 32ms (Views: 28.4ms | ActiveRecord: 0.4ms | Allocations: 30085)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2023-06-13 17:54:19 +0200
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins"[0m
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 32.7ms | Allocations: 43345)
+Completed 200 OK in 38ms (Views: 33.5ms | ActiveRecord: 0.3ms | Allocations: 45594)
+
+
+Started GET "/admin/users/8/edit" for 127.0.0.1 at 2023-06-13 17:54:23 +0200
+Processing by Admin::UsersController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/edit.html.arb
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/edit.html.arb (Duration: 19.1ms | Allocations: 24142)
+Completed 200 OK in 23ms (Views: 20.0ms | ActiveRecord: 0.2ms | Allocations: 26819)
+
+
+Started GET "/admin/users/8/edit" for 127.0.0.1 at 2023-06-13 17:54:27 +0200
+Processing by Admin::UsersController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/edit.html.arb
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/edit.html.arb (Duration: 20.2ms | Allocations: 23002)
+Completed 200 OK in 24ms (Views: 20.8ms | ActiveRecord: 0.2ms | Allocations: 25189)
+
+
+Started PATCH "/admin/users/8" for 127.0.0.1 at 2023-06-13 17:54:30 +0200
+Processing by Admin::UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"pierlucagrasso89@gmail.com", "admin"=>"1"}, "commit"=>"Update User", "id"=>"8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "admin" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-06-13 15:54:30.549896"], ["admin", 1], ["id", 8]]
+  [1m[36mTRANSACTION (8.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://127.0.0.1:3000/admin/users/8
+Completed 302 Found in 20ms (ActiveRecord: 8.8ms | Allocations: 10907)
+
+
+Started GET "/admin/users/8" for 127.0.0.1 at 2023-06-13 17:54:30 +0200
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/show.html.arb
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = ? AND "active_admin_comments"."resource_id" = ? AND "active_admin_comments"."namespace" = ?[0m  [["resource_type", "User"], ["resource_id", 8], ["namespace", "admin"]]
+  [1m[36mActiveAdmin::Comment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = ? AND "active_admin_comments"."resource_id" = ? AND "active_admin_comments"."namespace" = ? LIMIT ? OFFSET ?[0m  [["resource_type", "User"], ["resource_id", 8], ["namespace", "admin"], ["LIMIT", 1], ["OFFSET", 0]]
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/show.html.arb (Duration: 19.5ms | Allocations: 28009)
+Completed 200 OK in 23ms (Views: 19.9ms | ActiveRecord: 0.4ms | Allocations: 30216)
+
+
+Started GET "/admin/richiesta_admins" for 127.0.0.1 at 2023-06-13 17:54:38 +0200
+Processing by Admin::RichiestaAdminsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mRichiestaAdmin Load (0.2ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" ORDER BY "richiesta_admins"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 26.1ms | Allocations: 33452)
+Completed 200 OK in 30ms (Views: 26.3ms | ActiveRecord: 0.5ms | Allocations: 35134)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2023-06-13 17:55:28 +0200
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins"[0m
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 40.2ms | Allocations: 43143)
+Completed 200 OK in 43ms (Views: 40.6ms | ActiveRecord: 0.4ms | Allocations: 44851)
+
+
+Started GET "/admin/richiesta_admins" for 127.0.0.1 at 2023-06-13 17:56:01 +0200
+Processing by Admin::RichiestaAdminsController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mRichiestaAdmin Load (0.2ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" ORDER BY "richiesta_admins"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 28.8ms | Allocations: 33290)
+Completed 200 OK in 42ms (Views: 29.7ms | ActiveRecord: 1.3ms | Allocations: 42698)
+
+
+Started GET "/admin/richiesta_admins" for 127.0.0.1 at 2023-06-13 17:56:04 +0200
+Processing by Admin::RichiestaAdminsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" ORDER BY "richiesta_admins"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 22.7ms | Allocations: 29101)
+Completed 200 OK in 25ms (Views: 23.0ms | ActiveRecord: 0.3ms | Allocations: 30806)
+
+
+Started GET "/admin/richiesta_admins" for 127.0.0.1 at 2023-06-13 17:56:20 +0200
+Processing by Admin::RichiestaAdminsController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" ORDER BY "richiesta_admins"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 32.6ms | Allocations: 33789)
+Completed 200 OK in 45ms (Views: 33.0ms | ActiveRecord: 1.3ms | Allocations: 43026)
+
+
+Started GET "/admin/richiesta_admins" for 127.0.0.1 at 2023-06-13 17:56:34 +0200
+Processing by Admin::RichiestaAdminsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" ORDER BY "richiesta_admins"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 22.5ms | Allocations: 24419)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 1.5ms | Allocations: 33701)
+
+
+  
+ActionView::Template::Error (undefined method `username' for :user:Symbol):
+    1: # frozen_string_literal: true
+    2: insert_tag renderer_for(:index)
+  
+app/admin/richiesta_admins.rb:20:in `block (2 levels) in <main>'
+Started GET "/admin/richiesta_admins" for 127.0.0.1 at 2023-06-13 17:58:39 +0200
+Processing by Admin::RichiestaAdminsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mRichiestaAdmin Load (0.2ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" ORDER BY "richiesta_admins"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 46.7ms | Allocations: 38027)
+Completed 200 OK in 69ms (Views: 48.1ms | ActiveRecord: 1.7ms | Allocations: 47455)
+
+
+Started GET "/admin/users/8" for 127.0.0.1 at 2023-06-13 17:58:45 +0200
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/show.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = ? AND "active_admin_comments"."resource_id" = ? AND "active_admin_comments"."namespace" = ?[0m  [["resource_type", "User"], ["resource_id", 8], ["namespace", "admin"]]
+  [1m[36mActiveAdmin::Comment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = ? AND "active_admin_comments"."resource_id" = ? AND "active_admin_comments"."namespace" = ? LIMIT ? OFFSET ?[0m  [["resource_type", "User"], ["resource_id", 8], ["namespace", "admin"], ["LIMIT", 1], ["OFFSET", 0]]
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/show.html.arb (Duration: 21.8ms | Allocations: 28074)
+Completed 200 OK in 26ms (Views: 22.4ms | ActiveRecord: 0.4ms | Allocations: 30514)
+
+
+Started GET "/admin/tags" for 127.0.0.1 at 2023-06-13 17:59:08 +0200
+Processing by Admin::TagsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" ORDER BY "tags"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 24.4ms | Allocations: 30027)
+Completed 200 OK in 29ms (Views: 25.5ms | ActiveRecord: 0.6ms | Allocations: 32814)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2023-06-13 17:59:11 +0200
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins"[0m
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 36.0ms | Allocations: 44133)
+Completed 200 OK in 41ms (Views: 36.3ms | ActiveRecord: 0.4ms | Allocations: 45877)
+
+
+Started GET "/admin/richiesta_admins" for 127.0.0.1 at 2023-06-13 17:59:31 +0200
+Processing by Admin::RichiestaAdminsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" ORDER BY "richiesta_admins"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 27.3ms | Allocations: 33606)
+Completed 200 OK in 31ms (Views: 27.5ms | ActiveRecord: 0.4ms | Allocations: 35292)
+
+
+Started GET "/admin/users/8" for 127.0.0.1 at 2023-06-13 17:59:33 +0200
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/show.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = ? AND "active_admin_comments"."resource_id" = ? AND "active_admin_comments"."namespace" = ?[0m  [["resource_type", "User"], ["resource_id", 8], ["namespace", "admin"]]
+  [1m[36mActiveAdmin::Comment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = ? AND "active_admin_comments"."resource_id" = ? AND "active_admin_comments"."namespace" = ? LIMIT ? OFFSET ?[0m  [["resource_type", "User"], ["resource_id", 8], ["namespace", "admin"], ["LIMIT", 1], ["OFFSET", 0]]
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/show.html.arb (Duration: 22.6ms | Allocations: 27773)
+Completed 200 OK in 26ms (Views: 22.8ms | ActiveRecord: 0.4ms | Allocations: 29966)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2023-06-13 17:59:41 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/admin/dashboard.rb:7:in `block (3 levels) in <main>'
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/admin/dashboard.rb:16:in `block (3 levels) in <main>'
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins"[0m
+  ↳ app/admin/dashboard.rb:23:in `block (3 levels) in <main>'
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb (Duration: 18.2ms | Allocations: 22661)
+Completed 200 OK in 21ms (Views: 18.6ms | ActiveRecord: 0.3ms | Allocations: 24208)
+
+
+Started GET "/admin/comments" for 127.0.0.1 at 2023-06-13 17:59:46 +0200
+Processing by Admin::CommentsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."namespace" = ?[0m  [["namespace", "admin"]]
+  [1m[36mActiveAdmin::Comment Load (0.1ms)[0m  [1m[34mSELECT "active_admin_comments".* FROM "active_admin_comments" WHERE "active_admin_comments"."namespace" = ? ORDER BY "active_admin_comments"."id" desc LIMIT ? OFFSET ?[0m  [["namespace", "admin"], ["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "active_admin_comments"."resource_type" FROM "active_admin_comments" ORDER BY resource_type asc[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "active_admin_comments"."author_type" FROM "active_admin_comments" ORDER BY author_type asc[0m
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 31.6ms | Allocations: 33716)
+Completed 200 OK in 35ms (Views: 32.2ms | ActiveRecord: 0.7ms | Allocations: 36162)
+
+
+Started GET "/admin/richiesta_admins" for 127.0.0.1 at 2023-06-13 17:59:47 +0200
+Processing by Admin::RichiestaAdminsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mRichiestaAdmin Load (0.2ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" ORDER BY "richiesta_admins"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 27.7ms | Allocations: 33608)
+Completed 200 OK in 31ms (Views: 27.9ms | ActiveRecord: 0.4ms | Allocations: 35305)
+
+
+Started GET "/admin/richiesta_admins" for 127.0.0.1 at 2023-06-13 18:00:03 +0200
+Processing by Admin::RichiestaAdminsController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mRichiestaAdmin Load (0.2ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" ORDER BY "richiesta_admins"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 33.0ms | Allocations: 38187)
+Completed 200 OK in 46ms (Views: 33.4ms | ActiveRecord: 1.6ms | Allocations: 47426)
+
+
+Started GET "/admin/richiesta_admins" for 127.0.0.1 at 2023-06-13 18:00:17 +0200
+Processing by Admin::RichiestaAdminsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" ORDER BY "richiesta_admins"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 36.8ms | Allocations: 38189)
+Completed 200 OK in 49ms (Views: 37.1ms | ActiveRecord: 1.4ms | Allocations: 47432)
+
+
+Started GET "/admin/richiesta_admins" for 127.0.0.1 at 2023-06-13 18:00:36 +0200
+Processing by Admin::RichiestaAdminsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mRichiestaAdmin Load (0.2ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" ORDER BY "richiesta_admins"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 33.0ms | Allocations: 38180)
+Completed 200 OK in 52ms (Views: 33.4ms | ActiveRecord: 1.6ms | Allocations: 47449)
+
+
+Started GET "/admin/richiesta_admins" for 127.0.0.1 at 2023-06-13 18:00:37 +0200
+Processing by Admin::RichiestaAdminsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" ORDER BY "richiesta_admins"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 27.5ms | Allocations: 33406)
+Completed 200 OK in 30ms (Views: 27.7ms | ActiveRecord: 0.3ms | Allocations: 35099)
+
+
+Started GET "/admin/richiesta_admins" for 127.0.0.1 at 2023-06-13 18:00:37 +0200
+Processing by Admin::RichiestaAdminsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" ORDER BY "richiesta_admins"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 30.9ms | Allocations: 33421)
+Completed 200 OK in 33ms (Views: 31.1ms | ActiveRecord: 0.4ms | Allocations: 35122)
+
+
+Started GET "/admin/richiesta_admins" for 127.0.0.1 at 2023-06-13 18:00:37 +0200
+Processing by Admin::RichiestaAdminsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mRichiestaAdmin Load (0.3ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" ORDER BY "richiesta_admins"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 25.7ms | Allocations: 33409)
+Completed 200 OK in 29ms (Views: 25.8ms | ActiveRecord: 0.5ms | Allocations: 35096)
+
+
+Started GET "/admin/richiesta_admins" for 127.0.0.1 at 2023-06-13 18:00:37 +0200
+Processing by Admin::RichiestaAdminsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" ORDER BY "richiesta_admins"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 33.1ms | Allocations: 33419)
+Completed 200 OK in 36ms (Views: 33.3ms | ActiveRecord: 0.4ms | Allocations: 35126)
+
+
+Started GET "/admin/richiesta_admins" for 127.0.0.1 at 2023-06-13 18:00:37 +0200
+Processing by Admin::RichiestaAdminsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" ORDER BY "richiesta_admins"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 27.2ms | Allocations: 33586)
+Completed 200 OK in 30ms (Views: 27.5ms | ActiveRecord: 0.4ms | Allocations: 35276)
+
+
+Started GET "/admin/richiesta_admins" for 127.0.0.1 at 2023-06-13 18:00:37 +0200
+Processing by Admin::RichiestaAdminsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" ORDER BY "richiesta_admins"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 31.1ms | Allocations: 33419)
+Completed 200 OK in 34ms (Views: 31.2ms | ActiveRecord: 0.4ms | Allocations: 35106)
+
+
+Started GET "/admin/richiesta_admins" for 127.0.0.1 at 2023-06-13 18:00:38 +0200
+Processing by Admin::RichiestaAdminsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" ORDER BY "richiesta_admins"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 27.9ms | Allocations: 33591)
+Completed 200 OK in 31ms (Views: 28.2ms | ActiveRecord: 0.4ms | Allocations: 35275)
+
+
+Started GET "/admin/richiesta_admins" for 127.0.0.1 at 2023-06-13 18:00:38 +0200
+Processing by Admin::RichiestaAdminsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" ORDER BY "richiesta_admins"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 26.7ms | Allocations: 33585)
+Completed 200 OK in 30ms (Views: 26.8ms | ActiveRecord: 0.5ms | Allocations: 35260)
+
+
+Started GET "/admin/richiesta_admins" for 127.0.0.1 at 2023-06-13 18:00:38 +0200
+Processing by Admin::RichiestaAdminsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" ORDER BY "richiesta_admins"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 27.1ms | Allocations: 33610)
+Completed 200 OK in 30ms (Views: 27.2ms | ActiveRecord: 0.4ms | Allocations: 35304)
+
+
+Started GET "/admin/richiesta_admins/18/edit" for 127.0.0.1 at 2023-06-13 18:00:55 +0200
+Processing by Admin::RichiestaAdminsController#edit as HTML
+  Parameters: {"id"=>"18"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" WHERE "richiesta_admins"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/edit.html.arb
+  [1m[36mCACHE RichiestaAdmin Load (0.0ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" WHERE "richiesta_admins"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/edit.html.arb (Duration: 23.2ms | Allocations: 28922)
+Completed 200 OK in 38ms (Views: 23.8ms | ActiveRecord: 1.3ms | Allocations: 40425)
+
+
+Started GET "/admin/richiesta_admins" for 127.0.0.1 at 2023-06-13 18:00:59 +0200
+Processing by Admin::RichiestaAdminsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mRichiestaAdmin Load (0.2ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" ORDER BY "richiesta_admins"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 37.1ms | Allocations: 33609)
+Completed 200 OK in 40ms (Views: 37.2ms | ActiveRecord: 0.5ms | Allocations: 35378)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2023-06-13 18:01:02 +0200
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins"[0m
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 84.1ms | Allocations: 44008)
+Completed 200 OK in 88ms (Views: 83.6ms | ActiveRecord: 1.5ms | Allocations: 45892)
+
+
+Started GET "/admin/users/8" for 127.0.0.1 at 2023-06-13 18:01:09 +0200
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/show.html.arb
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = ? AND "active_admin_comments"."resource_id" = ? AND "active_admin_comments"."namespace" = ?[0m  [["resource_type", "User"], ["resource_id", 8], ["namespace", "admin"]]
+  [1m[36mActiveAdmin::Comment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = ? AND "active_admin_comments"."resource_id" = ? AND "active_admin_comments"."namespace" = ? LIMIT ? OFFSET ?[0m  [["resource_type", "User"], ["resource_id", 8], ["namespace", "admin"], ["LIMIT", 1], ["OFFSET", 0]]
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/show.html.arb (Duration: 21.7ms | Allocations: 28004)
+Completed 200 OK in 26ms (Views: 22.0ms | ActiveRecord: 0.4ms | Allocations: 30293)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2023-06-13 18:01:17 +0200
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins"[0m
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 35.6ms | Allocations: 42966)
+Completed 200 OK in 40ms (Views: 35.8ms | ActiveRecord: 0.4ms | Allocations: 44660)
+
+
+Started GET "/admin/users/5/edit" for 127.0.0.1 at 2023-06-13 18:01:20 +0200
+Processing by Admin::UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/edit.html.arb
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/edit.html.arb (Duration: 18.7ms | Allocations: 23264)
+Completed 200 OK in 22ms (Views: 19.1ms | ActiveRecord: 0.2ms | Allocations: 25461)
+
+
+Started GET "/admin/richiesta_admins" for 127.0.0.1 at 2023-06-13 18:01:23 +0200
+Processing by Admin::RichiestaAdminsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" ORDER BY "richiesta_admins"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 28.0ms | Allocations: 33615)
+Completed 200 OK in 34ms (Views: 28.2ms | ActiveRecord: 0.4ms | Allocations: 35311)
+
+
+Started GET "/admin/users/8" for 127.0.0.1 at 2023-06-13 18:01:37 +0200
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/show.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = ? AND "active_admin_comments"."resource_id" = ? AND "active_admin_comments"."namespace" = ?[0m  [["resource_type", "User"], ["resource_id", 8], ["namespace", "admin"]]
+  [1m[36mActiveAdmin::Comment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = ? AND "active_admin_comments"."resource_id" = ? AND "active_admin_comments"."namespace" = ? LIMIT ? OFFSET ?[0m  [["resource_type", "User"], ["resource_id", 8], ["namespace", "admin"], ["LIMIT", 1], ["OFFSET", 0]]
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/show.html.arb (Duration: 19.9ms | Allocations: 27954)
+Completed 200 OK in 24ms (Views: 20.1ms | ActiveRecord: 0.5ms | Allocations: 30161)
+
+

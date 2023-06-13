@@ -16,13 +16,10 @@ class RichiestaAdminsController < ApplicationController
   end
  
   def create_richiesta_admin
-    @richiesta_admin = RichiestaAdmin.new(user_id: current_user.id, content: 'Salve desidero diventare un amministratore del vostro sito')
+    @richiesta_admin = current_user.richiesta_admins.new(user_id: current_user.id, content: 'Salve desidero diventare un amministratore del vostro sito')
     if @richiesta_admin.save
       # La tupla è stata creata con successo
-      redirect_to root_path, notice: 'RichiestaAdmin creata con successo.'
-    else
-      # La creazione della tupla ha fallito
-      render :new
+      redirect_to root_path, notice: 'Richiesta per diventare amministratore creata con successo.'
     end
   end
   
@@ -34,7 +31,7 @@ class RichiestaAdminsController < ApplicationController
 
   # POST /richiesta_admins or /richiesta_admins.json
   def create
-    @richiesta_admin = RichiestaAdmin.new(richiesta_admin_params)
+    @richiesta_admin = current_user.richiesta_admins.new(richiesta_admin_params)
 
     respond_to do |format|
       if @richiesta_admin.save
@@ -63,6 +60,7 @@ class RichiestaAdminsController < ApplicationController
 
   # DELETE /richiesta_admins/1 or /richiesta_admins/1.json
   def destroy
+    @richiesta_admin = current_user.richiesta_admins.find(params[:id])
     @richiesta_admin.destroy
 
     respond_to do |format|

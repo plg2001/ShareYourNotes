@@ -19,5 +19,12 @@ ActiveAdmin.register_page "Dashboard" do
       end
     end
     
+    panel "Richeste admin" do
+      table_for RichiestaAdmin.all do
+        column :user_id
+        column :content
+      end
+    end
+
   end 
 end
