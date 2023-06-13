@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @richiesta_admin.user_id %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @richiesta_admin.content %>
+</p>
+
+<%= link_to 'Edit', edit_richiesta_admin_path(@richiesta_admin) %> |
+<%= link_to 'Back', richiesta_admins_path %>

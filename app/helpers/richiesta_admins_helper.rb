@@ -1,0 +1,2 @@
+module RichiestaAdminsHelper
+end

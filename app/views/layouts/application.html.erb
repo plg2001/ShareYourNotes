@@ -39,7 +39,7 @@
             <% if current_user.admin %>
               <li class="nav-item me-3"><%= link_to "Admin Dahsboard", admin_dashboard_path, class: "nav-link" %></li>
             <% else %>
-              <li class="nav-item me-3"><%= link_to "Richiesta Admin", root_path,class: "nav-link" %></li>
+              <li class="nav-item me-3"><%= link_to 'Crea richiesta', create_richiesta_admin_richiesta_admins_path,class: "nav-link", method: :post %></li>
             <% end %>
           <% else %>
             <li class="nav-item me-3"><%= link_to "Sign In", signin_path,class: "nav-link"%></li>
@@ -55,7 +55,9 @@
     <% flash.each do |name, message| %>
       <% if current_user.present? %>
         <% message.chomp!('.') if message.ends_with?('.') %>
-        <% message += " #{current_user.username}" %>
+        <% if message.starts_with?("Signed") %>
+          <% message += " #{current_user.username}" %>
+        <% end %>
         <%= content_tag(:div,message, class: "alert alert-info alert-#{name} fade show") %>
       <% end %>
     <% end %>

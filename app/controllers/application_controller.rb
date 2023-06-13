@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters ,if: :devise_controller?
+    
 
     def access_denied(exception)
         redirect_to root_path,alert: exception.message
