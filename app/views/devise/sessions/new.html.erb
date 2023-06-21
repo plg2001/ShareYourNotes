@@ -27,4 +27,6 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+<%= link_to "Login with Facebook", user_facebook_omniauth_authorize_path, method: :post %>
 </div>

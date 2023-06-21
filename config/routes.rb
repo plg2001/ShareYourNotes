@@ -16,11 +16,7 @@ Rails.application.routes.draw do
     post 'create_richiesta_admin', on: :collection
   end
   
-  
-
-
-  
-  
+  get "/auth/facebook/callback", to: "omniauth_callbacks#facebook"
 
 end
 
