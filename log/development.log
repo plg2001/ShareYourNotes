@@ -22956,3 +22956,257 @@ Processing by PagesController#home as HTML
 Completed 200 OK in 13ms (Views: 12.3ms | ActiveRecord: 0.0ms | Allocations: 8531)
 
 
+Started GET "/" for 127.0.0.1 at 2023-06-21 15:38:13 +0200
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 3.2ms | Allocations: 300)
+  Rendered layout layouts/application.html.erb (Duration: 160.9ms | Allocations: 37195)
+Completed 200 OK in 187ms (Views: 173.3ms | ActiveRecord: 0.0ms | Allocations: 41508)
+
+
+Started GET "/signup" for 127.0.0.1 at 2023-06-21 15:38:16 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.1ms | Allocations: 186)
+  Rendered devise/shared/_links.html.erb (Duration: 3.2ms | Allocations: 597)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 22.2ms | Allocations: 5617)
+  Rendered layout layouts/application.html.erb (Duration: 37.6ms | Allocations: 13293)
+Completed 200 OK in 55ms (Views: 41.3ms | ActiveRecord: 0.6ms | Allocations: 22457)
+
+
+Started POST "/users" for 127.0.0.1 at 2023-06-21 15:38:50 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"username"=>"Michael", "name"=>"Michael", "email"=>"michaelcorelli11@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "michaelcorelli11@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "username", "name", "confirmation_token", "confirmation_sent_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "michaelcorelli11@gmail.com"], ["encrypted_password", "$2a$12$lcl3iGHNvBYmMOMhvPZ5quNuiThTPbTbawTEPHdqUpzYKG38qh32G"], ["created_at", "2023-06-21 13:38:51.116610"], ["updated_at", "2023-06-21 13:38:51.116610"], ["username", "Michael"], ["name", "Michael"], ["confirmation_token", "D28zN3DsENR845_AMb6R"], ["confirmation_sent_at", "2023-06-21 13:38:51.116917"]]
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (Duration: 1.5ms | Allocations: 113)
+  Rendered layout layouts/mailer.html.erb (Duration: 2.5ms | Allocations: 284)
+  Rendering layout layouts/mailer.text.erb
+  Rendering user_mailer/welcome_email.text.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.text.erb within layouts/mailer (Duration: 0.8ms | Allocations: 73)
+  Rendered layout layouts/mailer.text.erb (Duration: 1.7ms | Allocations: 225)
+UserMailer#welcome_email: processed outbound mail in 14.3ms
+Delivered mail 6492fd6b2da10_14c6e6e00435c6@Air-di-Michael.station.mail (1458.7ms)
+Date: Wed, 21 Jun 2023 15:38:51 +0200
+From: sharesyournotes@gmail.com
+To: michaelcorelli11@gmail.com
+Message-ID: <6492fd6b2da10_14c6e6e00435c6@Air-di-Michael.station.mail>
+Subject: Welcome to SharesYourNotes
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_6492fd6b2c829_14c6e6e004344d";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_6492fd6b2c829_14c6e6e004344d
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to SharesYourNotes, 
+===============================================
+You have successfully signed up to SharesYourNotes
+Thanks for joining and have a great day!
+
+----==_mimepart_6492fd6b2c829_14c6e6e004344d
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Welcome to SharesYourNotes, Michael</h1>
+  <p>
+    You have successfully signed up to SharesYourNotes,
+    your username is: Michael.<br>
+  </p>
+<p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+----==_mimepart_6492fd6b2c829_14c6e6e004344d--
+
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (Duration: 1.9ms | Allocations: 221)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 6.7ms
+Delivered mail 6492fd6ca0851_14c6e6e0043693@Air-di-Michael.station.mail (1274.9ms)
+Date: Wed, 21 Jun 2023 15:38:52 +0200
+From: sharesyournotes@gmail.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: michaelcorelli11@gmail.com
+Message-ID: <6492fd6ca0851_14c6e6e0043693@Air-di-Michael.station.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome michaelcorelli11@gmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=D28zN3DsENR845_AMb6R">Confirm my account</a></p>
+
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 3138ms (ActiveRecord: 2.7ms | Allocations: 65697)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-21 15:38:53 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 8110)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 8557)
+
+
+Started GET "/users/confirmation?confirmation_token=[FILTERED]" for ::1 at 2023-06-21 15:39:09 +0200
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."confirmation_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["confirmation_token", "D28zN3DsENR845_AMb6R"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "confirmed_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-06-21 13:39:09.919740"], ["confirmed_at", "2023-06-21 13:39:09.919419"], ["id", 19]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 16ms (ActiveRecord: 2.9ms | Allocations: 4670)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-06-21 15:39:09 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.0ms | Allocations: 258)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 12.0ms | Allocations: 3524)
+  Rendered layout layouts/application.html.erb (Duration: 34.6ms | Allocations: 11222)
+Completed 200 OK in 38ms (Views: 37.2ms | ActiveRecord: 0.0ms | Allocations: 12784)
+
+
+Started POST "/users/sign_in" for ::1 at 2023-06-21 15:39:20 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"michaelcorelli11@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "michaelcorelli11@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 292ms (ActiveRecord: 0.3ms | Allocations: 2804)
+
+
+Started GET "/" for ::1 at 2023-06-21 15:39:20 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 8717)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.2ms | Allocations: 9164)
+
+
+Started DELETE "/signout" for ::1 at 2023-06-21 15:40:23 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 33ms (ActiveRecord: 0.2ms | Allocations: 4459)
+
+
+Started GET "/" for ::1 at 2023-06-21 15:40:23 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 8104)
+Completed 200 OK in 14ms (Views: 13.7ms | ActiveRecord: 0.0ms | Allocations: 8543)
+
+
+Started GET "/" for ::1 at 2023-06-21 15:40:24 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 7934)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.0ms | Allocations: 8359)
+
+
+Started GET "/signin" for ::1 at 2023-06-21 15:40:27 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 191)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 2764)
+  Rendered layout layouts/application.html.erb (Duration: 14.1ms | Allocations: 10428)
+Completed 200 OK in 15ms (Views: 14.6ms | ActiveRecord: 0.0ms | Allocations: 11077)
+
+
+Started POST "/users/sign_in" for ::1 at 2023-06-21 15:40:34 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"michaelcorelli11@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "michaelcorelli11@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 291ms (ActiveRecord: 0.2ms | Allocations: 2214)
+
+
+Started GET "/" for ::1 at 2023-06-21 15:40:34 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 8753)
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.1ms | Allocations: 9203)
+
+
+Started GET "/admin/dashboard" for ::1 at 2023-06-21 15:40:36 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendering /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/admin/dashboard.rb:7:in `block (3 levels) in <main>'
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/admin/dashboard.rb:16:in `block (3 levels) in <main>'
+  [1m[36mRichiestaAdmin Load (0.2ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins"[0m
+  ↳ app/admin/dashboard.rb:23:in `block (3 levels) in <main>'
+  Rendered /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb (Duration: 49.4ms | Allocations: 26102)
+Completed 200 OK in 57ms (Views: 50.6ms | ActiveRecord: 1.3ms | Allocations: 28524)
+
+
+Started GET "/admin/users" for ::1 at 2023-06-21 15:40:39 +0200
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendering /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins"[0m
+  Rendered /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 76.3ms | Allocations: 49535)
+Completed 200 OK in 86ms (Views: 79.3ms | ActiveRecord: 1.0ms | Allocations: 52545)
+
+
+Started GET "/admin/dashboard" for ::1 at 2023-06-21 15:40:45 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendering /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/admin/dashboard.rb:7:in `block (3 levels) in <main>'
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/admin/dashboard.rb:16:in `block (3 levels) in <main>'
+  [1m[36mRichiestaAdmin Load (0.1ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins"[0m
+  ↳ app/admin/dashboard.rb:23:in `block (3 levels) in <main>'
+  Rendered /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb (Duration: 28.7ms | Allocations: 21783)
+Completed 200 OK in 32ms (Views: 28.9ms | ActiveRecord: 0.5ms | Allocations: 23212)
+
+
