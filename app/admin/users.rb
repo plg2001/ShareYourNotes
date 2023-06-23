@@ -30,6 +30,7 @@ ActiveAdmin.register User do
     column :username
     column :email
     column :admin
+    column :provider
     actions
   end
 end
