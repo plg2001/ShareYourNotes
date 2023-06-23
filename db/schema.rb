@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_22_154046) do
+ActiveRecord::Schema.define(version: 2023_06_23_094901) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -26,6 +26,23 @@ ActiveRecord::Schema.define(version: 2023_06_22_154046) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
   end
 
+  create_table "notes", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "notes_tags", id: false, force: :cascade do |t|
+    t.integer "note_id", null: false
+    t.integer "tag_id", null: false
+  end
+
+  create_table "notes_topics", id: false, force: :cascade do |t|
+    t.integer "note_id", null: false
+    t.integer "topic_id", null: false
+  end
+
   create_table "richiesta_admins", force: :cascade do |t|
     t.integer "user_id", null: false
     t.text "content"
@@ -35,7 +52,13 @@ ActiveRecord::Schema.define(version: 2023_06_22_154046) do
   end
 
   create_table "tags", force: :cascade do |t|
-    t.text "body"
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

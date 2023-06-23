@@ -24370,3 +24370,894 @@ Completed 200 OK in 49ms (Views: 24.4ms | ActiveRecord: 3.2ms | Allocations: 226
 
 
 Started POST "/users/auth/facebook" for 127.0.0.1 at 2023-06-22 18:20:22 +0200
+Started GET "/" for 127.0.0.1 at 2023-06-23 09:56:42 +0200
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 2.8ms | Allocations: 246)
+  Rendered layout layouts/application.html.erb (Duration: 186.2ms | Allocations: 35136)
+Completed 200 OK in 241ms (Views: 203.5ms | ActiveRecord: 0.0ms | Allocations: 40962)
+
+
+Started GET "/signin" for 127.0.0.1 at 2023-06-23 10:01:56 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.0ms | Allocations: 607)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 15.1ms | Allocations: 4895)
+  Rendered layout layouts/application.html.erb (Duration: 28.1ms | Allocations: 12568)
+Completed 200 OK in 49ms (Views: 32.9ms | ActiveRecord: 0.8ms | Allocations: 22660)
+
+
+Started GET "/signin" for 127.0.0.1 at 2023-06-23 10:01:58 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 189)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.0ms | Allocations: 2806)
+  Rendered layout layouts/application.html.erb (Duration: 35.0ms | Allocations: 10471)
+Completed 200 OK in 38ms (Views: 36.3ms | ActiveRecord: 0.0ms | Allocations: 11132)
+
+
+Started POST "/users/auth/facebook" for 127.0.0.1 at 2023-06-23 10:01:59 +0200
+Started GET "/signin" for 127.0.0.1 at 2023-06-23 10:48:45 +0200
+Processing by Devise::SessionsController#new as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.7ms | Allocations: 511)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.3ms | Allocations: 3610)
+  Rendered layout layouts/application.html.erb (Duration: 253.6ms | Allocations: 30252)
+Completed 200 OK in 272ms (Views: 258.6ms | ActiveRecord: 0.7ms | Allocations: 39961)
+
+
+Started GET "/search?query=ciao&commit=Cerca" for 127.0.0.1 at 2023-06-23 10:48:50 +0200
+Processing by SearchController#results as HTML
+  Parameters: {"query"=>"ciao", "commit"=>"Cerca"}
+  Rendering layout layouts/application.html.erb
+  Rendering search/results.html.erb within layouts/application
+  Rendered search/results.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1956)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 2020)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms | Allocations: 3310)
+
+
+  
+ActionView::Template::Error (undefined method `any?' for nil:NilClass):
+    1: <h1>Risultati della ricerca</h1>
+    2: 
+    3: <% if @results.any? %>
+    4:   <ul>
+    5:     <% @results.each do |result| %>
+    6:       <li><%= result.name %></li>
+  
+app/views/search/results.html.erb:3
+Started GET "/search?query=ciao&commit=Cerca" for 127.0.0.1 at 2023-06-23 10:49:56 +0200
+Processing by SearchController#results as HTML
+  Parameters: {"query"=>"ciao", "commit"=>"Cerca"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/search_controller.rb:13:in `search_database'
+  Rendering layout layouts/application.html.erb
+  Rendering search/results.html.erb within layouts/application
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE (name LIKE '%ciao%') LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/search/results.html.erb:3
+  Rendered search/results.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1732)
+  Rendered layout layouts/application.html.erb (Duration: 20.7ms | Allocations: 10633)
+Completed 200 OK in 30ms (Views: 23.4ms | ActiveRecord: 1.6ms | Allocations: 13281)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-23 10:50:00 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.6ms | Allocations: 127)
+  Rendered layout layouts/application.html.erb (Duration: 33.8ms | Allocations: 8245)
+Completed 200 OK in 41ms (Views: 39.0ms | ActiveRecord: 0.0ms | Allocations: 9476)
+
+
+Started GET "/search?query=ciao&commit=Cerca" for 127.0.0.1 at 2023-06-23 10:50:05 +0200
+Processing by SearchController#results as HTML
+  Parameters: {"query"=>"ciao", "commit"=>"Cerca"}
+  Rendering layout layouts/application.html.erb
+  Rendering search/results.html.erb within layouts/application
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE (name LIKE '%ciao%') LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/search/results.html.erb:3
+  Rendered search/results.html.erb within layouts/application (Duration: 3.4ms | Allocations: 505)
+  Rendered layout layouts/application.html.erb (Duration: 30.2ms | Allocations: 8622)
+Completed 200 OK in 33ms (Views: 31.2ms | ActiveRecord: 0.2ms | Allocations: 9123)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-23 10:50:11 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 32.8ms | Allocations: 8144)
+Completed 200 OK in 35ms (Views: 33.8ms | ActiveRecord: 0.0ms | Allocations: 8584)
+
+
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateNotes (20230623090058)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "notes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230623090058"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mNote Create (1.3ms)[0m  [1m[32mINSERT INTO "notes" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Nota 1"], ["description", "Descrizione della Nota 1"], ["created_at", "2023-06-23 09:03:22.189408"], ["updated_at", "2023-06-23 09:03:22.189408"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mNote Create (0.4ms)[0m  [1m[32mINSERT INTO "notes" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Nota 2"], ["description", "Descrizione della Nota 2"], ["created_at", "2023-06-23 09:03:22.195615"], ["updated_at", "2023-06-23 09:03:22.195615"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mNote Create (0.4ms)[0m  [1m[32mINSERT INTO "notes" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Nota 3"], ["description", "Descrizione della Nota 3"], ["created_at", "2023-06-23 09:03:22.199856"], ["updated_at", "2023-06-23 09:03:22.199856"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for 127.0.0.1 at 2023-06-23 11:05:31 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.6ms | Allocations: 132)
+  Rendered layout layouts/application.html.erb (Duration: 18.0ms | Allocations: 8991)
+Completed 200 OK in 26ms (Views: 20.9ms | ActiveRecord: 0.0ms | Allocations: 11025)
+
+
+Started GET "/search?query=ciao&commit=Cerca" for 127.0.0.1 at 2023-06-23 11:05:36 +0200
+Processing by SearchController#results as HTML
+  Parameters: {"query"=>"ciao", "commit"=>"Cerca"}
+  Rendering layout layouts/application.html.erb
+  Rendering search/results.html.erb within layouts/application
+  [1m[36mNote Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" WHERE (name LIKE '%ciao%') LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/search/results.html.erb:3
+  Rendered search/results.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1206)
+  Rendered layout layouts/application.html.erb (Duration: 17.9ms | Allocations: 9324)
+Completed 200 OK in 24ms (Views: 19.5ms | ActiveRecord: 1.0ms | Allocations: 10760)
+
+
+Started GET "/search?query=Nota+1&commit=Cerca" for 127.0.0.1 at 2023-06-23 11:05:42 +0200
+Processing by SearchController#results as HTML
+  Parameters: {"query"=>"Nota 1", "commit"=>"Cerca"}
+  Rendering layout layouts/application.html.erb
+  Rendering search/results.html.erb within layouts/application
+  [1m[36mNote Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" WHERE (name LIKE '%Nota 1%') LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/search/results.html.erb:3
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (name LIKE '%Nota 1%')[0m
+  ↳ app/views/search/results.html.erb:5
+  Rendered search/results.html.erb within layouts/application (Duration: 8.8ms | Allocations: 2942)
+  Rendered layout layouts/application.html.erb (Duration: 28.2ms | Allocations: 11047)
+Completed 200 OK in 30ms (Views: 28.7ms | ActiveRecord: 0.8ms | Allocations: 11533)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-23 11:09:24 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 8247)
+Completed 200 OK in 17ms (Views: 16.2ms | ActiveRecord: 0.0ms | Allocations: 8694)
+
+
+Started GET "/search?query=ciao&commit=Cerca" for 127.0.0.1 at 2023-06-23 11:09:28 +0200
+Processing by SearchController#results as HTML
+  Parameters: {"query"=>"ciao", "commit"=>"Cerca"}
+  Rendering layout layouts/application.html.erb
+  Rendering search/results.html.erb within layouts/application
+  [1m[36mNote Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" WHERE (name LIKE '%ciao%') LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/search/results.html.erb:3
+  Rendered search/results.html.erb within layouts/application (Duration: 1.8ms | Allocations: 502)
+  Rendered layout layouts/application.html.erb (Duration: 25.1ms | Allocations: 8606)
+Completed 200 OK in 27ms (Views: 25.7ms | ActiveRecord: 0.2ms | Allocations: 9103)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-23 11:09:31 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 20.7ms | Allocations: 8109)
+Completed 200 OK in 22ms (Views: 21.4ms | ActiveRecord: 0.0ms | Allocations: 8548)
+
+
+Started GET "/search?query=ciao&commit=Cerca" for 127.0.0.1 at 2023-06-23 11:09:56 +0200
+Processing by SearchController#results as HTML
+  Parameters: {"query"=>"ciao", "commit"=>"Cerca"}
+  Rendering layout layouts/application.html.erb
+  Rendering search/results.html.erb within layouts/application
+  [1m[36mNote Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" WHERE (name LIKE '%ciao%') LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/search/results.html.erb:3
+  Rendered search/results.html.erb within layouts/application (Duration: 1.5ms | Allocations: 502)
+  Rendered layout layouts/application.html.erb (Duration: 22.9ms | Allocations: 8606)
+Completed 200 OK in 25ms (Views: 23.3ms | ActiveRecord: 0.2ms | Allocations: 9107)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-23 11:10:01 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 21.1ms | Allocations: 8109)
+Completed 200 OK in 23ms (Views: 22.1ms | ActiveRecord: 0.0ms | Allocations: 8550)
+
+
+Started GET "/search?query=Nota+1&commit=Cerca" for 127.0.0.1 at 2023-06-23 11:11:11 +0200
+Processing by SearchController#results as HTML
+  Parameters: {"query"=>"Nota 1", "commit"=>"Cerca"}
+  Rendering layout layouts/application.html.erb
+  Rendering search/results.html.erb within layouts/application
+  [1m[36mNote Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" WHERE (name LIKE '%Nota 1%') LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/search/results.html.erb:3
+  [1m[36mNote Load (0.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (name LIKE '%Nota 1%')[0m
+  ↳ app/views/search/results.html.erb:5
+  Rendered search/results.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1015)
+  Rendered layout layouts/application.html.erb (Duration: 26.6ms | Allocations: 9120)
+Completed 200 OK in 29ms (Views: 26.7ms | ActiveRecord: 1.0ms | Allocations: 9616)
+
+
+Started GET "/search?query=Nota+2&commit=Cerca" for 127.0.0.1 at 2023-06-23 11:11:18 +0200
+Processing by SearchController#results as HTML
+  Parameters: {"query"=>"Nota 2", "commit"=>"Cerca"}
+  Rendering layout layouts/application.html.erb
+  Rendering search/results.html.erb within layouts/application
+  [1m[36mNote Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" WHERE (name LIKE '%Nota 2%') LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/search/results.html.erb:3
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (name LIKE '%Nota 2%')[0m
+  ↳ app/views/search/results.html.erb:5
+  Rendered search/results.html.erb within layouts/application (Duration: 6.4ms | Allocations: 1013)
+  Rendered layout layouts/application.html.erb (Duration: 29.3ms | Allocations: 9243)
+Completed 200 OK in 32ms (Views: 29.5ms | ActiveRecord: 0.6ms | Allocations: 9763)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-23 11:11:22 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 23.2ms | Allocations: 8109)
+Completed 200 OK in 25ms (Views: 23.8ms | ActiveRecord: 0.0ms | Allocations: 8546)
+
+
+Started GET "/search?query=ciao&commit=Cerca" for 127.0.0.1 at 2023-06-23 11:39:41 +0200
+Processing by SearchController#results as HTML
+  Parameters: {"query"=>"ciao", "commit"=>"Cerca"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/search_controller.rb:10:in `search'
+  Rendering layout layouts/application.html.erb
+  Rendering search/results.html.erb within layouts/application
+  [1m[36mNote Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" WHERE (name LIKE '%ciao%') LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/search/results.html.erb:3
+  Rendered search/results.html.erb within layouts/application (Duration: 3.7ms | Allocations: 502)
+  Rendered layout layouts/application.html.erb (Duration: 30.4ms | Allocations: 8611)
+Completed 200 OK in 37ms (Views: 31.3ms | ActiveRecord: 1.6ms | Allocations: 9611)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-23 11:39:46 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | Allocations: 8234)
+Completed 200 OK in 22ms (Views: 21.2ms | ActiveRecord: 0.0ms | Allocations: 8684)
+
+
+Started GET "/search?query=Nota+1&commit=Cerca" for 127.0.0.1 at 2023-06-23 11:39:51 +0200
+Processing by SearchController#results as HTML
+  Parameters: {"query"=>"Nota 1", "commit"=>"Cerca"}
+  Rendering layout layouts/application.html.erb
+  Rendering search/results.html.erb within layouts/application
+  [1m[36mNote Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" WHERE (name LIKE '%Nota 1%') LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/search/results.html.erb:3
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (name LIKE '%Nota 1%')[0m
+  ↳ app/views/search/results.html.erb:5
+  Rendered search/results.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1013)
+  Rendered layout layouts/application.html.erb (Duration: 25.5ms | Allocations: 9118)
+Completed 200 OK in 28ms (Views: 25.4ms | ActiveRecord: 0.9ms | Allocations: 9629)
+
+
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateTopics (20230623094158)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "topics" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230623094158"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeColumnTypeInTags (20230623094408)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atags" ("id" integer NOT NULL PRIMARY KEY, "body" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "atags" ("id","body","created_at","updated_at")
+                     SELECT "id","body","created_at","updated_at" FROM "tags"[0m
+  [1m[35m (2.3ms)[0m  [1m[35mDROP TABLE "tags"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "tags" ("id" integer NOT NULL PRIMARY KEY, "body" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "tags" ("id","body","created_at","updated_at")
+                     SELECT "id","body","created_at","updated_at" FROM "atags"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "atags"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230623094408"]]
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RenameColumnInTags (20230623094505)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atags" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "atags" ("id","name","created_at","updated_at")
+                     SELECT "id","body","created_at","updated_at" FROM "tags"[0m
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE "tags"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "tags" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "tags" ("id","name","created_at","updated_at")
+                     SELECT "id","name","created_at","updated_at" FROM "atags"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "atags"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230623094505"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateJoinTableNotesTags (20230623094816)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "notes_tags" ("note_id" integer NOT NULL, "tag_id" integer NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230623094816"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateJoinTableNotesTopics (20230623094901)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "notes_topics" ("note_id" integer NOT NULL, "topic_id" integer NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230623094901"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-06-23 11:51:40 +0200
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 29.4ms | Allocations: 8259)
+Completed 200 OK in 35ms (Views: 31.6ms | ActiveRecord: 0.0ms | Allocations: 9366)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-23 11:51:42 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 29.3ms | Allocations: 8110)
+Completed 200 OK in 31ms (Views: 30.2ms | ActiveRecord: 0.0ms | Allocations: 8563)
+
+
+Started GET "/search?query=ciao&commit=Cerca" for 127.0.0.1 at 2023-06-23 11:51:46 +0200
+Processing by SearchController#results as HTML
+  Parameters: {"query"=>"ciao", "commit"=>"Cerca"}
+  Rendering layout layouts/application.html.erb
+  Rendering search/results.html.erb within layouts/application
+  [1m[36mNote Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" WHERE (name LIKE '%ciao%') LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/search/results.html.erb:3
+  Rendered search/results.html.erb within layouts/application (Duration: 4.4ms | Allocations: 794)
+  Rendered layout layouts/application.html.erb (Duration: 27.7ms | Allocations: 8911)
+Completed 200 OK in 42ms (Views: 28.0ms | ActiveRecord: 0.8ms | Allocations: 12569)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-23 11:51:48 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 24.3ms | Allocations: 8109)
+Completed 200 OK in 26ms (Views: 25.1ms | ActiveRecord: 0.0ms | Allocations: 8556)
+
+
+Started GET "/search?query=Nota+1&commit=Cerca" for 127.0.0.1 at 2023-06-23 11:51:54 +0200
+Processing by SearchController#results as HTML
+  Parameters: {"query"=>"Nota 1", "commit"=>"Cerca"}
+  Rendering layout layouts/application.html.erb
+  Rendering search/results.html.erb within layouts/application
+  [1m[36mNote Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" WHERE (name LIKE '%Nota 1%') LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/search/results.html.erb:3
+  [1m[36mNote Load (0.8ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (name LIKE '%Nota 1%')[0m
+  ↳ app/views/search/results.html.erb:5
+  Rendered search/results.html.erb within layouts/application (Duration: 11.5ms | Allocations: 2775)
+  Rendered layout layouts/application.html.erb (Duration: 33.5ms | Allocations: 10880)
+Completed 200 OK in 35ms (Views: 33.0ms | ActiveRecord: 1.1ms | Allocations: 11383)
+
+
+Started GET "/search?query=Nota+3&commit=Cerca" for 127.0.0.1 at 2023-06-23 11:51:59 +0200
+Processing by SearchController#results as HTML
+  Parameters: {"query"=>"Nota 3", "commit"=>"Cerca"}
+  Rendering layout layouts/application.html.erb
+  Rendering search/results.html.erb within layouts/application
+  [1m[36mNote Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" WHERE (name LIKE '%Nota 3%') LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/search/results.html.erb:3
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (name LIKE '%Nota 3%')[0m
+  ↳ app/views/search/results.html.erb:5
+  Rendered search/results.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1013)
+  Rendered layout layouts/application.html.erb (Duration: 26.3ms | Allocations: 9118)
+Completed 200 OK in 28ms (Views: 26.5ms | ActiveRecord: 0.5ms | Allocations: 9617)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-23 11:52:01 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 21.1ms | Allocations: 8109)
+Completed 200 OK in 25ms (Views: 23.3ms | ActiveRecord: 0.0ms | Allocations: 8566)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-23 11:53:07 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.1ms | Allocations: 132)
+  [1m[36mTag Load (0.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:50
+  [1m[36mTopic Load (0.6ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:51
+  Rendered layout layouts/application.html.erb (Duration: 50.9ms | Allocations: 16202)
+Completed 200 OK in 55ms (Views: 51.0ms | ActiveRecord: 2.4ms | Allocations: 17699)
+
+
+Started GET "/signin" for 127.0.0.1 at 2023-06-23 11:53:36 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.4ms | Allocations: 511)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 9.1ms | Allocations: 3608)
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:50
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:51
+  Rendered layout layouts/application.html.erb (Duration: 27.7ms | Allocations: 12644)
+Completed 200 OK in 58ms (Views: 35.1ms | ActiveRecord: 0.7ms | Allocations: 21251)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-06-23 11:53:44 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"michaelcorelli11@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "michaelcorelli11@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 327ms (ActiveRecord: 0.8ms | Allocations: 7393)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-23 11:53:45 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:50
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:51
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 10064)
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.6ms | Allocations: 10526)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2023-06-23 11:53:46 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendering /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/admin/dashboard.rb:7:in `block (3 levels) in <main>'
+  [1m[36mTag Load (0.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/admin/dashboard.rb:16:in `block (3 levels) in <main>'
+  [1m[36mRichiestaAdmin Load (0.5ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins"[0m
+  ↳ app/admin/dashboard.rb:23:in `block (3 levels) in <main>'
+  Rendered /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb (Duration: 487.0ms | Allocations: 122510)
+Completed 200 OK in 500ms (Views: 488.6ms | ActiveRecord: 1.9ms | Allocations: 124933)
+
+
+Started GET "/admin/tags" for 127.0.0.1 at 2023-06-23 11:53:49 +0200
+Processing by Admin::TagsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendering /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" ORDER BY "tags"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mNote Load (0.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes"[0m
+  Rendered /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 81.6ms | Allocations: 36373)
+Completed 200 OK in 100ms (Views: 86.9ms | ActiveRecord: 0.9ms | Allocations: 39425)
+
+
+Started GET "/admin/tags/new" for 127.0.0.1 at 2023-06-23 11:53:51 +0200
+Processing by Admin::TagsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendering /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/new.html.arb
+  Rendered /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/new.html.arb (Duration: 46.9ms | Allocations: 20727)
+Completed 200 OK in 59ms (Views: 52.9ms | ActiveRecord: 0.3ms | Allocations: 23106)
+
+
+Started POST "/admin/tags" for 127.0.0.1 at 2023-06-23 11:54:06 +0200
+Processing by Admin::TagsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tag"=>{"name"=>"Analisi 1"}, "commit"=>"Create Tag"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+[31mUnpermitted parameter: :name[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTag Create (1.0ms)[0m  [1m[32mINSERT INTO "tags" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-06-23 09:54:06.310666"], ["updated_at", "2023-06-23 09:54:06.310666"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 1.5ms | Allocations: 5654)
+
+
+  
+ActiveRecord::NotNullViolation (SQLite3::ConstraintException: NOT NULL constraint failed: tags.name):
+  
+sqlite3-1.6.3-x86_64 (darwin) lib/sqlite3/statement.rb:108:in `step'
+sqlite3-1.6.3-x86_64 (darwin) lib/sqlite3/statement.rb:108:in `block in each'
+sqlite3-1.6.3-x86_64 (darwin) lib/sqlite3/statement.rb:107:in `loop'
+sqlite3-1.6.3-x86_64 (darwin) lib/sqlite3/statement.rb:107:in `each'
+activerecord (6.1.7.3) lib/active_record/connection_adapters/sqlite3/database_statements.rb:58:in `to_a'
+activerecord (6.1.7.3) lib/active_record/connection_adapters/sqlite3/database_statements.rb:58:in `block (2 levels) in exec_query'
+activesupport (6.1.7.3) lib/active_support/dependencies/interlock.rb:48:in `block in permit_concurrent_loads'
+activesupport (6.1.7.3) lib/active_support/concurrency/share_lock.rb:187:in `yield_shares'
+activesupport (6.1.7.3) lib/active_support/dependencies/interlock.rb:47:in `permit_concurrent_loads'
+activerecord (6.1.7.3) lib/active_record/connection_adapters/sqlite3/database_statements.rb:49:in `block in exec_query'
+activerecord (6.1.7.3) lib/active_record/connection_adapters/abstract_adapter.rb:696:in `block (2 levels) in log'
+activesupport (6.1.7.3) lib/active_support/concurrency/load_interlock_aware_monitor.rb:26:in `block (2 levels) in synchronize'
+activesupport (6.1.7.3) lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+activesupport (6.1.7.3) lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+activesupport (6.1.7.3) lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+activesupport (6.1.7.3) lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+activerecord (6.1.7.3) lib/active_record/connection_adapters/abstract_adapter.rb:695:in `block in log'
+activesupport (6.1.7.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activerecord (6.1.7.3) lib/active_record/connection_adapters/abstract_adapter.rb:687:in `log'
+activerecord (6.1.7.3) lib/active_record/connection_adapters/sqlite3/database_statements.rb:48:in `exec_query'
+activerecord (6.1.7.3) lib/active_record/connection_adapters/abstract/database_statements.rb:136:in `exec_insert'
+activerecord (6.1.7.3) lib/active_record/connection_adapters/abstract/database_statements.rb:171:in `insert'
+activerecord (6.1.7.3) lib/active_record/connection_adapters/abstract/query_cache.rb:22:in `insert'
+activerecord (6.1.7.3) lib/active_record/persistence.rb:375:in `_insert_record'
+activerecord (6.1.7.3) lib/active_record/persistence.rb:929:in `_create_record'
+activerecord (6.1.7.3) lib/active_record/counter_cache.rb:166:in `_create_record'
+activerecord (6.1.7.3) lib/active_record/locking/optimistic.rb:79:in `_create_record'
+activerecord (6.1.7.3) lib/active_record/attribute_methods/dirty.rb:201:in `_create_record'
+activerecord (6.1.7.3) lib/active_record/callbacks.rb:461:in `block in _create_record'
+activesupport (6.1.7.3) lib/active_support/callbacks.rb:106:in `run_callbacks'
+activesupport (6.1.7.3) lib/active_support/callbacks.rb:824:in `_run_create_callbacks'
+activerecord (6.1.7.3) lib/active_record/callbacks.rb:461:in `_create_record'
+activerecord (6.1.7.3) lib/active_record/timestamp.rb:108:in `_create_record'
+activerecord (6.1.7.3) lib/active_record/persistence.rb:900:in `create_or_update'
+activerecord (6.1.7.3) lib/active_record/callbacks.rb:457:in `block in create_or_update'
+activesupport (6.1.7.3) lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+activerecord (6.1.7.3) lib/active_record/autosave_association.rb:385:in `around_save_collection_association'
+activesupport (6.1.7.3) lib/active_support/callbacks.rb:126:in `block in run_callbacks'
+activesupport (6.1.7.3) lib/active_support/callbacks.rb:137:in `run_callbacks'
+activesupport (6.1.7.3) lib/active_support/callbacks.rb:824:in `_run_save_callbacks'
+activerecord (6.1.7.3) lib/active_record/callbacks.rb:457:in `create_or_update'
+activerecord (6.1.7.3) lib/active_record/timestamp.rb:126:in `create_or_update'
+activerecord (6.1.7.3) lib/active_record/persistence.rb:474:in `save'
+activerecord (6.1.7.3) lib/active_record/validations.rb:47:in `save'
+activerecord (6.1.7.3) lib/active_record/transactions.rb:298:in `block in save'
+activerecord (6.1.7.3) lib/active_record/transactions.rb:354:in `block in with_transaction_returning_status'
+activerecord (6.1.7.3) lib/active_record/connection_adapters/abstract/database_statements.rb:320:in `block in transaction'
+activerecord (6.1.7.3) lib/active_record/connection_adapters/abstract/transaction.rb:319:in `block in within_new_transaction'
+activesupport (6.1.7.3) lib/active_support/concurrency/load_interlock_aware_monitor.rb:26:in `block (2 levels) in synchronize'
+activesupport (6.1.7.3) lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+activesupport (6.1.7.3) lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+activesupport (6.1.7.3) lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+activesupport (6.1.7.3) lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+activerecord (6.1.7.3) lib/active_record/connection_adapters/abstract/transaction.rb:317:in `within_new_transaction'
+activerecord (6.1.7.3) lib/active_record/connection_adapters/abstract/database_statements.rb:320:in `transaction'
+activerecord (6.1.7.3) lib/active_record/transactions.rb:350:in `with_transaction_returning_status'
+activerecord (6.1.7.3) lib/active_record/transactions.rb:298:in `save'
+activerecord (6.1.7.3) lib/active_record/suppressor.rb:44:in `save'
+activeadmin (2.13.1) lib/active_admin/resource_controller/data_access.rb:156:in `block in save_resource'
+activesupport (6.1.7.3) lib/active_support/core_ext/object/try.rb:15:in `public_send'
+activesupport (6.1.7.3) lib/active_support/core_ext/object/try.rb:15:in `try'
+activeadmin (2.13.1) lib/active_admin/callbacks.rb:80:in `block (2 levels) in define_active_admin_callbacks'
+activeadmin (2.13.1) lib/active_admin/resource_controller/data_access.rb:155:in `save_resource'
+activeadmin (2.13.1) lib/active_admin/resource_controller/data_access.rb:145:in `block in create_resource'
+activesupport (6.1.7.3) lib/active_support/core_ext/object/try.rb:15:in `public_send'
+activesupport (6.1.7.3) lib/active_support/core_ext/object/try.rb:15:in `try'
+activeadmin (2.13.1) lib/active_admin/callbacks.rb:80:in `block (2 levels) in define_active_admin_callbacks'
+activeadmin (2.13.1) lib/active_admin/resource_controller/data_access.rb:144:in `create_resource'
+inherited_resources (1.13.1) lib/inherited_resources/actions.rb:33:in `create'
+actionpack (6.1.7.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.1.7.3) lib/abstract_controller/base.rb:228:in `process_action'
+actionpack (6.1.7.3) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.1.7.3) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.1.7.3) lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+actiontext (6.1.7.3) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (6.1.7.3) lib/action_text/engine.rb:59:in `block (4 levels) in <class:Engine>'
+activesupport (6.1.7.3) lib/active_support/callbacks.rb:126:in `instance_exec'
+activesupport (6.1.7.3) lib/active_support/callbacks.rb:126:in `block in run_callbacks'
+activesupport (6.1.7.3) lib/active_support/callbacks.rb:137:in `run_callbacks'
+actionpack (6.1.7.3) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.1.7.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.1.7.3) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (6.1.7.3) lib/active_support/notifications.rb:203:in `block in instrument'
+activesupport (6.1.7.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.1.7.3) lib/active_support/notifications.rb:203:in `instrument'
+actionpack (6.1.7.3) lib/action_controller/metal/instrumentation.rb:33:in `process_action'
+actionpack (6.1.7.3) lib/action_controller/metal/params_wrapper.rb:249:in `process_action'
+activerecord (6.1.7.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.1.7.3) lib/abstract_controller/base.rb:165:in `process'
+actionview (6.1.7.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.7.3) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.7.3) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.7.3) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.7.3) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.7.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.7.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.7.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.7.3) lib/action_dispatch/routing/route_set.rb:842:in `call'
+omniauth (2.1.1) lib/omniauth/strategy.rb:202:in `call!'
+omniauth (2.1.1) lib/omniauth/strategy.rb:169:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.7) lib/rack/etag.rb:27:in `call'
+rack (2.2.7) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.7) lib/rack/head.rb:12:in `call'
+actionpack (6.1.7.3) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.7.3) lib/action_dispatch/http/content_security_policy.rb:19:in `call'
+rack (2.2.7) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.7) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.7.3) lib/action_dispatch/middleware/cookies.rb:697:in `call'
+activerecord (6.1.7.3) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.7.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.7.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.7.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.7.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7.3) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.7.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.7.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.7.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.7.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.7.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.7.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.7.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.7.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.7.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.7.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.7) lib/rack/method_override.rb:24:in `call'
+rack (2.2.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.7.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.7.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+rack-livereload (0.5.1) lib/rack/livereload.rb:23:in `_call'
+rack-livereload (0.5.1) lib/rack/livereload.rb:14:in `call'
+actionpack (6.1.7.3) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.7) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.7.3) lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+webpacker (5.4.4) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.6) lib/rack/proxy.rb:87:in `call'
+railties (6.1.7.3) lib/rails/engine.rb:539:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/admin/tags/new" for 127.0.0.1 at 2023-06-23 11:55:31 +0200
+Processing by Admin::TagsController#new as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendering /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/new.html.arb
+  Rendered /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/new.html.arb (Duration: 32.9ms | Allocations: 21502)
+Completed 200 OK in 60ms (Views: 33.7ms | ActiveRecord: 2.8ms | Allocations: 34316)
+
+
+Started POST "/admin/tags" for 127.0.0.1 at 2023-06-23 11:55:36 +0200
+Processing by Admin::TagsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tag"=>{"name"=>"Analisi 1"}, "commit"=>"Create Tag"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTag Create (1.4ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Analisi 1"], ["created_at", "2023-06-23 09:55:36.860883"], ["updated_at", "2023-06-23 09:55:36.860883"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://127.0.0.1:3000/admin/tags/4
+Completed 302 Found in 30ms (ActiveRecord: 3.6ms | Allocations: 7436)
+
+
+Started GET "/admin/tags/4" for 127.0.0.1 at 2023-06-23 11:55:36 +0200
+Processing by Admin::TagsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendering /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/show.html.arb
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = ? AND "active_admin_comments"."resource_id" = ? AND "active_admin_comments"."namespace" = ?[0m  [["resource_type", "Tag"], ["resource_id", 4], ["namespace", "admin"]]
+  [1m[36mActiveAdmin::Comment Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = ? AND "active_admin_comments"."resource_id" = ? AND "active_admin_comments"."namespace" = ? LIMIT ? OFFSET ?[0m  [["resource_type", "Tag"], ["resource_id", 4], ["namespace", "admin"], ["LIMIT", 1], ["OFFSET", 0]]
+  Rendered /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/show.html.arb (Duration: 74.4ms | Allocations: 37541)
+Completed 200 OK in 89ms (Views: 79.0ms | ActiveRecord: 2.0ms | Allocations: 40688)
+
+
+Started GET "/admin/tags/4/edit" for 127.0.0.1 at 2023-06-23 11:55:42 +0200
+Processing by Admin::TagsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendering /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/edit.html.arb
+  [1m[36mCACHE Tag Load (0.0ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/edit.html.arb (Duration: 31.8ms | Allocations: 21635)
+Completed 200 OK in 39ms (Views: 33.9ms | ActiveRecord: 0.5ms | Allocations: 24629)
+
+
+Started PATCH "/admin/tags/4" for 127.0.0.1 at 2023-06-23 11:55:44 +0200
+Processing by Admin::TagsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tag"=>{"name"=>"Analisi 1"}, "commit"=>"Update Tag", "id"=>"4"}
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/admin/tags/4
+Completed 302 Found in 24ms (ActiveRecord: 1.5ms | Allocations: 5981)
+
+
+Started GET "/admin/tags/4" for 127.0.0.1 at 2023-06-23 11:55:44 +0200
+Processing by Admin::TagsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendering /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/show.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = ? AND "active_admin_comments"."resource_id" = ? AND "active_admin_comments"."namespace" = ?[0m  [["resource_type", "Tag"], ["resource_id", 4], ["namespace", "admin"]]
+  [1m[36mActiveAdmin::Comment Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = ? AND "active_admin_comments"."resource_id" = ? AND "active_admin_comments"."namespace" = ? LIMIT ? OFFSET ?[0m  [["resource_type", "Tag"], ["resource_id", 4], ["namespace", "admin"], ["LIMIT", 1], ["OFFSET", 0]]
+  Rendered /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/show.html.arb (Duration: 34.4ms | Allocations: 25946)
+Completed 200 OK in 39ms (Views: 34.5ms | ActiveRecord: 0.6ms | Allocations: 28209)
+
+
+Started GET "/admin/richiesta_admins" for 127.0.0.1 at 2023-06-23 11:55:49 +0200
+Processing by Admin::RichiestaAdminsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendering /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mRichiestaAdmin Load (1.2ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" ORDER BY "richiesta_admins"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 68.2ms | Allocations: 28158)
+Completed 200 OK in 83ms (Views: 71.4ms | ActiveRecord: 2.9ms | Allocations: 31070)
+
+
+Started GET "/admin/tags" for 127.0.0.1 at 2023-06-23 11:55:50 +0200
+Processing by Admin::TagsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendering /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" ORDER BY "tags"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mNote Load (0.6ms)[0m  [1m[34mSELECT "notes".* FROM "notes"[0m
+  Rendered /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 74.8ms | Allocations: 38995)
+Completed 200 OK in 81ms (Views: 73.9ms | ActiveRecord: 1.9ms | Allocations: 40810)
+
+
+Started GET "/admin/tags/new" for 127.0.0.1 at 2023-06-23 11:55:51 +0200
+Processing by Admin::TagsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendering /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/new.html.arb
+  Rendered /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/new.html.arb (Duration: 24.1ms | Allocations: 19770)
+Completed 200 OK in 28ms (Views: 24.7ms | ActiveRecord: 0.1ms | Allocations: 21379)
+
+
+Started POST "/admin/tags" for 127.0.0.1 at 2023-06-23 11:55:56 +0200
+Processing by Admin::TagsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tag"=>{"name"=>"Analisi 2"}, "commit"=>"Create Tag"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTag Create (1.8ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Analisi 2"], ["created_at", "2023-06-23 09:55:56.020225"], ["updated_at", "2023-06-23 09:55:56.020225"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://127.0.0.1:3000/admin/tags/5
+Completed 302 Found in 18ms (ActiveRecord: 4.1ms | Allocations: 5281)
+
+
+Started GET "/admin/tags/5" for 127.0.0.1 at 2023-06-23 11:55:56 +0200
+Processing by Admin::TagsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendering /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/show.html.arb
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = ? AND "active_admin_comments"."resource_id" = ? AND "active_admin_comments"."namespace" = ?[0m  [["resource_type", "Tag"], ["resource_id", 5], ["namespace", "admin"]]
+  [1m[36mActiveAdmin::Comment Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = ? AND "active_admin_comments"."resource_id" = ? AND "active_admin_comments"."namespace" = ? LIMIT ? OFFSET ?[0m  [["resource_type", "Tag"], ["resource_id", 5], ["namespace", "admin"], ["LIMIT", 1], ["OFFSET", 0]]
+  Rendered /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/show.html.arb (Duration: 30.7ms | Allocations: 25939)
+Completed 200 OK in 36ms (Views: 30.9ms | ActiveRecord: 0.7ms | Allocations: 28180)
+
+
+Started GET "/admin/richiesta_admins" for 127.0.0.1 at 2023-06-23 11:56:00 +0200
+Processing by Admin::RichiestaAdminsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendering /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mRichiestaAdmin Load (0.3ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins" ORDER BY "richiesta_admins"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 40.5ms | Allocations: 27030)
+Completed 200 OK in 46ms (Views: 40.7ms | ActiveRecord: 0.6ms | Allocations: 28768)
+
+
+Started GET "/admin/tags" for 127.0.0.1 at 2023-06-23 11:56:01 +0200
+Processing by Admin::TagsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendering /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" ORDER BY "tags"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes"[0m
+  Rendered /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 57.9ms | Allocations: 34857)
+Completed 200 OK in 63ms (Views: 58.1ms | ActiveRecord: 0.7ms | Allocations: 36615)
+
+
+Started GET "/admin/users/19" for 127.0.0.1 at 2023-06-23 11:56:07 +0200
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendering /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/show.html.arb
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = ? AND "active_admin_comments"."resource_id" = ? AND "active_admin_comments"."namespace" = ?[0m  [["resource_type", "User"], ["resource_id", 19], ["namespace", "admin"]]
+  [1m[36mActiveAdmin::Comment Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = ? AND "active_admin_comments"."resource_id" = ? AND "active_admin_comments"."namespace" = ? LIMIT ? OFFSET ?[0m  [["resource_type", "User"], ["resource_id", 19], ["namespace", "admin"], ["LIMIT", 1], ["OFFSET", 0]]
+  Rendered /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/show.html.arb (Duration: 57.8ms | Allocations: 30434)
+Completed 200 OK in 71ms (Views: 61.2ms | ActiveRecord: 2.1ms | Allocations: 33480)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-06-23 11:56:10 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 9ms (ActiveRecord: 0.3ms | Allocations: 2368)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-23 11:56:10 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:50
+  [1m[36mTopic Load (0.9ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:51
+  Rendered layout layouts/application.html.erb (Duration: 21.5ms | Allocations: 11095)
+Completed 200 OK in 24ms (Views: 22.2ms | ActiveRecord: 1.0ms | Allocations: 11718)
+
+
+Started GET "/search?query=Analisi+1&tag_ids%5B%5D=&commit=Cerca" for 127.0.0.1 at 2023-06-23 11:56:32 +0200
+Processing by SearchController#results as HTML
+  Parameters: {"query"=>"Analisi 1", "tag_ids"=>[""], "commit"=>"Cerca"}
+  Rendering layout layouts/application.html.erb
+  Rendering search/results.html.erb within layouts/application
+  [1m[36mNote Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" WHERE (name LIKE '%Analisi 1%') LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/search/results.html.erb:3
+  Rendered search/results.html.erb within layouts/application (Duration: 4.0ms | Allocations: 708)
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:50
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:51
+  Rendered layout layouts/application.html.erb (Duration: 33.4ms | Allocations: 10084)
+Completed 200 OK in 44ms (Views: 39.7ms | ActiveRecord: 0.7ms | Allocations: 11347)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-23 11:56:35 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:50
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:51
+  Rendered layout layouts/application.html.erb (Duration: 24.6ms | Allocations: 9384)
+Completed 200 OK in 26ms (Views: 25.0ms | ActiveRecord: 0.3ms | Allocations: 9808)
+
+

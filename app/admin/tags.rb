@@ -15,5 +15,5 @@ ActiveAdmin.register Tag do
   #   permitted
   # end
   
-  permit_params :body
+  permit_params :name
 end

@@ -1,0 +1,14 @@
+<h1>Risultati della ricerca</h1>
+
+<% if @results.any? %>
+  <ul>
+    <% @results.each do |result| %>
+      <li>
+        <strong><%= result.name %></strong>
+        <p><%= result.description %></p>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Nessun risultato trovato.</p>
+<% end %>
