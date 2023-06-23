@@ -43,6 +43,7 @@ gem 'devise'
 gem 'htmlbeautifier'
 gem 'popper_js', '~> 2.11.7'
 gem 'activeadmin'
+
+
 gem 'omniauth-facebook'
-gem 'omniauth-rails_csrf_protection', '~> 1.0'
-gem 'omniauth'
+gem 'omniauth-rails_csrf_protection'

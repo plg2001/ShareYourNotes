@@ -369,9 +369,8 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.3)
   net-http
-  omniauth
   omniauth-facebook
-  omniauth-rails_csrf_protection (~> 1.0)
+  omniauth-rails_csrf_protection
   popper_js (~> 2.11.7)
   puma (~> 5.0)
   rack-livereload
@@ -390,4 +389,4 @@ RUBY VERSION
    ruby 2.7.2p137
 
 BUNDLED WITH
-   2.4.8
+   2.4.7

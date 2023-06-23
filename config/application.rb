@@ -20,5 +20,7 @@ module SharesYourNotes
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.app_generators.scaffold_controller = :scaffold_controller
+    config.hosts << "localhost"
+    config.hosts << "app.local"
   end
 end

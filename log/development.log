@@ -24040,3 +24040,333 @@ Completed 200 OK in 53ms (Views: 50.4ms | ActiveRecord: 0.0ms | Allocations: 132
 
 
 Started POST "/users/auth/facebook" for ::1 at 2023-06-21 17:46:18 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddOmniauthToUsers (20230622154046)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "provider" varchar[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "uid" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230622154046"]]
+  [1m[36mTRANSACTION (6.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-06-22 17:44:18 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 111.7ms | Allocations: 35206)
+Completed 200 OK in 121ms (Views: 113.7ms | ActiveRecord: 0.0ms | Allocations: 38876)
+
+
+Started GET "/signin" for 127.0.0.1 at 2023-06-22 17:44:21 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 611)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 25.8ms | Allocations: 9666)
+  Rendered layout layouts/application.html.erb (Duration: 26.1ms | Allocations: 9731)
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 0.4ms | Allocations: 19817)
+
+
+  
+ActionView::Template::Error (undefined method `user_omniauth_authorize_path' for #<ActionView::Base:0x0000000000df98>
+Did you mean?  user_facebook_omniauth_authorize_path):
+    28: 
+    29: <%= render "devise/shared/links" %>
+    30: 
+    31: <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+    32: </div>
+  
+app/views/devise/sessions/new.html.erb:31
+Started GET "/signin" for 127.0.0.1 at 2023-06-22 17:44:38 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 497)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.4ms | Allocations: 3570)
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 11927)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.0ms | Allocations: 14188)
+
+
+Started GET "/users/auth/facebook.facebook" for 127.0.0.1 at 2023-06-22 17:44:40 +0200
+Processing by Users::OmniauthCallbacksController#passthru as */*
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 1)
+Completed 404 Not Found in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms | Allocations: 656)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-22 17:45:42 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 141.2ms | Allocations: 35332)
+Completed 200 OK in 152ms (Views: 143.9ms | ActiveRecord: 0.0ms | Allocations: 39018)
+
+
+Started GET "/signin" for 127.0.0.1 at 2023-06-22 17:45:43 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 607)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.4ms | Allocations: 4902)
+  Rendered layout layouts/application.html.erb (Duration: 18.3ms | Allocations: 12595)
+Completed 200 OK in 47ms (Views: 21.6ms | ActiveRecord: 0.4ms | Allocations: 22706)
+
+
+Started POST "/users/auth/facebook.facebook" for 127.0.0.1 at 2023-06-22 17:45:44 +0200
+Processing by Users::OmniauthCallbacksController#passthru as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 2)
+Completed 404 Not Found in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 705)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-22 17:45:56 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.1ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 138.1ms | Allocations: 35225)
+Completed 200 OK in 149ms (Views: 142.4ms | ActiveRecord: 0.0ms | Allocations: 39336)
+
+
+Started GET "/signin" for 127.0.0.1 at 2023-06-22 17:45:57 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 607)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.0ms | Allocations: 4872)
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 12545)
+Completed 200 OK in 28ms (Views: 15.1ms | ActiveRecord: 0.6ms | Allocations: 22646)
+
+
+Started POST "/users/auth/facebook" for 127.0.0.1 at 2023-06-22 17:45:58 +0200
+Started GET "/" for 127.0.0.1 at 2023-06-22 17:48:22 +0200
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 250)
+  Rendered layout layouts/application.html.erb (Duration: 109.2ms | Allocations: 34975)
+Completed 200 OK in 121ms (Views: 113.9ms | ActiveRecord: 0.0ms | Allocations: 39365)
+
+
+Started GET "/signin" for 127.0.0.1 at 2023-06-22 17:48:25 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 611)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 12.5ms | Allocations: 4879)
+  Rendered layout layouts/application.html.erb (Duration: 18.6ms | Allocations: 12566)
+Completed 200 OK in 49ms (Views: 22.8ms | ActiveRecord: 2.2ms | Allocations: 22673)
+
+
+Started POST "/users/auth/facebook" for 127.0.0.1 at 2023-06-22 17:48:26 +0200
+Started GET "/" for 127.0.0.1 at 2023-06-22 17:51:15 +0200
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 145.3ms | Allocations: 35300)
+Completed 200 OK in 160ms (Views: 148.5ms | ActiveRecord: 0.0ms | Allocations: 38994)
+
+
+Started GET "/" for 127.0.0.1 at 2023-06-22 17:52:04 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 101.9ms | Allocations: 34619)
+Completed 200 OK in 113ms (Views: 105.3ms | ActiveRecord: 0.0ms | Allocations: 38672)
+
+
+Started GET "/signin" for 127.0.0.1 at 2023-06-22 17:52:05 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 611)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 14.8ms | Allocations: 4879)
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | Allocations: 12566)
+Completed 200 OK in 48ms (Views: 25.1ms | ActiveRecord: 0.5ms | Allocations: 22679)
+
+
+Started POST "/users/auth/facebook" for 127.0.0.1 at 2023-06-22 17:52:06 +0200
+Started GET "/" for 127.0.0.1 at 2023-06-22 17:53:37 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 125.2ms | Allocations: 35225)
+Completed 200 OK in 136ms (Views: 127.9ms | ActiveRecord: 0.0ms | Allocations: 39279)
+
+
+Started GET "/signin" for 127.0.0.1 at 2023-06-22 17:53:38 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 611)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 15.1ms | Allocations: 4878)
+  Rendered layout layouts/application.html.erb (Duration: 21.6ms | Allocations: 12553)
+Completed 200 OK in 50ms (Views: 25.3ms | ActiveRecord: 0.5ms | Allocations: 22664)
+
+
+Started POST "/users/auth/facebook" for 127.0.0.1 at 2023-06-22 17:53:39 +0200
+Started GET "/" for 127.0.0.1 at 2023-06-22 17:57:04 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.4ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 121.7ms | Allocations: 35069)
+Completed 200 OK in 134ms (Views: 125.8ms | ActiveRecord: 0.0ms | Allocations: 39118)
+
+
+Started GET "/signin" for 127.0.0.1 at 2023-06-22 17:57:05 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 611)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 15.3ms | Allocations: 4878)
+  Rendered layout layouts/application.html.erb (Duration: 23.0ms | Allocations: 12553)
+Completed 200 OK in 49ms (Views: 26.0ms | ActiveRecord: 0.6ms | Allocations: 22670)
+
+
+Started POST "/users/auth/facebook" for 127.0.0.1 at 2023-06-22 17:57:07 +0200
+Started GET "/" for 127.0.0.1 at 2023-06-22 18:00:26 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 118.5ms | Allocations: 35184)
+Completed 200 OK in 129ms (Views: 121.2ms | ActiveRecord: 0.0ms | Allocations: 39201)
+
+
+Started GET "/signin" for 127.0.0.1 at 2023-06-22 18:00:28 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.1ms | Allocations: 611)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 13.0ms | Allocations: 4879)
+  Rendered layout layouts/application.html.erb (Duration: 20.1ms | Allocations: 12571)
+Completed 200 OK in 53ms (Views: 26.6ms | ActiveRecord: 2.3ms | Allocations: 22695)
+
+
+Started POST "/users/auth/facebook" for 127.0.0.1 at 2023-06-22 18:00:29 +0200
+Started GET "/" for 127.0.0.1 at 2023-06-22 18:01:25 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 118.8ms | Allocations: 35113)
+Completed 200 OK in 132ms (Views: 122.1ms | ActiveRecord: 0.0ms | Allocations: 38916)
+
+
+Started GET "/signin" for 127.0.0.1 at 2023-06-22 18:01:26 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 611)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 12.1ms | Allocations: 4879)
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | Allocations: 12566)
+Completed 200 OK in 52ms (Views: 26.3ms | ActiveRecord: 0.5ms | Allocations: 22671)
+
+
+Started POST "/users/auth/facebook" for 127.0.0.1 at 2023-06-22 18:01:27 +0200
+Started GET "/" for 127.0.0.1 at 2023-06-22 18:06:20 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 125.3ms | Allocations: 35172)
+Completed 200 OK in 136ms (Views: 128.6ms | ActiveRecord: 0.0ms | Allocations: 39127)
+
+
+Started GET "/signin" for 127.0.0.1 at 2023-06-22 18:06:22 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 607)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.7ms | Allocations: 4876)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 12551)
+Completed 200 OK in 55ms (Views: 26.7ms | ActiveRecord: 3.0ms | Allocations: 22682)
+
+
+Started POST "/users/auth/facebook" for 127.0.0.1 at 2023-06-22 18:06:23 +0200
+Started GET "/signin" for 127.0.0.1 at 2023-06-22 18:06:48 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 189)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 2788)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 10451)
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.0ms | Allocations: 11157)
+
+
+Started POST "/users/auth/facebook" for 127.0.0.1 at 2023-06-22 18:06:49 +0200
+Started GET "/" for 127.0.0.1 at 2023-06-22 18:09:03 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 318)
+  Rendered layout layouts/application.html.erb (Duration: 126.2ms | Allocations: 35240)
+Completed 200 OK in 140ms (Views: 130.4ms | ActiveRecord: 0.0ms | Allocations: 39469)
+
+
+Started GET "/signin" for 127.0.0.1 at 2023-06-22 18:09:06 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 611)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 13.9ms | Allocations: 4879)
+  Rendered layout layouts/application.html.erb (Duration: 21.2ms | Allocations: 12571)
+Completed 200 OK in 49ms (Views: 25.9ms | ActiveRecord: 0.5ms | Allocations: 22684)
+
+
+Started POST "/users/auth/facebook" for 127.0.0.1 at 2023-06-22 18:09:07 +0200
+Started GET "/" for 127.0.0.1 at 2023-06-22 18:20:18 +0200
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.2ms | Allocations: 372)
+  Rendered layout layouts/application.html.erb (Duration: 148.2ms | Allocations: 35763)
+Completed 200 OK in 159ms (Views: 151.8ms | ActiveRecord: 0.0ms | Allocations: 39354)
+
+
+Started GET "/signin" for 127.0.0.1 at 2023-06-22 18:20:21 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 611)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 13.7ms | Allocations: 4879)
+  Rendered layout layouts/application.html.erb (Duration: 19.7ms | Allocations: 12566)
+Completed 200 OK in 49ms (Views: 24.4ms | ActiveRecord: 3.2ms | Allocations: 22676)
+
+
+Started POST "/users/auth/facebook" for 127.0.0.1 at 2023-06-22 18:20:22 +0200
