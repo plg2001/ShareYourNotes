@@ -27294,3 +27294,168 @@ Processing by PagesController#home as HTML
 Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.4ms | Allocations: 11619)
 
 
+Started GET "/signin" for ::1 at 2023-06-24 17:38:14 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.9ms | Allocations: 947)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 111.1ms | Allocations: 34704)
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:50
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:51
+  Rendered layout layouts/application.html.erb (Duration: 138.6ms | Allocations: 49271)
+Completed 200 OK in 165ms (Views: 143.5ms | ActiveRecord: 1.7ms | Allocations: 61158)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2023-06-24 17:38:16 +0200
+Started GET "/users/auth/facebook/callback?code=AQAzH0S_GOxHJ3wr8zwiPWdrDZYnA8FB6s8QJwWNcpEVjnqF3AiR4Naoeck2ZVDT2i2cw6i7VDyJhW5sDTpQeBEp8xF7mfzpgFYR3QcjrBQLlU5Lnk-Wp79mlK9BSdWrf7S51HEBUeGzx5nvO_Qk1sy3wWeqQMCAl7MquMiVOUADSc3jhJaSJwJpWeCpC0rmtYN9OOrxcFUDWQRmD_kelvqzZsyxXdaZWtzjTat_qbzIFnKyfRQEjb3ScWPuzGn_JosyRdzzMJKN941cA-vcYa552zv4B4GbTYXi17NgjMUFmaNDVWI5UKvBwBMa-sA62JVZ1YeS4FVScrosdfF8q1Huo_6FIK6Vlbeph9fndYll8Y6rRjPug4kLwqKvuHrNbnI&state=b6ef232c99c7a86d68b9554e92467314cdd0f62a85e0fdba" for ::1 at 2023-06-24 17:38:16 +0200
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQAzH0S_GOxHJ3wr8zwiPWdrDZYnA8FB6s8QJwWNcpEVjnqF3AiR4Naoeck2ZVDT2i2cw6i7VDyJhW5sDTpQeBEp8xF7mfzpgFYR3QcjrBQLlU5Lnk-Wp79mlK9BSdWrf7S51HEBUeGzx5nvO_Qk1sy3wWeqQMCAl7MquMiVOUADSc3jhJaSJwJpWeCpC0rmtYN9OOrxcFUDWQRmD_kelvqzZsyxXdaZWtzjTat_qbzIFnKyfRQEjb3ScWPuzGn_JosyRdzzMJKN941cA-vcYa552zv4B4GbTYXi17NgjMUFmaNDVWI5UKvBwBMa-sA62JVZ1YeS4FVScrosdfF8q1Huo_6FIK6Vlbeph9fndYll8Y6rRjPug4kLwqKvuHrNbnI", "state"=>"b6ef232c99c7a86d68b9554e92467314cdd0f62a85e0fdba"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "grassopierluca@alice.it"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:11:in `from_omniauth'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:12:in `from_omniauth'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "grassopierluca@alice.it"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `from_omniauth'
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "username", "name", "confirmation_token", "confirmation_sent_at", "provider", "uid") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "grassopierluca@alice.it"], ["encrypted_password", "$2a$12$pZkaIck/Pq3FzcSzCiMlaebVDfAcWrIMFlpQ3jZ/Yf7eTR9gerMqW"], ["created_at", "2023-06-24 15:38:17.540461"], ["updated_at", "2023-06-24 15:38:17.540461"], ["username", "PierlucaShareYourNotes"], ["name", "Pierluca"], ["confirmation_token", "fGjnsrd16sj1uTEQusgy"], ["confirmation_sent_at", "2023-06-24 15:38:17.540633"], ["provider", "facebook"], ["uid", "2683611008443738"]]
+  ↳ app/models/user.rb:12:in `from_omniauth'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (Duration: 0.4ms | Allocations: 116)
+  Rendered layout layouts/mailer.html.erb (Duration: 0.9ms | Allocations: 287)
+  Rendering layout layouts/mailer.text.erb
+  Rendering user_mailer/welcome_email.text.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.text.erb within layouts/mailer (Duration: 0.4ms | Allocations: 73)
+  Rendered layout layouts/mailer.text.erb (Duration: 0.9ms | Allocations: 225)
+UserMailer#welcome_email: processed outbound mail in 9.6ms
+Delivered mail 64970de98a412_10dd706c-32a@DESKTOP-36CFSV5.mail (952.4ms)
+Date: Sat, 24 Jun 2023 17:38:17 +0200
+From: sharesyournotes@gmail.com
+To: grassopierluca@alice.it
+Message-ID: <64970de98a412_10dd706c-32a@DESKTOP-36CFSV5.mail>
+Subject: Welcome to SharesYourNotes
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_64970de9896c1_10dd706c-434";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_64970de9896c1_10dd706c-434
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to SharesYourNotes, 
+===============================================
+You have successfully signed up to SharesYourNotes
+Thanks for joining and have a great day!
+
+----==_mimepart_64970de9896c1_10dd706c-434
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Welcome to SharesYourNotes, PierlucaShareYourNotes</h1>
+  <p>
+    You have successfully signed up to SharesYourNotes,
+    your username is: PierlucaShareYourNotes.<br>
+  </p>
+<p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+----==_mimepart_64970de9896c1_10dd706c-434--
+
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:12:in `from_omniauth'
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (Duration: 0.6ms | Allocations: 221)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 4.1ms
+Delivered mail 64970dea824fa_10dd706c-213@DESKTOP-36CFSV5.mail (977.0ms)
+Date: Sat, 24 Jun 2023 17:38:18 +0200
+From: sharesyournotes@gmail.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: grassopierluca@alice.it
+Message-ID: <64970dea824fa_10dd706c-213@DESKTOP-36CFSV5.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome grassopierluca@alice.it!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=fGjnsrd16sj1uTEQusgy">Confirm my account</a></p>
+
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:14:in `from_omniauth'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "confirmed_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-06-24 15:38:19.511348"], ["confirmed_at", "2023-06-24 15:38:19.510796"], ["id", 20]]
+  ↳ app/models/user.rb:14:in `from_omniauth'
+  [1m[36mTRANSACTION (6.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:14:in `from_omniauth'
+Redirected to http://localhost:3000/
+Completed 302 Found in 2184ms (ActiveRecord: 14.6ms | Allocations: 46322)
+
+
+Started GET "/" for ::1 at 2023-06-24 17:38:19 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 132)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:37
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:50
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:51
+  Rendered layout layouts/application.html.erb (Duration: 21.5ms | Allocations: 11394)
+Completed 200 OK in 25ms (Views: 23.4ms | ActiveRecord: 0.4ms | Allocations: 12681)
+
+
+Started GET "/admin/users" for ::1 at 2023-06-24 17:38:24 +0200
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mRichiestaAdmin Load (0.2ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins"[0m
+  Rendered /usr/share/rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 100.9ms | Allocations: 59265)
+Completed 200 OK in 116ms (Views: 102.6ms | ActiveRecord: 1.0ms | Allocations: 62820)
+
+
+Started DELETE "/signout" for ::1 at 2023-06-24 17:40:12 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 15ms (ActiveRecord: 0.2ms | Allocations: 4270)
+
+
+Started GET "/" for ::1 at 2023-06-24 17:40:12 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:50
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:51
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 10404)
+Completed 200 OK in 13ms (Views: 12.3ms | ActiveRecord: 0.2ms | Allocations: 10839)
+
+
