@@ -44,6 +44,6 @@ gem 'htmlbeautifier'
 gem 'popper_js', '~> 2.11.7'
 gem 'activeadmin'
 
-
 gem 'omniauth-facebook'
+gem 'omniauth'
 gem 'omniauth-rails_csrf_protection'

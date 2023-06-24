@@ -369,6 +369,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.3)
   net-http
+  omniauth
   omniauth-facebook
   omniauth-rails_csrf_protection
   popper_js (~> 2.11.7)

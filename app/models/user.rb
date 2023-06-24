@@ -2,26 +2,19 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable, :omniauthable, :omniauth_providers => [:facebook]
+         :recoverable, :rememberable, :validatable, :confirmable, :omniauthable, omniauth_providers: %i[facebook]
     
   has_many :richiesta_admins
 
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-    user.email = auth.info.email
-    user.password = Devise.friendly_token[0,20]
-    end
-    end
+    name_split = auth.info.name.split(" ")
+    user = User.where(email: auth.info.email).first
+    user ||= User.create!(provider: auth.provider, uid: auth.uid, name: name_split[0], email: auth.info.email, password: Devise.friendly_token[0, 20])
+    user.skip_confirmation!
+    user.save!
+      user
+  end
     
-    def self.new_with_session(params, session)
-    super.tap do |user|
-    if data = session["devise.facebook_data"] && session["devise.facebook_data"]
-    ["extra"]["raw_info"]
-    user.email = data["email"] if user.email.blank?
-    end
-    end
-    end
-
   after_create :send_welcome_email
 
   private

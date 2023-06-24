@@ -28,6 +28,7 @@ ActiveAdmin.register User do
   index do
     id_column
     column :username
+    column :name
     column :email
     column :admin
     column :provider
