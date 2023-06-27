@@ -6,8 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Note.create(name: 'Nota 1', description: 'Descrizione della Nota 1')
-Note.create(name: 'Nota 2', description: 'Descrizione della Nota 2')
-Note.create(name: 'Nota 3', description: 'Descrizione della Nota 3')
+# Note.create(name: 'Nota 1', description: 'Descrizione della Nota 1')
+# Note.create(name: 'Nota 2', description: 'Descrizione della Nota 2')
+# Note.create(name: 'Nota 3', description: 'Descrizione della Nota 3')
+# Note.create(name: 'Nota 4', description: 'Descrizione della Nota 4')
 
 

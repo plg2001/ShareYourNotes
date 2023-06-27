@@ -1,0 +1,9 @@
+<% if @notes.present? %>
+  <h1>Risultati della ricerca</h1>
+  <% @notes.each do |note| %>
+    <p><strong><%= note.name %></strong></p>
+    <p><%= note.description %></p>
+  <% end %>
+<% else %>
+  <h1>Pagina non trovata</h1>
+<% end %>

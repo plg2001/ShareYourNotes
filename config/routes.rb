@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'search/results'
   resources :richiesta_admins
   ActiveAdmin.routes(self)
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
@@ -19,7 +18,7 @@ Rails.application.routes.draw do
   
   get "/auth/facebook/callback", to: "omniauth_callbacks#facebook"
 
-  get 'search', to: 'search#results'
+  get '/notes/search', to: 'notes#search', as: 'search_notes'
 
 end
 

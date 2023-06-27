@@ -34,29 +34,14 @@
             <li class="nav-item me-3"><%= link_to "Sign In", signin_path,class: "nav-link"%></li>
             <li class="nav-item me-3"><%= link_to "Sign Up", signup_path,type: "button",class: " btn btn-primary"%></li>
           <% end %>
-          <div class="row align-items-center">
-            <div class="col">
-              <%= form_tag(search_path, method: :get) do %>
-                <%= search_field_tag :query, params[:query], placeholder: 'Cerca...', class: 'form-control' %>
-              </div>
-              <div class="col-auto">
-                <li class="nav-item dropdown me-3">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Filtro
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><%= select_tag 'tag_ids[]', options_from_collection_for_select(Tag.all, :id, :name), include_blank: true, multiple: true %></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><%= select_tag 'topic_ids[]', options_from_collection_for_select(Topic.all, :id, :name), include_blank: true, multiple: true %></li>
-                  </ul>
-                </li>
-              </div>
-              <div class="col-auto">
-               <%= submit_tag 'Cerca', class: 'btn btn-primary nav-item me-3 text-white bg-primary' %>
-
+          <li class="nav-item me-3">
+            <%= form_tag(search_notes_path, method: "get", class: "nav-link search-form") do %>
+              <div class="input-group">
+                <%= text_field_tag :search, params[:search], placeholder: "Cerca note...", class: "form-control" %>
+                <button type="submit" class="btn btn-primary">Cerca</button>
               </div>
             <% end %>
-          </div>
+          </li>
         </ul>
       </div>
     </nav>

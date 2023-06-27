@@ -34,16 +34,6 @@ ActiveRecord::Schema.define(version: 2023_06_27_094412) do
     t.string "google_drive_link"
   end
 
-  create_table "notes_tags", id: false, force: :cascade do |t|
-    t.integer "note_id", null: false
-    t.integer "tag_id", null: false
-  end
-
-  create_table "notes_topics", id: false, force: :cascade do |t|
-    t.integer "note_id", null: false
-    t.integer "topic_id", null: false
-  end
-
   create_table "richiesta_admins", force: :cascade do |t|
     t.integer "user_id", null: false
     t.text "content"
