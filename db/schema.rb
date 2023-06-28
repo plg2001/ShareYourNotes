@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_27_175045) do
+ActiveRecord::Schema.define(version: 2023_06_28_121150) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2023_06_27_175045) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "google_drive_link"
+    t.datetime "uploaded_at"
   end
 
   create_table "richiesta_admins", force: :cascade do |t|
