@@ -33,5 +33,32 @@ class NotesController < ApplicationController
     render 'search'
   end
   
-   
+  def show
+    @note = Note.find(params[:id])
+  end
+  
+  def new
+    @note = Note.new
+    @tags = Tag.all
+    @topics = Topic.all
+  end
+
+  def create
+    @note = Note.new(note_params)
+    @note.tags = Tag.where(id: params[:note][:tag_ids])
+    @note.topics = Topic.where(id: params[:note][:topic_ids])
+  
+    if @note.save
+      
+      redirect_to @note, notice: 'Note was successfully created.'
+    else
+      render :new
+    end
+  end
+  
+  
+  def note_params
+    params.require(:note).permit(:name, :description)
+  end  
+
 end

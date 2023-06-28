@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     get "signup", to: "devise/registrations#new"
   end
   
+  
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root  'pages#home'
   get 'about' => 'pages#about'
@@ -19,7 +21,7 @@ Rails.application.routes.draw do
   get "/auth/facebook/callback", to: "omniauth_callbacks#facebook"
 
   get '/notes/search', to: 'notes#search', as: 'search_notes'
-
+  resources :notes
 end
 
 
