@@ -1,4 +1,16 @@
-<%= form_tag(upload_path, multipart: true) do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag 'Carica file' %>
+<%= form_with(model: @note, url: notes_path, multipart: true) do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+    <%= form.label :file %>
+    <%= form.file_field :file %>
+    <%= form.label :tags %>
+    <%= form.collection_select :tag_ids, @tags, :id, :name, { selected: @note.tags.map(&:id) }, multiple: true %>
+    <%= form.label :topics %>
+    <%= form.collection_select :topic_ids, @topics, :id, :name, { selected: @note.topics.map(&:id) }, multiple: true %>
+    <%= form.submit "Carica" %>
+<%#= form_tag(upload_path, multipart: true) do %>
+  <%#= file_field_tag :file %>
+  <%#= submit_tag 'Carica file' %>
 <% end %>

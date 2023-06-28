@@ -1,9 +1,7 @@
-<h1>Note Details</h1>
-
-<p><strong>Name:</strong> <%= @note.name %></p>
-<p><strong>Description:</strong> <%= @note.description %></p>
-<!--<p><strong>Google Drive Link:</strong> <%= @note.google_drive_link %></p>-->
-
+<h1><strong>Name:</strong> <%= @note.name %></h1>
+<h3><strong>Description:</strong> <%= @note.description %></h3>
+<p><strong>Google Drive Link:</strong> <%= @note.google_drive_link %></p>
+<p><strong>Autore:</strong> <%#= @note.users.name %></p>
 <p><strong>Tags:</strong></p>
 <ul>
   <% @note.tags.each do |tag| %>

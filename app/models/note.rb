@@ -8,4 +8,5 @@ class Note < ApplicationRecord
     has_many :tags, through: :note_tags
     has_many :note_topics
     has_many :topics, through: :note_topics
+    #belongs_to :users
 end
