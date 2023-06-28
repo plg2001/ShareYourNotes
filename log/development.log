@@ -28249,3 +28249,496 @@ Migrating to AddLinkToNotes (20230627094412)
   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2023-06-27 19:49:40 +0200
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 2.2ms | Allocations: 562)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:42
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:44
+  Rendered layout layouts/application.html.erb (Duration: 225.4ms | Allocations: 39076)
+Completed 200 OK in 244ms (Views: 230.0ms | ActiveRecord: 1.4ms | Allocations: 44026)
+
+
+Started GET "/" for ::1 at 2023-06-27 19:50:56 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:42
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:44
+  Rendered layout layouts/application.html.erb (Duration: 20.3ms | Allocations: 10151)
+Completed 200 OK in 24ms (Views: 20.0ms | ActiveRecord: 1.0ms | Allocations: 11250)
+
+
+Started GET "/" for ::1 at 2023-06-27 19:52:03 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.8ms | Allocations: 130)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "name" FROM "note_topics"[0m
+  ↳ app/views/layouts/application.html.erb:42
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "name" FROM "note_tags"[0m
+  ↳ app/views/layouts/application.html.erb:44
+  Rendered layout layouts/application.html.erb (Duration: 60.0ms | Allocations: 14456)
+Completed 200 OK in 68ms (Views: 64.2ms | ActiveRecord: 1.0ms | Allocations: 15936)
+
+
+Started GET "/" for ::1 at 2023-06-27 19:54:23 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/layouts/application.html.erb:42
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "name" FROM "note_topics"[0m
+  ↳ app/views/layouts/application.html.erb:42
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:44
+  Rendered layout layouts/application.html.erb (Duration: 44.8ms | Allocations: 11434)
+Completed 200 OK in 49ms (Views: 45.5ms | ActiveRecord: 1.6ms | Allocations: 12519)
+
+
+Started GET "/" for ::1 at 2023-06-27 19:54:53 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/layouts/application.html.erb:42
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:42
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:44
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 11293)
+Completed 200 OK in 24ms (Views: 21.2ms | ActiveRecord: 1.4ms | Allocations: 12376)
+
+
+Started GET "/" for ::1 at 2023-06-27 19:54:59 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:42
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:44
+  Rendered layout layouts/application.html.erb (Duration: 26.2ms | Allocations: 9252)
+Completed 200 OK in 29ms (Views: 26.9ms | ActiveRecord: 0.6ms | Allocations: 9687)
+
+
+Started GET "/" for ::1 at 2023-06-27 19:55:37 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:42
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:44
+  Rendered layout layouts/application.html.erb (Duration: 29.1ms | Allocations: 9252)
+Completed 200 OK in 32ms (Views: 30.4ms | ActiveRecord: 0.8ms | Allocations: 9677)
+
+
+Started GET "/" for ::1 at 2023-06-27 19:55:37 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:42
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:44
+  Rendered layout layouts/application.html.erb (Duration: 31.2ms | Allocations: 9268)
+Completed 200 OK in 33ms (Views: 31.7ms | ActiveRecord: 0.5ms | Allocations: 9694)
+
+
+Started GET "/" for ::1 at 2023-06-27 19:55:37 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:42
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:44
+  Rendered layout layouts/application.html.erb (Duration: 36.6ms | Allocations: 9393)
+Completed 200 OK in 38ms (Views: 37.1ms | ActiveRecord: 0.5ms | Allocations: 9822)
+
+
+Started GET "/signin" for ::1 at 2023-06-27 19:55:43 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.4ms | Allocations: 943)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 20.9ms | Allocations: 5163)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:42
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:44
+  Rendered layout layouts/application.html.erb (Duration: 36.4ms | Allocations: 14153)
+Completed 200 OK in 63ms (Views: 40.9ms | ActiveRecord: 1.4ms | Allocations: 24197)
+
+
+Started POST "/users/sign_in" for ::1 at 2023-06-27 19:55:53 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"michaelcorelli11@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "michaelcorelli11@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 344ms (ActiveRecord: 0.3ms | Allocations: 5262)
+
+
+Started GET "/" for ::1 at 2023-06-27 19:55:54 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:26
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:42
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:44
+  Rendered layout layouts/application.html.erb (Duration: 22.0ms | Allocations: 10025)
+Completed 200 OK in 23ms (Views: 21.8ms | ActiveRecord: 0.7ms | Allocations: 10467)
+
+
+Started GET "/admin/dashboard" for ::1 at 2023-06-27 19:55:56 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  Rendering /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/admin/dashboard.rb:7:in `block (3 levels) in <main>'
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/admin/dashboard.rb:16:in `block (3 levels) in <main>'
+  [1m[36mRichiestaAdmin Load (0.3ms)[0m  [1m[34mSELECT "richiesta_admins".* FROM "richiesta_admins"[0m
+  ↳ app/admin/dashboard.rb:23:in `block (3 levels) in <main>'
+  Rendered /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb (Duration: 64.6ms | Allocations: 29461)
+Completed 200 OK in 73ms (Views: 64.8ms | ActiveRecord: 2.3ms | Allocations: 31876)
+
+
+Started GET "/admin/topics" for ::1 at 2023-06-27 19:55:57 +0200
+Processing by Admin::TopicsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  Rendering /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mTopic Load (0.4ms)[0m  [1m[34mSELECT "topics".* FROM "topics" ORDER BY "topics"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 55.5ms | Allocations: 25708)
+Completed 200 OK in 68ms (Views: 60.3ms | ActiveRecord: 1.2ms | Allocations: 28868)
+
+
+Started GET "/admin/topics/new" for ::1 at 2023-06-27 19:55:59 +0200
+Processing by Admin::TopicsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  Rendering /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/new.html.arb
+  Rendered /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/new.html.arb (Duration: 41.9ms | Allocations: 22474)
+Completed 200 OK in 56ms (Views: 45.4ms | ActiveRecord: 0.2ms | Allocations: 26205)
+
+
+Started POST "/admin/topics" for ::1 at 2023-06-27 19:56:18 +0200
+Processing by Admin::TopicsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "topic"=>{"name"=>"Ingegneria Informatica e Automatica"}, "commit"=>"Create Topic"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTopic Create (1.5ms)[0m  [1m[32mINSERT INTO "topics" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Ingegneria Informatica e Automatica"], ["created_at", "2023-06-27 17:56:18.612299"], ["updated_at", "2023-06-27 17:56:18.612299"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/admin/topics/1
+Completed 302 Found in 29ms (ActiveRecord: 3.3ms | Allocations: 7349)
+
+
+Started GET "/admin/topics/1" for ::1 at 2023-06-27 19:56:18 +0200
+Processing by Admin::TopicsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  Rendering /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/show.html.arb
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = ? AND "active_admin_comments"."resource_id" = ? AND "active_admin_comments"."namespace" = ?[0m  [["resource_type", "Topic"], ["resource_id", 1], ["namespace", "admin"]]
+  [1m[36mActiveAdmin::Comment Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = ? AND "active_admin_comments"."resource_id" = ? AND "active_admin_comments"."namespace" = ? LIMIT ? OFFSET ?[0m  [["resource_type", "Topic"], ["resource_id", 1], ["namespace", "admin"], ["LIMIT", 1], ["OFFSET", 0]]
+  Rendered /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/show.html.arb (Duration: 91.9ms | Allocations: 35027)
+Completed 200 OK in 101ms (Views: 94.6ms | ActiveRecord: 1.6ms | Allocations: 38140)
+
+
+Started GET "/admin/users/21" for ::1 at 2023-06-27 19:56:20 +0200
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  Rendering /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/show.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = ? AND "active_admin_comments"."resource_id" = ? AND "active_admin_comments"."namespace" = ?[0m  [["resource_type", "User"], ["resource_id", 21], ["namespace", "admin"]]
+  [1m[36mActiveAdmin::Comment Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = ? AND "active_admin_comments"."resource_id" = ? AND "active_admin_comments"."namespace" = ? LIMIT ? OFFSET ?[0m  [["resource_type", "User"], ["resource_id", 21], ["namespace", "admin"], ["LIMIT", 1], ["OFFSET", 0]]
+  Rendered /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/show.html.arb (Duration: 56.0ms | Allocations: 31212)
+Completed 200 OK in 69ms (Views: 59.8ms | ActiveRecord: 1.1ms | Allocations: 34245)
+
+
+Started GET "/admin/topics" for ::1 at 2023-06-27 19:56:22 +0200
+Processing by Admin::TopicsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  Rendering /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics" ORDER BY "topics"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/michaelcorelli/.rvm/gems/ruby-2.7.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 52.3ms | Allocations: 29815)
+Completed 200 OK in 58ms (Views: 52.7ms | ActiveRecord: 0.4ms | Allocations: 31539)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2023-06-27 19:56:25 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 6ms (ActiveRecord: 0.1ms | Allocations: 2187)
+
+
+Started GET "/" for ::1 at 2023-06-27 19:56:25 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:42
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:44
+  Rendered layout layouts/application.html.erb (Duration: 18.0ms | Allocations: 9462)
+Completed 200 OK in 19ms (Views: 18.1ms | ActiveRecord: 0.5ms | Allocations: 9904)
+
+
+Started GET "/" for ::1 at 2023-06-27 19:56:36 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:42
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:44
+  Rendered layout layouts/application.html.erb (Duration: 26.9ms | Allocations: 9280)
+Completed 200 OK in 29ms (Views: 27.3ms | ActiveRecord: 0.4ms | Allocations: 9709)
+
+
+Started GET "/" for ::1 at 2023-06-27 19:57:14 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 128)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 1792)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 3240)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html>
+  <head>
+    <title>SharesYourNotes</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <%= csrf_meta_tags %> <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#"><%= image_tag("book.png",style: "max-width: 2em; max-height: 2em;") %>SharesYourNotes</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item active me-3">
+            <%= link_to "Home",root_path,class: "nav-link" %>
+          </li>
+          <li class="nav-item me-3">
+            <%= link_to "About",about_path,class: "nav-link" %>
+          </li>
+        </ul>
+        <ul class="navbar-nav  ms-auto">
+          <% if user_signed_in? %>
+            <li class="nav-item me-3"><%= link_to "Log out", signout_path, method: :delete, class: "nav-link" %></li>
+            <% if current_user.admin %>
+              <li class="nav-item me-3"><%= link_to "Admin Dahsboard", admin_dashboard_path, class: "nav-link" %></li>
+            <% else %>
+              <li class="nav-item me-3"><%= link_to 'Crea richiesta', create_richiesta_admin_richiesta_admins_path,class: "nav-link", method: :post %></li>
+            <% end %>
+          <% else %>
+            <li class="nav-item me-3"><%= link_to "Sign In", signin_path,class: "nav-link"%></li>
+            <li class="nav-item me-3"><%= link_to "Sign Up", signup_path,type: "button",class: " btn btn-primary"%></li>
+          <% end %>
+          <li class="nav-item me-3">
+            <%= form_tag(search_notes_path, method: "get", class: "nav-link search-form") do %>
+              <div class="input-group">
+                <%= text_field_tag :search, params[:search], placeholder: "Cerca note...", class: "form-control" %>
+
+                <%= select_tag :, options_for_select(NoteTopic.distinct.pluck(:name)), prompt: "Seleziona un topic", class: "form-control" %>
+
+                <%= select_tag :tag, options_for_select(NoteTag.distinct.pluck(:name)), prompt: "Seleziona un tag", class: "form-control" %>
+
+                <button type="submit" class="btn btn-primary">Cerca</button>
+              </div>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <% flash.each do |name, message| %>
+      <% if current_user.present? %>
+        <% message.chomp!('.') if message.ends_with?('.') %>
+        <% if message.starts_with?("Signed") %>
+          <% message += " #{current_user.username}" %>
+        <% end %>
+        <%= content_tag(:div,message, class: "alert alert-info alert-#{name} fade show") %>
+      <% end %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html>
+3:      <head>
+4:        <title>SharesYourNotes</title>
+5:        <meta name="viewport" content="width=device-width,initial-scale=1" />
+6:        <%= csrf_meta_tags %> <%= csp_meta_tag %>
+7:        <%= stylesheet_link_tag 'application' %>
+8:        <%= javascript_include_tag 'application' %>
+9:      </head>
+10:      <body>
+11:        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+12:          <a class="navbar-brand" href="#"><%= image_tag("book.png",style: "max-width: 2em; max-height: 2em;") %>SharesYourNotes</a>
+13:          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+14:            <span class="navbar-toggler-icon"></span>
+15:          </button>
+16:          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+17:            <ul class="navbar-nav me-auto">
+18:              <li class="nav-item active me-3">
+19:                <%= link_to "Home",root_path,class: "nav-link" %>
+20:              </li>
+21:              <li class="nav-item me-3">
+22:                <%= link_to "About",about_path,class: "nav-link" %>
+23:              </li>
+24:            </ul>
+25:            <ul class="navbar-nav  ms-auto">
+26:              <% if user_signed_in? %>
+27:                <li class="nav-item me-3"><%= link_to "Log out", signout_path, method: :delete, class: "nav-link" %></li>
+28:                <% if current_user.admin %>
+29:                  <li class="nav-item me-3"><%= link_to "Admin Dahsboard", admin_dashboard_path, class: "nav-link" %></li>
+30:                <% else %>
+31:                  <li class="nav-item me-3"><%= link_to 'Crea richiesta', create_richiesta_admin_richiesta_admins_path,class: "nav-link", method: :post %></li>
+32:                <% end %>
+33:              <% else %>
+34:                <li class="nav-item me-3"><%= link_to "Sign In", signin_path,class: "nav-link"%></li>
+35:                <li class="nav-item me-3"><%= link_to "Sign Up", signup_path,type: "button",class: " btn btn-primary"%></li>
+36:              <% end %>
+37:              <li class="nav-item me-3">
+38:                <%= form_tag(search_notes_path, method: "get", class: "nav-link search-form") do %>
+39:                  <div class="input-group">
+40:                    <%= text_field_tag :search, params[:search], placeholder: "Cerca note...", class: "form-control" %>
+41:    
+42:                    <%= select_tag :, options_for_select(NoteTopic.distinct.pluck(:name)), prompt: "Seleziona un topic", class: "form-control" %>
+43:    
+44:                    <%= select_tag :tag, options_for_select(NoteTag.distinct.pluck(:name)), prompt: "Seleziona un tag", class: "form-control" %>
+45:    
+46:                    <button type="submit" class="btn btn-primary">Cerca</button>
+47:                  </div>
+48:                <% end %>
+49:              </li>
+50:            </ul>
+51:          </div>
+52:        </nav>
+53:        <% flash.each do |name, message| %>
+54:          <% if current_user.present? %>
+55:            <% message.chomp!('.') if message.ends_with?('.') %>
+56:            <% if message.starts_with?("Signed") %>
+57:              <% message += " #{current_user.username}" %>
+58:            <% end %>
+59:            <%= content_tag(:div,message, class: "alert alert-info alert-#{name} fade show") %>
+60:          <% end %>
+61:        <% end %>
+62:        <%= yield %>
+63:      </body>
+64:    </html>
+  
+app/views/layouts/application.html.erb:42: syntax error, unexpected ',', expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/views/layouts/application.html.erb:42: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:42: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:42: syntax error, unexpected ',', expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/views/layouts/application.html.erb:42: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:42: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:42: syntax error, unexpected ',', expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/views/layouts/application.html.erb:42: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:42: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:42: syntax error, unexpected ',', expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/views/layouts/application.html.erb:42: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:42: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:42: syntax error, unexpected ',', expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/views/layouts/application.html.erb:42: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:42: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:42: syntax error, unexpected ',', expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+app/views/layouts/application.html.erb:42: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:42: syntax error, unexpected ',', expecting ')'
+Started GET "/" for ::1 at 2023-06-27 19:57:22 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 127)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:42
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:44
+  Rendered layout layouts/application.html.erb (Duration: 27.9ms | Allocations: 10192)
+Completed 200 OK in 34ms (Views: 31.5ms | ActiveRecord: 0.3ms | Allocations: 11662)
+
+
+Started GET "/notes/search?search=Nota+1&topic=&tag=" for ::1 at 2023-06-27 19:57:27 +0200
+Processing by NotesController#search as HTML
+  Parameters: {"search"=>"Nota 1", "topic"=>"", "tag"=>""}
+  Rendering layout layouts/application.html.erb
+  Rendering notes/search.html.erb within layouts/application
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (name LIKE '%Nota 1%')[0m
+  ↳ app/views/notes/search.html.erb:1
+  Rendered notes/search.html.erb within layouts/application (Duration: 9.9ms | Allocations: 3335)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:42
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:44
+  Rendered layout layouts/application.html.erb (Duration: 32.1ms | Allocations: 12616)
+Completed 200 OK in 40ms (Views: 34.4ms | ActiveRecord: 1.5ms | Allocations: 14027)
+
+
+Started GET "/" for ::1 at 2023-06-27 19:57:28 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:42
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:44
+  Rendered layout layouts/application.html.erb (Duration: 20.8ms | Allocations: 9293)
+Completed 200 OK in 22ms (Views: 20.9ms | ActiveRecord: 0.5ms | Allocations: 9729)
+
+
+Started GET "/notes/search?search=&topic=Ingegneria+Informatica+e+Automatica&tag=" for ::1 at 2023-06-27 19:57:31 +0200
+Processing by NotesController#search as HTML
+  Parameters: {"search"=>"", "topic"=>"Ingegneria Informatica e Automatica", "tag"=>""}
+  Rendering layout layouts/application.html.erb
+  Rendering notes/search.html.erb within layouts/application
+  [1m[36mNote Load (3.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (name LIKE '%%') AND "notes"."topic" = ?[0m  [["topic", "Ingegneria Informatica e Automatica"]]
+  ↳ app/views/notes/search.html.erb:1
+  Rendered notes/search.html.erb within layouts/application (Duration: 5.6ms | Allocations: 2052)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 2116)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 3.3ms | Allocations: 2578)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: notes.topic):
+    1: <% if @notes.present? %>
+    2:   <h1>Risultati della ricerca</h1>
+    3:   <% @notes.each do |note| %>
+    4:     <p><strong><%= note.name %></strong></p>
+  
+app/views/notes/search.html.erb:1
+app/controllers/notes_controller.rb:17:in `search'

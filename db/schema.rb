@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_27_094412) do
+ActiveRecord::Schema.define(version: 2023_06_27_175045) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -24,6 +24,24 @@ ActiveRecord::Schema.define(version: 2023_06_27_094412) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
+  end
+
+  create_table "note_tags", force: :cascade do |t|
+    t.integer "note_id", null: false
+    t.integer "tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["note_id"], name: "index_note_tags_on_note_id"
+    t.index ["tag_id"], name: "index_note_tags_on_tag_id"
+  end
+
+  create_table "note_topics", force: :cascade do |t|
+    t.integer "note_id", null: false
+    t.integer "topic_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["note_id"], name: "index_note_topics_on_note_id"
+    t.index ["topic_id"], name: "index_note_topics_on_topic_id"
   end
 
   create_table "notes", force: :cascade do |t|
@@ -76,5 +94,9 @@ ActiveRecord::Schema.define(version: 2023_06_27_094412) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "note_tags", "notes"
+  add_foreign_key "note_tags", "tags"
+  add_foreign_key "note_topics", "notes"
+  add_foreign_key "note_topics", "topics"
   add_foreign_key "richiesta_admins", "users"
 end

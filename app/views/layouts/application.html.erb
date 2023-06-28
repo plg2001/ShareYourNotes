@@ -38,6 +38,11 @@
             <%= form_tag(search_notes_path, method: "get", class: "nav-link search-form") do %>
               <div class="input-group">
                 <%= text_field_tag :search, params[:search], placeholder: "Cerca note...", class: "form-control" %>
+
+                <%= select_tag :topic, options_for_select(NoteTopic.distinct.pluck(:name)), prompt: "Seleziona un topic", class: "form-control" %>
+
+                <%= select_tag :tag, options_for_select(NoteTag.distinct.pluck(:name)), prompt: "Seleziona un tag", class: "form-control" %>
+
                 <button type="submit" class="btn btn-primary">Cerca</button>
               </div>
             <% end %>
