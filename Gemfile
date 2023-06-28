@@ -47,3 +47,6 @@ gem 'activeadmin'
 gem 'omniauth-facebook'
 gem 'omniauth'
 gem 'omniauth-rails_csrf_protection'
+
+gem 'google_drive'
+gem 'faraday', '0.17.4'

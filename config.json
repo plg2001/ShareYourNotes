@@ -1,0 +1,15 @@
+
+{
+    "type": "service_account",
+    "project_id": "sharenotes-391116",
+    "private_key_id": "938224c7229fb87a0b8520a7df895be99cd1ffed",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDo3KsUv0YX2OO7\ndQwGqlrZGxJm5TeDtQX87yoAsrmvACVBw7aVdp+eYXa3XeINTX1DGfz5GDR+a2Zn\nsYSslg3v9z8ttrWidkb0+9L8V2iyYZuN0pewEFrA6A//WzGpndCcIBNYLGLXVWfO\nfDVjSr5MroTsHRgnXflUowS9ucAY/ExfoeVWTJs39hJfPo+lrch/T4BdnMJvVQsf\n1W13nVcGw2d7y5kpiWyvs0lTsO6hcvVjEAiBfayzjJyyimLNxXjJKBhH5KjA+0oI\nufykNJ4G25fSm64uQjVwjFI8x1CyghxNlecH0pCmR7Hqr1BsklDcb+sI8KXyTuII\noZzFabw3AgMBAAECggEAb/1UgAVfce+a0pg/oOMEDx7QclDxqnOAfj0Nb8mEuK+y\nu1ajNG2Y5YRNInHR2gD26bMRcUDdWiFP3jXHL3N5H3vC1DrnTstgY8jKlxZ4oTWF\nKKdr0T6ETvssWmxizYa7AaMBeqnaHWKTKoCc8nRLYjiab62sZJ5y32wJRy+SvdCK\nETbvqRZPOywJrGCOhjBEzfaMH+pqPvTrIFA2Li8TVVLn5+YakD0JT/t6JJRo3efW\nnnWEb8t6yd+G2Ep9qE/NsMN7LMh0hs5aX7n138EY58kAwN/+kujwt9pJl5oTVb6I\nnjtU9Uu7N62ia149u1K5UzfiiTuEC+weyrplqzFHyQKBgQD3xKR+Mksm+8YaqyNM\nQgSmXcLaWWnuPraw1omLVN8T9AvbYlvAzMdUzIIcd1cAQpOppxlXMCxAodFwUuHU\nPy+MmS0Vebtoe1W0GO5NsNgw6OJp/9oAo9CWCqyl0z9dFP8Bw8pli//+SXTewUkq\nu+VM2yuhGiwKvNBaH052dk93WQKBgQDwmT5ZYJsTNAbDzaQP+1g+h0skYtvLQat5\nM56apRQLbLFjhbnqfxgSEmJE2WgUmWtoa2LYRwHxCQBS98S9ygx2VWPZU7vkHHnu\nb4oCqym0rcYaJfAtkFxahOmn+GQthzOTfPEjdsXmpcU1CMyYkO9BUew1njpKdFBt\nbypIl5XuDwKBgQCcAIRRsPkAoqYpRHgFG8wxs/dr48B+8Z212l7gC6ApwA93IocC\n7ezTx7Bkm/97em/e8gdSjlJOn5RvVMA8E0ytCgUI8Iy/TGi57Lie0ipNIVTtyNpK\nbNp4nl/2SPwsb3vgcJaPOYcFZNrhJnIbJhNKQPVHimMQn7HQDMYqcHO4gQKBgHSy\nLz6Uj8LJqjpQRLIHu+5gGr8kP+0fBfd8ZQIm7Uj5SDS4SMuHJ3qkdgtk04miPCli\nZIf4MOXi8shLKp7PICpJEmv3pBtpAG74pJzUvh7HZl2KZysCaPjynI3++T/n4sk3\ngZIs6qILZ1Jo2StqqNEq1gHPpAA22Eer8ntRIsRbAoGARaw8FCN+SfkfEWggKtfj\ncxWgkRnI8xb9mWX+hSnNjCQikO6LeHTpV8o173vlIPEndlLAY6+YWkGvl+vfBGl6\nf1aWKjSCa05mXY0QbgXTwYIm3RtAquyFkffcuhJNHtjqqemkc5PJ/N910fP4H5zs\nwhKb90KQJhHoRHqAhHf5+eM=\n-----END PRIVATE KEY-----\n",
+    "client_email": "sharenote@sharenotes-391116.iam.gserviceaccount.com",
+    "client_id": "101168947843227959601",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/sharenote%40sharenotes-391116.iam.gserviceaccount.com",
+    "universe_domain": "googleapis.com"
+  }
+  
