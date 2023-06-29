@@ -47,18 +47,32 @@ class NotesController < ApplicationController
     @note = Note.new(note_params)
     @note.tags = Tag.where(id: params[:note][:tag_ids])
     @note.topics = Topic.where(id: params[:note][:topic_ids])
-  
-    if @note.save
+    
+    file = params[:file]
+    filename = file.original_filename
+    tempfile = file.tempfile
+
+    session = GoogleDrive::Session.from_config("config.json")
+    destination_folder = session.collection_by_url("https://drive.google.com/drive/folders/1zJPM2hoIzMzuvfefRvQM8NXHee5pOfhL?hl=it")
+    uploaded_file = destination_folder.upload_from_file(tempfile.path,filename,convert: false)
+
+    if uploaded_file 
+      file_url = uploaded_file.human_url
+      @note.google_drive_link = file_url
       
-      redirect_to @note, notice: 'Note was successfully created.'
+      if @note.save
+        redirect_to @note, notice: "L'appunto è stato correttamente caricato"
+      else
+        render :new, alert: 'Si è verificato un errore durante il caricamento del file'
+      end
     else
-      render :new
+      render :new, alert: 'Si è verificato un errore durante il caricamento del file'
     end
   end
   
   
   def note_params
-    params.require(:note).permit(:name, :description)
+    params.require(:note).permit(:name, :description,:google_drive_link)
   end  
 
 end

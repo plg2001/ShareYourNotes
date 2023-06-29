@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   get '/notes/search', to: 'notes#search', as: 'search_notes'
   resources :notes
-  post 'upload', to: 'files#upload'
+
 end
 
 
