@@ -40067,3 +40067,94 @@ Processing by NotesController#new as HTML
 Completed 200 OK in 27ms (Views: 24.9ms | ActiveRecord: 1.0ms | Allocations: 17024)
 
 
+Started GET "/" for 127.0.0.1 at 2023-06-29 17:54:30 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 245)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:26
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:42
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:44
+  Rendered layout layouts/application.html.erb (Duration: 109.6ms | Allocations: 50746)
+Completed 200 OK in 135ms (Views: 121.2ms | ActiveRecord: 1.4ms | Allocations: 55856)
+
+
+Started GET "/notes/search?search=&topic=&tag=&uploaded_after=&uploaded_before=&order=&commit=Filtra" for 127.0.0.1 at 2023-06-29 17:54:32 +0200
+Processing by NotesController#search as HTML
+  Parameters: {"search"=>"", "topic"=>"", "tag"=>"", "uploaded_after"=>"", "uploaded_before"=>"", "order"=>"", "commit"=>"Filtra"}
+  Rendering layout layouts/application.html.erb
+  Rendering notes/search.html.erb within layouts/application
+  [1m[36mNote Load (0.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (name LIKE '%%') ORDER BY name ASC[0m
+  ↳ app/views/notes/search.html.erb:1
+  Rendered notes/search.html.erb within layouts/application (Duration: 9.3ms | Allocations: 3826)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:26
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:42
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:44
+  Rendered layout layouts/application.html.erb (Duration: 25.5ms | Allocations: 15170)
+Completed 200 OK in 31ms (Views: 25.8ms | ActiveRecord: 1.4ms | Allocations: 18650)
+
+
+Started GET "/notes/search?search=&topic=&tag=&uploaded_after=&uploaded_before=&order=&commit=Filtra" for 127.0.0.1 at 2023-06-29 17:55:21 +0200
+Processing by NotesController#search as HTML
+  Parameters: {"search"=>"", "topic"=>"", "tag"=>"", "uploaded_after"=>"", "uploaded_before"=>"", "order"=>"", "commit"=>"Filtra"}
+  Rendering layout layouts/application.html.erb
+  Rendering notes/search.html.erb within layouts/application
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (name LIKE '%%') ORDER BY name ASC[0m
+  ↳ app/views/notes/search.html.erb:1
+  Rendered notes/search.html.erb within layouts/application (Duration: 2.8ms | Allocations: 763)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:26
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:42
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:44
+  Rendered layout layouts/application.html.erb (Duration: 18.2ms | Allocations: 12842)
+Completed 200 OK in 21ms (Views: 19.7ms | ActiveRecord: 0.6ms | Allocations: 14383)
+
+
+Started GET "/notes/search?search=&topic=&tag=&uploaded_after=&uploaded_before=&order=&commit=Filtra" for 127.0.0.1 at 2023-06-29 17:56:59 +0200
+Processing by NotesController#search as HTML
+  Parameters: {"search"=>"", "topic"=>"", "tag"=>"", "uploaded_after"=>"", "uploaded_before"=>"", "order"=>"", "commit"=>"Filtra"}
+  Rendering layout layouts/application.html.erb
+  Rendering notes/search.html.erb within layouts/application
+  [1m[36mNote Load (0.6ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (name LIKE '%%') ORDER BY name ASC[0m
+  ↳ app/views/notes/search.html.erb:1
+  Rendered notes/search.html.erb within layouts/application (Duration: 3.7ms | Allocations: 813)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:26
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:42
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:44
+  Rendered layout layouts/application.html.erb (Duration: 21.1ms | Allocations: 13000)
+Completed 200 OK in 26ms (Views: 23.2ms | ActiveRecord: 0.9ms | Allocations: 14534)
+
+
+Started GET "/notes/search?search=&topic=&tag=&uploaded_after=&uploaded_before=&order=&commit=Filtra" for 127.0.0.1 at 2023-06-29 17:58:41 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by NotesController#search as HTML
+  Parameters: {"search"=>"", "topic"=>"", "tag"=>"", "uploaded_after"=>"", "uploaded_before"=>"", "order"=>"", "commit"=>"Filtra"}
+  Rendering layout layouts/application.html.erb
+  Rendering notes/search.html.erb within layouts/application
+  [1m[36mNote Load (0.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (name LIKE '%%') ORDER BY name ASC[0m
+  ↳ app/views/notes/search.html.erb:1
+  Rendered notes/search.html.erb within layouts/application (Duration: 6.7ms | Allocations: 4329)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:26
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:42
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:44
+  Rendered layout layouts/application.html.erb (Duration: 114.7ms | Allocations: 54257)
+Completed 200 OK in 143ms (Views: 117.5ms | ActiveRecord: 1.7ms | Allocations: 60243)
+
+

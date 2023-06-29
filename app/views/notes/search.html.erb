@@ -1,9 +1,18 @@
 <% if @notes.present? %>
-  <h1>Risultati della ricerca</h1>
-  <% @notes.each do |note| %>
-    <p><strong><%= note.name %></strong></p>
-    <p><%= note.description %></p>
-  <% end %>
+  <div class="container">
+    <h1 class="mt-5">Risultati della ricerca</h1>
+    <% @notes.each do |note| %>
+      <div class="card my-4">
+        <div class="card-body">
+          <h5 class="card-title"><%= note.name %></h5>
+          <p class="card-text"><%= note.description %></p>
+          <a href="<%= note.google_drive_link %>" class="btn btn-primary">Link Google Drive</a>
+        </div>
+      </div>
+    <% end %>
+  </div>
 <% else %>
-  <h1>Nessun risultato trovato</h1>
+  <div class="container">
+    <h1 class="mt-5">Nessun risultato trovato</h1>
+  </div>
 <% end %>
