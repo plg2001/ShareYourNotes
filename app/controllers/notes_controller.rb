@@ -1,3 +1,5 @@
+require 'google_drive'
+
 class NotesController < ApplicationController
   def index
     order = params[:order] == 'desc' ? 'name DESC' : 'name ASC'
@@ -74,5 +76,15 @@ class NotesController < ApplicationController
   def note_params
     params.require(:note).permit(:name, :description,:google_drive_link)
   end  
+
+
+  def download_file
+    @note = Note.find(params[:id])
+    session = GoogleDrive::Session.from_config("config.json")
+    file = session.file_by_url(@note.google_drive_link)
+
+
+    redirect_to file.web_content_link
+  end
 
 end

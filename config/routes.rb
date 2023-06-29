@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get "/auth/facebook/callback", to: "omniauth_callbacks#facebook"
 
   get '/notes/search', to: 'notes#search', as: 'search'
-
+  get 'notes/:id/download', to: 'notes#download_file', as: 'download_note'
   resources :notes
 
 end

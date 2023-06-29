@@ -1,17 +1,48 @@
-<h1><strong>Name:</strong> <%= @note.name %></h1>
-<h3><strong>Description:</strong> <%= @note.description %></h3>
-<p><strong>Google Drive Link:</strong> <%= @note.google_drive_link %></p>
-<p><strong>Autore:</strong> <%#= @note.users.name %></p>
-<p><strong>Tags:</strong></p>
-<ul>
-  <% @note.tags.each do |tag| %>
-    <li><%= tag.name %></li>
-  <% end %>
-</ul>
+<%= stylesheet_link_tag 'show', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-<p><strong>Topics:</strong></p>
-<ul>
-  <% @note.topics.each do |topic| %>
-    <li><%= topic.name %></li>
-  <% end %>
-</ul>
+<div class="container">
+  <h1 class="fw-bold text-center"><%= @note.name %></h1>
+  <h5 class="text-center"><%= @note.description %></h5>
+  <div class="text-center">
+    <div class="btn-group" role="group" aria-label="Pulsanti">
+      <a href="<%= @note.google_drive_link %>" class="btn btn-primary btn-block">Google Drive Link</a>
+      <%= link_to 'Scarica file', download_note_path(@note), class: 'btn btn-primary btn-block' %>
+    </div>
+  </div>
+  
+  <p class="text-center"><strong>Autore:</strong> <%#= @note.users.name %></p>
+  <div class="dropright text-center">
+    <button class="btn btn-primary dropdown-toggle" type="button" id="tagsTopicsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+      Tags & Topics
+    </button>
+    <div class="dropdown-menu" aria-labelledby="tagsTopicsDropdown">
+      <div class="row">
+        <div class="col">
+          <h6 class="dropdown-header">Tags:</h6>
+          <ul class="list-unstyled tags-topics-list">
+            <% @note.tags.each do |tag| %>
+              <li class="tag-topic-item"><%= tag.name %></li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="col">
+          <h6 class="dropdown-header">Topics:</h6>
+          <ul class="list-unstyled tags-topics-list">
+            <% @note.topics.each do |topic| %>
+              <li class="tag-topic-item"><%= topic.name %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center">
+    <p><%= @transcription %></p>
+  </div>
+</div>
+
+
+
+
+
+
