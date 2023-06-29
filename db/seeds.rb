@@ -9,16 +9,15 @@
 =begin
 note = Note.create!(
   name: "Appunti Analisi 2",
-  description: "Questi sono appunti di Analisi 2 di Ingegneria Informatica e Automatica",
-  uploaded_at: DateTime.new(2020,02,24)
+  description: "Questi sono appunti di Analisi 2 di Ingegneria Meccanica dell'anno 2010/2011",
+  uploaded_at: DateTime.strptime("20-04-2020", "%d-%m-%Y")
 )
 
-topic = Topic.find_by(name: "Ingegneria Informatica e Automatica")
-
+topic = Topic.find_by(name: "Ingegneria Meccanica")
 tag = Tag.find_by(name: "Analisi 2")
 
 if topic.nil?
-  topic = Topic.create!(name: "Ingegneria Informatica e Automatica")
+  topic = Topic.create!(name: "Ingegneria Meccanica")
 end
 
 if tag.nil?
@@ -34,22 +33,23 @@ note_topic = NoteTopic.create!(
   note: note,
   topic: topic
 )
-=end
+
 
 note = Note.find_by(name: "Appunti Analisi 1")
-note.update(description: "Questi sono appunti di Analisi 1 di Ingegneria Informatica e Automatica dell'anno 2008/2009", uploaded_at: DateTime.new(2010,07,12))
+note.update(description: "Questi sono appunti di Analisi 1 di Ingegneria Informatica e Automatica dell'anno 2008/2009", uploaded_at: Date.parse("12-07-2010"))
 
 note = Note.find_by(name: "Appunti Analisi 2")
-note.update(description: "Questi sono appunti di Analisi 2 di Ingegneria Informatica e Automatica dell'anno 2012/2013", uploaded_at: DateTime.new(2014,03,20))
+note.update(description: "Questi sono appunti di Analisi 2 di Ingegneria Informatica e Automatica dell'anno 2012/2013", uploaded_at: Date.parse("20-03-2014"))
 
 note = Note.find_by(name: "Sistemi di Calcolo")
-note.update(description: "Questi sono appunti di Sistemi di Calcolo di Ingegneria Informatica e Automatica dell'anno 2015/2016", uploaded_at: DateTime.new(2017,12,10))
+note.update(description: "Questi sono appunti di Sistemi di Calcolo di Ingegneria Informatica e Automatica dell'anno 2015/2016", uploaded_at: Date.parse("10-12-2017"))
 
 note = Note.find_by(name: "Sistemi di Calcolo 2")
-note.update(description: "Questi sono appunti di Sistemi di Calcolo 2 di Ingegneria Informatica e Automatica dell'anno 2013/2014", uploaded_at: DateTime.new(2015,10,13))
+note.update(description: "Questi sono appunti di Sistemi di Calcolo 2 di Ingegneria Informatica e Automatica dell'anno 2013/2014", uploaded_at: Date.parse("13-10-2015"))
 
 note = Note.find_by(name: "Fondamenti di IA")
-note.update(description: "Questi sono appunti di Fondamenti di IA di Ingegneria Informatica e Automatica dell'anno 2018/2019", uploaded_at: DateTime.new(2020,11,13))
+note.update(description: "Questi sono appunti di Fondamenti di IA di Ingegneria Informatica e Automatica dell'anno 2018/2019", uploaded_at: Date.parse("13-11-2020"))
+=end
 
 # note = Note.find_by(name: "Nota 1", description: "Descrizione della Nota 1")
 # note.destroy if note

@@ -35,26 +35,136 @@
             <li class="nav-item me-3"><%= link_to "Sign In", signin_path,class: "nav-link"%></li>
             <li class="nav-item me-3"><%= link_to "Sign Up", signup_path,type: "button",class: " btn btn-primary"%></li>
           <% end %>
-          <%= form_tag(search_notes_path, method: "get", class: "nav-link search-form") do %>
-  <div class="input-group">
-    <%= text_field_tag :search, params[:search], placeholder: "Cerca note...", class: "form-control" %>
+          <%= form_tag(search_path, method: "get", class: "nav-link search-form") do %>
+            <% valueTag = params[:tag] || nil %>
+            <% valueTopic = params[:topic] || nil %>
+            <div class="input-group">
+              <%= text_field_tag :search, params[:search], placeholder: "Cerca...", class: "form-control rounded-left" %>
 
-    <%= select_tag :topic, options_for_select(Topic.distinct.pluck(:name)), prompt: "Seleziona un topic", class: "form-control" %>
+              <%= select_tag :Filtro, options_for_select([
+                  ["Filtra", ""],
+                  ["Topic", "topic"],
+                  ["Tag", "tag"],
+                  ["Caricato dopo il", "after"],
+                  ["Caricato prima del", "before"],
+                  ["Ordine alfabetico", "order"]
+                ], params[:Filtro]), { class: "form-control", id: "Filtro" } %>
+              <div id="dropdown" class="form-group">
+                <div id="tag-choice" style="display: none;">
+                  <%= select_tag :tag, options_for_select(Tag.distinct.pluck(:name), params[:tag]), prompt: "Seleziona un tag", class: "form-control", id: "tag", value: params[:tag] || (params[:Filtro].try(:include?, 'tag') ? nil : valueTag) %>
+                </div>
+                <div id="topic-choice" style="display: none;">
+                  <%= select_tag :topic, options_for_select(Topic.distinct.pluck(:name), params[:topic]), prompt: "Seleziona un topic", class: "form-control", id: "topic", value: params[:topic] || (params[:Filtro].try(:include?, 'topic') ? nil : valueTopic) %>
+                </div>
+                <div id="after-choice" style="display: none;">
+                  <%= text_field_tag :uploaded_after, params[:uploaded_after], placeholder: "GG-MM-AAAA", class: "form-control", id: "after" %>
+                </div>
+                <div id="before-choice" style="display: none;">
+                  <%= text_field_tag :uploaded_before, params[:uploaded_before], placeholder: "GG-MM-AAAA", class: "form-control", id: "before" %>
+                </div>
+                <div id="order-choice" style="display: none;">
+                  <%= select_tag :order, options_for_select([["Ordine alfabetico", nil], ["A-Z", "asc"], ["Z-A", "desc"]], params[:order]), class: "form-control" %>
+                </div>
+              </div>
+              <script>
+                document.getElementById("Filtro").addEventListener("change", function() {
+                  var valueSelected = this.value;
+                  var dropdownChoice = document.getElementById("dropdown");
+                  Array.from(dropdownChoice.children).forEach(function(child) {
+                    child.style.display = "none";
+                  });
+                  var selectedChoice = document.getElementById(valueSelected + "-choice");
+                  if (selectedChoice) {
+                    selectedChoice.style.display = "block";
+                  }
+                });
 
-    <%= select_tag :tag, options_for_select(Tag.distinct.pluck(:name)), prompt: "Seleziona un tag", class: "form-control" %>
+                document.addEventListener("DOMContentLoaded", function() {
+                  var valueSelected = document.getElementById("Filtro").value;
+                  showChoice(valueSelected);
+                });
 
-    <%= text_field_tag :uploaded_after, params[:uploaded_after], placeholder: "Caricato dopo (YYYY-MM-DD)", class: "form-control" %>
+                function showChoice(valueSelected) {
+                  var dropdownChoice = document.getElementById("dropdown");
+                  Array.from(dropdownChoice.children).forEach(function(child) {
+                    child.style.display = "none";
+                  });
+                  var selectedChoice = document.getElementById(valueSelected + "-choice");
+                  if (selectedChoice) {
+                    selectedChoice.style.display = "block";
+                  }
+                  var valueTag = document.getElementById("tag").value;
+                  var valueTopic = document.getElementById("topic").value;
+                  document.getElementById("tag").dataset.previousValue = valueTag;
+                  document.getElementById("topic").dataset.previousValue = valueTopic;
+                }
 
-    <%= text_field_tag :uploaded_before, params[:uploaded_before], placeholder: "Caricato prima (YYYY-MM-DD)", class: "form-control" %>
+                function validateDateInput() {
+                  var afterInput = document.getElementById("after");
+                  var beforeInput = document.getElementById("before");
 
-    <div class="form-group">
-      <%= select_tag :order, options_for_select([["Ordine alfabetico", nil], ["A-Z", "asc"], ["Z-A", "desc"]], params[:order]), class: "form-control" %>
-    </div>
+                  var afterValue = afterInput.value.trim();
+                  var beforeValue = beforeInput.value.trim();
 
-    <%= submit_tag "Filtra", class: "btn btn-primary" %>
-  </div>
-<% end %>
+                  if (afterValue === "" && beforeValue === "") {
+                    return true;
+                  }
+                  if (afterValue !== "" && !isValidDate(afterValue)) {
+                    return false;
+                  }
+                  if (beforeValue !== "" && !isValidDate(beforeValue)) {
+                    return false;
+                  }
+                  return true;
+                }
 
+                function isValidDate(dateString) {
+                  var datePattern = /^\d{2}-\d{2}-\d{4}$/;
+                  if (!datePattern.test(dateString)) {
+                    alert("Data inserita in modo errato, formato corretto: GG-MM-AAAA");
+                    return false;
+                  }
+
+                  var p = dateString.split("-");
+                  var d = parseInt(p[0], 10);
+                  var m = parseInt(p[1], 10);
+                  var y = parseInt(p[2], 10);
+
+                  var isValid = true;
+
+                  if (d < 1 || d > 31 || isNaN(d)) {
+                    alert("Giorno inserito errato");
+                    isValid = false;
+                  }
+
+                  if (m < 1 || m > 12 || isNaN(m)) {
+                    alert("Mese inserito errato");
+                    isValid = false;
+                  }
+
+                  if (!isValid) {
+                    return false;
+                  }
+
+                  var date = new Date(y, m - 1, d);
+                  if (isNaN(date.getTime())) {
+                    return false;
+                  }
+
+                  return true;
+                }
+              </script>
+              <style>
+                .form-control.rounded-left {
+                  border-radius: 5px 0 0 5px;
+                }
+                .form-control {
+                  border-radius: 0;
+                }
+              </style>
+              <%= submit_tag "Cerca", class: "btn btn-primary", onclick: "return validateDateInput()" %>
+            </div>
+          <% end %>
         </ul>
       </div>
     </nav>

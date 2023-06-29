@@ -20,7 +20,8 @@ Rails.application.routes.draw do
   
   get "/auth/facebook/callback", to: "omniauth_callbacks#facebook"
 
-  get '/notes/search', to: 'notes#search', as: 'search_notes'
+  get '/notes/search', to: 'notes#search', as: 'search'
+
   resources :notes
 
 end

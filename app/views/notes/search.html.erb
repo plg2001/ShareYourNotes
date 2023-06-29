@@ -2,7 +2,7 @@
 
 <% if @notes.present? %>
   <div class="container">
-    <h1 class="mt-5">Risultati della ricerca</h1>
+    <h1 class="mt-5">Risultati trovati</h1>
     <% @notes.each do |note| %>
       <div class="card my-4">
         <div class="card-body">
@@ -17,6 +17,6 @@
   </div>
 <% else %>
   <div class="container">
-    <h1 class="mt-5">Nessun risultato trovato</h1>
+    <h1 class="mt-5">Nessun risultato</h1>
   </div>
 <% end %>
