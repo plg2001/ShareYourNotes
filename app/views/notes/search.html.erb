@@ -1,10 +1,14 @@
+<%= stylesheet_link_tag 'ricerca', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 <% if @notes.present? %>
   <div class="container">
     <h1 class="mt-5">Risultati della ricerca</h1>
     <% @notes.each do |note| %>
       <div class="card my-4">
         <div class="card-body">
-          <h5 class="card-title"><%= note.name %></h5>
+            <h4 class="card-title">
+            <a href="<%= note.id %>"><%= note.name %></a>
+            </h4>
           <p class="card-text"><%= note.description %></p>
           <a href="<%= note.google_drive_link %>" class="btn btn-primary">Link Google Drive</a>
         </div>
