@@ -1,19 +1,28 @@
-<%= form_with(model: @note, url: notes_path, multipart: true) do |form| %>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+<%= form_with(model: @note, url: notes_path, multipart: true, class: "container") do |form| %>
+  <div class="mb-3">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Inserisci il nome" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_area :description, class: "form-control", placeholder: "Inserisci la descrizione" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :file, class: "form-label" %>
     <%= form_tag(notes_path, multipart: true) do %>
-      <%= file_field_tag :file %>   
-    <%= form.label :tags %>
-    <%= form.collection_select :tag_ids, @tags, :id, :name, { selected: @note.tags.map(&:id) }, multiple: true %>
-    <%= form.label :topics %>
-    <%= form.collection_select :topic_ids, @topics, :id, :name, { selected: @note.topics.map(&:id) }, multiple: true %>
-    <%= form.submit "Carica" %>
-
-
-<%#= form_tag(upload_path, multipart: true) do %>
-  <%#= file_field_tag :file %>
-  <%#= submit_tag 'Carica file' %>
-  <% end %>
+      <%= file_field_tag :file,class: "form-control" %>   
+  </div>
+  
+  <div class="mb-3">
+    <%= form.label :tags, class: "form-label" %>
+    <%= form.collection_select :tag_ids, @tags, :id, :name, { selected: @note.tags.map(&:id) }, { class: "form-select", multiple: true } %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :topics, class: "form-label" %>
+    <%= form.collection_select :topic_ids, @topics, :id, :name, { selected: @note.topics.map(&:id) }, { class: "form-select", multiple: true } %>
+  </div>
+  <%= form.submit "Carica", class: "btn btn-primary" %>
 <% end %>
+<% end %>
+
+
