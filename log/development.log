@@ -39644,3 +39644,426 @@ Processing by NotesController#show as HTML
 Completed 200 OK in 21ms (Views: 18.5ms | ActiveRecord: 0.8ms | Allocations: 14287)
 
 
+Started GET "/notes/32" for 127.0.0.1 at 2023-06-29 17:51:16 +0200
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:37:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering notes/show.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "note_tags" ON "tags"."id" = "note_tags"."tag_id" WHERE "note_tags"."note_id" = ?[0m  [["note_id", 32]]
+  ↳ app/views/notes/show.html.erb:7
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics" INNER JOIN "note_topics" ON "topics"."id" = "note_topics"."topic_id" WHERE "note_topics"."note_id" = ?[0m  [["note_id", 32]]
+  ↳ app/views/notes/show.html.erb:14
+  Rendered notes/show.html.erb within layouts/application (Duration: 6.7ms | Allocations: 1685)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:26
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:42
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:44
+  Rendered layout layouts/application.html.erb (Duration: 20.0ms | Allocations: 12996)
+Completed 200 OK in 23ms (Views: 20.5ms | ActiveRecord: 0.8ms | Allocations: 13864)
+
+
+Started GET "/notes/new" for 127.0.0.1 at 2023-06-29 17:51:17 +0200
+Processing by NotesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering notes/new.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/notes/new.html.erb:18
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  ↳ app/views/notes/new.html.erb:22
+  Rendered notes/new.html.erb within layouts/application (Duration: 7.2ms | Allocations: 3104)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:26
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:42
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:44
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | Allocations: 14411)
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 0.5ms | Allocations: 14895)
+
+
+Started GET "/notes/new" for 127.0.0.1 at 2023-06-29 17:51:33 +0200
+Processing by NotesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering notes/new.html.erb within layouts/application
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/notes/new.html.erb:18
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  ↳ app/views/notes/new.html.erb:22
+  Rendered notes/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 3103)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:26
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:42
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:44
+  Rendered layout layouts/application.html.erb (Duration: 20.5ms | Allocations: 14414)
+Completed 200 OK in 21ms (Views: 20.5ms | ActiveRecord: 0.5ms | Allocations: 14902)
+
+
+Started POST "/notes" for 127.0.0.1 at 2023-06-29 17:51:48 +0200
+Processing by NotesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "note"=>{"name"=>"", "description"=>"", "tag_ids"=>["", "4", "5"], "topic_ids"=>[""]}, "commit"=>"Carica"}
+[31mUnpermitted parameters: :tag_ids, :topic_ids[0m
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" IN (?, ?)[0m  [["id", 4], ["id", 5]]
+  ↳ app/controllers/notes_controller.rb:48:in `create'
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" = ?[0m  [["id", nil]]
+  ↳ app/controllers/notes_controller.rb:49:in `create'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.4ms | Allocations: 3233)
+
+
+  
+NoMethodError (undefined method `original_filename' for nil:NilClass):
+  
+app/controllers/notes_controller.rb:52:in `create'
+Started POST "/notes" for 127.0.0.1 at 2023-06-29 17:52:07 +0200
+Processing by NotesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "note"=>{"name"=>"dqDQ", "description"=>"QD", "tag_ids"=>["", "4", "5", "7"], "topic_ids"=>["", "1"]}, "file"=>#<ActionDispatch::Http::UploadedFile:0x00007f95b06b74f0 @tempfile=#<Tempfile:/tmp/RackMultipart20230629-7586-17o750t.pdf>, @original_filename="Programma_Economia e Organizzazione Aziendale_a.a.22_23.pdf", @content_type="application/pdf", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Programma_Economia e Organizzazione Aziendale_a.a.22_23.pdf\"\r\nContent-Type: application/pdf\r\n">, "commit"=>"Carica"}
+[31mUnpermitted parameters: :tag_ids, :topic_ids[0m
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" IN (?, ?, ?)[0m  [["id", 4], ["id", 5], ["id", 7]]
+  ↳ app/controllers/notes_controller.rb:48:in `create'
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" IN (?)[0m  [["id", 1]]
+  ↳ app/controllers/notes_controller.rb:49:in `create'
+Sending HTTP get https://www.googleapis.com/drive/v3/files/1zJPM2hoIzMzuvfefRvQM8NXHee5pOfhL?fields=%2A&supportsAllDrives=true
+200
+#<HTTP::Message:0x00007f95c47e87e8 @http_body=#<HTTP::Message::Body:0x00007f95c47e8748 @body="{\n" + "  \"kind\": \"drive#file\",\n" + "  \"id\": \"1zJPM2hoIzMzuvfefRvQM8NXHee5pOfhL\",\n" + "  \"name\": \"ShareYourNotes\",\n" + "  \"mimeType\": \"application/vnd.google-apps.folder\",\n" + "  \"starred\": false,\n" + "  \"trashed\": false,\n" + "  \"explicitlyTrashed\": false,\n" + "  \"spaces\": [\n" + "    \"drive\"\n" + "  ],\n" + "  \"version\": \"20\",\n" + "  \"webViewLink\": \"https://drive.google.com/drive/folders/1zJPM2hoIzMzuvfefRvQM8NXHee5pOfhL\",\n" + "  \"iconLink\": \"https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.folder+shared\",\n" + "  \"hasThumbnail\": false,\n" + "  \"thumbnailVersion\": \"0\",\n" + "  \"viewedByMe\": false,\n" + "  \"createdTime\": \"2023-06-28T18:39:32.500Z\",\n" + "  \"modifiedTime\": \"2023-06-29T14:24:24.729Z\",\n" + "  \"modifiedByMe\": false,\n" + "  \"sharedWithMeTime\": \"2023-06-28T18:39:51.740Z\",\n" + "  \"sharingUser\": {\n" + "    \"kind\": \"drive#user\",\n" + "    \"displayName\": \"shares yournotes\",\n" + "    \"photoLink\": \"https://lh3.googleusercontent.com/a/default-user=s64\",\n" + "    \"me\": false,\n" + "    \"permissionId\": \"04648297196164379190\",\n" + "    \"emailAddress\": \"sharesyournotes@gmail.com\"\n" + "  },\n" + "  \"owners\": [\n" + "    {\n" + "      \"kind\": \"drive#user\",\n" + "      \"displayName\": \"shares yournotes\",\n" + "      \"photoLink\": \"https://lh3.googleusercontent.com/a/default-user=s64\",\n" + "      \"me\": false,\n" + "      \"permissionId\": \"04648297196164379190\",\n" + "      \"emailAddress\": \"sharesyournotes@gmail.com\"\n" + "    }\n" + "  ],\n" + "  \"lastModifyingUser\": {\n" + "    \"kind\": \"drive#user\",\n" + "    \"displayName\": \"shares yournotes\",\n" + "    \"photoLink\": \"https://lh3.googleusercontent.com/a/default-user=s64\",\n" + "    \"me\": false,\n" + "    \"permissionId\": \"04648297196164379190\",\n" + "    \"emailAddress\": \"sharesyournotes@gmail.com\"\n" + "  },\n" + "  \"shared\": true,\n" + "  \"ownedByMe\": false,\n" + "  \"capabilities\": {\n" + "    \"canAcceptOwnership\": false,\n" + "    \"canAddChildren\": true,\n" + "    \"canAddMyDriveParent\": false,\n" + "    \"canChangeCopyRequiresWriterPermission\": false,\n" + "    \"canChangeSecurityUpdateEnabled\": false,\n" + "    \"canChangeViewersCanCopyContent\": false,\n" + "    \"canComment\": true,\n" + "    \"canCopy\": false,\n" + "    \"canDelete\": false,\n" + "    \"canDownload\": true,\n" + "    \"canEdit\": true,\n" + "    \"canListChildren\": true,\n" + "    \"canModifyContent\": true,\n" + "    \"canModifyContentRestriction\": false,\n" + "    \"canModifyLabels\": false,\n" + "    \"canMoveChildrenWithinDrive\": true,\n" + "    \"canMoveItemIntoTeamDrive\": false,\n" + "    \"canMoveItemOutOfDrive\": false,\n" + "    \"canMoveItemWithinDrive\": true,\n" + "    \"canReadLabels\": false,\n" + "    \"canReadRevisions\": false,\n" + "    \"canRemoveChildren\": true,\n" + "    \"canRemoveMyDriveParent\": true,\n" + "    \"canRename\": true,\n" + "    \"canShare\": true,\n" + "    \"canTrash\": false,\n" + "    \"canUntrash\": false\n" + "  },\n" + "  \"viewersCanCopyContent\": true,\n" + "  \"copyRequiresWriterPermission\": false,\n" + "  \"writersCanShare\": true,\n" + "  \"permissions\": [\n" + "    {\n" + "      \"kind\": \"drive#permission\",\n" + "      \"id\": \"12676235565039653349\",\n" + "      \"type\": \"user\",\n" + "      \"emailAddress\": \"sharenote@sharenotes-391116.iam.gserviceaccount.com\",\n" + "      \"role\": \"writer\",\n" + "      \"displayName\": \"sharenote@sharenotes-391116.iam.gserviceaccount.com\",\n" + "      \"photoLink\": \"https://lh3.googleusercontent.com/a/default-user=s64\",\n" + "      \"deleted\": false,\n" + "      \"pendingOwner\": false\n" + "    },\n" + "    {\n" + "      \"kind\": \"drive#permission\",\n" + "      \"id\": \"anyoneWithLink\",\n" + "      \"type\": \"anyone\",\n" + "      \"role\": \"reader\",\n" + "      \"allowFileDiscovery\": false\n" + "    },\n" + "    {\n" + "      \"kind\": \"drive#permission\",\n" + "      \"id\": \"04648297196164379190\",\n" + "      \"type\": \"user\",\n" + "      \"emailAddress\": \"sharesyournotes@gmail.com\",\n" + "      \"role\": \"owner\",\n" + "      \"displayName\": \"shares yournotes\",\n" + "      \"photoLink\": \"https://lh3.googleusercontent.com/a/default-user=s64\",\n" + "      \"deleted\": false,\n" + "      \"pendingOwner\": false\n" + "    }\n" + "  ],\n" + "  \"permissionIds\": [\n" + "    \"12676235565039653349\",\n" + "    \"anyoneWithLink\",\n" + "    \"04648297196164379190\"\n" + "  ],\n" + "  \"folderColorRgb\": \"#8f8f8f\",\n" + "  \"quotaBytesUsed\": \"0\",\n" + "  \"isAppAuthorized\": false,\n" + "  \"linkShareMetadata\": {\n" + "    \"securityUpdateEligible\": false,\n" + "    \"securityUpdateEnabled\": true\n" + "  }\n" + "}\n", @chunk_size=nil, @positions=nil, @size=0>, @http_header=#<HTTP::Message::Headers:0x00007f95c47e87c0 @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @body_size=0, @body_type=nil, @chunked=false, @dumped=false, @header_item=[["Pragma", "no-cache"], ["Cache-Control", "no-cache, no-store, max-age=0, must-revalidate"], ["Vary", "Origin, X-Origin"], ["Date", "Thu, 29 Jun 2023 15:52:25 GMT"], ["Expires", "Mon, 01 Jan 1990 00:00:00 GMT"], ["Content-Type", "application/json; charset=UTF-8"], ["Content-Encoding", "gzip"], ["Server", "ESF"], ["X-XSS-Protection", "0"], ["X-Frame-Options", "SAMEORIGIN"], ["X-Content-Type-Options", "nosniff"], ["Alt-Svc", "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"], ["Transfer-Encoding", "chunked"]], @http_version="1.1", @is_request=false, @reason_phrase="OK", @request_absolute_uri=nil, @request_method="GET", @request_query=nil, @request_uri=#<Addressable::URI:0x80e8 URI:https://www.googleapis.com/drive/v3/files/1zJPM2hoIzMzuvfefRvQM8NXHee5pOfhL?fields=%2A&supportsAllDrives=true>, @status_code=200>, @peer_cert=#<OpenSSL::X509::Certificate subject=#<OpenSSL::X509::Name CN=upload.video.google.com>, issuer=#<OpenSSL::X509::Name CN=GTS CA 1C3,O=Google Trust Services LLC,C=US>, serial=#<OpenSSL::BN 307271333679192318807494071381011380977>, not_before=2023-05-29 08:21:36 UTC, not_after=2023-08-21 08:21:35 UTC>, @previous=nil>
+Success - #<Google::Apis::DriveV3::File:0x00007f95c47ba1b8
+ @capabilities=
+  #<Google::Apis::DriveV3::File::Capabilities:0x00007f95c47b79e0
+   @can_accept_ownership=false,
+   @can_add_children=true,
+   @can_add_my_drive_parent=false,
+   @can_change_copy_requires_writer_permission=false,
+   @can_change_security_update_enabled=false,
+   @can_change_viewers_can_copy_content=false,
+   @can_comment=true,
+   @can_copy=false,
+   @can_delete=false,
+   @can_download=true,
+   @can_edit=true,
+   @can_list_children=true,
+   @can_modify_content=true,
+   @can_modify_content_restriction=false,
+   @can_modify_labels=false,
+   @can_move_children_within_drive=true,
+   @can_move_item_into_team_drive=false,
+   @can_move_item_out_of_drive=false,
+   @can_move_item_within_drive=true,
+   @can_read_labels=false,
+   @can_read_revisions=false,
+   @can_remove_children=true,
+   @can_remove_my_drive_parent=true,
+   @can_rename=true,
+   @can_share=true,
+   @can_trash=false,
+   @can_untrash=false>,
+ @copy_requires_writer_permission=false,
+ @created_time=Wed, 28 Jun 2023 18:39:32 +0000,
+ @explicitly_trashed=false,
+ @folder_color_rgb="#8f8f8f",
+ @has_thumbnail=false,
+ @icon_link=
+  "https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.folder+shared",
+ @id="1zJPM2hoIzMzuvfefRvQM8NXHee5pOfhL",
+ @is_app_authorized=false,
+ @kind="drive#file",
+ @last_modifying_user=
+  #<Google::Apis::DriveV3::User:0x00007f95b06b21d0
+   @display_name="shares yournotes",
+   @email_address="sharesyournotes@gmail.com",
+   @kind="drive#user",
+   @me=false,
+   @permission_id="04648297196164379190",
+   @photo_link="https://lh3.googleusercontent.com/a/default-user=s64">,
+ @link_share_metadata=
+  #<Google::Apis::DriveV3::File::LinkShareMetadata:0x00007f95b06afe80
+   @security_update_eligible=false,
+   @security_update_enabled=true>,
+ @mime_type="application/vnd.google-apps.folder",
+ @modified_by_me=false,
+ @modified_time=Thu, 29 Jun 2023 14:24:24 +0000,
+ @name="ShareYourNotes",
+ @owned_by_me=false,
+ @owners=
+  [#<Google::Apis::DriveV3::User:0x00007f95b06ac2f8
+    @display_name="shares yournotes",
+    @email_address="sharesyournotes@gmail.com",
+    @kind="drive#user",
+    @me=false,
+    @permission_id="04648297196164379190",
+    @photo_link="https://lh3.googleusercontent.com/a/default-user=s64">],
+ @permission_ids=
+  ["12676235565039653349", "anyoneWithLink", "04648297196164379190"],
+ @permissions=
+  [#<Google::Apis::DriveV3::Permission:0x00007f95b06a92d8
+    @deleted=false,
+    @display_name="sharenote@sharenotes-391116.iam.gserviceaccount.com",
+    @email_address="sharenote@sharenotes-391116.iam.gserviceaccount.com",
+    @id="12676235565039653349",
+    @kind="drive#permission",
+    @pending_owner=false,
+    @photo_link="https://lh3.googleusercontent.com/a/default-user=s64",
+    @role="writer",
+    @type="user">,
+   #<Google::Apis::DriveV3::Permission:0x00007f95b06a49e0
+    @allow_file_discovery=false,
+    @id="anyoneWithLink",
+    @kind="drive#permission",
+    @role="reader",
+    @type="anyone">,
+   #<Google::Apis::DriveV3::Permission:0x00007f95b06a0020
+    @deleted=false,
+    @display_name="shares yournotes",
+    @email_address="sharesyournotes@gmail.com",
+    @id="04648297196164379190",
+    @kind="drive#permission",
+    @pending_owner=false,
+    @photo_link="https://lh3.googleusercontent.com/a/default-user=s64",
+    @role="owner",
+    @type="user">],
+ @quota_bytes_used=0,
+ @shared=true,
+ @shared_with_me_time=Wed, 28 Jun 2023 18:39:51 +0000,
+ @sharing_user=
+  #<Google::Apis::DriveV3::User:0x00007f95b0698d20
+   @display_name="shares yournotes",
+   @email_address="sharesyournotes@gmail.com",
+   @kind="drive#user",
+   @me=false,
+   @permission_id="04648297196164379190",
+   @photo_link="https://lh3.googleusercontent.com/a/default-user=s64">,
+ @spaces=["drive"],
+ @starred=false,
+ @thumbnail_version=0,
+ @trashed=false,
+ @version=20,
+ @viewed_by_me=false,
+ @viewers_can_copy_content=true,
+ @web_view_link=
+  "https://drive.google.com/drive/folders/1zJPM2hoIzMzuvfefRvQM8NXHee5pOfhL",
+ @writers_can_share=true>
+
+Sending upload start command to https://www.googleapis.com/upload/drive/v3/files?fields=%2A&supportsAllDrives=true
+Upload status active
+Sending upload command to https://www.googleapis.com/upload/drive/v3/files?fields=%2A&supportsAllDrives=true&upload_id=ADPycdtyPdTGVkImXoReDV8Zy3NyIIhLM0Xy7AAgUCqd_TZjrO0xzUpurMTcTZa62FdxP5VUm-TZRS-sEukkIof2C-ppJQ&upload_protocol=resumable
+Upload status final
+Success - #<Google::Apis::DriveV3::File:0x00007f95b079e238
+ @capabilities=
+  #<Google::Apis::DriveV3::File::Capabilities:0x00007f95c47af948
+   @can_accept_ownership=false,
+   @can_add_children=false,
+   @can_add_my_drive_parent=false,
+   @can_change_copy_requires_writer_permission=true,
+   @can_change_security_update_enabled=false,
+   @can_change_viewers_can_copy_content=true,
+   @can_comment=true,
+   @can_copy=true,
+   @can_delete=true,
+   @can_download=true,
+   @can_edit=true,
+   @can_list_children=false,
+   @can_modify_content=true,
+   @can_modify_content_restriction=true,
+   @can_modify_labels=false,
+   @can_move_children_within_drive=false,
+   @can_move_item_into_team_drive=true,
+   @can_move_item_out_of_drive=true,
+   @can_move_item_within_drive=true,
+   @can_read_labels=false,
+   @can_read_revisions=true,
+   @can_remove_children=false,
+   @can_remove_my_drive_parent=true,
+   @can_rename=true,
+   @can_share=true,
+   @can_trash=true,
+   @can_untrash=true>,
+ @copy_requires_writer_permission=false,
+ @created_time=Thu, 29 Jun 2023 15:52:26 +0000,
+ @explicitly_trashed=false,
+ @file_extension="pdf",
+ @full_file_extension="pdf",
+ @has_thumbnail=false,
+ @head_revision_id="0B4O31lqapnolTzdyZUNQZ05wNXAwNkM0MnY2ZzR0SWZ1NWtvPQ",
+ @icon_link=
+  "https://drive-thirdparty.googleusercontent.com/16/type/application/pdf",
+ @id="1A38b_PIcDSoocbcK7hlyMyAdFGLDnfXP",
+ @is_app_authorized=true,
+ @kind="drive#file",
+ @last_modifying_user=
+  #<Google::Apis::DriveV3::User:0x00007f95b828e150
+   @display_name="sharenote@sharenotes-391116.iam.gserviceaccount.com",
+   @email_address="sharenote@sharenotes-391116.iam.gserviceaccount.com",
+   @kind="drive#user",
+   @me=true,
+   @permission_id="12676235565039653349",
+   @photo_link="https://lh3.googleusercontent.com/a/default-user=s64">,
+ @link_share_metadata=
+  #<Google::Apis::DriveV3::File::LinkShareMetadata:0x00007f95b8283e30
+   @security_update_eligible=false,
+   @security_update_enabled=true>,
+ @md5_checksum="d9a2b7443a4b705a98f8e8b666453b43",
+ @mime_type="application/pdf",
+ @modified_by_me=true,
+ @modified_by_me_time=Thu, 29 Jun 2023 15:52:26 +0000,
+ @modified_time=Thu, 29 Jun 2023 15:52:26 +0000,
+ @name="Programma_Economia e Organizzazione Aziendale_a.a.22_23.pdf",
+ @original_filename=
+  "Programma_Economia e Organizzazione Aziendale_a.a.22_23.pdf",
+ @owned_by_me=true,
+ @owners=
+  [#<Google::Apis::DriveV3::User:0x00007f95b827fdf8
+    @display_name="sharenote@sharenotes-391116.iam.gserviceaccount.com",
+    @email_address="sharenote@sharenotes-391116.iam.gserviceaccount.com",
+    @kind="drive#user",
+    @me=true,
+    @permission_id="12676235565039653349",
+    @photo_link="https://lh3.googleusercontent.com/a/default-user=s64">],
+ @parents=["1zJPM2hoIzMzuvfefRvQM8NXHee5pOfhL"],
+ @permission_ids=
+  ["04648297196164379190", "anyoneWithLink", "12676235565039653349"],
+ @permissions=
+  [#<Google::Apis::DriveV3::Permission:0x00007f95b827cd60
+    @deleted=false,
+    @display_name="shares yournotes",
+    @email_address="sharesyournotes@gmail.com",
+    @id="04648297196164379190",
+    @kind="drive#permission",
+    @pending_owner=false,
+    @photo_link="https://lh3.googleusercontent.com/a/default-user=s64",
+    @role="writer",
+    @type="user">,
+   #<Google::Apis::DriveV3::Permission:0x00007f95b8278440
+    @allow_file_discovery=false,
+    @id="anyoneWithLink",
+    @kind="drive#permission",
+    @role="reader",
+    @type="anyone">,
+   #<Google::Apis::DriveV3::Permission:0x00007f95b8273a30
+    @deleted=false,
+    @display_name="sharenote@sharenotes-391116.iam.gserviceaccount.com",
+    @email_address="sharenote@sharenotes-391116.iam.gserviceaccount.com",
+    @id="12676235565039653349",
+    @kind="drive#permission",
+    @pending_owner=false,
+    @photo_link="https://lh3.googleusercontent.com/a/default-user=s64",
+    @role="owner",
+    @type="user">],
+ @quota_bytes_used=532151,
+ @sha1_checksum="a40f36c190d0948d4735a94d3e01d73af2762cec",
+ @sha256_checksum=
+  "f0bf13a1883f25ca9a3389e29053a0b023ff2e02b3632713b001219d8709a94e",
+ @shared=true,
+ @size=532151,
+ @spaces=["drive"],
+ @starred=false,
+ @thumbnail_version=0,
+ @trashed=false,
+ @version=1,
+ @viewed_by_me=false,
+ @viewers_can_copy_content=true,
+ @web_content_link=
+  "https://drive.google.com/uc?id=1A38b_PIcDSoocbcK7hlyMyAdFGLDnfXP&export=download",
+ @web_view_link=
+  "https://drive.google.com/file/d/1A38b_PIcDSoocbcK7hlyMyAdFGLDnfXP/view?usp=drivesdk",
+ @writers_can_share=true>
+
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/notes_controller.rb:63:in `create'
+  [1m[36mNote Create (0.3ms)[0m  [1m[32mINSERT INTO "notes" ("name", "description", "created_at", "updated_at", "google_drive_link", "uploaded_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "dqDQ"], ["description", "QD"], ["created_at", "2023-06-29 15:52:10.052205"], ["updated_at", "2023-06-29 15:52:10.052205"], ["google_drive_link", "https://drive.google.com/file/d/1A38b_PIcDSoocbcK7hlyMyAdFGLDnfXP/view?usp=drivesdk"], ["uploaded_at", "2023-06-29 15:52:10.052161"]]
+  ↳ app/controllers/notes_controller.rb:63:in `create'
+  [1m[36mNoteTag Create (0.3ms)[0m  [1m[32mINSERT INTO "note_tags" ("note_id", "tag_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["note_id", 33], ["tag_id", 4], ["created_at", "2023-06-29 15:52:10.056281"], ["updated_at", "2023-06-29 15:52:10.056281"]]
+  ↳ app/controllers/notes_controller.rb:63:in `create'
+  [1m[36mNoteTag Create (0.1ms)[0m  [1m[32mINSERT INTO "note_tags" ("note_id", "tag_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["note_id", 33], ["tag_id", 5], ["created_at", "2023-06-29 15:52:10.058795"], ["updated_at", "2023-06-29 15:52:10.058795"]]
+  ↳ app/controllers/notes_controller.rb:63:in `create'
+  [1m[36mNoteTag Create (0.1ms)[0m  [1m[32mINSERT INTO "note_tags" ("note_id", "tag_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["note_id", 33], ["tag_id", 7], ["created_at", "2023-06-29 15:52:10.060457"], ["updated_at", "2023-06-29 15:52:10.060457"]]
+  ↳ app/controllers/notes_controller.rb:63:in `create'
+  [1m[36mNoteTopic Create (0.4ms)[0m  [1m[32mINSERT INTO "note_topics" ("note_id", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["note_id", 33], ["topic_id", 1], ["created_at", "2023-06-29 15:52:10.062375"], ["updated_at", "2023-06-29 15:52:10.062375"]]
+  ↳ app/controllers/notes_controller.rb:63:in `create'
+  [1m[36mTRANSACTION (6.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/notes_controller.rb:63:in `create'
+Redirected to http://127.0.0.1:3000/notes/33
+Completed 302 Found in 2319ms (ActiveRecord: 8.7ms | Allocations: 42468)
+
+
+Started GET "/notes/33" for 127.0.0.1 at 2023-06-29 17:52:10 +0200
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"33"}
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:37:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering notes/show.html.erb within layouts/application
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "note_tags" ON "tags"."id" = "note_tags"."tag_id" WHERE "note_tags"."note_id" = ?[0m  [["note_id", 33]]
+  ↳ app/views/notes/show.html.erb:7
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT "topics".* FROM "topics" INNER JOIN "note_topics" ON "topics"."id" = "note_topics"."topic_id" WHERE "note_topics"."note_id" = ?[0m  [["note_id", 33]]
+  ↳ app/views/notes/show.html.erb:14
+  Rendered notes/show.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1708)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:26
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:42
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:44
+  Rendered layout layouts/application.html.erb (Duration: 17.3ms | Allocations: 13152)
+Completed 200 OK in 19ms (Views: 17.3ms | ActiveRecord: 0.6ms | Allocations: 14023)
+
+
+Started GET "/notes/new" for 127.0.0.1 at 2023-06-29 17:52:20 +0200
+Processing by NotesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering notes/new.html.erb within layouts/application
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/notes/new.html.erb:18
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  ↳ app/views/notes/new.html.erb:22
+  Rendered notes/new.html.erb within layouts/application (Duration: 4.3ms | Allocations: 3103)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:26
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:42
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:44
+  Rendered layout layouts/application.html.erb (Duration: 15.7ms | Allocations: 14410)
+Completed 200 OK in 17ms (Views: 15.8ms | ActiveRecord: 0.5ms | Allocations: 14890)
+
+
+Started GET "/notes/new" for 127.0.0.1 at 2023-06-29 17:52:30 +0200
+Processing by NotesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering notes/new.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/notes/new.html.erb:18
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  ↳ app/views/notes/new.html.erb:22
+  Rendered notes/new.html.erb within layouts/application (Duration: 9.9ms | Allocations: 3397)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:26
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:42
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:44
+  Rendered layout layouts/application.html.erb (Duration: 24.8ms | Allocations: 15458)
+Completed 200 OK in 28ms (Views: 26.3ms | ActiveRecord: 0.7ms | Allocations: 16973)
+
+
+Started GET "/notes/new" for 127.0.0.1 at 2023-06-29 17:52:59 +0200
+Processing by NotesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering notes/new.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/notes/new.html.erb:18
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  ↳ app/views/notes/new.html.erb:22
+  Rendered notes/new.html.erb within layouts/application (Duration: 9.3ms | Allocations: 3456)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:26
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:42
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:44
+  Rendered layout layouts/application.html.erb (Duration: 23.3ms | Allocations: 15521)
+Completed 200 OK in 27ms (Views: 24.9ms | ActiveRecord: 1.0ms | Allocations: 17024)
+
+
