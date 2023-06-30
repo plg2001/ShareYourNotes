@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_30_104827) do
+ActiveRecord::Schema.define(version: 2023_06_30_141357) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -24,6 +24,12 @@ ActiveRecord::Schema.define(version: 2023_06_30_104827) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
+  end
+
+  create_table "faculties", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "note_tags", force: :cascade do |t|
@@ -52,6 +58,8 @@ ActiveRecord::Schema.define(version: 2023_06_30_104827) do
     t.string "google_drive_link"
     t.datetime "uploaded_at"
     t.integer "user_id", null: false
+    t.integer "faculty_id"
+    t.index ["faculty_id"], name: "index_notes_on_faculty_id"
     t.index ["user_id"], name: "index_notes_on_user_id"
   end
 
@@ -101,6 +109,7 @@ ActiveRecord::Schema.define(version: 2023_06_30_104827) do
   add_foreign_key "note_tags", "tags"
   add_foreign_key "note_topics", "notes"
   add_foreign_key "note_topics", "topics"
+  add_foreign_key "notes", "faculties"
   add_foreign_key "notes", "users"
   add_foreign_key "richiesta_admins", "users"
 end

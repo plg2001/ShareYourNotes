@@ -44810,3 +44810,95 @@ Processing by NotesController#show as HTML
 Completed 200 OK in 14ms (Views: 11.1ms | ActiveRecord: 0.7ms | Allocations: 17109)
 
 
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateFaculties (20230630141245)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "faculties" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230630141245"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddFacultyIdToNotes (20230630141357)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "anotes" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "google_drive_link" varchar DEFAULT NULL, "uploaded_at" datetime DEFAULT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "tindex_anotes_on_user_id" ON "anotes" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "anotes" ("id","name","description","created_at","updated_at","google_drive_link","uploaded_at","user_id")
+                     SELECT "id","name","description","created_at","updated_at","google_drive_link","uploaded_at","user_id" FROM "notes"[0m
+  [1m[35m (2.0ms)[0m  [1m[35mDROP TABLE "notes"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "notes" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "google_drive_link" varchar DEFAULT NULL, "uploaded_at" datetime DEFAULT NULL, "user_id" integer NOT NULL, "faculty_id" integer NOT NULL, CONSTRAINT "fk_rails_7f2323ad43"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_notes_on_user_id" ON "notes" ("user_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "notes" ("id","name","description","created_at","updated_at","google_drive_link","uploaded_at","user_id")
+                     SELECT "id","name","description","created_at","updated_at","google_drive_link","uploaded_at","user_id" FROM "anotes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateFaculties (20230630141245)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE "faculties"[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20230630141245"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateFaculties (20230630141245)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "faculties" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230630141245"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddFacultyIdToNotes (20230630141357)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.8ms)[0m  [1m[35mALTER TABLE "notes" ADD "faculty_id" integer[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_notes_on_faculty_id" ON "notes" ("faculty_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "anotes" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "google_drive_link" varchar DEFAULT NULL, "uploaded_at" datetime DEFAULT NULL, "user_id" integer NOT NULL, "faculty_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_anotes_on_faculty_id" ON "anotes" ("faculty_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "tindex_anotes_on_user_id" ON "anotes" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "anotes" ("id","name","description","created_at","updated_at","google_drive_link","uploaded_at","user_id","faculty_id")
+                     SELECT "id","name","description","created_at","updated_at","google_drive_link","uploaded_at","user_id","faculty_id" FROM "notes"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "notes"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "notes" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "google_drive_link" varchar DEFAULT NULL, "uploaded_at" datetime DEFAULT NULL, "user_id" integer NOT NULL, "faculty_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_7f2323ad43"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_5057ef371b"
+FOREIGN KEY ("faculty_id")
+  REFERENCES "faculties" ("id")
+)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_notes_on_user_id" ON "notes" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_notes_on_faculty_id" ON "notes" ("faculty_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "notes" ("id","name","description","created_at","updated_at","google_drive_link","uploaded_at","user_id","faculty_id")
+                     SELECT "id","name","description","created_at","updated_at","google_drive_link","uploaded_at","user_id","faculty_id" FROM "anotes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "anotes"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230630141357"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFaculty Create (0.8ms)[0m  [1m[32mINSERT INTO "faculties" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Nome facoltà 1"], ["created_at", "2023-06-30 14:18:50.391786"], ["updated_at", "2023-06-30 14:18:50.391786"]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFaculty Create (0.7ms)[0m  [1m[32mINSERT INTO "faculties" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Nome facoltà 2"], ["created_at", "2023-06-30 14:18:56.808387"], ["updated_at", "2023-06-30 14:18:56.808387"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m

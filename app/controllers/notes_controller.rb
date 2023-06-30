@@ -2,6 +2,7 @@ require 'google_drive'
 
 class NotesController < ApplicationController
   before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: [:index, :search, :show]
 
   def index
     order = params[:order] == 'desc' ? 'name DESC' : 'name ASC'
@@ -9,16 +10,22 @@ class NotesController < ApplicationController
   end
   
   def search
-    @notes = Note.where("name LIKE ?", "%#{params[:search]}%")
+    @notes = Note.all
+  
+    if params[:search].present?
+      @notes = @notes.where("name LIKE ?", "%#{params[:search]}%")
+    end
   
     if params[:topic].present?
-      topic = Topic.find_by(name: params[:topic])
-      @notes = @notes.joins(:note_topics).where(note_topics: { topic: topic })
+      topics = params[:topic]
+      topic_ids = Topic.where(name: topics).pluck(:id)
+      @notes = @notes.joins(:note_topics).where(note_topics: { topic_id: topic_ids })
     end
   
     if params[:tag].present?
-      tag = Tag.find_by(name: params[:tag])
-      @notes = @notes.joins(:note_tags).where(note_tags: { tag: tag })
+      tags = params[:tag]
+      tag_ids = Tag.where(name: tags).pluck(:id)
+      @notes = @notes.joins(:note_tags).where(note_tags: { tag_id: tag_ids })
     end
   
     if params[:uploaded_after].present?
@@ -31,11 +38,24 @@ class NotesController < ApplicationController
       @notes = @notes.where("uploaded_at <= ?", uploaded_before_date.end_of_day)
     end
   
+    if params[:faculty].present?
+      faculty = Faculty.find_by(id: params[:faculty])
+      @notes = @notes.where(faculty: faculty)
+    end
+  
+    if params[:user_search].present?
+      users = User.where("name LIKE ?", "%#{params[:user_search]}%")
+      user_ids = users.pluck(:id)
+      @notes = @notes.where(user_id: user_ids)
+    end
+  
     order = params[:order] == 'desc' ? 'name DESC' : 'name ASC'
     @notes = @notes.order(order)
   
     render 'search'
   end
+  
+  
   
   def show
     @note = Note.find(params[:id])

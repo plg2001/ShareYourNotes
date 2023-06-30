@@ -6,10 +6,11 @@
     <% @notes.each do |note| %>
       <div class="card my-4">
         <div class="card-body">
-            <h4 class="card-title">
+          <h4 class="card-title">
             <a href="<%= note.id %>"><%= note.name %></a>
-            </h4>
+          </h4>
           <p class="card-text"><%= note.description %></p>
+          <p class="card-text">Utente: <%= note.user.name %></p>
           <a href="<%= note.google_drive_link %>" class="btn btn-primary">Link Google Drive</a>
         </div>
       </div>

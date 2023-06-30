@@ -43,6 +43,8 @@
 
               <%= select_tag :Filtro, options_for_select([
                   ["Filtra", ""],
+                  ["Utente", "user"],
+                  ["Facoltà", "faculty"],
                   ["Topic", "topic"],
                   ["Tag", "tag"],
                   ["Caricato dopo il", "after"],
@@ -50,11 +52,17 @@
                   ["Ordine alfabetico", "order"]
                 ], params[:Filtro]), { class: "form-control", id: "Filtro" } %>
               <div id="dropdown" class="form-group">
-                <div id="tag-choice" style="display: none;">
-                  <%= select_tag :tag, options_for_select(Tag.distinct.pluck(:name), params[:tag]), prompt: "Seleziona un tag", class: "form-control", id: "tag", value: params[:tag] || (params[:Filtro].try(:include?, 'tag') ? nil : valueTag) %>
-                </div>
                 <div id="topic-choice" style="display: none;">
-                  <%= select_tag :topic, options_for_select(Topic.distinct.pluck(:name), params[:topic]), prompt: "Seleziona un topic", class: "form-control", id: "topic", value: params[:topic] || (params[:Filtro].try(:include?, 'topic') ? nil : valueTopic) %>
+                  <%= select_tag :topic, options_for_select(Topic.distinct.pluck(:name), params[:topic]), prompt: "Seleziona un topic", class: "form-control", id: "topic", value: params[:topic] || (params[:Filtro].try(:include?, 'topic') ? nil : valueTopic), multiple: true, size:2 %>
+                </div>
+                <div id="user-choice" style="display: none;">
+                  <%= text_field_tag :user_search, params[:user_search], placeholder: "Cerca per utente...", class: "form-control" %>
+                </div>
+                <div id="faculty-choice" style="display: none;">
+                  <%= select_tag :faculty, options_from_collection_for_select(Faculty.all, :id, :name, params[:faculty]), prompt: "Seleziona una facoltà", class: "form-control", id: "faculty" %>
+                </div>
+                <div id="tag-choice" style="display: none;">
+                  <%= select_tag :tag, options_for_select(Tag.distinct.pluck(:name), params[:tag]), prompt: "Seleziona un tag", class: "form-control", id: "tag", value: params[:tag] || (params[:Filtro].try(:include?, 'tag') ? nil : valueTag), multiple: true, size:2 %>
                 </div>
                 <div id="after-choice" style="display: none;">
                   <%= text_field_tag :uploaded_after, params[:uploaded_after], placeholder: "GG-MM-AAAA", class: "form-control", id: "after" %>
@@ -84,21 +92,16 @@
                   showChoice(valueSelected);
                 });
 
-                function showChoice(valueSelected) {
+                function showChoice(value) {
                   var dropdownChoice = document.getElementById("dropdown");
                   Array.from(dropdownChoice.children).forEach(function(child) {
                     child.style.display = "none";
                   });
-                  var selectedChoice = document.getElementById(valueSelected + "-choice");
+                  var selectedChoice = document.getElementById(value + "-choice");
                   if (selectedChoice) {
                     selectedChoice.style.display = "block";
                   }
-                  var valueTag = document.getElementById("tag").value;
-                  var valueTopic = document.getElementById("topic").value;
-                  document.getElementById("tag").dataset.previousValue = valueTag;
-                  document.getElementById("topic").dataset.previousValue = valueTopic;
                 }
-
                 function validateDateInput() {
                   var afterInput = document.getElementById("after");
                   var beforeInput = document.getElementById("before");
