@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_29_170711) do
+ActiveRecord::Schema.define(version: 2023_06_30_104827) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 2023_06_29_170711) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "google_drive_link"
     t.datetime "uploaded_at"
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_notes_on_user_id"
   end
 
   create_table "richiesta_admins", force: :cascade do |t|
@@ -99,5 +101,6 @@ ActiveRecord::Schema.define(version: 2023_06_29_170711) do
   add_foreign_key "note_tags", "tags"
   add_foreign_key "note_topics", "notes"
   add_foreign_key "note_topics", "topics"
+  add_foreign_key "notes", "users"
   add_foreign_key "richiesta_admins", "users"
 end

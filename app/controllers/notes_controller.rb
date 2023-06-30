@@ -1,6 +1,8 @@
 require 'google_drive'
 
 class NotesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     order = params[:order] == 'desc' ? 'name DESC' : 'name ASC'
     @notes = Note.order(order)
@@ -47,6 +49,7 @@ class NotesController < ApplicationController
 
   def create
     @note = Note.new(note_params)
+    @note.user = current_user
     @note.tags = Tag.where(id: params[:note][:tag_ids])
     @note.topics = Topic.where(id: params[:note][:topic_ids])
     

@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable, :omniauthable, omniauth_providers: %i[facebook]
     
   has_many :richiesta_admins
-  #has_many :notes
+  has_many :notes
 
   def self.from_omniauth(auth)
     name_split = auth.info.name.split(" ")
