@@ -51,6 +51,11 @@
     </div>
   </div>
 
+  <div class="field">
+  <%= form.label :Facoltà %>
+  <%= form.collection_select :faculty_id, Faculty.all, :id, :name, prompt: "Seleziona una facoltà" %>
+</div>
+
       <%= form.submit "Carica", class: "btn btn-primary" %>
     <% end %>
   <% end %>

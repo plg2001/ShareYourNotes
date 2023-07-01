@@ -85,6 +85,9 @@ class NotesController < ApplicationController
       file_url = uploaded_file.human_url
       @note.google_drive_link = file_url
       
+      
+      @note.facolta_id = params[:note][:facolta_id] unless params[:note][:facolta_id].blank?
+
       if @note.save
         redirect_to @note, notice: "L'appunto è stato correttamente caricato"
       else
@@ -97,7 +100,7 @@ class NotesController < ApplicationController
   
   
   def note_params
-    params.require(:note).permit(:name, :description,:google_drive_link)
+    params.require(:note).permit(:name, :description,:google_drive_link, :faculty_id)
   end  
 
 
