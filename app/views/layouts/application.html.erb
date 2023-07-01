@@ -39,8 +39,7 @@
             <% valueTag = params[:tag] || nil %>
             <% valueTopic = params[:topic] || nil %>
             <div class="input-group">
-              <%= text_field_tag :search, params[:search], placeholder: "Cerca...", class: "form-control rounded-left" %>
-
+              <%= text_field_tag :search, params[:search], placeholder: "Cerca...", class: "form-control side" %>
               <%= select_tag :Filtro, options_for_select([
                   ["Filtra", ""],
                   ["Utente", "user"],
@@ -65,10 +64,10 @@
                   <%= select_tag :tag, options_for_select(Tag.distinct.pluck(:name), params[:tag]), prompt: "Seleziona un tag", class: "form-control", id: "tag", value: params[:tag] || (params[:Filtro].try(:include?, 'tag') ? nil : valueTag), multiple: true, size:2 %>
                 </div>
                 <div id="after-choice" style="display: none;">
-                  <%= text_field_tag :uploaded_after, params[:uploaded_after], placeholder: "GG-MM-AAAA", class: "form-control", id: "after" %>
+                  <%= text_field_tag :after, params[:after], placeholder: "GG-MM-AAAA", class: "form-control", id: "after" %>
                 </div>
                 <div id="before-choice" style="display: none;">
-                  <%= text_field_tag :uploaded_before, params[:uploaded_before], placeholder: "GG-MM-AAAA", class: "form-control", id: "before" %>
+                  <%= text_field_tag :before, params[:before], placeholder: "GG-MM-AAAA", class: "form-control", id: "before" %>
                 </div>
                 <div id="order-choice" style="display: none;">
                   <%= select_tag :order, options_for_select([["Ordine alfabetico", nil], ["A-Z", "asc"], ["Z-A", "desc"]], params[:order]), class: "form-control" %>
@@ -158,7 +157,7 @@
                 }
               </script>
               <style>
-                .form-control.rounded-left {
+                .form-control.side {
                   border-radius: 5px 0 0 5px;
                 }
                 .form-control {
@@ -167,6 +166,63 @@
               </style>
               <%= submit_tag "Cerca", class: "btn btn-primary", onclick: "return validateDateInput()" %>
             </div>
+          <% end %>
+          <% if user_signed_in? %>
+            <%= link_to "Area personale", "#", id: "personal-button", class: "btn btn-primary" %>
+            <div id="personal-area" class="personal-area hidden">
+              <span class="close-button">&#10006;</span> 
+              <h1>Informazioni utente</h1>
+              <p><strong>Nome:</strong> <%= current_user.name %></p>
+              <p><strong>Email:</strong> <%= current_user.email %></p>
+              <%= link_to "Preferiti", favourite_path, class: "btn btn-primary" %>
+            </div>
+            <style>
+              .personal-area {
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 300px;
+                height: 100%;
+                background-color: #f1f1f1;
+                z-index: 999;
+                transition: transform 0.3s ease-in-out;
+              }
+
+              .hidden {
+                transform: translateX(100%);
+              }
+
+              .close-button {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                cursor: pointer;
+                font-size: 20px;
+              }
+            </style>
+            <script>
+              document.addEventListener('DOMContentLoaded', function() {
+                var personalArea = document.getElementById('personal-area');
+                var personalButton = document.getElementById('personal-button');
+                var closeButton = document.querySelector('.close-button');
+
+                personalButton.addEventListener('click', function(event) {
+                  event.preventDefault();
+                  personalArea.classList.toggle('hidden');
+                });
+
+                closeButton.addEventListener('click', function(event) {
+                  personalArea.classList.add('hidden');
+                });
+              });
+              var preferitiButton = document.getElementById('preferiti-button');
+
+preferitiButton.addEventListener('click', function(event) {
+  event.preventDefault();
+  personalArea.classList.remove('hidden');
+});
+
+            </script>
           <% end %>
         </ul>
       </div>

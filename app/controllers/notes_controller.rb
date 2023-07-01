@@ -16,6 +16,17 @@ class NotesController < ApplicationController
       @notes = @notes.where("name LIKE ?", "%#{params[:search]}%")
     end
   
+    if params[:user_search].present?
+      users = User.where("name LIKE ?", "%#{params[:user_search]}%")
+      user_ids = users.pluck(:id)
+      @notes = @notes.where(user_id: user_ids)
+    end
+
+    if params[:faculty].present?
+      faculty = Faculty.find_by(id: params[:faculty])
+      @notes = @notes.where(faculty: faculty)
+    end
+
     if params[:topic].present?
       topics = params[:topic]
       topic_ids = Topic.where(name: topics).pluck(:id)
@@ -28,25 +39,14 @@ class NotesController < ApplicationController
       @notes = @notes.joins(:note_tags).where(note_tags: { tag_id: tag_ids })
     end
   
-    if params[:uploaded_after].present?
-      uploaded_after_date = Date.parse(params[:uploaded_after])
-      @notes = @notes.where("uploaded_at >= ?", uploaded_after_date.beginning_of_day)
+    if params[:after].present?
+      after_date = Date.parse(params[:after])
+      @notes = @notes.where("uploaded_at >= ?", after_date.beginning_of_day)
     end
   
-    if params[:uploaded_before].present?
-      uploaded_before_date = Date.parse(params[:uploaded_before])
-      @notes = @notes.where("uploaded_at <= ?", uploaded_before_date.end_of_day)
-    end
-  
-    if params[:faculty].present?
-      faculty = Faculty.find_by(id: params[:faculty])
-      @notes = @notes.where(faculty: faculty)
-    end
-  
-    if params[:user_search].present?
-      users = User.where("name LIKE ?", "%#{params[:user_search]}%")
-      user_ids = users.pluck(:id)
-      @notes = @notes.where(user_id: user_ids)
+    if params[:before].present?
+      before_date = Date.parse(params[:before])
+      @notes = @notes.where("uploaded_at <= ?", before_date.end_of_day)
     end
   
     order = params[:order] == 'desc' ? 'name DESC' : 'name ASC'
@@ -55,8 +55,26 @@ class NotesController < ApplicationController
     render 'search'
   end
   
-  
-  
+  def favourite
+    @favourite_notes = current_user.favourite_notes
+  end
+
+  def add_favourite
+    note = Note.find(params[:note_id])
+    current_user.favourite_notes << note
+    redirect_to note, notice: 'Nota aggiunta ai preferiti'
+  end
+
+  def remove_favourite
+    note = Note.find(params[:note_id])
+    current_user.favourite_notes.delete(note)
+    redirect_to note, notice: 'Nota eliminata dai preferiti.'
+  end
+
+  def note_params
+    params.require(:note).permit(:title, :content, :user_id, favourite_note_ids: [])
+  end  
+
   def show
     @note = Note.find(params[:id])
   end

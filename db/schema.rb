@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_30_141357) do
+ActiveRecord::Schema.define(version: 2023_07_01_154555) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(version: 2023_06_30_141357) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "favourites", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "note_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["note_id"], name: "index_favourites_on_note_id"
+    t.index ["user_id"], name: "index_favourites_on_user_id"
   end
 
   create_table "note_tags", force: :cascade do |t|
@@ -105,6 +114,8 @@ ActiveRecord::Schema.define(version: 2023_06_30_141357) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "favourites", "notes"
+  add_foreign_key "favourites", "users"
   add_foreign_key "note_tags", "notes"
   add_foreign_key "note_tags", "tags"
   add_foreign_key "note_topics", "notes"

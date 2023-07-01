@@ -10,4 +10,6 @@ class Note < ApplicationRecord
     has_many :note_topics
     has_many :topics, through: :note_topics
     belongs_to :faculty
+    has_many :favourites
+    has_many :favourited_by_users, through: :favourites, source: :user
 end

@@ -6,6 +6,8 @@ class User < ApplicationRecord
     
   has_many :richiesta_admins
   has_many :notes
+  has_many :favourites
+  has_many :favourite_notes, through: :favourites, source: :note
 
   def self.from_omniauth(auth)
     name_split = auth.info.name.split(" ")
@@ -27,6 +29,10 @@ class User < ApplicationRecord
   def send_welcome_email
     UserMailer.welcome_email(self).deliver_now
   end
+
+  def user_params
+    params.require(:user).permit(:name, :email, :password, favourite_notes_ids: [])
+  end  
 
 end
 
