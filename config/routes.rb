@@ -30,6 +30,7 @@ Rails.application.routes.draw do
 
   resources :users
 
+  resources :notes, only: %i[index show update]
 end
 
 

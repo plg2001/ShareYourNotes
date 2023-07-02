@@ -50,3 +50,5 @@ gem 'omniauth-rails_csrf_protection'
 
 gem 'google_drive'
 gem 'faraday', '0.17.4'
+
+gem "inline_svg", '1.9.0'

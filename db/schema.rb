@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_01_154555) do
+ActiveRecord::Schema.define(version: 2023_07_02_150950) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 2023_07_01_154555) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
+  end
+
+  create_table "create_ratings", force: :cascade do |t|
+    t.integer "note_id", null: false
+    t.integer "user_id", null: false
+    t.integer "rating", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["note_id"], name: "index_create_ratings_on_note_id"
+    t.index ["user_id"], name: "index_create_ratings_on_user_id"
   end
 
   create_table "faculties", force: :cascade do |t|
@@ -68,6 +78,7 @@ ActiveRecord::Schema.define(version: 2023_07_01_154555) do
     t.datetime "uploaded_at"
     t.integer "user_id", null: false
     t.integer "faculty_id"
+    t.integer "rating", default: 0, null: false
     t.index ["faculty_id"], name: "index_notes_on_faculty_id"
     t.index ["user_id"], name: "index_notes_on_user_id"
   end
@@ -114,6 +125,8 @@ ActiveRecord::Schema.define(version: 2023_07_01_154555) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "create_ratings", "notes"
+  add_foreign_key "create_ratings", "users"
   add_foreign_key "favourites", "notes"
   add_foreign_key "favourites", "users"
   add_foreign_key "note_tags", "notes"

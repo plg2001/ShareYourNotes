@@ -1,4 +1,10 @@
 class Note < ApplicationRecord
+  MAX_RATING = 5
+  validates :rating, numericality: { in: 0..MAX_RATING }
+
+
+  has_many :ratings
+  
     before_save :set_default_uploaded_at
 
   def set_default_uploaded_at

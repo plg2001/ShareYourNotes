@@ -17,6 +17,7 @@ class User < ApplicationRecord
   has_many :notes, dependent: :destroy
   has_many :favourites, dependent: :destroy
   has_many :favourite_notes, through: :favourites, source: :note
+  has_many :ratings
 
   def self.from_omniauth(auth)
     name_split = auth.info.name.split(" ")
@@ -42,6 +43,7 @@ class User < ApplicationRecord
   def user_params
     params.require(:user).permit(:name, :email, :password, favourite_notes_ids: [])
   end  
+
 
 end
 

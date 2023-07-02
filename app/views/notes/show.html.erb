@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag 'show', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'valutazione', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class="container">
   <h1 class="fw-bold text-center"><%= @note.name %></h1>
@@ -11,6 +12,33 @@
   </div>
   
   <p class="text-center"><strong>Autore:</strong> <%= @note.user.name %></p>
+
+  <div class="d-flex gap-3 mb-4">
+  <% Note::MAX_RATING.times do |n| %>
+  <%= button_to note_path(@note),
+      method: :patch,
+      params: { note: { rating: n + 1 } } do %>
+    <%= inline_svg_tag("star.svg",
+      class: "w-8 h-8 #{star_rating_hover_class()} #{star_rating_class(@note, n)}") %>
+  <% end %>
+  <% end %>
+  <% if @toast %>
+  <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true" data-bs-delay="3000">
+    <div class="toast-body bg-black text-white">
+      <% if @toast == :success %>
+        <%= inline_svg_tag("check.svg", class: "h-4 w-4 text-success me-2") %>
+        <span>Rating Added!</span>
+      <% else %>
+        <%= inline_svg_tag("warning.svg", class: "h-4 w-4 text-danger me-2") %>
+        <span>Rating could not be added</span>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+</div>
+
+
   <div class="dropright text-center">
     <button class="btn btn-primary dropdown-toggle" type="button" id="tagsTopicsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
       Tags & Topics

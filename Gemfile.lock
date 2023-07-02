@@ -175,6 +175,9 @@ GEM
       has_scope (~> 0.6)
       railties (>= 5.2, < 7.1)
       responders (>= 2, < 4)
+    inline_svg (1.9.0)
+      activesupport (>= 3.0)
+      nokogiri (>= 1.6)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -408,6 +411,7 @@ DEPENDENCIES
   google_drive
   guard-livereload
   htmlbeautifier
+  inline_svg (= 1.9.0)
   jbuilder (~> 2.7)
   jquery-rails
   listen (~> 3.3)
@@ -433,4 +437,4 @@ RUBY VERSION
    ruby 2.7.2p137
 
 BUNDLED WITH
-   2.4.7
+   2.4.13

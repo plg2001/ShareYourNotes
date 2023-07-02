@@ -90,7 +90,6 @@ class NotesController < ApplicationController
     @note.user = current_user
     @note.tags = Tag.where(id: params[:note][:tag_ids])
     @note.topics = Topic.where(id: params[:note][:topic_ids])
-    
     file = params[:file]
     filename = file.original_filename
     tempfile = file.tempfile
@@ -129,6 +128,26 @@ class NotesController < ApplicationController
 
 
     redirect_to file.web_content_link
+  end
+
+
+  def update
+    @note = Note.find(params[:id])
+    
+
+    if (@create_rating = CreateRating.find_by(note_id: @note.id, user_id: @note.user.id)) == nil
+      @create_rating = CreateRating.create!(note_id: @note.id, user_id: @note.user.id, rating: params[:note][:rating])
+
+    else
+      @create_rating.update(rating: params[:note][:rating])
+      @toast = :success
+    end
+    
+
+    average_rating = CreateRating.where(note_id: @note.id).average(:rating)
+    @note.update(rating: average_rating)
+
+    render :show
   end
 
 end
