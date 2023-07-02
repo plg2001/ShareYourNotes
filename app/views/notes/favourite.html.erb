@@ -1,6 +1,21 @@
-<h1>Preferiti</h1>
+<%= stylesheet_link_tag 'ricerca', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<div class="container">
+
+<h1 class="mt-5">Preferiti</h1>
 
 <% @favourite_notes.each do |note| %>
-  <h3><%= note.name %></h3>
-  <p><%= note.description %></p>
+  <div class="card my-4">
+    <div class="card-body">
+          <h4 class="card-title">
+            <a href="<%= note.id %>"><%= note.name %></a>
+          </h4>
+          <p class="card-text"><%= note.description %></p>
+          <p class="card-text"> Nome utente: <%= note.user.name %></p>
+          <%= link_to "Elimina dai preferiti", remove_favourite_path(note_id: note.id), method: :delete, class: "btn btn-danger" %>
+          <a href="<%= note.google_drive_link %>" class="btn btn-primary">Link Google Drive</a>
+    </div>
+  </div>
 <% end %>
+</div>
+

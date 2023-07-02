@@ -50546,3 +50546,711 @@ Processing by PagesController#home as HTML
 Completed 200 OK in 34ms (Views: 31.9ms | ActiveRecord: 1.0ms | Allocations: 12013)
 
 
+Started GET "/" for 127.0.0.1 at 2023-07-02 10:57:08 +0200
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.4ms | Allocations: 246)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:24
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:57
+  [1m[36mFaculty Load (0.1ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:63
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:66
+  Rendered layout layouts/application.html.erb (Duration: 814.3ms | Allocations: 137664)
+Completed 200 OK in 830ms (Views: 820.0ms | ActiveRecord: 0.9ms | Allocations: 142401)
+
+
+Started GET "/signin" for 127.0.0.1 at 2023-07-02 10:57:10 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.0ms | Allocations: 943)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 16.1ms | Allocations: 5146)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:57
+  [1m[36mFaculty Load (0.0ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:63
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:66
+  Rendered layout layouts/application.html.erb (Duration: 23.0ms | Allocations: 15773)
+Completed 200 OK in 27ms (Views: 24.5ms | ActiveRecord: 0.2ms | Allocations: 18058)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-07-02 10:57:12 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"damiano.martelluzzi3@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "damiano.martelluzzi3@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 242ms (ActiveRecord: 0.3ms | Allocations: 4860)
+
+
+Started GET "/" for 127.0.0.1 at 2023-07-02 10:57:13 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:24
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:57
+  [1m[36mFaculty Load (0.0ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:63
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:66
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 11618)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.2ms | Allocations: 12073)
+
+
+Started GET "/favourite" for 127.0.0.1 at 2023-07-02 10:57:17 +0200
+Processing by NotesController#favourite as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering notes/favourite.html.erb within layouts/application
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/views/notes/favourite.html.erb:3
+  Rendered notes/favourite.html.erb within layouts/application (Duration: 5.3ms | Allocations: 4171)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:57
+  [1m[36mFaculty Load (0.0ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:63
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:66
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 15164)
+Completed 200 OK in 26ms (Views: 14.0ms | ActiveRecord: 0.7ms | Allocations: 23890)
+
+
+Started GET "/notes/search?search=&Filtro=&user_search=&faculty=&after=&before=&order=&commit=Cerca" for 127.0.0.1 at 2023-07-02 10:57:20 +0200
+Processing by NotesController#search as HTML
+  Parameters: {"search"=>"", "Filtro"=>"", "user_search"=>"", "faculty"=>"", "after"=>"", "before"=>"", "order"=>"", "commit"=>"Cerca"}
+  Rendering layout layouts/application.html.erb
+  Rendering notes/search.html.erb within layouts/application
+  [1m[36mNote Load (0.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" ORDER BY name ASC[0m
+  ↳ app/views/notes/search.html.erb:3
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  Rendered notes/search.html.erb within layouts/application (Duration: 17.0ms | Allocations: 12191)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:24
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:57
+  [1m[36mFaculty Load (0.0ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:63
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:66
+  Rendered layout layouts/application.html.erb (Duration: 27.0ms | Allocations: 23530)
+Completed 200 OK in 28ms (Views: 26.9ms | ActiveRecord: 0.7ms | Allocations: 24142)
+
+
+Started POST "/add_favourite?note_id=6" for 127.0.0.1 at 2023-07-02 10:57:28 +0200
+Processing by NotesController#add_favourite as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "note_id"=>"6"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:63:in `add_favourite'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/notes_controller.rb:64:in `add_favourite'
+  [1m[36mFavourite Create (0.3ms)[0m  [1m[32mINSERT INTO "favourites" ("user_id", "note_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 15], ["note_id", 6], ["created_at", "2023-07-02 08:57:28.326532"], ["updated_at", "2023-07-02 08:57:28.326532"]]
+  ↳ app/controllers/notes_controller.rb:64:in `add_favourite'
+  [1m[36mTRANSACTION (10.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/notes_controller.rb:64:in `add_favourite'
+Redirected to http://127.0.0.1:3000/notes/6
+Completed 302 Found in 23ms (ActiveRecord: 11.1ms | Allocations: 7587)
+
+
+Started GET "/notes/6" for 127.0.0.1 at 2023-07-02 10:57:28 +0200
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:79:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering notes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/show.html.erb:13
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "note_tags" ON "tags"."id" = "note_tags"."tag_id" WHERE "note_tags"."note_id" = ?[0m  [["note_id", 6]]
+  ↳ app/views/notes/show.html.erb:23
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT "topics".* FROM "topics" INNER JOIN "note_topics" ON "topics"."id" = "note_topics"."topic_id" WHERE "note_topics"."note_id" = ?[0m  [["note_id", 6]]
+  ↳ app/views/notes/show.html.erb:31
+  [1m[36mFaculty Load (0.1ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties" WHERE "faculties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/notes/show.html.erb:38
+  Rendered notes/show.html.erb within layouts/application (Duration: 24.5ms | Allocations: 13769)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:24
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:57
+  [1m[36mFaculty Load (0.0ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:63
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:66
+  Rendered layout layouts/application.html.erb (Duration: 40.6ms | Allocations: 25237)
+Completed 200 OK in 42ms (Views: 39.0ms | ActiveRecord: 2.0ms | Allocations: 26244)
+
+
+Started GET "/favourite" for 127.0.0.1 at 2023-07-02 10:57:31 +0200
+Processing by NotesController#favourite as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering notes/favourite.html.erb within layouts/application
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/views/notes/favourite.html.erb:3
+  Rendered notes/favourite.html.erb within layouts/application (Duration: 1.7ms | Allocations: 741)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:57
+  [1m[36mFaculty Load (0.0ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:63
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:66
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 11594)
+Completed 200 OK in 19ms (Views: 15.2ms | ActiveRecord: 0.4ms | Allocations: 13093)
+
+
+Started GET "/favourite" for 127.0.0.1 at 2023-07-02 10:58:57 +0200
+Processing by NotesController#favourite as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering notes/favourite.html.erb within layouts/application
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/views/notes/favourite.html.erb:3
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/favourite.html.erb:9
+  Rendered notes/favourite.html.erb within layouts/application (Duration: 7.6ms | Allocations: 6640)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 6704)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.2ms | Allocations: 9216)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `note' for #<ActionView::Base:0x0000000000f3e8>
+Did you mean?  not):
+    15: <div class="card my-4">
+    16:         <div class="card-body">
+    17:           <h4 class="card-title">
+    18:             <a href="<%= note.id %>"><%= note.name %></a>
+    19:           </h4>
+    20:           <p class="card-text"><%= note.description %></p>
+    21:           <p class="card-text"> Nome utente: <%= note.user.name %></p>
+  
+app/views/notes/favourite.html.erb:18
+Started GET "/favourite" for 127.0.0.1 at 2023-07-02 10:59:06 +0200
+Processing by NotesController#favourite as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering notes/favourite.html.erb within layouts/application
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/views/notes/favourite.html.erb:3
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/favourite.html.erb:9
+  Rendered notes/favourite.html.erb within layouts/application (Duration: 5.6ms | Allocations: 6313)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 6377)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.2ms | Allocations: 7852)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `note' for #<ActionView::Base:0x0000000000f820>
+Did you mean?  not):
+    15: <div class="card my-4">
+    16:         <div class="card-body">
+    17:           <h4 class="card-title">
+    18:             <a href="<%= note.id %>"><%= note.name %></a>
+    19:           </h4>
+    20:           <p class="card-text"><%= note.description %></p>
+    21:           <p class="card-text"> Nome utente: <%= note.user.name %></p>
+  
+app/views/notes/favourite.html.erb:18
+Started GET "/favourite" for 127.0.0.1 at 2023-07-02 10:59:15 +0200
+Processing by NotesController#favourite as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering notes/favourite.html.erb within layouts/application
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/views/notes/favourite.html.erb:3
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/favourite.html.erb:9
+  Rendered notes/favourite.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1639)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:57
+  [1m[36mFaculty Load (0.0ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:63
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:66
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 13815)
+Completed 200 OK in 16ms (Views: 13.0ms | ActiveRecord: 0.4ms | Allocations: 16356)
+
+
+Started GET "/6" for 127.0.0.1 at 2023-07-02 10:59:20 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/6"):
+  
+Started DELETE "/remove_favourite?note_id=6" for 127.0.0.1 at 2023-07-02 10:59:23 +0200
+Processing by NotesController#remove_favourite as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "note_id"=>"6"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:69:in `remove_favourite'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/notes_controller.rb:70:in `remove_favourite'
+  [1m[36mFavourite Destroy (0.3ms)[0m  [1m[31mDELETE FROM "favourites" WHERE "favourites"."user_id" = ? AND "favourites"."note_id" = ?[0m  [["user_id", 15], ["note_id", 6]]
+  ↳ app/controllers/notes_controller.rb:70:in `remove_favourite'
+  [1m[36mTRANSACTION (12.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/notes_controller.rb:70:in `remove_favourite'
+Redirected to http://127.0.0.1:3000/notes/6
+Completed 302 Found in 24ms (ActiveRecord: 13.3ms | Allocations: 4695)
+
+
+Started GET "/notes/6" for 127.0.0.1 at 2023-07-02 10:59:23 +0200
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:79:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering notes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/show.html.erb:13
+  [1m[36mTag Load (0.0ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "note_tags" ON "tags"."id" = "note_tags"."tag_id" WHERE "note_tags"."note_id" = ?[0m  [["note_id", 6]]
+  ↳ app/views/notes/show.html.erb:23
+  [1m[36mTopic Load (0.0ms)[0m  [1m[34mSELECT "topics".* FROM "topics" INNER JOIN "note_topics" ON "topics"."id" = "note_topics"."topic_id" WHERE "note_topics"."note_id" = ?[0m  [["note_id", 6]]
+  ↳ app/views/notes/show.html.erb:31
+  [1m[36mFaculty Load (0.0ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties" WHERE "faculties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/notes/show.html.erb:38
+  Rendered notes/show.html.erb within layouts/application (Duration: 4.7ms | Allocations: 4747)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:24
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:57
+  [1m[36mFaculty Load (0.0ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:63
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:66
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 16162)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.4ms | Allocations: 17175)
+
+
+Started GET "/favourite" for 127.0.0.1 at 2023-07-02 10:59:25 +0200
+Processing by NotesController#favourite as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering notes/favourite.html.erb within layouts/application
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/views/notes/favourite.html.erb:3
+  Rendered notes/favourite.html.erb within layouts/application (Duration: 1.2ms | Allocations: 723)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:57
+  [1m[36mFaculty Load (0.1ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:63
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:66
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 11629)
+Completed 200 OK in 15ms (Views: 12.5ms | ActiveRecord: 0.3ms | Allocations: 13131)
+
+
+Started GET "/favourite" for 127.0.0.1 at 2023-07-02 11:00:32 +0200
+Processing by NotesController#favourite as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering notes/favourite.html.erb within layouts/application
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/views/notes/favourite.html.erb:3
+  Rendered notes/favourite.html.erb within layouts/application (Duration: 1.7ms | Allocations: 930)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:57
+  [1m[36mFaculty Load (0.1ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:63
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:66
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 12996)
+Completed 200 OK in 15ms (Views: 12.8ms | ActiveRecord: 0.4ms | Allocations: 15535)
+
+
+Started GET "/notes/search?search=&Filtro=&user_search=&faculty=&after=&before=&order=&commit=Cerca" for 127.0.0.1 at 2023-07-02 11:00:35 +0200
+Processing by NotesController#search as HTML
+  Parameters: {"search"=>"", "Filtro"=>"", "user_search"=>"", "faculty"=>"", "after"=>"", "before"=>"", "order"=>"", "commit"=>"Cerca"}
+  Rendering layout layouts/application.html.erb
+  Rendering notes/search.html.erb within layouts/application
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" ORDER BY name ASC[0m
+  ↳ app/views/notes/search.html.erb:3
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  Rendered notes/search.html.erb within layouts/application (Duration: 8.7ms | Allocations: 7537)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:24
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:57
+  [1m[36mFaculty Load (0.0ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:63
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:66
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | Allocations: 18873)
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.5ms | Allocations: 19477)
+
+
+Started POST "/add_favourite?note_id=6" for 127.0.0.1 at 2023-07-02 11:00:36 +0200
+Processing by NotesController#add_favourite as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "note_id"=>"6"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:63:in `add_favourite'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/notes_controller.rb:64:in `add_favourite'
+  [1m[36mFavourite Create (0.4ms)[0m  [1m[32mINSERT INTO "favourites" ("user_id", "note_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 15], ["note_id", 6], ["created_at", "2023-07-02 09:00:36.487646"], ["updated_at", "2023-07-02 09:00:36.487646"]]
+  ↳ app/controllers/notes_controller.rb:64:in `add_favourite'
+  [1m[36mTRANSACTION (12.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/notes_controller.rb:64:in `add_favourite'
+Redirected to http://127.0.0.1:3000/notes/6
+Completed 302 Found in 25ms (ActiveRecord: 13.0ms | Allocations: 6013)
+
+
+Started GET "/notes/6" for 127.0.0.1 at 2023-07-02 11:00:36 +0200
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:79:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering notes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/show.html.erb:13
+  [1m[36mTag Load (0.0ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "note_tags" ON "tags"."id" = "note_tags"."tag_id" WHERE "note_tags"."note_id" = ?[0m  [["note_id", 6]]
+  ↳ app/views/notes/show.html.erb:23
+  [1m[36mTopic Load (0.0ms)[0m  [1m[34mSELECT "topics".* FROM "topics" INNER JOIN "note_topics" ON "topics"."id" = "note_topics"."topic_id" WHERE "note_topics"."note_id" = ?[0m  [["note_id", 6]]
+  ↳ app/views/notes/show.html.erb:31
+  [1m[36mFaculty Load (0.0ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties" WHERE "faculties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/notes/show.html.erb:38
+  Rendered notes/show.html.erb within layouts/application (Duration: 5.0ms | Allocations: 4747)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:24
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:57
+  [1m[36mFaculty Load (0.0ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:63
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:66
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 16096)
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.4ms | Allocations: 17111)
+
+
+Started POST "/add_favourite?note_id=7" for 127.0.0.1 at 2023-07-02 11:00:39 +0200
+Processing by NotesController#add_favourite as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "note_id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:63:in `add_favourite'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/notes_controller.rb:64:in `add_favourite'
+  [1m[36mFavourite Create (0.5ms)[0m  [1m[32mINSERT INTO "favourites" ("user_id", "note_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 15], ["note_id", 7], ["created_at", "2023-07-02 09:00:39.427638"], ["updated_at", "2023-07-02 09:00:39.427638"]]
+  ↳ app/controllers/notes_controller.rb:64:in `add_favourite'
+  [1m[36mTRANSACTION (21.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/notes_controller.rb:64:in `add_favourite'
+Redirected to http://127.0.0.1:3000/notes/7
+Completed 302 Found in 33ms (ActiveRecord: 22.0ms | Allocations: 5535)
+
+
+Started GET "/notes/7" for 127.0.0.1 at 2023-07-02 11:00:39 +0200
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:79:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering notes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/notes/show.html.erb:13
+  [1m[36mTag Load (0.0ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "note_tags" ON "tags"."id" = "note_tags"."tag_id" WHERE "note_tags"."note_id" = ?[0m  [["note_id", 7]]
+  ↳ app/views/notes/show.html.erb:23
+  [1m[36mTopic Load (0.0ms)[0m  [1m[34mSELECT "topics".* FROM "topics" INNER JOIN "note_topics" ON "topics"."id" = "note_topics"."topic_id" WHERE "note_topics"."note_id" = ?[0m  [["note_id", 7]]
+  ↳ app/views/notes/show.html.erb:31
+  [1m[36mFaculty Load (0.0ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties" WHERE "faculties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/notes/show.html.erb:38
+  Rendered notes/show.html.erb within layouts/application (Duration: 4.6ms | Allocations: 4397)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:24
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:57
+  [1m[36mFaculty Load (0.0ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:63
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:66
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 15858)
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.4ms | Allocations: 16735)
+
+
+Started GET "/favourite" for 127.0.0.1 at 2023-07-02 11:00:42 +0200
+Processing by NotesController#favourite as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering notes/favourite.html.erb within layouts/application
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/views/notes/favourite.html.erb:3
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/favourite.html.erb:10
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/notes/favourite.html.erb:10
+  Rendered notes/favourite.html.erb within layouts/application (Duration: 3.2ms | Allocations: 2141)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:57
+  [1m[36mFaculty Load (0.0ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:63
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:66
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 12984)
+Completed 200 OK in 14ms (Views: 11.5ms | ActiveRecord: 0.4ms | Allocations: 14480)
+
+
+Started GET "/notes/search?search=&Filtro=&user_search=&faculty=&after=&before=&order=&commit=Cerca" for 127.0.0.1 at 2023-07-02 11:00:45 +0200
+Processing by NotesController#search as HTML
+  Parameters: {"search"=>"", "Filtro"=>"", "user_search"=>"", "faculty"=>"", "after"=>"", "before"=>"", "order"=>"", "commit"=>"Cerca"}
+  Rendering layout layouts/application.html.erb
+  Rendering notes/search.html.erb within layouts/application
+  [1m[36mNote Load (0.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" ORDER BY name ASC[0m
+  ↳ app/views/notes/search.html.erb:3
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  Rendered notes/search.html.erb within layouts/application (Duration: 9.8ms | Allocations: 7247)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:24
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:57
+  [1m[36mFaculty Load (0.0ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:63
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:66
+  Rendered layout layouts/application.html.erb (Duration: 20.5ms | Allocations: 18570)
+Completed 200 OK in 22ms (Views: 20.4ms | ActiveRecord: 0.6ms | Allocations: 19046)
+
+
+Started GET "/favourite" for 127.0.0.1 at 2023-07-02 11:00:48 +0200
+Processing by NotesController#favourite as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering notes/favourite.html.erb within layouts/application
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/views/notes/favourite.html.erb:3
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/favourite.html.erb:10
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/notes/favourite.html.erb:10
+  Rendered notes/favourite.html.erb within layouts/application (Duration: 2.4ms | Allocations: 2139)
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:57
+  [1m[36mFaculty Load (0.0ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:63
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:66
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 12982)
+Completed 200 OK in 12ms (Views: 9.6ms | ActiveRecord: 0.4ms | Allocations: 14484)
+
+
+Started GET "/favourite" for 127.0.0.1 at 2023-07-02 11:01:34 +0200
+Processing by NotesController#favourite as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering notes/favourite.html.erb within layouts/application
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/views/notes/favourite.html.erb:5
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/favourite.html.erb:12
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/notes/favourite.html.erb:12
+  Rendered notes/favourite.html.erb within layouts/application (Duration: 3.7ms | Allocations: 2351)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:57
+  [1m[36mFaculty Load (0.0ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:63
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:66
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 14403)
+Completed 200 OK in 17ms (Views: 13.8ms | ActiveRecord: 0.5ms | Allocations: 16950)
+
+
+Started GET "/favourite" for 127.0.0.1 at 2023-07-02 11:01:52 +0200
+Processing by NotesController#favourite as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering notes/favourite.html.erb within layouts/application
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/views/notes/favourite.html.erb:7
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/favourite.html.erb:14
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/notes/favourite.html.erb:14
+  Rendered notes/favourite.html.erb within layouts/application (Duration: 7.3ms | Allocations: 3845)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:57
+  [1m[36mFaculty Load (0.0ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:63
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:66
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 15804)
+Completed 200 OK in 21ms (Views: 18.0ms | ActiveRecord: 0.4ms | Allocations: 18346)
+
+
+Started GET "/notes/search?search=&Filtro=&user_search=&faculty=&after=&before=&order=&commit=Cerca" for 127.0.0.1 at 2023-07-02 11:01:54 +0200
+Processing by NotesController#search as HTML
+  Parameters: {"search"=>"", "Filtro"=>"", "user_search"=>"", "faculty"=>"", "after"=>"", "before"=>"", "order"=>"", "commit"=>"Cerca"}
+  Rendering layout layouts/application.html.erb
+  Rendering notes/search.html.erb within layouts/application
+  [1m[36mNote Load (0.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" ORDER BY name ASC[0m
+  ↳ app/views/notes/search.html.erb:3
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  Rendered notes/search.html.erb within layouts/application (Duration: 9.0ms | Allocations: 7539)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:24
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:57
+  [1m[36mFaculty Load (0.1ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:63
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:66
+  Rendered layout layouts/application.html.erb (Duration: 17.2ms | Allocations: 18879)
+Completed 200 OK in 19ms (Views: 17.4ms | ActiveRecord: 0.5ms | Allocations: 19485)
+
+
+Started GET "/favourite" for 127.0.0.1 at 2023-07-02 11:01:56 +0200
+Processing by NotesController#favourite as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering notes/favourite.html.erb within layouts/application
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/views/notes/favourite.html.erb:7
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/favourite.html.erb:14
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/notes/favourite.html.erb:14
+  Rendered notes/favourite.html.erb within layouts/application (Duration: 4.5ms | Allocations: 3621)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:57
+  [1m[36mFaculty Load (0.1ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:63
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:66
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 14244)
+Completed 200 OK in 16ms (Views: 12.7ms | ActiveRecord: 0.4ms | Allocations: 15749)
+
+
+Started GET "/notes/search?search=&Filtro=&user_search=&faculty=&after=&before=&order=&commit=Cerca" for 127.0.0.1 at 2023-07-02 11:01:58 +0200
+Processing by NotesController#search as HTML
+  Parameters: {"search"=>"", "Filtro"=>"", "user_search"=>"", "faculty"=>"", "after"=>"", "before"=>"", "order"=>"", "commit"=>"Cerca"}
+  Rendering layout layouts/application.html.erb
+  Rendering notes/search.html.erb within layouts/application
+  [1m[36mNote Load (0.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" ORDER BY name ASC[0m
+  ↳ app/views/notes/search.html.erb:3
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:13
+  Rendered notes/search.html.erb within layouts/application (Duration: 9.0ms | Allocations: 7246)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:24
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:57
+  [1m[36mFaculty Load (0.0ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:63
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:66
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | Allocations: 18569)
+Completed 200 OK in 19ms (Views: 17.1ms | ActiveRecord: 0.6ms | Allocations: 19041)
+
+
+Started GET "/favourite" for 127.0.0.1 at 2023-07-02 11:02:00 +0200
+Processing by NotesController#favourite as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering notes/favourite.html.erb within layouts/application
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/views/notes/favourite.html.erb:7
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/favourite.html.erb:14
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/notes/favourite.html.erb:14
+  Rendered notes/favourite.html.erb within layouts/application (Duration: 4.2ms | Allocations: 3616)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:57
+  [1m[36mFaculty Load (0.0ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:63
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:66
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 14239)
+Completed 200 OK in 13ms (Views: 11.2ms | ActiveRecord: 0.4ms | Allocations: 15740)
+
+
+Started GET "/favourite" for 127.0.0.1 at 2023-07-02 11:02:13 +0200
+Processing by NotesController#favourite as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering notes/favourite.html.erb within layouts/application
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/views/notes/favourite.html.erb:7
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/favourite.html.erb:14
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/notes/favourite.html.erb:14
+  Rendered notes/favourite.html.erb within layouts/application (Duration: 7.1ms | Allocations: 3846)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:57
+  [1m[36mFaculty Load (0.1ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:63
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:66
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 15801)
+Completed 200 OK in 20ms (Views: 17.4ms | ActiveRecord: 0.6ms | Allocations: 18347)
+
+
