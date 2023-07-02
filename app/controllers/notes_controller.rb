@@ -17,10 +17,10 @@ class NotesController < ApplicationController
     end
   
     if params[:user_search].present?
-      users = User.where("name LIKE ?", "%#{params[:user_search]}%")
+      users = User.where("username LIKE ?", "%#{params[:user_search]}%")
       user_ids = users.pluck(:id)
       @notes = @notes.where(user_id: user_ids)
-    end
+    end    
 
     if params[:faculty].present?
       faculty = Faculty.find_by(id: params[:faculty])

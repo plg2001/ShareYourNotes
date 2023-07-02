@@ -44,7 +44,7 @@
               <%= text_field_tag :search, params[:search], placeholder: "Cerca...", class: "form-control side" %>
               <%= select_tag :Filtro, options_for_select([
                   ["Filtra", ""],
-                  ["Utente", "user"],
+                  ["Username", "user"],
                   ["Facoltà", "faculty"],
                   ["Topic", "topic"],
                   ["Tag", "tag"],
@@ -53,17 +53,17 @@
                   ["Ordine alfabetico", "order"]
                 ], params[:Filtro]), { class: "form-control", id: "Filtro" } %>
               <div id="dropdown" class="form-group">
-                <div id="topic-choice" style="display: none;">
-                  <%= select_tag :topic, options_for_select(Topic.distinct.pluck(:name), params[:topic]), prompt: "Seleziona un topic", class: "form-control", id: "topic", value: params[:topic] || (params[:Filtro].try(:include?, 'topic') ? nil : valueTopic), multiple: true, size:2 %>
-                </div>
                 <div id="user-choice" style="display: none;">
-                  <%= text_field_tag :user_search, params[:user_search], placeholder: "Cerca per utente...", class: "form-control" %>
+                  <%= text_field_tag :user_search, params[:user_search], placeholder: "Cerca per username", class: "form-control" %>
                 </div>
                 <div id="faculty-choice" style="display: none;">
                   <%= select_tag :faculty, options_from_collection_for_select(Faculty.all, :id, :name, params[:faculty]), prompt: "Seleziona una facoltà", class: "form-control", id: "faculty" %>
                 </div>
+                <div id="topic-choice" style="display: none;">
+                  <%= select_tag :topic, options_for_select(Topic.distinct.pluck(:name), params[:topic]), prompt: "Scelgi uno o più topic", class: "form-control", id: "topic", value: params[:topic] || (params[:Filtro].try(:include?, 'topic') ? nil : valueTopic), multiple: true, size:2 %>
+                </div>
                 <div id="tag-choice" style="display: none;">
-                  <%= select_tag :tag, options_for_select(Tag.distinct.pluck(:name), params[:tag]), prompt: "Seleziona un tag", class: "form-control", id: "tag", value: params[:tag] || (params[:Filtro].try(:include?, 'tag') ? nil : valueTag), multiple: true, size:2 %>
+                  <%= select_tag :tag, options_for_select(Tag.distinct.pluck(:name), params[:tag]), prompt: "Scegli uno o più tag", class: "form-control", id: "tag", value: params[:tag] || (params[:Filtro].try(:include?, 'tag') ? nil : valueTag), multiple: true, size:2 %>
                 </div>
                 <div id="after-choice" style="display: none;">
                   <%= text_field_tag :after, params[:after], placeholder: "GG-MM-AAAA", class: "form-control", id: "after" %>
@@ -175,7 +175,7 @@
               <span class="close-button">&#10006;</span> 
               <h1>Informazioni utente</h1>
               <p><strong>Username:</strong> <%= current_user.username %></p>
-              <p><strong>Nome:</strong> <%= current_user.name %></p>
+              <p><strong>Name:</strong> <%= current_user.name %></p>
               <p><strong>Email:</strong> <%= current_user.email %></p>
               <%= link_to "Preferiti", favourite_path, class: "btn btn-primary" %>
               <%= link_to 'Modifica Profilo', edit_user_path(current_user) %>
