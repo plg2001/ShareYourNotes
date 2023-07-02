@@ -25,7 +25,7 @@ class UsersController < ApplicationController
         render :edit
       end
     else
-      if @user.update(user_params)
+      if @user.update(name: user_params[:name], username: user_params[:username])
         bypass_sign_in(@user)
         redirect_to user_path(@user), notice: 'Le informazioni sono state modificate.'
       else
@@ -34,7 +34,6 @@ class UsersController < ApplicationController
       end
     end
   end
-  
 
   def destroy
     begin
@@ -53,7 +52,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :current_password, :password, :password_confirmation)
+    params.require(:user).permit(:username, :name, :email, :current_password, :password, :password_confirmation)
   end
 end
 
