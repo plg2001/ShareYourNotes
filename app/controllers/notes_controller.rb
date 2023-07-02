@@ -150,4 +150,18 @@ class NotesController < ApplicationController
     render :show
   end
 
+  def delete
+    note = Note.find(params[:id])
+    notetags = NoteTag.where(note_id: params[:id])
+    notetags.delete_all
+    notetopics = NoteTopic.where(note_id: params[:id])
+    notetopics.delete_all
+    favourites = Favourite.where(note_id: params[:id])
+    favourite.delete_all
+    createrating = CreateRating.where(note_id: params[:id])
+    createrating.delete_all
+    note.delete
+    render notes_path, notice: 'La nota è stata cancellata con successo.'
+  end
+
 end

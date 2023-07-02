@@ -22,11 +22,15 @@ Rails.application.routes.draw do
 
   get '/notes/search', to: 'notes#search', as: 'search'
   get 'notes/:id/download', to: 'notes#download_file', as: 'download_note'
+  get 'my_notes' => 'notes#myNotes'
+  delete '/notes/:id/delete', to: 'notes#delete', as: 'remove_note'
   resources :notes
 
   get '/favourite', to: 'notes#favourite', as: 'favourite'
   post '/add_favourite', to: 'notes#add_favourite', as: 'add_favourite'
   delete '/remove_favourite', to: 'notes#remove_favourite', as: 'remove_favourite'
+ 
+
 
   resources :users
 

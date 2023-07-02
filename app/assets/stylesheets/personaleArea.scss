@@ -1,0 +1,38 @@
+.form-control.side {
+    border-radius: 5px 0 0 5px;
+  }
+  .form-control {
+    border-radius: 0;
+  }
+
+  .button-block {
+    display: block;
+    margin-bottom: 10px;
+    width: 137px;
+  }
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  .personal-area {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #f1f1f1;
+    z-index: 999;
+    transition: transform 0.3s ease-in-out;
+  }
+  .hidden {
+    transform: translateX(100%);
+  }
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+  }

@@ -3,7 +3,7 @@ class Note < ApplicationRecord
   validates :rating, numericality: { in: 0..MAX_RATING }
 
 
-  has_many :ratings
+  has_many :ratings, dependent: :destroy
   
     before_save :set_default_uploaded_at
 
