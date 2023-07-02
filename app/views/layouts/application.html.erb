@@ -46,6 +46,7 @@
                   ["Facoltà", "faculty"],
                   ["Topic", "topic"],
                   ["Tag", "tag"],
+                  ["Valutazione", "rating"],
                   ["Caricato dopo il", "after"],
                   ["Caricato prima del", "before"],
                   ["Ordine alfabetico", "order"]
@@ -55,13 +56,16 @@
                   <%= text_field_tag :user_search, params[:user_search], placeholder: "Cerca per username", class: "form-control" %>
                 </div>
                 <div id="faculty-choice" style="display: none;">
-                  <%= select_tag :faculty, options_from_collection_for_select(Faculty.all, :id, :name, params[:faculty]), prompt: "Seleziona una facoltà", class: "form-control", id: "faculty" %>
+                  <%= select_tag :faculty, options_from_collection_for_select(Faculty.all, :id, :name, params[:faculty]), prompt: "Scegli una facoltà", class: "form-control", id: "faculty" %>
                 </div>
                 <div id="topic-choice" style="display: none;">
-                  <%= select_tag :topic, options_for_select(Topic.distinct.pluck(:name), params[:topic]), prompt: "Scelgi uno o più topic", class: "form-control", id: "topic", value: params[:topic] || (params[:Filtro].try(:include?, 'topic') ? nil : valueTopic), multiple: true, size:2 %>
+                  <%= select_tag :topic, options_for_select(Topic.distinct.pluck(:name), params[:topic]), prompt: "Scegli uno o più topic", class: "form-control", id: "topic", value: params[:topic] || (params[:Filtro].try(:include?, 'topic') ? nil : valueTopic), multiple: true, size:2 %>
                 </div>
                 <div id="tag-choice" style="display: none;">
                   <%= select_tag :tag, options_for_select(Tag.distinct.pluck(:name), params[:tag]), prompt: "Scegli uno o più tag", class: "form-control", id: "tag", value: params[:tag] || (params[:Filtro].try(:include?, 'tag') ? nil : valueTag), multiple: true, size:2 %>
+                </div>
+                <div id="rating-choice" style="display: none;">
+                  <%= select_tag :rating, options_for_select([[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]], params[:rating]), prompt: "Scegli una valutazione", class: "form-control", id: "rating" %>
                 </div>
                 <div id="after-choice" style="display: none;">
                   <%= text_field_tag :after, params[:after], placeholder: "GG-MM-AAAA", class: "form-control", id: "after" %>
@@ -84,13 +88,14 @@
                   if (selectedChoice) {
                     selectedChoice.style.display = "block";
                   }
+                  if (valueSelected === "rating") {
+                    showChoice(valueSelected);
+                  }
                 });
-
                 document.addEventListener("DOMContentLoaded", function() {
                   var valueSelected = document.getElementById("Filtro").value;
                   showChoice(valueSelected);
                 });
-
                 function showChoice(value) {
                   var dropdownChoice = document.getElementById("dropdown");
                   Array.from(dropdownChoice.children).forEach(function(child) {
@@ -99,6 +104,9 @@
                   var selectedChoice = document.getElementById(value + "-choice");
                   if (selectedChoice) {
                     selectedChoice.style.display = "block";
+                  }
+                  if (value === "rating") {
+                    document.getElementById("search").value = "";
                   }
                 }
                 function validateDateInput() {
@@ -119,40 +127,32 @@
                   }
                   return true;
                 }
-
                 function isValidDate(dateString) {
                   var datePattern = /^\d{2}-\d{2}-\d{4}$/;
                   if (!datePattern.test(dateString)) {
                     alert("Data inserita in modo errato, formato corretto: GG-MM-AAAA");
                     return false;
                   }
-
                   var p = dateString.split("-");
                   var d = parseInt(p[0], 10);
                   var m = parseInt(p[1], 10);
                   var y = parseInt(p[2], 10);
-
                   var isValid = true;
-
                   if (d < 1 || d > 31 || isNaN(d)) {
                     alert("Giorno inserito errato");
                     isValid = false;
                   }
-
                   if (m < 1 || m > 12 || isNaN(m)) {
                     alert("Mese inserito errato");
                     isValid = false;
                   }
-
                   if (!isValid) {
                     return false;
                   }
-
                   var date = new Date(y, m - 1, d);
                   if (isNaN(date.getTime())) {
                     return false;
                   }
-
                   return true;
                 }
               </script>
@@ -179,12 +179,10 @@
                 var personalArea = document.getElementById('personal-area');
                 var personalButton = document.getElementById('personal-button');
                 var closeButton = document.querySelector('.close-button');
-
                 personalButton.addEventListener('click', function(event) {
                   event.preventDefault();
                   personalArea.classList.toggle('hidden');
                 });
-
                 closeButton.addEventListener('click', function(event) {
                   personalArea.classList.add('hidden');
                 });

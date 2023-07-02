@@ -38,6 +38,11 @@ class NotesController < ApplicationController
       tag_ids = Tag.where(name: tags).pluck(:id)
       @notes = @notes.joins(:note_tags).where(note_tags: { tag_id: tag_ids })
     end
+
+    if params[:rating].present?
+      rating = params[:rating].to_i
+      @notes = @notes.where("rating >= ?", rating)
+    end
   
     if params[:after].present?
       after_date = Date.parse(params[:after])

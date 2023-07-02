@@ -35,6 +35,9 @@ Rails.application.routes.draw do
   resources :users
 
   resources :notes, only: %i[index show update]
+
+  get '/notes/:id', to: 'notes#show', as: 'favourite_note'
+
 end
 
 

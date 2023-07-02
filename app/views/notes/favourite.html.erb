@@ -8,7 +8,7 @@
   <div class="card my-4">
     <div class="card-body">
           <h4 class="card-title">
-            <a href="<%= note.id %>"><%= note.name %></a>
+            <a href="<%= favourite_note_path(note) %>"><%= note.name %></a>
           </h4>
           <p class="card-text"><%= note.description %></p>
           <p class="card-text"> Nome utente: <%= note.user.name %></p>
