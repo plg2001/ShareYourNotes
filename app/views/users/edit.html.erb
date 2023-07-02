@@ -1,44 +1,46 @@
 
 <div class="container">
   <h1>Modifica delle informazioni</h1>
-  <form class="needs-validation" novalidate>
+  <%= form_for @user, html: { class: "needs-validation", novalidate: true } do |form| %>
     <div class="mb-3">
-      <label for="username" class="form-label">Username</label>
-      <input type="text" class="form-control" id="username" style="max-width: 300px;" required>
+      <%= form.label :username, class: "form-label" %>
+      <%= form.text_field :username, class: "form-control", id: "username", style: "max-width: 300px;", required: true %>
       <div class="invalid-feedback">
         Inserisci un username valido.
       </div>
     </div>
     <div class="mb-3">
-      <label for="name" class="form-label">Nome</label>
-      <input type="text" class="form-control" id="name" style="max-width: 300px;" required>
+      <%= form.label :name, class: "form-label" %>
+      <%= form.text_field :name, class: "form-control", id: "name", style: "max-width: 300px;", required: true %>
       <div class="invalid-feedback">
         Inserisci un nome valido.
       </div>
     </div>
     <div class="mb-3">
-      <label for="current_password" class="form-label">Password precedente</label>
-      <input type="password" class="form-control" id="current_password" style="max-width: 300px;" required>
+      <%= form.label :current_password, "Password precedente", class: "form-label" %>
+      <%= form.password_field :current_password, class: "form-control", id: "current_password", style: "max-width: 300px;", required: true %>
       <div class="invalid-feedback">
         Inserisci la password precedente.
       </div>
     </div>
     <div class="mb-3">
-      <label for="password" class="form-label">Nuova password</label>
-      <input type="password" class="form-control" id="password" style="max-width: 300px;" required>
+      <%= form.label :password, class: "form-label" %>
+      <%= form.password_field :password, class: "form-control", id: "password", style: "max-width: 300px;", required: true %>
       <div class="invalid-feedback">
         Inserisci una nuova password.
       </div>
     </div>
     <div class="mb-3">
-      <label for="password_confirmation" class="form-label">Conferma password</label>
-      <input type="password" class="form-control" id="password_confirmation" style="max-width: 300px;" required>
+      <%= form.label :password_confirmation, "Conferma password", class: "form-label" %>
+      <%= form.password_field :password_confirmation, class: "form-control", id: "password_confirmation", style: "max-width: 300px;", required: true %>
       <div class="invalid-feedback">
         Le password non corrispondono.
       </div>
     </div>
     <div class="mb-3">
-      <button type="submit" class="btn btn-primary">Salva</button>
+      <%= form.submit 'Salva', class: "btn btn-primary" %>
     </div>
-  </form>
+  <% end %>
 </div>
+
+
