@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   post '/add_favourite', to: 'notes#add_favourite', as: 'add_favourite'
   delete '/remove_favourite', to: 'notes#remove_favourite', as: 'remove_favourite'
 
+  resources :users
+
 end
 
 

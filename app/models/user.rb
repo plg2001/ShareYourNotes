@@ -3,10 +3,19 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable, :omniauthable, omniauth_providers: %i[facebook]
-    
-  has_many :richiesta_admins
-  has_many :notes
-  has_many :favourites
+  
+         validates :password, presence: true, length: { minimum: 6 }, if: :password_required?
+         validates :password_confirmation, presence: true, if: :password_required?
+         
+         attr_accessor :current_password
+         
+         def password_required?
+           password.present? || password_confirmation.present?
+         end
+         
+  has_many :richiesta_admins, dependent: :destroy
+  has_many :notes, dependent: :destroy
+  has_many :favourites, dependent: :destroy
   has_many :favourite_notes, through: :favourites, source: :note
 
   def self.from_omniauth(auth)

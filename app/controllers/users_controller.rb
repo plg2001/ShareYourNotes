@@ -1,35 +1,61 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:show]
 
-    before_action :set_user, only: [:show, :edit, :update, :destroy]
-    before_action :authenticate_user!, except: [:show]
+  def show
+    @user = User.find(params[:id])
+  end
 
-    def show
-        @user = User.find(params[:id])
-    end
-      
-    
-    def edit
-        @user = User.find(params[:id])
-    end
-    
-    def update
-        @user = User.find(params[:id])
-        if @user.update(user_params)
-          redirect_to @user, notice: 'Le informazioni dell\'utente sono state modificate.'
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    if user_params[:password].present?
+      if @user.valid_password?(user_params[:current_password])
+        if @user.update(user_params.except(:current_password))
+          bypass_sign_in(@user)
+          redirect_to user_path(@user), notice: 'Le informazioni sono state modificate.'
         else
+          flash.now[:alert] = 'Si è verificato un errore durante la modifica delle informazioni.'
           render :edit
         end
+      else
+        flash.now[:alert] = 'La password precedente non è corretta.'
+        render :edit
+      end
+    else
+      if @user.update(user_params)
+        bypass_sign_in(@user)
+        redirect_to user_path(@user), notice: 'Le informazioni sono state modificate.'
+      else
+        flash.now[:alert] = 'Si è verificato un errore durante la modifica delle informazioni.'
+        render :edit
+      end
     end
-    
-    private
+  end
+  
 
-    def set_user
-        @user = User.find(params[:id])
+  def destroy
+    begin
+      @user.destroy
+      redirect_to root_path, notice: 'Account eliminato con successo.'
+    rescue => e
+      flash[:alert] = "Si è verificato un errore durante l'eliminazione dell'account: #{e.message}"
+      redirect_to user_path(@user)
     end
-    
-    def user_params
-        params.require(:user).permit(:name, :email, :password)
-    end
-      
+  end
+
+  private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :email, :current_password, :password, :password_confirmation)
+  end
 end
+
+
 

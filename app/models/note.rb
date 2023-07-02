@@ -5,11 +5,11 @@ class Note < ApplicationRecord
     self.uploaded_at ||= Time.current
   end
     belongs_to :user
-    has_many :note_tags
+    has_many :note_tags, dependent: :destroy
     has_many :tags, through: :note_tags
-    has_many :note_topics
+    has_many :note_topics, dependent: :destroy
     has_many :topics, through: :note_topics
     belongs_to :faculty
-    has_many :favourites
+    has_many :favourites, dependent: :destroy
     has_many :favourited_by_users, through: :favourites, source: :user
 end

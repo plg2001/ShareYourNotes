@@ -170,13 +170,15 @@
             </div>
           <% end %>
           <% if user_signed_in? %>
-            <%= link_to "Area personale", "#", id: "personal-button", class: "btn btn-primary" %>
+            <%= link_to "Area personale", "#", id: "personal-button", class: "btn btn-primary d-flex justify-content-center align-items-center" %>
             <div id="personal-area" class="personal-area hidden">
               <span class="close-button">&#10006;</span> 
               <h1>Informazioni utente</h1>
               <p><strong>Nome:</strong> <%= current_user.name %></p>
               <p><strong>Email:</strong> <%= current_user.email %></p>
               <%= link_to "Preferiti", favourite_path, class: "btn btn-primary" %>
+              <%= link_to 'Modifica Profilo', edit_user_path(current_user) %>
+              <%= link_to 'Elimina Account', user_path(current_user), method: :delete, data: { confirm: 'Sei sicuro di voler eliminare il tuo account?' } %>
             </div>
             <style>
               .personal-area {
@@ -189,11 +191,9 @@
                 z-index: 999;
                 transition: transform 0.3s ease-in-out;
               }
-
               .hidden {
                 transform: translateX(100%);
               }
-
               .close-button {
                 position: absolute;
                 top: 10px;
@@ -217,13 +217,6 @@
                   personalArea.classList.add('hidden');
                 });
               });
-              var preferitiButton = document.getElementById('preferiti-button');
-
-preferitiButton.addEventListener('click', function(event) {
-  event.preventDefault();
-  personalArea.classList.remove('hidden');
-});
-
             </script>
           <% end %>
         </ul>
