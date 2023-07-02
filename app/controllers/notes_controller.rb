@@ -135,8 +135,8 @@ class NotesController < ApplicationController
     @note = Note.find(params[:id])
     
 
-    if (@create_rating = CreateRating.find_by(note_id: @note.id, user_id: @note.user.id)) == nil
-      @create_rating = CreateRating.create!(note_id: @note.id, user_id: @note.user.id, rating: params[:note][:rating])
+    if (@create_rating = CreateRating.find_by(note_id: @note.id, user_id: current_user.id)) == nil
+      @create_rating = CreateRating.create!(note_id: @note.id, user_id: current_user.id, rating: params[:note][:rating])
 
     else
       @create_rating.update(rating: params[:note][:rating])
