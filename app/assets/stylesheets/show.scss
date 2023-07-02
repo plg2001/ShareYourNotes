@@ -7,3 +7,38 @@
       font-size: 12px;
     }
   }
+
+
+.BottoniStella{
+  position: relative;
+ 
+
+  .toast {
+    position: fixed;
+    top: 90px;
+    right: 20px;
+    z-index: 9999;
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+  }
+  
+  .toast .toast-body {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+  }
+  
+  .toast .toast-body svg {
+    height: 18px;
+    width: 18px;
+    margin-right: 8px;
+  }
+  
+  .toast .toast-body span {
+    font-weight: bold;
+  }
+  
+}
