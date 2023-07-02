@@ -1,28 +1,44 @@
-<h1>Modifica delle informazioni</h1>
-<%= form_for @user do |form| %>
-  <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :username %>
-  </div>
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-  <div class="field">
-    <%= form.label :current_password, "Password precedente" %>
-    <%= form.password_field :current_password %>
-  </div>
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
-  <div class="field">
-    <%= form.label :password_confirmation, "Conferma password" %>
-    <%= form.password_field :password_confirmation %>
-  </div>
-  <div class="actions">
-    <%= form.submit 'Salva' %>
-  </div>
-<% end %>
 
-
+<div class="container">
+  <h1>Modifica delle informazioni</h1>
+  <form class="needs-validation" novalidate>
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input type="text" class="form-control" id="username" style="max-width: 300px;" required>
+      <div class="invalid-feedback">
+        Inserisci un username valido.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="name" class="form-label">Nome</label>
+      <input type="text" class="form-control" id="name" style="max-width: 300px;" required>
+      <div class="invalid-feedback">
+        Inserisci un nome valido.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="current_password" class="form-label">Password precedente</label>
+      <input type="password" class="form-control" id="current_password" style="max-width: 300px;" required>
+      <div class="invalid-feedback">
+        Inserisci la password precedente.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Nuova password</label>
+      <input type="password" class="form-control" id="password" style="max-width: 300px;" required>
+      <div class="invalid-feedback">
+        Inserisci una nuova password.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="password_confirmation" class="form-label">Conferma password</label>
+      <input type="password" class="form-control" id="password_confirmation" style="max-width: 300px;" required>
+      <div class="invalid-feedback">
+        Le password non corrispondono.
+      </div>
+    </div>
+    <div class="mb-3">
+      <button type="submit" class="btn btn-primary">Salva</button>
+    </div>
+  </form>
+</div>
