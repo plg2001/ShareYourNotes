@@ -73,7 +73,13 @@ class NotesController < ApplicationController
   def remove_favourite
     note = Note.find(params[:note_id])
     current_user.favourite_notes.delete(note)
-    redirect_to favourite_path, notice: 'Nota eliminata dai preferiti.'
+    if request.referer.include?('search')
+      redirect_to search_path, notice: 'Nota eliminata dai preferiti.'
+    elsif request.referer.include?('favourite')
+      redirect_to favourite_path, notice: 'Nota eliminata dai preferiti.'
+    else
+      redirect_to favourite_path, notice: 'Nota eliminata dai preferiti.'
+    end
   end
 
   def note_params
