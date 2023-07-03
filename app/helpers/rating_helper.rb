@@ -11,4 +11,19 @@ module RatingHelper
       "text-primary"
     end
 
+    def staruser_rating_class(user, index)
+      sum_ratings = 0
+      i = 0
+      user.notes.each do |note|
+        sum_ratings += note.rating
+        i += 1
+      end
+      average_rating = sum_ratings / i
+      if index < average_rating
+        "text-warning"
+      else
+        "text-muted"
+      end
+    end
+
   end

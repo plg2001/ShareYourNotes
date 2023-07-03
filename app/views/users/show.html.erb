@@ -1,6 +1,39 @@
-<div class="container text-right">
-    <h1>Informazioni</h1>
-    <p><strong>Username:</strong> <%= @user.username %></p>
-    <p><strong>Name:</strong> <%= @user.name %></p>
-    <p><strong>Email:</strong> <%= @user.email %></p>
+<%= stylesheet_link_tag 'ricerca', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'usershow', media: 'all', 'data-turbolinks-track': 'reload' %>
+<div class="container text-center pagina">
+  <h1 class='boh'><strong><%= @user.username %></strong> </h1>
+  <p class='boh'><%= @user.name %></p>
+
+  <div class="d-flex gap-3 mb-4 BottoniStella justify-content-center">
+    <% Note::MAX_RATING.times do |n| %>
+      <%= inline_svg_tag("star.svg",
+        class: "w-8 h-8 #{staruser_rating_class(@user, n)}") %>
+    <% end %>
   </div>
+
+</div>
+
+<div class="container">
+
+<h1 class="mt-5">Appunti di <%= @user.username %></h1>
+
+<% @user.notes.each do |note| %>
+  <div class="card my-4">
+    <div class="card-body">
+          <h4 class="card-title">
+            <a href="<%= personal_note_path(note.id) %>"><%= note.name %></a>
+          </h4>
+          <p class="card-text"><%= note.description %></p>
+          <p class="card-text"> Autore: <%= note.user.username %></p>
+          <% if current_user != note.user %>
+            <% if current_user && current_user.favourite_notes.include?(note) %>
+              <%= link_to "Rimuovi dai preferiti", remove_favourite_path(note_id: note.id), method: :delete, class: "btn btn-danger" %>
+            <% elsif current_user%>
+              <%= link_to "Aggiungi ai preferiti", add_favourite_path(note_id: note.id), method: :post, class: "btn btn-primary" %>
+            <% end %>
+          <% end %>
+          <a href="<%= note.google_drive_link %>" class="btn btn-primary">Link Google Drive</a>
+    </div>
+  </div>
+<% end %>
+</div>

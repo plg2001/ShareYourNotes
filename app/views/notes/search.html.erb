@@ -6,15 +6,54 @@
     <% @notes.each do |note| %>
       <div class="card my-4">
         <div class="card-body">
+        <div class="d-flex justify-content-start align-items-center">
           <h4 class="card-title">
             <a href="<%= note.id %>"><%= note.name %></a>
           </h4>
+
+          <% if current_user && current_user != note.user %>
+          <div class="d-flex gap-1 mb-1 BottoniStella justify-content-start">
+            <% Note::MAX_RATING.times do |n| %>
+              <%= button_to note_path(note),
+              method: :patch,
+              params: { note: { rating: n + 1 } },
+              class: "border-0 bg-transparent d-flex justify-content-start BottoneSingolo" do %>
+                <%= inline_svg_tag("star.svg",
+              class: "w-8 h-8 #{star_rating_hover_class()} #{star_rating_class(note, n)}") %>
+              <% end %>
+            <% end %>
+            <% if @toast %>
+              <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true" data-bs-delay="3000">
+                <div class="toast-body bg-black text-white">
+                  <% if @toast == :success %>
+                    <%= inline_svg_tag("check.svg", class: "h-4 w-4 text-success me-2") %>
+                    <span>Rating Added!</span>
+                  <% else %>
+                    <%= inline_svg_tag("warning.svg", class: "h-4 w-4 text-danger me-2") %>
+                    <span>Rating could not be added</span>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <% else %>
+            <div class="d-flex gap-3 mb-4 stella justify-content-start">
+          <% Note::MAX_RATING.times do |n| %>
+            <%= inline_svg_tag("star.svg",
+              class: "w-8 h-8 #{star_rating_class(note, n)}") %>
+          <% end %>
+          </div>
+          <% end %>
+          </div>
+
           <p class="card-text"><%= note.description %></p>
           <p class="card-text"> Autore: <%= note.user.username %></p>
-          <% if current_user && current_user.favourite_notes.include?(note) %>
-            <%= link_to "Rimuovi dai preferiti", remove_favourite_path(note_id: note.id), method: :delete, class: "btn btn-danger" %>
-          <% elsif current_user %>
-            <%= link_to "Aggiungi ai preferiti", add_favourite_path(note_id: note.id), method: :post, class: "btn btn-primary" %>
+          <% if current_user != note.user %>
+            <% if current_user && current_user.favourite_notes.include?(note) %>
+              <%= link_to "Rimuovi dai preferiti", remove_favourite_path(note_id: note.id), method: :delete, class: "btn btn-danger" %>
+            <% elsif current_user%>
+              <%= link_to "Aggiungi ai preferiti", add_favourite_path(note_id: note.id), method: :post, class: "btn btn-primary" %>
+            <% end %>
           <% end %>
           <a href="<%= note.google_drive_link %>" class="btn btn-primary">Link Google Drive</a>
         </div>

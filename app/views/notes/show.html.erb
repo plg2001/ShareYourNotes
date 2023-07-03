@@ -3,7 +3,7 @@
 <div class="container Pagina">
   <h1 class="fw-bold text-center"><%= @note.name %></h1>
   <h5 class="text-center"><%= @note.description %></h5>
-  <% if current_user %>
+  <% if current_user && current_user != @note.user %>
   <div class="d-flex gap-3 mb-4 BottoniStella justify-content-center">
     <% Note::MAX_RATING.times do |n| %>
       <%= button_to note_path(@note),
@@ -42,7 +42,7 @@
       <%= link_to 'Scarica file', download_note_path(@note), class: 'btn btn-primary btn-block' %>
     </div>
   </div>
-  <p class="text-center"><strong>Autore:</strong> <%= @note.user.username %></p>
+  <p class="text-center"><strong>Autore:</strong> <%= link_to @note.user.username, user_path(@note.user), class: 'link' %></p>
   
   <div class="dropright text-center">
     <button class="btn btn-primary dropdown-toggle" type="button" id="tagsTopicsDropdown" data-bs-toggle="dropdown" aria-expanded="false">

@@ -1,13 +1,4 @@
 <%= stylesheet_link_tag 'ricerca', media: 'all', 'data-turbolinks-track': 'reload' %>
-<script>
-  // Aggiunge la classe "show" all'elemento notice
-  $(<%= flash.notice%>).addClass('show');
-
-  // Rimuove la classe "show" dall'elemento notice dopo 3 secondi (3000 millisecondi)
-  setTimeout(function(){
-    $(flash.notice).removeClass('show');
-  }, 3000);
-</script>
 <div class="container">
 
 <h1 class="mt-5">I miei appunti</h1>
@@ -15,9 +6,13 @@
 <% current_user.notes.each do |note| %>
   <div class="card my-4">
     <div class="card-body">
-          <h4 class="card-title">
-            <a href="<%= personal_note_path(note.id) %>"><%= note.name %></a>
-          </h4>
+          <div class="d-flex align-items-center gap-2 mb-2 BottoniStella ">
+            <h4 class="card-title"><a href="<%= personal_note_path(note.id) %>"><%= note.name %></a></h4>
+            <% Note::MAX_RATING.times do |n| %>
+              <%= inline_svg_tag("star.svg", class: "w-8 h-8 #{star_rating_class(note, n)}") %>
+            <% end %>
+          </div>
+
           <p class="card-text"><%= note.description %></p>
           <p class="card-text"> Autore: <%= note.user.username %></p>
           <%= link_to "Elimina Nota", remove_note_path(note), method: :delete, class: "btn btn-danger" %>

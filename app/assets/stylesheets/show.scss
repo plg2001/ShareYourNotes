@@ -16,6 +16,7 @@
 .BottoniStella{
   position: relative;
   padding-top: 10px;
+  border-bottom: 0px;
 
   .toast {
     position: fixed;
@@ -53,4 +54,8 @@
 
 .Drive{
   padding-bottom: 15px;
+}
+
+.link{
+  text-decoration: none;
 }
