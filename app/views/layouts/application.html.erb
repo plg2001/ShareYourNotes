@@ -6,23 +6,24 @@
     <%= csrf_meta_tags %> <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application' %>
     <%= stylesheet_link_tag 'personaleArea', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'chatArea', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application' %>
   </head>
   <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var alerts = document.querySelectorAll(".alert");
-    alerts.forEach(function(alert) {
-      var timeout = alert.dataset.timeout;
-      if (timeout) {
-        setTimeout(function() {
-          alert.classList.remove("show");
-        }, timeout);
-      }
+    document.addEventListener("DOMContentLoaded", function() {
+      var alerts = document.querySelectorAll(".alert");
+      alerts.forEach(function(alert) {
+        var timeout = alert.dataset.timeout;
+        if (timeout) {
+          setTimeout(function() {
+            alert.classList.remove("show");
+          }, timeout);
+        }
+      });
     });
-  });
-</script>
-
+  </script>
   <body>
+    <div class="main-area"></div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <%= image_tag("book.png",style: "max-width: 2em; max-height: 2em;") %><%= link_to "ShareYourNotes",root_path,class: "navbar-brand" %>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,6 +36,20 @@
           </li>
           <% if user_signed_in? %>
             <li class="nav-item me-3"><%= link_to "Carica Appunti", new_note_path, class:"nav-link" %></li>
+            <li class="nav-item me-3"><%= link_to "Chat", "#", id: "chat-button", class: "btn btn-primary d-flex justify-content-center align-items-center" %></li>
+            <div id="chat-area" class="chat-area ">
+              <span class="close-button-chat">&#10006;</span>
+              <% if @users.present? %>
+                <% @users.each_with_index do |user,index|%>
+                  <tr>
+                    <td><%= index +=1 %></td>
+                    <td><%= user.name %></td>
+                    <td><%= link_to "Send Message","#",class:"btn btn-success btn-xs start-conversation",
+                  "data-sid" => current_user.id,"data-rip" =>user.id %></td>
+                  </tr>
+                <% end%>
+              <% end%>
+            </div>
           <% end %>
         </ul>
         <ul class="navbar-nav  ms-auto">
@@ -181,11 +196,13 @@
               <p><strong>Username:</strong> <%= current_user.username %></p>
               <p><strong>Name:</strong> <%= current_user.name %></p>
               <p><strong>Email:</strong> <%= current_user.email %></p>
-              <%= link_to "Preferiti", favourite_path, class: "btn btn-primary btn-block button-block" %>
-              <%= link_to "Miei Appunti", my_notes_path, class: "btn btn-primary btn-block button-block" %>
-              <div class="button-container">
-                <%= link_to 'Modifica Profilo', edit_user_path(current_user), class: "btn btn-warning" %>
-                <%= link_to 'Elimina Account', user_path(current_user), method: :delete, data: { confirm: 'Sei sicuro di voler eliminare il tuo account?' }, class: "btn btn-danger" %>
+              <div class="all-button-container">
+                <%= link_to "Preferiti", favourite_path, class: "mybtn mybtn-primary btn-block button-block" %>
+                <%= link_to "Miei Appunti", my_notes_path, class: "mybtn mybtn-primary btn-block button-block" %>
+                <div class="button-container">
+                  <%= link_to 'Modifica Profilo', edit_user_path(current_user), class: "mybtn mybtn-warning pr-3" %>
+                  <%= link_to 'Elimina Account', user_path(current_user), method: :delete, data: { confirm: 'Sei sicuro di voler eliminare il tuo account?' }, class: "mybtn mybtn-danger" %>
+                </div>
               </div>
             </div>
             <script>
@@ -193,12 +210,30 @@
                 var personalArea = document.getElementById('personal-area');
                 var personalButton = document.getElementById('personal-button');
                 var closeButton = document.querySelector('.close-button');
+
+                var chatArea = document.getElementById('chat-area');
+                var chatButton = document.getElementById('chat-button');
+                var closeButtonchat = document.querySelector('.close-button-chat');
+
+                var mainArea = document.querySelector('.main-area');
+
                 personalButton.addEventListener('click', function(event) {
                   event.preventDefault();
                   personalArea.classList.toggle('hidden');
+                  mainArea.style.display = 'block';
                 });
                 closeButton.addEventListener('click', function(event) {
                   personalArea.classList.add('hidden');
+                  mainArea.style.display = 'none';
+                });
+                chatButton.addEventListener('click', function(event) {
+                  event.preventDefault();
+                  chatArea.classList.add('chat-hidden');
+                  mainArea.style.display = 'block';
+                });
+                closeButtonchat.addEventListener('click', function(event) {
+                  chatArea.classList.toggle('chat-hidden');
+                  mainArea.style.display = 'none';
                 });
               });
             </script>

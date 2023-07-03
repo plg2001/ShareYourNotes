@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy,:index]
   before_action :authenticate_user!, except: [:show]
 
+  def index
+    @users = User.all # o qualsiasi altra query per ottenere gli utenti desiderati
+  end
+  
   def show
     @user = User.find(params[:id])
   end
@@ -9,6 +13,9 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
   end
+
+  
+  
 
   def update
     if user_params[:password].present?

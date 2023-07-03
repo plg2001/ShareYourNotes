@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable, :omniauthable, omniauth_providers: %i[facebook]
+         :recoverable, :rememberable, :validatable, :confirmable, :omniauthable , omniauth_providers: %i[facebook] 
   
          validates :password, presence: true, length: { minimum: 6 }, if: :password_required?
          validates :password_confirmation, presence: true, if: :password_required?
@@ -18,6 +18,10 @@ class User < ApplicationRecord
   has_many :favourites, dependent: :destroy
   has_many :favourite_notes, through: :favourites, source: :note
   has_many :ratings
+  has_many :conversation, :foreign_key => :sender_id
+
+  after_create :create_default_conversation
+
 
   def self.from_omniauth(auth)
     name_split = auth.info.name.split(" ")
@@ -43,6 +47,10 @@ class User < ApplicationRecord
   def user_params
     params.require(:user).permit(:name, :email, :password, favourite_notes_ids: [])
   end  
+
+  def each_with_index
+   @user = User.all
+  end
 
 
 end
