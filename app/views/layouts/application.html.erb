@@ -8,9 +8,23 @@
     <%= stylesheet_link_tag 'personaleArea', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application' %>
   </head>
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var alerts = document.querySelectorAll(".alert");
+    alerts.forEach(function(alert) {
+      var timeout = alert.dataset.timeout;
+      if (timeout) {
+        setTimeout(function() {
+          alert.classList.remove("show");
+        }, timeout);
+      }
+    });
+  });
+</script>
+
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <%= image_tag("book.png",style: "max-width: 2em; max-height: 2em;") %><%= link_to "ShareYourNotes",root_path,class: "navbar-brand" %>
+      <%= image_tag("book.png",style: "max-width: 2em; max-height: 2em;") %><%= link_to "ShareYourNotes",root_path,class: "navbar-brand" %>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -19,7 +33,7 @@
           <li class="nav-item me-3">
             <%= link_to "About",about_path,class: "nav-link" %>
           </li>
-           <% if user_signed_in? %>
+          <% if user_signed_in? %>
             <li class="nav-item me-3"><%= link_to "Carica Appunti", new_note_path, class:"nav-link" %></li>
           <% end %>
         </ul>
@@ -162,7 +176,7 @@
           <% if user_signed_in? %>
             <%= link_to "Area personale", "#", id: "personal-button", class: "btn btn-primary d-flex justify-content-center align-items-center" %>
             <div id="personal-area" class="personal-area hidden">
-              <span class="close-button">&#10006;</span> 
+              <span class="close-button">&#10006;</span>
               <h1>Informazioni utente</h1>
               <p><strong>Username:</strong> <%= current_user.username %></p>
               <p><strong>Name:</strong> <%= current_user.name %></p>
@@ -198,7 +212,7 @@
         <% if message.starts_with?("Signed") %>
           <% message += " #{current_user.username}" %>
         <% end %>
-        <%= content_tag(:div,message, class: "alert alert-info alert-#{name} fade show") %>
+        <%= content_tag(:div,message, class: "alert alert-info alert-#{name} fade show",data: { dismiss: "alert", timeout: 3000 }) %>
       <% end %>
     <% end %>
     <%= yield %>
