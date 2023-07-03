@@ -1,3 +1,7 @@
+.Pagina{
+  padding-top: 25px;
+}
+
 .tags-topics-list {
     padding: 7px;
     margin: 0;
@@ -11,7 +15,7 @@
 
 .BottoniStella{
   position: relative;
- 
+  padding-top: 10px;
 
   .toast {
     position: fixed;
@@ -40,5 +44,13 @@
   .toast .toast-body span {
     font-weight: bold;
   }
-  
+  .BottoneSingolo{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
+
+.Drive{
+  padding-bottom: 15px;
 }

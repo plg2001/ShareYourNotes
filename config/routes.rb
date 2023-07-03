@@ -24,7 +24,11 @@ Rails.application.routes.draw do
   get 'notes/:id/download', to: 'notes#download_file', as: 'download_note'
   get 'my_notes' => 'notes#myNotes'
   delete '/notes/:id/delete', to: 'notes#delete', as: 'remove_note'
-  resources :notes
+
+  get '/notes/:id', to: 'notes#show', as: 'favourite_note'
+  get '/notes/:id', to: 'notes#show', as: 'personal_note'
+
+ 
 
   get '/favourite', to: 'notes#favourite', as: 'favourite'
   post '/add_favourite', to: 'notes#add_favourite', as: 'add_favourite'
@@ -33,10 +37,8 @@ Rails.application.routes.draw do
 
 
   resources :users
-
+  resources :notes
   resources :notes, only: %i[index show update]
-
-  get '/notes/:id', to: 'notes#show', as: 'favourite_note'
 
 end
 

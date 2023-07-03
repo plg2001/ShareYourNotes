@@ -1,5 +1,13 @@
 <%= stylesheet_link_tag 'ricerca', media: 'all', 'data-turbolinks-track': 'reload' %>
+<script>
+  // Aggiunge la classe "show" all'elemento notice
+  $(<%= flash.notice%>).addClass('show');
 
+  // Rimuove la classe "show" dall'elemento notice dopo 3 secondi (3000 millisecondi)
+  setTimeout(function(){
+    $(flash.notice).removeClass('show');
+  }, 3000);
+</script>
 <div class="container">
 
 <h1 class="mt-5">I miei appunti</h1>
@@ -8,10 +16,10 @@
   <div class="card my-4">
     <div class="card-body">
           <h4 class="card-title">
-            <a href="<%= note.id %>"><%= note.name %></a>
+            <a href="<%= personal_note_path(note.id) %>"><%= note.name %></a>
           </h4>
           <p class="card-text"><%= note.description %></p>
-          <p class="card-text"> Nome utente: <%= note.user.name %></p>
+          <p class="card-text"> Autore: <%= note.user.username %></p>
           <%= link_to "Elimina Nota", remove_note_path(note), method: :delete, class: "btn btn-danger" %>
           <a href="<%= note.google_drive_link %>" class="btn btn-primary">Link Google Drive</a>
     </div>

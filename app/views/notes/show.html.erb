@@ -1,14 +1,15 @@
 <%= stylesheet_link_tag 'show', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag 'valutazione', media: 'all', 'data-turbolinks-track': 'reload' %>
-<div class="container">
+<div class="container Pagina">
   <h1 class="fw-bold text-center"><%= @note.name %></h1>
   <h5 class="text-center"><%= @note.description %></h5>
-  <div class="d-flex gap-3 mb-4 BottoniStella  justify-content-center">
+  <% if current_user %>
+  <div class="d-flex gap-3 mb-4 BottoniStella justify-content-center">
     <% Note::MAX_RATING.times do |n| %>
       <%= button_to note_path(@note),
       method: :patch,
       params: { note: { rating: n + 1 } },
-      class: "border-0 bg-transparent  d-flex justify-content-center " do %>
+      class: "border-0 bg-transparent d-flex justify-content-center BottoneSingolo" do %>
         <%= inline_svg_tag("star.svg",
       class: "w-8 h-8 #{star_rating_hover_class()} #{star_rating_class(@note, n)}") %>
       <% end %>
@@ -27,17 +28,25 @@
       </div>
     <% end %>
   </div>
+  <% else %>
+    <div class="d-flex gap-3 mb-4 BottoniStella justify-content-center">
+  <% Note::MAX_RATING.times do |n| %>
+    <%= inline_svg_tag("star.svg",
+      class: "w-8 h-8 #{star_rating_class(@note, n)}") %>
+  <% end %>
+  </div>
+  <% end %>
   <div class="text-center">
-    <div class="btn-group" role="group" aria-label="Pulsanti">
+    <div class="btn-group Drive" role="group" aria-label="Pulsanti">
       <a href="<%= @note.google_drive_link %>" class="btn btn-primary btn-block">Google Drive Link</a>
       <%= link_to 'Scarica file', download_note_path(@note), class: 'btn btn-primary btn-block' %>
     </div>
   </div>
-  <p class="text-center"><strong>Autore:</strong> <%= @note.user.name %></p>
+  <p class="text-center"><strong>Autore:</strong> <%= @note.user.username %></p>
   
   <div class="dropright text-center">
     <button class="btn btn-primary dropdown-toggle" type="button" id="tagsTopicsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-      Tags & Topics
+      Più Informazioni
     </button>
     <div class="dropdown-menu" aria-labelledby="tagsTopicsDropdown">
       <div class="row">
@@ -59,6 +68,7 @@
         </div>
         <div class="col">
           <h6 class="dropdown-header">Facoltà:</h6>
+          <ul class="list-unstyled tags-topics-list">
           <li class="tag-topic-item"><%= @note.faculty.name %></li>
         </div>
       </div>

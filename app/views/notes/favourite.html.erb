@@ -11,7 +11,7 @@
             <a href="<%= favourite_note_path(note) %>"><%= note.name %></a>
           </h4>
           <p class="card-text"><%= note.description %></p>
-          <p class="card-text"> Nome utente: <%= note.user.name %></p>
+          <p class="card-text"> Autore: <%= note.user.username %></p>
           <%= link_to "Elimina dai preferiti", remove_favourite_path(note_id: note.id), method: :delete, class: "btn btn-danger" %>
           <a href="<%= note.google_drive_link %>" class="btn btn-primary">Link Google Drive</a>
     </div>

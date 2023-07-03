@@ -42,8 +42,8 @@ class NotesController < ApplicationController
     if params[:rating].present?
       rating = params[:rating].to_i
       @notes = @notes.where("rating >= ?", rating)
-    end
-  
+    end  
+    
     if params[:after].present?
       after_date = Date.parse(params[:after])
       @notes = @notes.where("uploaded_at >= ?", after_date.beginning_of_day)
@@ -67,13 +67,13 @@ class NotesController < ApplicationController
   def add_favourite
     note = Note.find(params[:note_id])
     current_user.favourite_notes << note
-    redirect_to note, notice: 'Nota aggiunta ai preferiti'
+    redirect_to search_path, notice: 'Nota aggiunta ai preferiti'
   end
 
   def remove_favourite
     note = Note.find(params[:note_id])
     current_user.favourite_notes.delete(note)
-    redirect_to note, notice: 'Nota eliminata dai preferiti.'
+    redirect_to favourite_path, notice: 'Nota eliminata dai preferiti.'
   end
 
   def note_params
@@ -166,7 +166,7 @@ class NotesController < ApplicationController
     createrating = CreateRating.where(note_id: params[:id])
     createrating.delete_all
     note.delete
-    render notes_path, notice: 'La nota è stata cancellata con successo.'
+    redirect_to my_notes_path, notice: 'La nota è stata cancellata con successo.'
   end
 
 end
