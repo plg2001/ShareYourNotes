@@ -18,9 +18,8 @@ class User < ApplicationRecord
   has_many :favourites, dependent: :destroy
   has_many :favourite_notes, through: :favourites, source: :note
   has_many :ratings
-  has_many :conversation, :foreign_key => :sender_id
+ 
 
-  after_create :create_default_conversation
 
 
   def self.from_omniauth(auth)

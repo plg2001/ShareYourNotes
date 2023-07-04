@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_03_153003) do
+ActiveRecord::Schema.define(version: 2023_07_02_150950) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -24,15 +24,6 @@ ActiveRecord::Schema.define(version: 2023_07_03_153003) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
-  end
-
-  create_table "conversations", force: :cascade do |t|
-    t.integer "sender_id"
-    t.integer "recipient_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["recipient_id"], name: "index_conversations_on_recipient_id"
-    t.index ["sender_id"], name: "index_conversations_on_sender_id"
   end
 
   create_table "create_ratings", force: :cascade do |t|
@@ -58,16 +49,6 @@ ActiveRecord::Schema.define(version: 2023_07_03_153003) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["note_id"], name: "index_favourites_on_note_id"
     t.index ["user_id"], name: "index_favourites_on_user_id"
-  end
-
-  create_table "messages", force: :cascade do |t|
-    t.text "body"
-    t.integer "conversation_id", null: false
-    t.integer "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
-    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "note_tags", force: :cascade do |t|
@@ -148,8 +129,6 @@ ActiveRecord::Schema.define(version: 2023_07_03_153003) do
   add_foreign_key "create_ratings", "users"
   add_foreign_key "favourites", "notes"
   add_foreign_key "favourites", "users"
-  add_foreign_key "messages", "conversations"
-  add_foreign_key "messages", "users"
   add_foreign_key "note_tags", "notes"
   add_foreign_key "note_tags", "tags"
   add_foreign_key "note_topics", "notes"
