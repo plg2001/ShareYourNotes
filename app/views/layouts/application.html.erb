@@ -39,15 +39,12 @@
             <li class="nav-item me-3"><%= link_to "Chat", "#", id: "chat-button", class: "btn btn-primary d-flex justify-content-center align-items-center" %></li>
             <div id="chat-area" class="chat-area ">
               <span class="close-button-chat">&#10006;</span>
-              <% if @users.present? %>
-                <% @users.each_with_index do |user,index|%>
-                  <tr>
-                    <td><%= index +=1 %></td>
-                    <td><%= user.name %></td>
-                    <td><%= link_to "Send Message","#",class:"btn btn-success btn-xs start-conversation",
-                  "data-sid" => current_user.id,"data-rip" =>user.id %></td>
-                  </tr>
-                <% end%>
+              <% users = User.all %>
+                <% users.each do |user|%>
+                  <ul class="list-User">
+                    <li class="elem"><%= user.username %></li>
+                    <li class="elem "><%= link_to 'Message me', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' ,class: "a btn btn-primary  d-flex justify-content-center align-items-center"%></li>
+                  </ul>
               <% end%>
             </div>
           <% end %>
