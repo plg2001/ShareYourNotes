@@ -1,0 +1,36 @@
+/* Stile dell'area di input del messaggio */
+.form-control {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-control:focus {
+    outline: none;
+    border-color: #2185d0;
+    box-shadow: 0 0 3px rgba(33, 133, 208, 0.5);
+  }
+  
+  /* Stile del pulsante di invio */
+  .ui.blue.labeled.submit.icon.button {
+    color: #ffffff;
+    background-color: #2185d0;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .ui.blue.labeled.submit.icon.button:hover {
+    background-color: #1678c2;
+  }
+  
+  .ui.blue.labeled.submit.icon.button .icon {
+    margin-right: 5px;
+  }
+  

@@ -30,7 +30,18 @@
     color: #333;
   }
   
+  .header-chat {
+    display: flex;
+    align-items: center;
+  }
 
+  .chat{
+    margin-left: 5px;
+    font-weight: bold;
+    margin-right: 20px;
+  }
+
+ 
   .list-User {
     list-style-type: none;
     padding: 0;
@@ -38,6 +49,22 @@
     margin-bottom: 20px;
   }
   
+  .switch{
+    font-weight: bold;
+    margin-left: 5px ;
+    margin-bottom: 15px;
+  }
+
+  .Administrator-overflow{
+    margin-top: 30px;
+    overflow-y: auto;
+    max-height: 500px;
+  }
+  .User-overflow{
+    margin-top: 50px;
+    overflow-y: auto;
+    max-height: 500px;
+  }
   
   .list-User .elem {
     display: block;
@@ -57,3 +84,4 @@
     border: 2px solid black;
     width: 150px;
   }
+

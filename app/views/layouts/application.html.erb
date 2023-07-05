@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
   <head>
     <title>ShareYourNotes</title>
@@ -32,20 +33,41 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
           <li class="nav-item me-3">
-            <%= link_to "About",about_path,class: "nav-link" %>
+            <%= link_to "About",conversations_path,class: "nav-link" %>
           </li>
           <% if user_signed_in? %>
             <li class="nav-item me-3"><%= link_to "Carica Appunti", new_note_path, class:"nav-link" %></li>
-            <li class="nav-item me-3"><%= link_to "Chat", "#", id: "chat-button", class: "btn btn-primary d-flex justify-content-center align-items-center" %></li>
+            <li class="nav-item me-3"><%= link_to '#' do %><%= image_tag("chat1.svg", id: "chat-button", style: "width: 40px; height: 40px;",class:"nav-link") %><% end %></li>
             <div id="chat-area" class="chat-area ">
               <span class="close-button-chat">&#10006;</span>
-              <% users = User.all %>
+              <div class="header-chat">
+                <h1 class="chat">Chat</h1>
+                <%= image_tag("chat2.svg",style: "width: 2em; height: 2em;") %>
+              </div>
+              <div class="Administrator-overflow">
+                <% users = User.all %>
+                <h5 class="switch">Administrator</h5>
                 <% users.each do |user|%>
-                  <ul class="list-User">
-                    <li class="elem"><%= user.username %></li>
-                    <li class="elem "><%= link_to 'Message me', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' ,class: "a btn btn-primary  d-flex justify-content-center align-items-center"%></li>
-                  </ul>
-              <% end%>
+                  <% if user.admin == true%>
+                    <ul class="list-User">
+                      <li class="elem"><%= user.username %></li>
+                      <li class="elem "><%= link_to 'Message me', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' ,class: "a btn btn-primary  d-flex justify-content-center align-items-center"%></li>
+                    </ul>
+                  <% end%>
+                <% end%>
+              </div>
+              <div class="User-overflow">
+                <% users = User.all %>
+                <h5 class="switch">User</h5>
+                <% users.each do |user|%>
+                  <% if user.admin == false%>
+                    <ul class="list-User">
+                      <li class="elem"><%= user.username %></li>
+                      <li class="elem "><%= link_to 'Message me', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' ,class: "a btn btn-primary  d-flex justify-content-center align-items-center"%></li>
+                    </ul>
+                  <% end%>
+                <% end%>
+              </div>
             </div>
           <% end %>
         </ul>
