@@ -4,37 +4,37 @@
   <h1 class="fw-bold text-center"><%= @note.name %></h1>
   <h5 class="text-center"><%= @note.description %></h5>
   <% if current_user && current_user != @note.user %>
-  <div class="d-flex gap-3 mb-4 BottoniStella justify-content-center">
-    <% Note::MAX_RATING.times do |n| %>
-      <%= button_to note_path(@note),
+    <div class="d-flex gap-3 mb-4 BottoniStella justify-content-center">
+      <% Note::MAX_RATING.times do |n| %>
+        <%= button_to note_path(@note),
       method: :patch,
       params: { note: { rating: n + 1 } },
       class: "border-0 bg-transparent d-flex justify-content-center BottoneSingolo" do %>
-        <%= inline_svg_tag("star.svg",
+          <%= inline_svg_tag("star.svg",
       class: "w-8 h-8 #{star_rating_hover_class()} #{star_rating_class(@note, n)}") %>
+        <% end %>
       <% end %>
-    <% end %>
-    <% if @toast %>
-      <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true" data-bs-delay="3000">
-        <div class="toast-body bg-black text-white">
-          <% if @toast == :success %>
-            <%= inline_svg_tag("check.svg", class: "h-4 w-4 text-success me-2") %>
-            <span>Rating Added!</span>
-          <% else %>
-            <%= inline_svg_tag("warning.svg", class: "h-4 w-4 text-danger me-2") %>
-            <span>Rating could not be added</span>
-          <% end %>
+      <% if @toast %>
+        <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true" data-bs-delay="3000">
+          <div class="toast-body bg-black text-white">
+            <% if @toast == :success %>
+              <%= inline_svg_tag("check.svg", class: "h-4 w-4 text-success me-2") %>
+              <span>Rating Added!</span>
+            <% else %>
+              <%= inline_svg_tag("warning.svg", class: "h-4 w-4 text-danger me-2") %>
+              <span>Rating could not be added</span>
+            <% end %>
+          </div>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
   <% else %>
     <div class="d-flex gap-3 mb-4 BottoniStella justify-content-center">
-  <% Note::MAX_RATING.times do |n| %>
-    <%= inline_svg_tag("star.svg",
+      <% Note::MAX_RATING.times do |n| %>
+        <%= inline_svg_tag("star.svg",
       class: "w-8 h-8 #{star_rating_class(@note, n)}") %>
-  <% end %>
-  </div>
+      <% end %>
+    </div>
   <% end %>
   <div class="text-center">
     <div class="btn-group Drive" role="group" aria-label="Pulsanti">
@@ -42,8 +42,12 @@
       <%= link_to 'Scarica file', download_note_path(@note), class: 'btn btn-primary btn-block' %>
     </div>
   </div>
-  <p class="text-center"><strong>Autore:</strong> <%= link_to @note.user.username, user_path(@note.user), class: 'link' %></p>
-  
+  <div class="Author-Message">
+    <p class="Autore"><strong>Autore:</strong> <%= link_to @note.user.username, user_path(@note.user), class: 'link' %></p>
+    <%# if current_user.id != @note.user.id %>
+    <p class="Message"><%= link_to 'Message me', conversations_path(sender_id: current_user.id, recipient_id: @note.user.id), method: 'post',class:"btn btn-primary"%></p>
+    <%# end %>
+  </div>
   <div class="dropright text-center">
     <button class="btn btn-primary dropdown-toggle" type="button" id="tagsTopicsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
       Più Informazioni
@@ -69,15 +73,15 @@
         <div class="col">
           <h6 class="dropdown-header">Facoltà:</h6>
           <ul class="list-unstyled tags-topics-list">
-          <li class="tag-topic-item"><%= @note.faculty.name %></li>
+            <li class="tag-topic-item"><%= @note.faculty.name %></li>
+          </div>
         </div>
       </div>
     </div>
+    <div class="text-center ">
+      <% google_drive_link = @note.google_drive_link %>
+      <%file_id = google_drive_link.match(/\/file\/d\/(.+?)\//)[1]%>
+      <% preview_url = "https://drive.google.com/file/d/#{file_id}/preview" %>
+      <iframe src="<%= preview_url %>" width="100%" height="500px"></iframe>
+    </div>
   </div>
-  <div class="text-center">
-    <% google_drive_link = @note.google_drive_link %>
-    <%file_id = google_drive_link.match(/\/file\/d\/(.+?)\//)[1]%>
-    <% preview_url = "https://drive.google.com/file/d/#{file_id}/preview" %>
-    <iframe src="<%= preview_url %>" width="100%" height="500px"></iframe>
-  </div>
-</div>
