@@ -1,35 +1,53 @@
+
 <%= stylesheet_link_tag 'message', media: 'all', 'data-turbolinks-track': 'reload' %>
-<% if @over_ten %>
-  <%= link_to 'Mostra messaggi precedenti', '?m=all', class: "ui button" %>
-<% end %>
-<div class="ui segment">
-  <% @messages.each do |message| %>
-    <% if message.body %>
-      <% user = User.find(message.user_id) %>
-      <div class="item">
-        <div class="content">
-          <div class="header">
-            <strong><%= user.username %></strong>
-            <%= message.message_time %>
-          </div>
-          <div class="list">
-            <div class="item">
-              <i class="right triangle icon"></i>
-              <%= message.body %>
+
+<section class="msger">
+  <header class="msger-header">
+    <div class="msger-header-title">
+      <i class="fas fa-comment-alt"></i> Chat
+    </div>
+    <div class="msger-header-options">
+      <span><i class="fas fa-cog"></i></span>
+    </div>
+  </header>
+  <main class="msger-chat">
+    <% @messages.each do |message| %>
+      <% if message.body %>
+        <% user = User.find(message.user_id) %>
+        <% if current_user != user %>
+          <div class="msg left-msg">
+            <%= image_tag("avatar.svg",style: "max-width: 2em; max-height: 2em;",class: "msg-img") %>
+            <div class="msg-bubble">
+              <div class="msg-info">
+                <div class="msg-info-name"><%= user.username%></div>
+                <div class="msg-info-time"><%= message.message_time%></div>
+              </div>
+              <div class="msg-text">
+                <%= message.body%>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
-</div>
+        <% else %>
+          <div class="msg right-msg">
+            <%= image_tag("avatar.svg",style: "max-width: 2em; max-height: 2em;",class: "msg-img") %>
+            <div class="msg-bubble">
+              <div class="msg-info">
+                <div class="msg-info-name"><%= user.username%></div>
+                <div class="msg-info-time"><%= message.message_time%></div>
+              </div>
+              <div class="msg-text">
+                <%= message.body%>
+              </div>
+            </div>
+          </div>
+        <%end %>
+      <%end %>
+    <%end %>
+  </main> 
+  <%= form_for [@conversation, @message], html: { class: "msger-inputarea" } do |f| %>
 
-<%= form_for [@conversation, @message], html: { class: "ui reply form" } do |f| %>
-  <div class="field">
-    <%= f.text_area :body, class: "form-control", placeholder: "Scrivi un messaggio..." %>
-  </div>
-  <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
-  <div>
-    <%= f.submit "Invia", class: "ui blue labeled submit icon button" %>
-  </div>
-<% end %>
+    <%= f.text_field :body, class: "msger-input", placeholder: "Scrivi un messaggio..." %>
+    <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
+    <%= f.submit "Invia", class: "msger-send-btn" %>
+  <% end %>
+</section>
