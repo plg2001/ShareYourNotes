@@ -47,7 +47,9 @@ Rails.application.routes.draw do
     resources :messages
    end
 
-
+   get 'favourite', to: 'notes#favourite'
+   resources :notes
+   
 end
 
 

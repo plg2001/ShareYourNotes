@@ -61,14 +61,19 @@ class NotesController < ApplicationController
   end
   
   def favourite
-    @favourite_notes = current_user.favourite_notes
+    @favourite_notes = current_user.favourite_notes.includes(:note_topics, :note_tags)
+    @note_topics = NoteTopic.where(note_id: @favourite_notes.pluck(:id)).group_by(&:topic_id)
+    @note_tags = NoteTag.where(note_id: @favourite_notes.pluck(:id)).group_by(&:tag_id)
   end
 
   def add_favourite
     note = Note.find(params[:note_id])
-    current_user.favourite_notes << note
+    favourite = current_user.favourites.find_or_initialize_by(note: note)
+    favourite.added_to_favorites_at = Time.current
+    favourite.save
     redirect_to search_path, notice: 'Nota aggiunta ai preferiti'
   end
+  
 
   def remove_favourite
     note = Note.find(params[:note_id])

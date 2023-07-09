@@ -2,20 +2,150 @@
 
 <div class="container">
 
-<h1 class="mt-5">Preferiti</h1>
-
-<% @favourite_notes.each do |note| %>
-  <div class="card my-4">
-    <div class="card-body">
-          <h4 class="card-title">
-            <a href="<%= favourite_note_path(note) %>"><%= note.name %></a>
-          </h4>
-          <p class="card-text"><%= note.description %></p>
-          <p class="card-text"> Autore: <%= note.user.username %></p>
-          <%= link_to "Elimina dai preferiti", remove_favourite_path(note_id: note.id), method: :delete, class: "btn btn-danger" %>
-          <a href="<%= note.google_drive_link %>" class="btn btn-primary">Link Google Drive</a>
-    </div>
+<div class="row align-items-end justify-content-center">
+  <div class="col">
+    <h1 class="mt-5">Preferiti</h1>
   </div>
-<% end %>
+  <div class="col">
+    <button id="dateButton" class="mybtn mybtn-primary btn-block button-block" style="position: relative;">Mostra data di aggiunta</button>
+  </div>
+  <div class="col">
+    <button id="tagtopicButton" class="mybtn mybtn-primary btn-block button-block" style="position: relative;">Dividi per Tag e Topic</button>
+  </div>
 </div>
 
+<div id="favourite">
+  <% @favourite_notes.each do |note| %>
+    <div class="card my-4">
+      <div class="card-body">
+            <h4 class="card-title">
+              <a href="<%= favourite_note_path(note) %>"><%= note.name %></a>
+            </h4>
+            <p class="card-text"><%= note.description %></p>
+            <p class="card-text"> Autore: <%= note.user.username %></p>
+            <% added_to_favorites_at = current_user.favourites.find_by(note_id: note.id) %>
+              <% if added_to_favorites_at && added_to_favorites_at.added_to_favorites_at.present? %>
+                <% d = added_to_favorites_at.added_to_favorites_at.day %>
+                <% m = added_to_favorites_at.added_to_favorites_at.strftime("%B") %>
+                <% y = added_to_favorites_at.added_to_favorites_at.year %>
+                <p class="card-text date hidden">Aggiunto ai preferiti in data: <%= "#{d} #{m} #{y}" %></p>
+
+              <% else %>
+                <p class="card-text">Aggiunto ai preferiti in data: Non disponibile</p>
+              <% end %>
+            <%= link_to "Elimina dai preferiti", remove_favourite_path(note_id: note.id), method: :delete, class: "btn btn-danger" %>
+            <a href="<%= note.google_drive_link %>" class="btn btn-primary">Link Google Drive</a>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>
+
+<div class="container">
+  <div id="favourite2" class="hidden">
+    <% if @favourite_notes.any? %>
+      <h2>Note divise per Topic</h2>
+      <% @note_topics.each do |topic_id, note_topics| %>
+        <% topic = note_topics.first.topic %>
+        <h3><%= topic.name %> <br> Numero di note associate al topic: <%= note_topics.size %> <% if note_topics.size > 1 %>topics<% else %>topic<% end %></h3>
+        <% note_topics.each do |note_topic| %>
+          <div class="card my-4">
+            <div class="card-body">
+              <% note = note_topic.note %>
+              <h4 class="card-title">
+                <a href="<%= favourite_note_path(note) %>"><%= note.name %></a>
+              </h4>
+              <p class="card-text"><%= note_topic.note.description %></p>
+              <p class="card-text"> Autore: <%= note_topic.note.user.username %></p>
+              <% added_to_favorites_at = current_user.favourites.find_by(note_id: note.id) %>
+              <% if added_to_favorites_at && added_to_favorites_at.added_to_favorites_at.present? %>
+                <% d = added_to_favorites_at.added_to_favorites_at.day %>
+                <% m = added_to_favorites_at.added_to_favorites_at.strftime("%B") %>
+                <% y = added_to_favorites_at.added_to_favorites_at.year %>
+                <p class="card-text date hidden">Aggiunto ai preferiti in data: <%= "#{d} #{m} #{y}" %></p>
+              <% else %>
+                <p class="card-text">Aggiunto ai preferiti in data: Non disponibile</p>
+              <% end %>
+              <%= link_to "Elimina dai preferiti", remove_favourite_path(note_id: note_topic.note.id), method: :delete, class: "btn btn-danger" %>
+              <a href="<%= note_topic.note.google_drive_link %>" class="btn btn-primary">Link Google Drive</a>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+      <h2>Note divise per Tag</h2>
+      <% @note_tags.each do |tag_id, note_tags| %>
+        <% tag = note_tags.first.tag %>
+        <h3><%= tag.name %> <br> Numero di note associate al tag: <%= note_tags.size %> <% if note_tags.size > 1 %>tags<% else %>tag<% end %></h3>
+        <% note_tags.each do |note_tag| %>
+          <div class="card my-4">
+            <div class="card-body">
+              <% note = note_tag.note %>
+              <h4 class="card-title">
+                <a href="<%= favourite_note_path(note) %>"><%= note.name %></a>
+              </h4>
+              <p class="card-text"><%= note_tag.note.description %></p>
+              <p class="card-text"> Autore: <%= note_tag.note.user.username %></p>
+              <% added_to_favorites_at = current_user.favourites.find_by(note_id: note.id) %>
+              <% if added_to_favorites_at && added_to_favorites_at.added_to_favorites_at.present? %>
+                <% d = added_to_favorites_at.added_to_favorites_at.day %>
+                <% m = added_to_favorites_at.added_to_favorites_at.strftime("%B") %>
+                <% y = added_to_favorites_at.added_to_favorites_at.year %>
+                <p class="card-text date hidden">Aggiunto ai preferiti in data: <%= "#{d} #{m} #{y}" %></p>
+              <% else %>
+                <p class="card-text">Aggiunto ai preferiti in data: Non disponibile</p>
+              <% end %>
+              <%= link_to "Elimina dai preferiti", remove_favourite_path(note_id: note_tag.note.id), method: :delete, class: "btn btn-danger" %>
+              <a href="<%= note_tag.note.google_drive_link %>" class="btn btn-primary">Link Google Drive</a>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p>Nessuna nota disponibile tra i preferiti</p>
+    <% end %>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var tagtopicButton = document.getElementById('tagtopicButton');
+    var favourite2 = document.getElementById('favourite2');
+    var favourite = document.getElementById('favourite');
+    var isVisible = false;
+
+    tagtopicButton.addEventListener('click', function() {
+      isVisible = !isVisible;
+      if (isVisible) {
+        favourite2.classList.remove('hidden');
+        favourite.classList.add('hidden');
+        tagtopicButton.textContent = 'Tutti i Preferiti';
+      } else {
+        favourite2.classList.add('hidden');
+        favourite.classList.remove('hidden');
+        tagtopicButton.textContent = 'Dividi per Tag e Topic';
+      }
+    });
+  });
+  var dateButton = document.getElementById('dateButton');
+  var date = document.getElementsByClassName('date');
+  var isVisible = false;
+  dateButton.addEventListener('click', function() {
+    isVisible = !isVisible;
+    if (isVisible) {
+      for (var i = 0; i < date.length; i++) {
+        date[i].classList.remove('hidden');
+      }
+      dateButton.textContent = "Nascondi data di aggiunta";
+    } else {
+      for (var i = 0; i < date.length; i++) {
+        date[i].classList.add('hidden');
+      }
+      dateButton.textContent = "Mostra data di aggiunta";
+    }
+  });
+</script>
+<style>
+  .hidden {
+    display: none;
+  }
+</style>
