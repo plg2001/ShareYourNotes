@@ -48,7 +48,7 @@
                 <% users = User.all %>
                 <h5 class="switch">Administrator</h5>
                 <% users.each do |user|%>
-                  <% if user.admin == true%>
+                  <% if user.admin == true && user != current_user%>
                     <ul class="list-User">
                       <li class="elem"><%= user.username %></li>
                       <li class="elem "><%= link_to 'Message me', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' ,class: "a btn btn-primary  d-flex justify-content-center align-items-center"%></li>
@@ -60,7 +60,7 @@
                 <% users = User.all %>
                 <h5 class="switch">User</h5>
                 <% users.each do |user|%>
-                  <% if user.admin == false%>
+                  <% if user.admin == false && user != current_user%>
                     <ul class="list-User">
                       <li class="elem"><%= user.username %></li>
                       <li class="elem "><%= link_to 'Message me', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' ,class: "a btn btn-primary  d-flex justify-content-center align-items-center"%></li>

@@ -18,4 +18,5 @@ class Note < ApplicationRecord
     belongs_to :faculty
     has_many :favourites, dependent: :destroy
     has_many :favourited_by_users, through: :favourites, source: :user
+    has_many :comments, dependent: :destroy
 end

@@ -44,9 +44,9 @@
   </div>
   <div class="Author-Message">
     <p class="Autore"><strong>Autore:</strong> <%= link_to @note.user.username, user_path(@note.user), class: 'link' %></p>
-    <%# if current_user.id != @note.user.id %>
+    <% if current_user.id != @note.user.id %>
     <p class="Message"><%= link_to 'Message me', conversations_path(sender_id: current_user.id, recipient_id: @note.user.id), method: 'post',class:"btn btn-primary"%></p>
-    <%# end %>
+    <% end %>
   </div>
   <div class="dropright text-center">
     <button class="btn btn-primary dropdown-toggle" type="button" id="tagsTopicsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -82,6 +82,41 @@
       <% google_drive_link = @note.google_drive_link %>
       <%file_id = google_drive_link.match(/\/file\/d\/(.+?)\//)[1]%>
       <% preview_url = "https://drive.google.com/file/d/#{file_id}/preview" %>
-      <iframe src="<%= preview_url %>" width="900px" height="400px"></iframe>
+      <iframe src="<%= preview_url %>" width="900px" height="600px"></iframe>
+    </div>
+
+    <div class="div-commenti">
+    <h2>Commenti:</h2>
+    <% @note.comments.each do |comment| %>
+      <p class="commento"><strong>
+        <%= comment.user.username %>:</strong>
+        <span class="comment-content">
+          <%= comment.short_content %>
+        </span>
+        <% if comment.content.length > 100 %>
+          <a href="#" class="read-more" data-full-content="<%= comment.content %>">Mostra altro</a>
+        <% end %>
+      </p>
+    <% end %>
+
+    <%= form_with(model: [@note, @note.comments.build], url: note_comments_path(@note)) do |form| %>
+      <%= form.text_area :content, placeholder: 'Add a comment' %>
+      <%= form.submit 'Add comment' %>
+    <% end %>
     </div>
   </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var readMoreLinks = document.getElementsByClassName("read-more");
+
+    Array.from(readMoreLinks).forEach(function(link) {
+      link.addEventListener("click", function(event) {
+        event.preventDefault();
+        var contentElement = this.parentNode.querySelector(".comment-content");
+        contentElement.textContent = this.getAttribute("data-full-content");
+        this.parentNode.removeChild(this);
+      });
+    });
+  });
+</script>

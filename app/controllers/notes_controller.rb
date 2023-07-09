@@ -93,6 +93,7 @@ class NotesController < ApplicationController
 
   def show
     @note = Note.find(params[:id])
+    @comment = Comment.new
   end
   
   def new
@@ -176,6 +177,8 @@ class NotesController < ApplicationController
     favourite.delete_all
     createrating = CreateRating.where(note_id: params[:id])
     createrating.delete_all
+    comments = Comment.where(note_id: params[:id])
+    comments.delete_all
     note.delete
     redirect_to my_notes_path, notice: 'La nota è stata cancellata con successo.'
   end

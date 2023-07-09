@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_09_093131) do
+ActiveRecord::Schema.define(version: 2023_07_09_100554) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 2023_07_09_093131) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.integer "note_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id", null: false
+    t.index ["note_id"], name: "index_comments_on_note_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "conversations", force: :cascade do |t|
@@ -144,6 +154,8 @@ ActiveRecord::Schema.define(version: 2023_07_09_093131) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "comments", "notes"
+  add_foreign_key "comments", "users"
   add_foreign_key "create_ratings", "notes"
   add_foreign_key "create_ratings", "users"
   add_foreign_key "favourites", "notes"
