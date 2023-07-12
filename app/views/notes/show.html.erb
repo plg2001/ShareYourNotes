@@ -48,6 +48,7 @@
     <p class="Message"><%= link_to 'Message me', conversations_path(sender_id: current_user.id, recipient_id: @note.user.id), method: 'post',class:"btn btn-primary"%></p>
     <% end %>
   </div>
+  <p class="text-center"><strong>Data di caricamento:</strong> <%= @note.uploaded_at %>
   <div class="dropright text-center">
     <button class="btn btn-primary dropdown-toggle" type="button" id="tagsTopicsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
       Più Informazioni

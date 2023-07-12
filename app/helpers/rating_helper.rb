@@ -22,7 +22,7 @@ module RatingHelper
         i = 1
       end
       average_rating = sum_ratings / i
-      if index <= average_rating
+      if index < average_rating
         "text-warning"
       else
         "text-muted"

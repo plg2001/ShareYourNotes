@@ -47,7 +47,7 @@
           </div>
 
           <p class="card-text"><%= note.description %></p>
-          <p class="card-text"> Autore: <%= note.user.username %></p>
+          <p class="card-text"> Autore: <%= link_to note.user.username, user_path(note.user), class: 'link' %></p>
           <% if current_user != note.user %>
             <% if current_user && current_user.favourite_notes.include?(note) %>
               <%= link_to "Rimuovi dai preferiti", remove_favourite_path(note_id: note.id), method: :delete, class: "btn btn-danger" %>
