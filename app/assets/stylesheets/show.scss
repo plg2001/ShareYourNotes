@@ -92,3 +92,23 @@
     padding-right: 5px;
   }
 }
+
+textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  resize: vertical;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #6c63ff;
+  box-shadow: 0 0 5px rgba(108, 99, 255, 0.3);
+}
+
+.piu_su{
+  position: relative;
+  margin-bottom: 33px;
+}
