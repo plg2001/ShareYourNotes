@@ -218,6 +218,7 @@
               <div class="all-button-container">
                 <%= link_to "Preferiti", favourite_path, class: "mybtn mybtn-primary btn-block button-block" %>
                 <%= link_to "Miei Appunti", my_notes_path, class: "mybtn mybtn-primary btn-block button-block" %>
+                <%= link_to "Recenti", recent_path, class: "mybtn mybtn-primary btn-block button-block" %>
                 <div class="button-container">
                   <%= link_to 'Modifica Profilo', edit_user_path(current_user), class: "mybtn mybtn-warning pr-3" %>
                   <%= link_to 'Elimina Account', user_path(current_user), method: :delete, data: { confirm: 'Sei sicuro di voler eliminare il tuo account?' }, class: "mybtn mybtn-danger" %>

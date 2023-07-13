@@ -94,6 +94,13 @@ class NotesController < ApplicationController
   def show
     @note = Note.find(params[:id])
     @comment = Comment.new
+
+    if (@visualizzazione = Visualizzazione.find_by(note_id: @note.id, user_id: current_user.id)) == nil
+      @note.visualizzaziones.create(user: current_user)
+    end
+    
+    
+
   end
   
   def new
@@ -182,5 +189,10 @@ class NotesController < ApplicationController
     note.delete
     redirect_to my_notes_path, notice: 'La nota è stata cancellata con successo.'
   end
+
+  def recenti
+    @visualizzazioni_recenti = current_user.visualizzaziones.order(created_at: :desc).limit(10)
+  end
+  
 
 end

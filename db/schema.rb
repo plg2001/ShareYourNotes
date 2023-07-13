@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_09_100554) do
+ActiveRecord::Schema.define(version: 2023_07_13_132623) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -154,6 +154,15 @@ ActiveRecord::Schema.define(version: 2023_07_09_100554) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  create_table "visualizzaziones", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "note_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["note_id"], name: "index_visualizzaziones_on_note_id"
+    t.index ["user_id"], name: "index_visualizzaziones_on_user_id"
+  end
+
   add_foreign_key "comments", "notes"
   add_foreign_key "comments", "users"
   add_foreign_key "create_ratings", "notes"
@@ -167,4 +176,6 @@ ActiveRecord::Schema.define(version: 2023_07_09_100554) do
   add_foreign_key "notes", "faculties"
   add_foreign_key "notes", "users"
   add_foreign_key "richiesta_admins", "users"
+  add_foreign_key "visualizzaziones", "notes"
+  add_foreign_key "visualizzaziones", "users"
 end

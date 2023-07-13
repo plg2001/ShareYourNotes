@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get 'notes/:id/download', to: 'notes#download_file', as: 'download_note'
   get 'my_notes' => 'notes#myNotes'
   delete '/notes/:id/delete', to: 'notes#delete', as: 'remove_note'
+  get '/notes/recenti', to: 'notes#recenti',as: 'recent'
 
   resources :notes do
     resources :comments

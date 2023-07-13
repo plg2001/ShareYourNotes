@@ -19,6 +19,7 @@ class User < ApplicationRecord
   has_many :favourite_notes, through: :favourites, source: :note
   has_many :create_ratings
   has_many :comments
+  has_many :visualizzaziones
  
 
 
