@@ -3,6 +3,21 @@
 <div class="container Pagina">
   <h1 class="fw-bold text-center"><%= @note.name %></h1>
   <h5 class="text-center"><%= @note.description %></h5>
+  <div class="track">
+    <div class="visualizzazioni">
+      <%= inline_svg_tag("eye-fill.svg",
+          class: "w-8 h-8")%>
+      <p><%= @note.views %></p>
+    </div>
+    <div class="download">
+      <%= inline_svg_tag("download.svg",
+          class: "w-8 h-8")%>
+      <p><%=@note.downloads%></p>
+    </div>
+  </div>
+
+
+  
   <% if current_user && current_user != @note.user %>
     <div class="d-flex gap-3 mb-4 BottoniStella justify-content-center">
       <% Note::MAX_RATING.times do |n| %>

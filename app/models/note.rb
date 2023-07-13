@@ -20,4 +20,15 @@ class Note < ApplicationRecord
     has_many :favourited_by_users, through: :favourites, source: :user
     has_many :comments, dependent: :destroy
     has_many :visualizzaziones
+
+    def increment_view_count
+        self.views += 1
+        self.save
+    end
+
+
+    def increment_download_count
+      self.downloads += 1
+      self.save
+    end
 end

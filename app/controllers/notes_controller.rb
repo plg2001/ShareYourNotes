@@ -99,7 +99,7 @@ class NotesController < ApplicationController
       @note.visualizzaziones.create(user: current_user)
     end
     
-    
+    @note.increment_view_count
 
   end
   
@@ -147,6 +147,7 @@ class NotesController < ApplicationController
 
   def download_file
     @note = Note.find(params[:id])
+    @note.increment_download_count
     session = GoogleDrive::Session.from_config("config.json")
     file = session.file_by_url(@note.google_drive_link)
 
