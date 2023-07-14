@@ -22,5 +22,10 @@ module SharesYourNotes
     config.app_generators.scaffold_controller = :scaffold_controller
     config.hosts << "localhost"
     config.hosts << "app.local"
+
+    Chartkick.options = {
+      library: { google: { packages: ['corechart'] } }
+    }
+    
   end
 end

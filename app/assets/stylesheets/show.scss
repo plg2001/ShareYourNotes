@@ -78,9 +78,10 @@
 .preview{
   margin-top: 50px;
 }
-.div-commenti{
+.chart-comment{
   margin-top: 50px;
   margin-left: 150px;
+  display: flex;
   .commento{
     border: 1px solid #000000;
     border-radius: 5px;
@@ -137,4 +138,11 @@ textarea:focus {
     display: flex;
     justify-content:center;
     padding-top: 15px;
+  }
+
+  .chart{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin-left: 200px;
   }

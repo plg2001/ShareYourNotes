@@ -9,6 +9,7 @@
     <%= stylesheet_link_tag 'personaleArea', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'chatArea', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'chartkick' %>
   </head>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -271,5 +272,6 @@
       <% end %>
     <% end %>
     <%= yield %>
+  
   </body>
 </html>

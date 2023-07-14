@@ -15,9 +15,6 @@
       <p><%=@note.downloads%></p>
     </div>
   </div>
-
-
-  
   <% if current_user && current_user != @note.user %>
     <div class="d-flex gap-3 mb-4 BottoniStella justify-content-center">
       <% Note::MAX_RATING.times do |n| %>
@@ -60,79 +57,81 @@
   <div class="Author-Message">
     <p class="Autore"><strong>Autore:</strong> <%= link_to @note.user.username, user_path(@note.user), class: 'link' %></p>
     <% if current_user.id != @note.user.id %>
-    <p class="Message"><%= link_to 'Message me', conversations_path(sender_id: current_user.id, recipient_id: @note.user.id), method: 'post',class:"btn btn-primary"%></p>
+      <p class="Message"><%= link_to 'Message me', conversations_path(sender_id: current_user.id, recipient_id: @note.user.id), method: 'post',class:"btn btn-primary"%></p>
     <% end %>
   </div>
   <p class="text-center"><strong>Data di caricamento:</strong> <%= @note.uploaded_at %>
-  <div class="dropright text-center">
-    <button class="btn btn-primary dropdown-toggle" type="button" id="tagsTopicsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-      Più Informazioni
-    </button>
-    <div class="dropdown-menu" aria-labelledby="tagsTopicsDropdown">
-      <div class="row">
-        <div class="col">
-          <h6 class="dropdown-header">Tags:</h6>
-          <ul class="list-unstyled tags-topics-list">
-            <% @note.tags.each do |tag| %>
-              <li class="tag-topic-item"><%= tag.name %></li>
-            <% end %>
-          </ul>
-        </div>
-        <div class="col">
-          <h6 class="dropdown-header">Topics:</h6>
-          <ul class="list-unstyled tags-topics-list">
-            <% @note.topics.each do |topic| %>
-              <li class="tag-topic-item"><%= topic.name %></li>
-            <% end %>
-          </ul>
-        </div>
-        <div class="col">
-          <h6 class="dropdown-header">Facoltà:</h6>
-          <ul class="list-unstyled tags-topics-list">
-            <li class="tag-topic-item"><%= @note.faculty.name %></li>
+    <div class="dropright text-center">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="tagsTopicsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        Più Informazioni
+      </button>
+      <div class="dropdown-menu" aria-labelledby="tagsTopicsDropdown">
+        <div class="row">
+          <div class="col">
+            <h6 class="dropdown-header">Tags:</h6>
+            <ul class="list-unstyled tags-topics-list">
+              <% @note.tags.each do |tag| %>
+                <li class="tag-topic-item"><%= tag.name %></li>
+              <% end %>
+            </ul>
+          </div>
+          <div class="col">
+            <h6 class="dropdown-header">Topics:</h6>
+            <ul class="list-unstyled tags-topics-list">
+              <% @note.topics.each do |topic| %>
+                <li class="tag-topic-item"><%= topic.name %></li>
+              <% end %>
+            </ul>
+          </div>
+          <div class="col">
+            <h6 class="dropdown-header">Facoltà:</h6>
+            <ul class="list-unstyled tags-topics-list">
+              <li class="tag-topic-item"><%= @note.faculty.name %></li>
+            </div>
           </div>
         </div>
       </div>
+      <div class="preview text-center">
+        <% google_drive_link = @note.google_drive_link %>
+        <%file_id = google_drive_link.match(/\/file\/d\/(.+?)\//)[1]%>
+        <% preview_url = "https://drive.google.com/file/d/#{file_id}/preview" %>
+        <iframe src="<%= preview_url %>" width="900px" height="600px"></iframe>
+      </div>
+      <div class="chart-comment">
+        <div class="comment">
+          <h2>Commenti:</h2>
+          <% @note.comments.each do |comment| %>
+            <p class="commento"><strong>
+                <%= comment.user.username %>:</strong>
+              <span class="comment-content">
+                <%= comment.short_content %>
+              </span>
+              <% if comment.content.length > 100 %>
+                <a href="#" class="read-more" data-full-content="<%= comment.content %>">Mostra altro</a>
+              <% end %>
+            </p>
+          <% end %>
+          <%= form_with(model: [@note, @note.comments.build], url: note_comments_path(@note)) do |form| %>
+            <%= form.text_area :content, placeholder: 'Add a comment',cols: "42.5" %>
+            <%= form.submit 'Add comment',class: "btn btn-primary piu_su" %>
+          <% end %>
+        </div>
+        <div class="chart">
+          <%= pie_chart CreateRating.where(note_id: @note.id).group(:rating).count %>
+        </div>
+      </div>
     </div>
-    <div class="preview text-center">
-      <% google_drive_link = @note.google_drive_link %>
-      <%file_id = google_drive_link.match(/\/file\/d\/(.+?)\//)[1]%>
-      <% preview_url = "https://drive.google.com/file/d/#{file_id}/preview" %>
-      <iframe src="<%= preview_url %>" width="900px" height="600px"></iframe>
-    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        var readMoreLinks = document.getElementsByClassName("read-more");
 
-    <div class="div-commenti">
-    <h2>Commenti:</h2>
-    <% @note.comments.each do |comment| %>
-      <p class="commento"><strong>
-        <%= comment.user.username %>:</strong>
-        <span class="comment-content">
-          <%= comment.short_content %>
-        </span>
-        <% if comment.content.length > 100 %>
-          <a href="#" class="read-more" data-full-content="<%= comment.content %>">Mostra altro</a>
-        <% end %>
-      </p>
-    <% end %>
-
-    <%= form_with(model: [@note, @note.comments.build], url: note_comments_path(@note)) do |form| %>
-      <%= form.text_area :content, placeholder: 'Add a comment',cols: "42.5" %>
-      <%= form.submit 'Add comment',class: "btn btn-primary piu_su" %>
-    <% end %>
-    </div>
-  </div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var readMoreLinks = document.getElementsByClassName("read-more");
-
-    Array.from(readMoreLinks).forEach(function(link) {
-      link.addEventListener("click", function(event) {
-        event.preventDefault();
-        var contentElement = this.parentNode.querySelector(".comment-content");
-        contentElement.textContent = this.getAttribute("data-full-content");
-        this.parentNode.removeChild(this);
+        Array.from(readMoreLinks).forEach(function(link) {
+          link.addEventListener("click", function(event) {
+            event.preventDefault();
+            var contentElement = this.parentNode.querySelector(".comment-content");
+            contentElement.textContent = this.getAttribute("data-full-content");
+            this.parentNode.removeChild(this);
+          });
+        });
       });
-    });
-  });
-</script>
+    </script>
