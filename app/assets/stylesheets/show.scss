@@ -140,7 +140,9 @@ textarea:focus {
     padding-top: 15px;
   }
 
-  .chart{
-    position: relative;
-    margin-left: 67px;
+  .dropdown-menu .chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
+  

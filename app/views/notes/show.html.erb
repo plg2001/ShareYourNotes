@@ -90,7 +90,8 @@
             </div>
           </div>
           <div class="chart">
-            <%= pie_chart CreateRating.where(note_id: @note.id).group(:rating).count,width:"200px",height:"200px",labels: { shape: 'circle' },donut: true%>
+            <%= pie_chart CreateRating.where(note_id: @note.id).group(:rating).count, width: "200px", height: "200px", 
+            donut: true, empty: "Non ci sono valutazioni"%>
           </div>
         </div>
       </div>
