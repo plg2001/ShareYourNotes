@@ -187,8 +187,8 @@ class NotesController < ApplicationController
     createrating.delete_all
     comments = Comment.where(note_id: params[:id])
     comments.delete_all
-    view = Visualizzazione.where(note_id: params[:id])
-    view.delete_all
+    views = Visualizzazione.where(note_id: params[:id])
+    views.delete_all
     note.delete
     redirect_to my_notes_path, notice: 'La nota è stata cancellata con successo.'
   end
