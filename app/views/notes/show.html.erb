@@ -117,7 +117,7 @@
           <% end %>
         </div>
         <div class="chart">
-          <%= pie_chart CreateRating.where(note_id: @note.id).group(:rating).count %>
+          <%= pie_chart(CreateRating.where(note_id: @note.id).group(:rating).count)  %>
         </div>
       </div>
     </div>

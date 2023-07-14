@@ -10,7 +10,9 @@
         class: "w-8 h-8 #{staruser_rating_class(@user, n)}") %>
     <% end %>
   </div>
-
+  <div class="chart">
+    <%= pie_chart(Note.where(user_id: @user.id).group(:rating).count)  %>
+  </div>
 </div>
 
 <div class="container">
