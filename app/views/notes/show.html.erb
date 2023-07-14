@@ -89,6 +89,9 @@
               <li class="tag-topic-item"><%= @note.faculty.name %></li>
             </div>
           </div>
+          <div class="chart">
+            <%= pie_chart CreateRating.where(note_id: @note.id).group(:rating).count,width:"200px",height:"200px",labels: { shape: 'circle' },donut: true%>
+          </div>
         </div>
       </div>
       <div class="preview text-center">
@@ -115,9 +118,6 @@
             <%= form.text_area :content, placeholder: 'Add a comment',cols: "42.5" %>
             <%= form.submit 'Add comment',class: "btn btn-primary piu_su" %>
           <% end %>
-        </div>
-        <div class="chart">
-          <%= pie_chart(CreateRating.where(note_id: @note.id).group(:rating).count)  %>
         </div>
       </div>
     </div>
