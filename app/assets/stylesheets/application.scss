@@ -2,4 +2,8 @@
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 
 
-  
+.nav-item:hover{
+    transform: scale(1.075);
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}

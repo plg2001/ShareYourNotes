@@ -8,7 +8,7 @@ module RatingHelper
     end
 
     def star_rating_hover_class
-      "text-primary"
+      "star_hover"
     end
 
     def staruser_rating_class(user, index)

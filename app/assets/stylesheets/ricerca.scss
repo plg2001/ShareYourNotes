@@ -7,4 +7,17 @@ h4.card-title {
   .BottoniStella{
     position: relative;
     border-top: 10px;
+    margin-left: 890px;
   }
+
+ .star-hover:hover{
+  transform: scale(1.5);
+  transition: 0.2s ease-in;
+  cursor: pointer;
+  fill: yellow;
+ }
+
+ .star-hover{
+  margin-left: -7px;
+ }
+
