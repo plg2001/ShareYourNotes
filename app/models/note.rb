@@ -1,5 +1,5 @@
 class Note < ApplicationRecord
-  include PgSearch::Model
+ 
   MAX_RATING = 5
   validates :rating, numericality: { in: 0..MAX_RATING }
 
