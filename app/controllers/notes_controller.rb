@@ -122,22 +122,45 @@ class NotesController < ApplicationController
     destination_folder = session.collection_by_url("https://drive.google.com/drive/folders/1zJPM2hoIzMzuvfefRvQM8NXHee5pOfhL?hl=it")
     uploaded_file = destination_folder.upload_from_file(tempfile.path,filename,convert: false)
 
-    if uploaded_file 
-      file_url = uploaded_file.human_url
-      @note.google_drive_link = file_url
-      
-      
-      @note.facolta_id = params[:note][:facolta_id] unless params[:note][:facolta_id].blank?
 
-      if @note.save
-        redirect_to @note, notice: "L'appunto è stato correttamente caricato"
-      else
-        render :new, alert: 'Si è verificato un errore durante il caricamento del file'
-      end
+   
+    if uploaded_file 
+          file_url = uploaded_file.human_url
+          @note.google_drive_link = file_url
+          
+          
+          @note.faculty_id = params[:note][:faculty_id] unless params[:note][:faculty_id].blank?
+
+
+          if @note.tags.length > 0 && @note.topics.length > 0 && @note.faculty_id != nil
+            
+              
+                if @note.save
+                  redirect_to @note, notice: "L'appunto è stato correttamente caricato"
+                else
+                  redirect_to new_note_path, alert: "Si è verificato un errore durante il caricamento dell'appunto"
+                end
+          else
+
+            alert = ""
+            if @note.tags.length == 0 
+              alert.concat("Inserire almeno un Tag, ")
+            end
+            if @note.topics.length == 0 
+              alert.concat("Inserire almeno un Topic, ")
+            end
+            if @note.faculty_id == nil
+              alert.concat("Inserire una Facoltà.")
+            end
+            flash[:error] = alert
+            redirect_to new_note_path
+          end
     else
-      render :new, alert: 'Si è verificato un errore durante il caricamento del file'
+      redirect_to new_note_path, alert: 'Si è verificato un errore durante il caricamento del file'
     end
+  
   end
+
   
   
   def note_params
