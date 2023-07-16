@@ -20,7 +20,7 @@
     <div class="custom-dropdown">
       <div class="options-container">
         <ul class="options-list">
-          <% @tags.each do |tag| %>
+          <% Tag.all.each do |tag| %>
             <li>
               <label>
                 <%= check_box_tag "note[tag_ids][]", tag.id, @note.tags.include?(tag) %>
@@ -38,7 +38,7 @@
     <div class="custom-dropdown">
       <div class="options-container">
         <ul class="options-list">
-          <% @topics.each do |topic| %>
+          <% Topic.all.each do |topic| %>
             <li>
               <label>
                 <%= check_box_tag "note[topic_ids][]", topic.id, @note.topics.include?(topic) %>
@@ -51,12 +51,12 @@
     </div>
   </div>
 
- <div class="mb-3">
-  <div class="div-field">
-    <label for="faculty_id">Facoltà</label>
-    <%= form.collection_select :faculty_id, Faculty.all, :id, :name, prompt: "Seleziona una facoltà"%>
-  </div>
-</div>
+      <div class="mb-3">
+        <div class="div-field">
+          <label for="faculty_id">Facoltà</label>
+          <%= form.collection_select :faculty_id, Faculty.all, :id, :name, prompt: "Seleziona una facoltà"%>
+        </div>
+      </div>
       <%= form.submit "Carica", class: "btn btn-primary" %>
     <% end %>
   <% end %>

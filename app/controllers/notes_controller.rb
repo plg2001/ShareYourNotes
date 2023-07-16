@@ -105,8 +105,6 @@ class NotesController < ApplicationController
   
   def new
     @note = Note.new
-    @tags = Tag.all
-    @topics = Topic.all
   end
 
   def create
@@ -134,12 +132,11 @@ class NotesController < ApplicationController
 
           if @note.tags.length > 0 && @note.topics.length > 0 && @note.faculty_id != nil
             
-              
-                if @note.save
-                  redirect_to @note, notice: "L'appunto è stato correttamente caricato"
-                else
-                  redirect_to new_note_path, alert: "Si è verificato un errore durante il caricamento dell'appunto"
-                end
+            if @note.save
+              redirect_to @note, notice: "L'appunto è stato correttamente caricato"
+            else
+              redirect_to new_note_path, alert: "Si è verificato un errore durante il caricamento dell'appunto"
+            end
           else
 
             alert = ""
@@ -153,7 +150,7 @@ class NotesController < ApplicationController
               alert.concat("Inserire una Facoltà.")
             end
             flash[:error] = alert
-            redirect_to new_note_path
+            render :new
           end
     else
       redirect_to new_note_path, alert: 'Si è verificato un errore durante il caricamento del file'
