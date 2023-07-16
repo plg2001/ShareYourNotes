@@ -135,7 +135,7 @@ class NotesController < ApplicationController
             if @note.save
               redirect_to @note, notice: "L'appunto è stato correttamente caricato"
             else
-              redirect_to new_note_path, alert: "Si è verificato un errore durante il caricamento dell'appunto"
+              render :new, alert: "Si è verificato un errore durante il caricamento dell'appunto"
             end
           else
 
@@ -153,7 +153,7 @@ class NotesController < ApplicationController
             render :new
           end
     else
-      redirect_to new_note_path, alert: 'Si è verificato un errore durante il caricamento del file'
+      render :new, alert: 'Si è verificato un errore durante il caricamento del file'
     end
   
   end

@@ -53,5 +53,3 @@ note.update(description: "Questi sono appunti di Fondamenti di IA di Ingegneria 
 
 # note = Note.find_by(name: "Nota 1", description: "Descrizione della Nota 1")
 # note.destroy if note
-
-Note.all.update_all(views: 0, downloads: 0)
