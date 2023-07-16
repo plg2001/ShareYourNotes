@@ -1,4 +1,7 @@
 ActiveAdmin.register RichiestaAdmin do
+  action_item :back_to_home, only: :index do
+    link_to "Torna alla Home", root_path
+  end
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

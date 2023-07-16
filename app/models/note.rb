@@ -1,10 +1,14 @@
 class Note < ApplicationRecord
+  include PgSearch::Model
   MAX_RATING = 5
   validates :rating, numericality: { in: 0..MAX_RATING }
 
 
+
+  # Definisci quali colonne devono essere coinvolte nella ricerca
+
   
-    before_save :set_default_uploaded_at
+  before_save :set_default_uploaded_at
 
   def set_default_uploaded_at
     self.uploaded_at ||= Time.current

@@ -86,7 +86,9 @@
           <div class="col">
             <h6 class="dropdown-header">Facoltà:</h6>
             <ul class="list-unstyled tags-topics-list">
-              <li class="tag-topic-item"><%= @note.faculty.name %></li>
+              <% if @note.faculty != nil %>
+                <li class="tag-topic-item"><%= @note.faculty.name %></li>
+              <% end %>
             </div>
           </div>
           <div class="chart">
