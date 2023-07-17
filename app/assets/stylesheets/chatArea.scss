@@ -11,9 +11,7 @@
     border-radius: 5px;
   }
   
-  .chat-hidden {
-    transform: translateX(100%);
-  }
+ 
   
  
   
@@ -92,4 +90,14 @@
     transform: scale(1.075);
     transition: 0.2s ease-in;
     cursor: pointer;
+  }
+
+
+
+
+
+
+
+  .chat-hidden {
+    transform: translateX(100%);
   }

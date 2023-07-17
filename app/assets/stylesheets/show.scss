@@ -1,151 +1,67 @@
-.Pagina{
-  padding-top: 25px;
+
+
+body {
+  margin: 0; /* Rimuove il margine predefinito del corpo del documento */
+  padding: 0; /* Rimuove il padding predefinito del corpo del documento */
+  background-color: rgb(34,40,49);
 }
 
-.tags-topics-list {
-    padding: 7px;
-    margin: 0;
-    
-    .tag-topic-item {
-      padding: 5px 0;
-      font-size: 12px;
-    }
-  }
-
-
-.BottoniStella{
-  position: relative;
-  padding-top: 10px;
-  border-bottom: 0px;
-
-  .toast {
-    position: fixed;
-    top: 90px;
-    right: 20px;
-    z-index: 9999;
-    width: 200px;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #000;
-    color: #fff;
-  }
-  
-  .toast .toast-body {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-  }
-  
-  .toast .toast-body svg {
-    height: 18px;
-    width: 18px;
-    margin-right: 8px;
-  }
-  
-  .toast .toast-body span {
-    font-weight: bold;
-  }
-  .BottoneSingolo{
-    padding-left: 0px;
-    padding-right: 0px;
-  }
+.container.Pagina {
+  margin-top: 50px;
+  max-width: 800px;
+  background-color: #f0f0f0; /* Puoi sostituire #f0f0f0 con il colore che preferisci */
+  min-height: 100vh; /* Imposta l'altezza minima del contenitore al 100% dell'altezza della finestra visualizzata */
+  padding: 20px; 
+  border-radius: 10px;
 }
 
-
-.Drive{
-  padding-bottom: 15px;
+.note-details {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  border: 2px solid #ccc; /* colore e spessore del bordo */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* effetto ombra */
 }
 
-.link{
-  text-decoration: none;
+.track {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rating-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .Author-Message {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
-.Author-Message .Autore {
-  text-align: center;
-}
-
-.Author-Message .Message {
-  margin-left: 10px; /* Puoi regolare la distanza come preferisci */
-}
-
-
-.preview{
-  margin-top: 50px;
-}
-.chart-comment{
-  margin-top: 50px;
-  margin-left: 150px;
+.btn-group.Drive {
   display: flex;
-  .commento{
-    border: 1px solid #000000;
-    border-radius: 5px;
-    max-width: 500px;
-    word-wrap: break-word;
-    padding-left: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 5px;
-  }
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-textarea {
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  resize: vertical;
+.g_link:hover{
+  transform: scale(1.015);
+  transition: 0.2s ease-in;
+  cursor: pointer;
 }
-
-textarea:focus {
-  outline: none;
-  border-color: #6c63ff;
-  box-shadow: 0 0 5px rgba(108, 99, 255, 0.3);
-}
-
-.piu_su{
-  position: relative;
-  margin-bottom: 33px;
+.scarica:hover{
+  transform: scale(1.015);
+  transition: 0.2s ease-in;
+  cursor: pointer;
 }
 
 
-.visualizzazioni {
-  display: flex;
-  justify-content:center;
-  padding-right: 5px;
+.preview iframe {
+  border: none;
+  max-width: 100%;
 }
-
-.visualizzazioni p {
-  padding-left: 3px;
-}
-
-.download{
-  display: flex;
-  justify-content:center;
-  padding-left: 5px;
-}
-  .download p{
-    padding-left: 3px;
-  }
-
-  .track{
-    display: flex;
-    justify-content:center;
-    padding-top: 15px;
-  }
-
-  .dropdown-menu .chart {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
 
   .star-rating-icon:hover {
     transform: scale(1.075);
@@ -159,3 +75,104 @@ textarea:focus {
     cursor: pointer;
     fill: yellow;
    }
+   
+   
+   .chart-comment{
+    margin-top: 50px;
+    margin-left: 150px;
+    display: flex;
+    color: black;
+    .commento{
+      background-color: white;
+      border-radius: 5px;
+      max-width: 500px;
+      word-wrap: break-word;
+      padding-left: 5px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-right: 5px;
+    }
+  }
+  
+  textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    resize: vertical;
+  }
+  
+  textarea:focus {
+    outline: none;
+    border-color: #6c63ff;
+    box-shadow: 0 0 5px rgba(108, 99, 255, 0.3);
+  }
+
+  .chart{
+    display: flex;
+    justify-content: center; /* Centra orizzontalmente */
+    align-items: center; /* Centra verticalmente */
+  }
+
+
+  .hidden {
+    display: none;
+  }
+
+  #mostraBtn{
+    margin-bottom: 10px;
+  }
+  #mostraBtn:hover{
+    margin-bottom: 10px;
+    transform: scale(1.075);
+    transition: 0.2s ease-in;
+    cursor: pointer;
+  }
+
+  .add_comment{
+    margin-bottom: 34px;
+    margin-left: 10px;
+  }
+  .add_comment:hover{
+    transform: scale(1.075);
+    transition: 0.2s ease-in;
+    cursor: pointer;
+  }
+
+  .monstraDescrizione_container{
+    display: flex;
+    justify-content: center; /* Centra orizzontalmente */
+    align-items: center; /* Centra verticalmente */
+    margin-bottom: 50px;
+  }
+
+ #mostraDescrizione:hover{
+  transform: scale(1.075);
+  transition: 0.2s ease-in;
+  cursor: pointer;
+ }
+
+ #Descrizione {
+  text-align: center;
+  max-width: 800px; /* o qualsiasi altra larghezza desiderata */
+  margin: 0 auto; /* per centrare l'elemento horizontalmente */
+  word-wrap: break-word; /* fa andare a capo il testo quando supera la larghezza massima */
+}
+
+
+.description-box {
+  text-align: center;
+  max-width: 800px; /* o qualsiasi altra larghezza desiderata */
+  margin: 0 auto; /* per centrare l'elemento horizontalmente */
+  word-wrap: break-word; /* fa andare a capo il testo quando supera la larghezza massima */
+  padding: 10px; /* spazio interno al riquadro */
+  border: 2px solid #ccc; /* colore e spessore del bordo */
+  border-radius: 10px; /* arrotondamento degli angoli per un aspetto più moderno */
+  margin-bottom: 10px;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* effetto ombra */
+}
+
+
+ .h2_Comment{
+  color: white;
+ }

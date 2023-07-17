@@ -1,140 +1,178 @@
 <%= stylesheet_link_tag 'show', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag 'valutazione', media: 'all', 'data-turbolinks-track': 'reload' %>
 <div class="container Pagina">
-  <h1 class="fw-bold text-center"><%= @note.name %></h1>
-  <h5 class="text-center"><%= @note.description %></h5>
-  <div class="track">
-    <div class="visualizzazioni">
-      <%= inline_svg_tag("eye-fill.svg",
-          class: "w-8 h-8")%>
-      <p><%= @note.views %></p>
-    </div>
-    <div class="download">
-      <%= inline_svg_tag("download.svg",
-          class: "w-8 h-8")%>
-      <p><%=@note.downloads%></p>
-    </div>
+  <h1 class="fw-bold text-center mb-4"><%= @note.name %></h1>
+  <div class="monstraDescrizione_container">
+    <button id="mostraDescrizione" class="btn btn-info text-center">Mostra Descrizione</button>
   </div>
-  <% if current_user && current_user != @note.user %>
-    <div class="d-flex gap-3 mb-4 BottoniStella justify-content-center">
-      <% Note::MAX_RATING.times do |n| %>
-        <%= button_to note_path(@note),
-      method: :patch,
-      params: { note: { rating: n + 1 } },
-      class: "border-0 bg-transparent d-flex justify-content-center BottoneSingolo" do %>
-          <%= inline_svg_tag("star.svg",
-      class: "w-8 h-8 #{star_rating_hover_class()} #{star_rating_class(@note, n)}") %>
-        <% end %>
-      <% end %>
-      <% if @toast %>
-        <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true" data-bs-delay="3000">
-          <div class="toast-body bg-black text-white">
-            <% if @toast == :success %>
-              <%= inline_svg_tag("check.svg", class: "h-4 w-4 text-success me-2") %>
-              <span>Rating Added!</span>
-            <% else %>
-              <%= inline_svg_tag("warning.svg", class: "h-4 w-4 text-danger me-2") %>
-              <span>Rating could not be added</span>
+  <div class="description-box hidden" id="box">
+    <h6 class="text-center mb-4 hidden" id="Descrizione"><%= @note.description %></h6>
+  </div>
+  <div class="note-details">
+    <div class="track mb-4">
+      <div class="visualizzazioni">
+        <%= inline_svg_tag("eye-fill.svg", class: "w-8 h-8") %>
+        <p><%= @note.views %></p>
+      </div>
+      <div class="download">
+        <%= inline_svg_tag("download.svg", class: "w-8 h-8") %>
+        <p><%= @note.downloads %></p>
+      </div>
+    </div>
+    <div class="rating-section mb-4">
+      <% if current_user && current_user != @note.user %>
+        <div class="d-flex gap-3 BottoniStella justify-content-center">
+          <% Note::MAX_RATING.times do |n| %>
+            <%= button_to note_path(@note),
+              method: :patch,
+              params: { note: { rating: n + 1 } },
+              class: "border-0 bg-transparent d-flex justify-content-center BottoneSingolo" do %>
+              <%= inline_svg_tag("star.svg", class: "w-8 h-8 #{star_rating_hover_class()} #{star_rating_class(@note, n)}") %>
             <% end %>
-          </div>
+          <% end %>
         </div>
-      <% end %>
-    </div>
-  <% else %>
-    <div class="d-flex gap-3 mb-4 BottoniStella justify-content-center">
-      <% Note::MAX_RATING.times do |n| %>
-        <%= inline_svg_tag("star.svg",
-      class: "w-8 h-8 #{star_rating_class(@note, n)}") %>
-      <% end %>
-    </div>
-  <% end %>
-  <div class="text-center">
-    <div class="btn-group Drive" role="group" aria-label="Pulsanti">
-      <a href="<%= @note.google_drive_link %>" class="btn btn-primary btn-block">Google Drive Link</a>
-      <%= link_to 'Scarica file', download_note_path(@note), class: 'btn btn-primary btn-block' %>
-    </div>
-  </div>
-  <div class="Author-Message">
-    <p class="Autore"><strong>Autore:</strong> <%= link_to @note.user.username, user_path(@note.user), class: 'link' %></p>
-    <% if current_user.id != @note.user.id %>
-      <p class="Message"><%= link_to 'Message me', conversations_path(sender_id: current_user.id, recipient_id: @note.user.id), method: 'post',class:"btn btn-primary"%></p>
-    <% end %>
-  </div>
-  <p class="text-center"><strong>Data di caricamento:</strong> <%= @note.uploaded_at %>
-    <div class="dropright text-center">
-      <button class="btn btn-primary dropdown-toggle" type="button" id="tagsTopicsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-        Più Informazioni
-      </button>
-      <div class="dropdown-menu" aria-labelledby="tagsTopicsDropdown">
-        <div class="row">
-          <div class="col">
-            <h6 class="dropdown-header">Tags:</h6>
-            <ul class="list-unstyled tags-topics-list">
-              <% @note.tags.each do |tag| %>
-                <li class="tag-topic-item"><%= tag.name %></li>
-              <% end %>
-            </ul>
-          </div>
-          <div class="col">
-            <h6 class="dropdown-header">Topics:</h6>
-            <ul class="list-unstyled tags-topics-list">
-              <% @note.topics.each do |topic| %>
-                <li class="tag-topic-item"><%= topic.name %></li>
-              <% end %>
-            </ul>
-          </div>
-          <div class="col">
-            <h6 class="dropdown-header">Facoltà:</h6>
-            <ul class="list-unstyled tags-topics-list">
-              <% if @note.faculty != nil %>
-                <li class="tag-topic-item"><%= @note.faculty.name %></li>
+        <% if @toast %>
+          <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true" data-bs-delay="3000">
+            <div class="toast-body bg-black text-white">
+              <% if @toast == :success %>
+                <%= inline_svg_tag("check.svg", class: "h-4 w-4 text-success me-2") %>
+                <span>Rating Added!</span>
+              <% else %>
+                <%= inline_svg_tag("warning.svg", class: "h-4 w-4 text-danger me-2") %>
+                <span>Rating could not be added</span>
               <% end %>
             </div>
+          <% end %>
+        <% else %>
+          <div class="d-flex gap-3 BottoniStella justify-content-center">
+            <% Note::MAX_RATING.times do |n| %>
+              <%= inline_svg_tag("star.svg", class: "w-8 h-8 #{star_rating_class(@note, n)}") %>
+            <% end %>
           </div>
-          <div class="chart">
-            <%= pie_chart CreateRating.where(note_id: @note.id).group(:rating).count, width: "200px", height: "200px", 
-            donut: true, empty: "Non ci sono valutazioni"%>
-          </div>
+        <% end %>
+      </div>
+      <div class="text-center mb-4">
+        <div class="btn-group Drive" role="group" aria-label="Pulsanti">
+          <a href="<%= @note.google_drive_link %>" class="btn btn-primary btn-block g_link">Google Drive Link</a>
+          <%= link_to 'Scarica file', download_note_path(@note), class: 'btn btn-primary btn-block scarica' %>
         </div>
       </div>
-      <div class="preview text-center">
-        <% google_drive_link = @note.google_drive_link %>
-        <%file_id = google_drive_link.match(/\/file\/d\/(.+?)\//)[1]%>
-        <% preview_url = "https://drive.google.com/file/d/#{file_id}/preview" %>
-        <iframe src="<%= preview_url %>" width="900px" height="600px"></iframe>
+      <div class="Author-Message mb-4">
+        <p class="Autore"><strong>Autore:</strong> <%= link_to @note.user.username, user_path(@note.user), class: 'link' %></p>
+        <% if current_user.id != @note.user.id %>
+          <p class="Message"><%= link_to 'Message me', conversations_path(sender_id: current_user.id, recipient_id: @note.user.id), method: 'post', class: "btn btn-primary" %></p>
+        <% end %>
       </div>
-      <div class="chart-comment">
-        <div class="comment">
-          <h2>Commenti:</h2>
-          <% @note.comments.each do |comment| %>
-            <p class="commento"><strong>
-                <%= comment.user.username %>:</strong>
-              <span class="comment-content">
-                <%= comment.short_content %>
-              </span>
-              <% if comment.content.length > 100 %>
-                <a href="#" class="read-more" data-full-content="<%= comment.content %>">Mostra altro</a>
-              <% end %>
-            </p>
-          <% end %>
-          <%= form_with(model: [@note, @note.comments.build], url: note_comments_path(@note)) do |form| %>
-            <%= form.text_area :content, placeholder: 'Add a comment',cols: "42.5" %>
-            <%= form.submit 'Add comment',class: "btn btn-primary piu_su" %>
-          <% end %>
+      <p class="text-center mb-4"><strong>Data di caricamento:</strong> <%= @note.uploaded_at %></p>
+      <button id="mostraBtn" class="btn btn-info">Mostra Informazioni</button>
+      <div class="dropright text-center mb-4 hidden" id="contenitoreDiv">
+        <div class="dropdown-content row">
+          <div class="row">
+            <div class="col">
+              <h6 class="dropdown-header">Tags:</h6>
+              <ul class="list-unstyled tags-topics-list">
+                <% @note.tags.each do |tag| %>
+                  <li class="tag-topic-item"><%= tag.name %></li>
+                <% end %>
+              </ul>
+            </div>
+            <div class="col">
+              <h6 class="dropdown-header">Topics:</h6>
+              <ul class="list-unstyled tags-topics-list">
+                <% @note.topics.each do |topic| %>
+                  <li class="tag-topic-item"><%= topic.name %></li>
+                <% end %>
+              </ul>
+            </div>
+            <div class="col">
+              <h6 class="dropdown-header">Facoltà:</h6>
+              <ul class="list-unstyled tags-topics-list">
+                <% if @note.faculty != nil %>
+                  <li class="tag-topic-item"><%= @note.faculty.name %></li>
+                <% end %>
+              </div>
+            </div>
+            <div class="chart">
+              <%= pie_chart CreateRating.where(note_id: @note.id).group(:rating).count, width: "200px", height: "200px", 
+            donut: true, empty: "Non ci sono valutazioni"%>
+            </div>
+          </div>
+        </div>
+        <div class="preview mb-4">
+          <% google_drive_link = @note.google_drive_link %>
+          <%file_id = google_drive_link.match(/\/file\/d\/(.+?)\//)[1]%>
+          <% preview_url = "https://drive.google.com/file/d/#{file_id}/preview" %>
+          <iframe src="<%= preview_url %>" width="900px" height="600px"></iframe>
         </div>
       </div>
     </div>
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        var readMoreLinks = document.getElementsByClassName("read-more");
+    <div class="chart-comment">
+      <div class="comment">
+        <h2 class="fw-bold h2_Comment">Commenti:</h2>
+        <% @note.comments.each do |comment| %>
+          <p class="commento"><strong>
+              <%= comment.user.username %>:</strong>
+            <span class="comment-content">
+              <%= comment.short_content %>
+            </span>
+            <% if comment.content.length > 100 %>
+              <a href="#" class="read-more" data-full-content="<%= comment.content %>">Mostra altro</a>
+            <% end %>
+          </p>
+        <% end %>
+        <%= form_with(model: [@note, @note.comments.build], url: note_comments_path(@note)) do |form| %>
+          <%= form.text_area :content, placeholder: 'Add a comment',cols: "42.5" %>
+          <%= form.submit 'Add comment',class: "btn btn-primary add_comment" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var readMoreLinks = document.getElementsByClassName("read-more");
 
-        Array.from(readMoreLinks).forEach(function(link) {
-          link.addEventListener("click", function(event) {
-            event.preventDefault();
-            var contentElement = this.parentNode.querySelector(".comment-content");
-            contentElement.textContent = this.getAttribute("data-full-content");
-            this.parentNode.removeChild(this);
-          });
+      Array.from(readMoreLinks).forEach(function(link) {
+        link.addEventListener("click", function(event) {
+          event.preventDefault();
+          var contentElement = this.parentNode.querySelector(".comment-content");
+          contentElement.textContent = this.getAttribute("data-full-content");
+          this.parentNode.removeChild(this);
         });
       });
-    </script>
+    });
+  </script>
+  <script>
+    // Ottieni il riferimento al bottone e al contenitore della div
+    const mostraBtn = document.getElementById('mostraBtn');
+    const contenitoreDiv = document.getElementById('contenitoreDiv');
+
+    const mostraDescrizione = document.getElementById('mostraDescrizione');
+    const Descrizione = document.getElementById('Descrizione');
+
+    const box = document.getElementById('box');
+
+    mostraDescrizione.addEventListener('click',function(){
+      if (Descrizione.classList.contains('hidden')){
+        Descrizione.classList.remove('hidden');
+        box.classList.remove('hidden');
+        mostraDescrizione.textContent = "Mostra Meno"
+      }
+      else {
+        Descrizione.classList.add('hidden');
+        box.classList.add('hidden');
+        mostraDescrizione.textContent = "Mostra Descrizione"
+      }
+    })
+
+    // Aggiungi un gestore di eventi per il clic sul bottone
+    mostraBtn.addEventListener('click', function() {
+      // Inverti lo stato di visualizzazione del contenuto
+      if (contenitoreDiv.classList.contains('hidden')) {
+        contenitoreDiv.classList.remove('hidden');
+        mostraBtn.textContent = "Mostra Meno";
+      } else {
+        contenitoreDiv.classList.add('hidden');
+         mostraBtn.textContent = "Mostra Informazioni";
+      }
+    });
+  </script>
