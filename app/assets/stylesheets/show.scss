@@ -152,7 +152,14 @@ body {
   transition: 0.2s ease-in;
   cursor: pointer;
  }
-
+ .Administrator-overflow{
+  overflow-y: auto;
+  max-height: 1px;
+}
+.User-overflow{
+  overflow-y: auto;
+  max-height: 1px;
+}
  #Descrizione {
   text-align: center;
   max-width: 800px; /* o qualsiasi altra larghezza desiderata */

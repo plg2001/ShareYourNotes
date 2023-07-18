@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
   <head>
     <title>ShareYourNotes</title>
@@ -39,36 +38,54 @@
           <% if user_signed_in? %>
             <li class="nav-item me-3"><%= link_to "Carica Appunti", new_note_path, class:"nav-link" %></li>
             <li class="nav-item me-3"><%= link_to '#' do %><%= image_tag("chat1.svg", id: "chat-button", style: "width: 40px; height: 40px;",class:"nav-link") %><% end %></li>
-            <div id="chat-area" class="chat-area ">
-              <span class="close-button-chat">&#10006;</span>
-              <div class="header-chat">
-                <h1 class="chat">Chat</h1>
-                <%= image_tag("chat2.svg",style: "width: 2em; height: 2em;") %>
-              </div>
-              <div class="Administrator-overflow">
-                <% users = User.all %>
-                <h5 class="switch">Administrator</h5>
-                <% users.each do |user|%>
-                  <% if user.admin == true && user != current_user%>
-                    <ul class="list-User">
-                      <li class="elem"><%= user.username %></li>
-                      <li class="elem "><%= link_to 'Message me', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' ,class: "a btn btn-primary  d-flex justify-content-center align-items-center"%></li>
-                    </ul>
-                  <% end%>
-                <% end%>
-              </div>
-              <div class="User-overflow">
-                <% users = User.all %>
-                <h5 class="switch">User</h5>
-                <% users.each do |user|%>
-                  <% if user.admin == false && user != current_user%>
-                    <ul class="list-User">
-                      <li class="elem"><%= user.username %></li>
-                      <li class="elem "><%= link_to 'Message me', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' ,class: "a btn btn-primary  d-flex justify-content-center align-items-center"%></li>
-                    </ul>
-                  <% end%>
-                <% end%>
-              </div>
+            <div id="chat-area" class="chat-area">
+              <header>
+                <h1>Chat</h1>
+                <%= image_tag("chat1.svg",style: "margin-left: 20px;width: 20px; height: 20px;margin-top:12px;") %>
+                <%= image_tag("close.svg",style: "margin-left: 130px;cursor:pointer;",class: "close-button-chat") %>
+                </header>
+              <main>
+                <section class="contact-list">
+                  <h2>Invia un messaggio a:</h2>
+                  <% users = User.all %>
+                  <h6>Amministratori</h6>
+                  <% users.each do |user| %>
+                    <% if user.admin == true && user != current_user %>
+                      <ul class="ul-contact">
+                        <%= link_to conversations_path(sender_id: current_user.id, recipient_id: user.id),style: "text-decoration:none;",method: 'post' do %>
+                          <div class="contact-box">
+                            <li class="contact">
+                              <%= image_tag("avatar.svg",style: "margin-left: 20px; margin-right:40px; width: 2em; height: 2em;") %>
+                              <div class="contact-info">
+                                <h3 id="username" style="text-decoration:none;"><%= user.username %></h3>
+                              </div>
+                            </li>
+                          <% end %>
+                        </div>
+                      </ul>
+                    <% end %>
+                  <% end %>
+
+                  <% users = User.all %>
+                  <h6>Utenti</h6>
+                  <% users.each do |user| %>
+                    <% if user.admin == false && user != current_user %>
+                      <ul class="ul-contact">
+                        <%= link_to conversations_path(sender_id: current_user.id, recipient_id: user.id),style: "text-decoration:none;",method: 'post' do %>
+                          <div class="contact-box">
+                            <li class="contact">
+                              <%= image_tag("avatar.svg",style: "margin-left: 20px; margin-right:40px; width: 2em; height: 2em;") %>
+                              <div class="contact-info">
+                                <h3 id="username" style="text-decoration:none;"><%= user.username %></h3>
+                              </div>
+                            </li>
+                          <% end %>
+                        </div>
+                      </ul>
+                    <% end %>
+                  <% end %>
+                </section>
+              </main>
             </div>
           <% end %>
         </ul>
@@ -272,6 +289,5 @@
       <% end %>
     <% end %>
     <%= yield %>
-  
   </body>
 </html>

@@ -12,92 +12,110 @@
   }
   
  
-  
- 
-  
+  .chat-hidden {
+    transform: translateX(100%);
+  }
+
   .close-button-chat {
     position: absolute;
-    top: 10px;
     right: 10px;
     cursor: pointer;
     font-size: 20px;
-    color: #888;
+    color: white;
     transition: color 0.3s ease-in-out;
   }
   
   .close-button-chat:hover {
-    color: #333;
-  }
-  
-  .header-chat {
-    display: flex;
-    align-items: center;
+    color: white;
   }
 
-  .chat{
-    margin-left: 5px;
-    font-weight: bold;
-    margin-right: 20px;
-  }
-
- 
-  .list-User {
-    list-style-type: none;
-    padding: 0;
-    margin-left: 15px;
-    margin-bottom: 20px;
-  }
-  
-  .switch{
-    font-weight: bold;
-    margin-left: 5px ;
-    margin-bottom: 15px;
-  }
-
-  .Administrator-overflow{
-    margin-top: 30px;
-    overflow-y: auto;
-    max-height: 500px;
-  }
-  .User-overflow{
-    margin-top: 50px;
-    overflow-y: auto;
-    max-height: 500px;
-  }
-  
-  .list-User .elem {
-    display: block;
-    margin-right: 10px; /* Aggiunge spazio tra gli elementi */
-  }
-  
-  .elem{
-    font-weight: bold;
-  }
-
-  .list-User .elem:last-child {
-    margin-right: 0; /* Rimuove il margine destro dall'ultimo elemento */
-  }
-
-
-  .list-User .elem:nth-child(2) .a {
-    border: 2px solid black;
-    width: 150px;
-  }
-
-
-  /* styles.css */
   #chat-button:hover {
     transform: scale(1.075);
     transition: 0.2s ease-in;
     cursor: pointer;
   }
 
+  /* Header */
+header {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  display: flex;
+}
+
+header h1 {
+  font-size: 2rem;
+}
+
+/* Contact list */
+.contact-list {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  max-height: 500px;
+  overflow: auto;
+}
+
+.contact-list h2 {
+  font-size: 1.5rem;
+}
+
+.ul-contact {
+  list-style: none;
+  padding: 0;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #ddd;
+
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+
+  margin-bottom: 10px;
+
+
+}
+
+.contact:hover{
+  transform: scale(1.075);
+  transition: 0.2s ease-in;
+  cursor: pointer;
+}
+
+#username{
+  text-decoration: none;
+  color: black;
+  max-width: 110px; /* o qualsiasi altra larghezza desiderata */
+  margin: 0 auto; /* per centrare l'elemento horizontalmente */
+  word-wrap: break-word; /* fa andare a capo il testo quando supera la larghezza massima */
+}
 
 
 
+.contact:last-child {
+  border-bottom: none;
+  margin-bottom: 10px;
+}
 
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
 
+.contact-info h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
 
-  .chat-hidden {
-    transform: translateX(100%);
-  }
+.contact-info p {
+  margin: 0;
+  color: #777;
+}
