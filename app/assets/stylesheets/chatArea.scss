@@ -91,9 +91,10 @@ header h1 {
 #username{
   text-decoration: none;
   color: black;
-  max-width: 110px; /* o qualsiasi altra larghezza desiderata */
-  margin: 0 auto; /* per centrare l'elemento horizontalmente */
-  word-wrap: break-word; /* fa andare a capo il testo quando supera la larghezza massima */
+  max-width: 110px;
+  margin: 0 auto; 
+  word-wrap: break-word;
+  margin-left: -30px;
 }
 
 
@@ -119,3 +120,21 @@ header h1 {
   margin: 0;
   color: #777;
 }
+
+.online-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  position: absolute;
+  position: sticky;
+  left: 200px;
+}
+
+.online {
+  background-color: green;
+}
+
+.offline {
+  background-color: red;
+}
+

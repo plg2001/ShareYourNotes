@@ -107,6 +107,9 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise_lastseenable (0.0.6)
+      devise
+      rails (>= 3.0.4)
     em-websocket (0.5.3)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0)
@@ -409,6 +412,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   chartkick
   devise
+  devise_lastseenable
   faraday (= 0.17.4)
   google_drive
   guard-livereload

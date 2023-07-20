@@ -59,7 +59,9 @@
                               <div class="contact-info">
                                 <h3 id="username" style="text-decoration:none;"><%= user.username %></h3>
                               </div>
+                              <%= user_online_status(user) %>
                             </li>
+                            
                           <% end %>
                         </div>
                       </ul>
@@ -78,6 +80,7 @@
                               <div class="contact-info">
                                 <h3 id="username" style="text-decoration:none;"><%= user.username %></h3>
                               </div>
+                              <%= user_online_status(user) %>
                             </li>
                           <% end %>
                         </div>
