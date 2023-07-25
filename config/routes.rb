@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get "signup", to: "devise/registrations#new"
   end
   
-  
+  get '/files', to: 'files#index',as: 'your_file'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root  'pages#home'

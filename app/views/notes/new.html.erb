@@ -15,6 +15,9 @@
       <%= form_tag(notes_path, multipart: true) do %>
       <%= file_field_tag :file,class: "form-control" , required: true %>
     </div>
+    <div class="mb-3">
+      <%= link_to "Your File on Google Drive",your_file_path %>
+    </div>
   <div class="mb-3">
     <%= form.label :tags, class: "form-label" %>
     <div class="custom-dropdown">

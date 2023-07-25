@@ -422,6 +422,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.3)
   net-http
+  oauth2
   omniauth
   omniauth-facebook
   omniauth-rails_csrf_protection

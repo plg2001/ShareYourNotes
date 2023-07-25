@@ -1,0 +1,11 @@
+<!-- app/views/files/index.html.erb -->
+
+<h1>Elenco dei file su Google Drive</h1>
+
+<ul>
+  <% @files.each do |file| %>
+    <li>
+      <%= link_to file.name, file.web_view_link %>
+    </li>
+  <% end %>
+</ul>

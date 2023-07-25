@@ -54,3 +54,5 @@ gem 'faraday', '0.17.4'
 gem "inline_svg", '1.9.0'
 gem 'chartkick'
 gem 'devise_lastseenable'
+
+gem 'oauth2'
