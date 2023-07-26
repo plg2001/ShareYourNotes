@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,:lastseenable,
-         :recoverable, :rememberable, :validatable, :confirmable, :omniauthable , omniauth_providers: %i[facebook] 
+         :recoverable, :rememberable, :validatable, :confirmable, :omniauthable , omniauth_providers: [:google_oauth2, :facebook]
   
          validates :password, presence: true, length: { minimum: 6 }, if: :password_required?
          validates :password_confirmation, presence: true, if: :password_required?
@@ -21,13 +21,21 @@ class User < ApplicationRecord
   has_many :comments
   has_many :visualizzaziones
  
-
-
+  
+  attr_accessor :google_drive_access_token
+  attr_accessor :google_drive_refresh_token
+  attr_accessor :google_drive_expires_at
 
   def self.from_omniauth(auth)
+    access_token = auth.access_token
+    refresh_token = auth.refresh_token
+    expires_at = auth.expires_at
+
     name_split = auth.info.name.split(" ")
     user = User.where(email: auth.info.email).first
-    user ||= User.create!(provider: auth.provider, uid: auth.uid,username: name_split[0]+ ""+"ShareYourNotes", name: name_split[0], email: auth.info.email, password: Devise.friendly_token[0, 20])
+    password =  Devise.friendly_token[0, 20]
+    user ||= User.create!(provider: auth.provider, uid: auth.uid,username: name_split[0]+ ""+"ShareYourNotes", name: name_split[0], email: auth.info.email, password: password,password_confirmation: password,
+    google_drive_access_token: access_token ,google_drive_refresh_token: refresh_token,google_drive_expires_at: expires_at)
     user.skip_confirmation!
     user.save!
       user

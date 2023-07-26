@@ -55,4 +55,7 @@ gem "inline_svg", '1.9.0'
 gem 'chartkick'
 gem 'devise_lastseenable'
 
-gem 'oauth2'
+gem 'omniauth-google-oauth2'
+# Gemfile
+gem 'google-api-client'
+gem 'googleauth'
