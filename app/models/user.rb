@@ -22,23 +22,46 @@ class User < ApplicationRecord
   has_many :visualizzaziones
  
   
-  attr_accessor :google_drive_access_token
-  attr_accessor :google_drive_refresh_token
-  attr_accessor :google_drive_expires_at
 
   def self.from_omniauth(auth)
-    access_token = auth.access_token
-    refresh_token = auth.refresh_token
-    expires_at = auth.expires_at
-
+    access_token = auth.credentials.token
+    refresh_token = auth.credentials.refresh_token
+    expires_at = auth.credentials.expires_at
+  
     name_split = auth.info.name.split(" ")
     user = User.where(email: auth.info.email).first
-    password =  Devise.friendly_token[0, 20]
-    user ||= User.create!(provider: auth.provider, uid: auth.uid,username: name_split[0]+ ""+"ShareYourNotes", name: name_split[0], email: auth.info.email, password: password,password_confirmation: password,
-    google_drive_access_token: access_token ,google_drive_refresh_token: refresh_token,google_drive_expires_at: expires_at)
-    user.skip_confirmation!
-    user.save!
-      user
+  
+    if user
+      # Se l'utente esiste già, aggiorna i valori solo se sono cambiati
+      if user.google_drive_access_token != access_token ||
+         user.google_drive_refresh_token != refresh_token ||
+         user.google_drive_expires_at != expires_at
+        user.update!(
+          google_drive_access_token: access_token,
+          google_drive_refresh_token: refresh_token,
+          google_drive_expires_at: expires_at
+        )
+      end
+    else
+      # Se l'utente non esiste, creane uno nuovo con i valori forniti
+      password = Devise.friendly_token[0, 20]
+      user = User.create!(
+        provider: auth.provider,
+        uid: auth.uid,
+        username: name_split[0] + "" + "ShareYourNotes",
+        name: name_split[0],
+        email: auth.info.email,
+        password: password,
+        password_confirmation: password,
+        google_drive_access_token: access_token,
+        google_drive_refresh_token: refresh_token,
+        google_drive_expires_at: expires_at
+      )
+      user.skip_confirmation!
+      user.save!
+    end
+  
+    user
   end
     
   after_create :send_welcome_email

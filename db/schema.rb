@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_20_132727) do
+ActiveRecord::Schema.define(version: 2023_07_28_130201) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -152,6 +152,9 @@ ActiveRecord::Schema.define(version: 2023_07_20_132727) do
     t.string "provider"
     t.string "uid"
     t.datetime "last_seen"
+    t.string "google_drive_access_token"
+    t.string "google_drive_refresh_token"
+    t.datetime "google_drive_expires_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
