@@ -1,4 +1,5 @@
 require 'google_drive'
+require "googleauth"
 
 class NotesController < ApplicationController
   before_action :authenticate_user!
@@ -105,6 +106,7 @@ class NotesController < ApplicationController
   
   def new
     @note = Note.new
+
     if params[:code] != nil
       current_user.update!(google_drive_refresh_token: params[:code])
       current_user.save

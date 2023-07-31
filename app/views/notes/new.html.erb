@@ -16,7 +16,10 @@
       <%= file_field_tag :file,class: "form-control" , required: true %>
     </div>
     <div class="mb-3">
-      <%= link_to "Your File on Google Drive",your_file_path %>
+      <div class="container_google_drive">
+        <p>Seleziona un file dal tuo</p>
+        <%= image_tag "Google_Drive_logo.png",class:"google_drive_logo" %>
+      </div>
     </div>
   <div class="mb-3">
     <%= form.label :tags, class: "form-label" %>

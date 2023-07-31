@@ -32,3 +32,41 @@
         }
     }
 } 
+
+
+/* Stile del contenitore */
+.file-field-container {
+    display: flex; /* Utilizziamo Flexbox per allineare gli elementi in orizzontale */
+    align-items: center; /* Allinea verticalmente gli elementi al centro */
+    gap: 10px; /* Aggiunge uno spazio tra i due elementi */
+  }
+  
+  /* Stile del pulsante */
+  .file-field-container form {
+    margin: 0; /* Rimuove il margine predefinito del form */
+  }
+  
+  /* Stile dell'immagine nel pulsante */
+  .file-field-container img {
+    border: none; /* Rimuove il bordo dell'immagine nel pulsante */
+    vertical-align: middle; /* Allinea verticalmente l'immagine al centro con il testo */
+  }
+
+   
+ .logo_your_path_file{
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: none; 
+ }
+
+ .google_drive_logo {
+    width: 50px;
+  }
+  
+  .container_google_drive{
+    display: flex;
+    align-items: center;
+    
+  }

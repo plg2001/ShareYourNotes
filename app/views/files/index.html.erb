@@ -1,11 +1,17 @@
 <!-- app/views/google_drive/index.html.erb -->
-
-<h1>Lista dei file su Google Drive</h1>
-
-<ul>
-  <% @files.each do |file| %>
-    <li>
-      <%= link_to file.name, file.web_view_link, target: '_blank' %>
-    </li>
+<%= stylesheet_link_tag 'google_drive', media: 'all', 'data-turbolinks-track': 'reload' %>
+<div class="container">
+  <div class="header">
+    <h1 class="title">Seleziona un file dal tuo</h1>
+    <%= image_tag "Google_Drive_logo.png",class:"google_drive_logo" %>
+  </div>
+</div>
+<ul class="list-file">
+  <% @files.select { |file| file.name =~ /\.(pdf|docx?)\z/i }.each do |file| %>
+    <div class="div_file">
+      <li class="file">
+        <p class="file_name"><%= file.name %></p>
+      </li>
+    </div>
   <% end %>
 </ul>
