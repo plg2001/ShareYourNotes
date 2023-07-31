@@ -1,66 +1,64 @@
 <%= stylesheet_link_tag 'crea_appunto', media: 'all', 'data-turbolinks-track': 'reload' %>
-
 <div class="container">
   <%= form_with(model: @note, url: notes_path, multipart: true, class: "container") do |form| %>
+    <%= link_to your_file_path ,style: "text-decoration:none;" do%>
+      <div class="google_drive_container">
+        <%= image_tag "Google_Drive_logo.png",class:"google_drive_logo" %>
+        <p class="drive_p">Seleziona un file dal tuo Google Drive</p>
+      </div>
+    <% end %>
+    <div class="overlay"></div>
     <div class="mb-3">
-      <%= form.label :name, class: "form-label" %>
+      <%= form.label :name, class: "form-label",style: "font-weight: bold;" %>
       <%= form.text_field :name, class: "form-control", placeholder: "Inserisci il nome", required: true, maxlength: 40 %>
     </div>
     <div class="mb-3">
-      <%= form.label :description, class: "form-label" %>
+      <%= form.label :description, class: "form-label" ,style: "font-weight: bold;"%>
       <%= form.text_area :description, class: "form-control", placeholder: "Inserisci la descrizione", required: true %>
     </div>
     <div class="mb-3">
-      <%= form.label :file, class: "form-label" %>
+      <%= form.label :file, class: "form-label" ,style: "font-weight: bold;"%>
       <%= form_tag(notes_path, multipart: true) do %>
-      <%= file_field_tag :file,class: "form-control" , required: true %>
-    </div>
-    <div class="mb-3">
-      <div class="container_google_drive">
-        <p>Seleziona un file dal tuo</p>
-        <%= image_tag "Google_Drive_logo.png",class:"google_drive_logo" %>
+        <%= file_field_tag :file,class: "form-control" , required: true %>
       </div>
-    </div>
-  <div class="mb-3">
-    <%= form.label :tags, class: "form-label" %>
-    <div class="custom-dropdown">
-      <div class="options-container">
-        <ul class="options-list">
-          <% Tag.all.each do |tag| %>
-            <li>
-              <label>
-                <%= check_box_tag "note[tag_ids][]", tag.id, @note.tags.include?(tag) %>
-                <%= tag.name %>
-              </label>
-            </li>
-          <% end %>
-        </ul>
+      <div class="mb-3">
+        <%= form.label :tags, class: "form-label" ,style: "font-weight: bold;"%>
+        <div class="custom-dropdown">
+          <div class="options-container">
+            <ul class="options-list">
+              <% Tag.all.each do |tag| %>
+                <li>
+                  <label>
+                    <%= check_box_tag "note[tag_ids][]", tag.id, @note.tags.include?(tag) %>
+                    <%= tag.name %>
+                  </label>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-
-  <div class="mb-3">
-    <%= form.label :topics, class: "form-label" %>
-    <div class="custom-dropdown">
-      <div class="options-container">
-        <ul class="options-list">
-          <% Topic.all.each do |topic| %>
-            <li>
-              <label>
-                <%= check_box_tag "note[topic_ids][]", topic.id, @note.topics.include?(topic) %>
-                <%= topic.name %>
-              </label>
-            </li>
-          <% end %>
-        </ul>
+      <div class="mb-3">
+        <%= form.label :topics, class: "form-label" ,style: "font-weight: bold;"%>
+        <div class="custom-dropdown">
+          <div class="options-container">
+            <ul class="options-list">
+              <% Topic.all.each do |topic| %>
+                <li>
+                  <label>
+                    <%= check_box_tag "note[topic_ids][]", topic.id, @note.topics.include?(topic) %>
+                    <%= topic.name %>
+                  </label>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-
       <div class="mb-3">
         <div class="div-field">
           <label for="faculty_id">Facoltà</label>
-          <%= form.collection_select :faculty_id, Faculty.all, :id, :name, prompt: "Seleziona una facoltà"%>
+          <%= form.collection_select :faculty_id, Faculty.all, :id, :name, prompt: "Seleziona una facoltà",style: "font-weight: bold;"%>
         </div>
       </div>
       <%= form.submit "Carica", class: "btn btn-primary" %>

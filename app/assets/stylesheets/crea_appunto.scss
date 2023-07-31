@@ -53,20 +53,33 @@
   }
 
    
- .logo_your_path_file{
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    outline: none; 
- }
-
- .google_drive_logo {
-    width: 50px;
-  }
-  
-  .container_google_drive{
+  .google_drive_container {
+    border: 1px solid #ccc; /* Aggiunge un bordo al container */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Aggiunge un effetto ombra al container */
+    padding: 20px; /* Spazio interno al container per il contenuto */
     display: flex;
     align-items: center;
-    
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 30px;
+    width: 400px;
+    margin-bottom: 20px;
+    height: 100px;
+    background-color: whitesmoke;
   }
+
+  .google_drive_logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .drive_p{
+    margin-bottom: 0px;
+    font-weight: bold;
+  }
+
+  .google_drive_container:hover{
+    transform: scale(1.075);
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}
