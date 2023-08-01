@@ -8,13 +8,12 @@
       </div>
     <% end %>
     <div class="mb-3">
+      <%= file_name = nil %>
       <% if params[:file_id] != nil && params[:file_name]!= nil %>
-        <%= form.label :name, class: "form-label",style: "font-weight: bold;" %>
-        <%= form.text_field :name, class: "form-control",value: params[:file_name], required: true, maxlength: 40 %>
-      <% else %>
-        <%= form.label :name, class: "form-label",style: "font-weight: bold;" %>
-        <%= form.text_field :name, class: "form-control", placeholder: "Inserisci il nome", required: true, maxlength: 40 %>
+        <% file_name = params[:file_name] %>
       <% end %>
+      <%= form.label :name, class: "form-label",style: "font-weight: bold;" %>
+      <%= form.text_field :name, class: "form-control",value: file_name, placeholder: "Inserisci il nome", required: true, maxlength: 40 %>
     </div>
     <div class="mb-3">
       <%= form.label :description, class: "form-label" ,style: "font-weight: bold;"%>
@@ -67,7 +66,6 @@
           </div>
           <%= form.submit "Carica", class: "btn btn-primary" %>
         <% end %>
-        
       <% else %>
         <%= form.label :file, class: "form-label" ,style: "font-weight: bold;"%>
         <%= form_tag(notes_path, multipart: true) do %>
@@ -117,5 +115,3 @@
       <% end %>
     <% end %>
   </div>
-
-  

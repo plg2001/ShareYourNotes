@@ -116,7 +116,7 @@ class NotesController < ApplicationController
   def create
 
     if params[:file_id] != nil && params[:file_name] != nil
-      file_name = params[:file_name]
+      file_name = params[:note][:name]
       description = params[:note][:description]
       @note = Note.new(name: file_name, description: description)
       @note.user = current_user
