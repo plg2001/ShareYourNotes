@@ -124,14 +124,15 @@ class NotesController < ApplicationController
       @note.topics = Topic.where(id: params[:note][:topic_ids])
       file_id = params[:file_id]
       
-
+      
       temp_file = open("https://drive.google.com/uc?id=#{file_id}")
       path_file = temp_file.path
 
       session = GoogleDrive::Session.from_config("config.json")
       destination_folder = session.collection_by_url("https://drive.google.com/drive/folders/1zJPM2hoIzMzuvfefRvQM8NXHee5pOfhL?hl=it")
 
-      file = session.file_by_id(file_id)
+    
+      
       uploaded_file = destination_folder.upload_from_file(path_file,file_name,convert: false)
 
       if uploaded_file 

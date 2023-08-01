@@ -25,7 +25,6 @@
         <%= hidden_field_tag :file_id, params[:file_id] %>
         <%= hidden_field_tag :file_name, params[:file_name] %>
         <%= form_tag(notes_path, multipart: true) do %>
-          <%= form.text_field :name, class: "form-control",value: params[:file_id], required: true, maxlength: 40 %>
           <div class="mb-3">
             <%= form.label :tags, class: "form-label" ,style: "font-weight: bold;"%>
             <div class="custom-dropdown">
