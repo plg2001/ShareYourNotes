@@ -239,6 +239,9 @@ class NotesController < ApplicationController
     redirect_to file.web_content_link
   end
 
+  def deseleziona
+    render :new, alert: "File deselezionato"
+  end
 
   def update
     @note = Note.find(params[:id])

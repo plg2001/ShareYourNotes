@@ -1,11 +1,23 @@
 <%= stylesheet_link_tag 'crea_appunto', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% if params[:alert].present? %>
+  <%= content_tag(:div, params[:alert][:success],style: "margin-bottom: -50px", class: "alert alert-info fade show", data: { dismiss: "alert", timeout: 3000 }) %>
+<% end %>
 <div class="container">
   <%= form_with(model: @note, url: notes_path, multipart: true, class: "container") do |form| %>
-    <%= link_to your_file_path ,style: "text-decoration:none;" do%>
-      <div class="google_drive_container">
-        <%= image_tag "Google_Drive_logo.png",class:"google_drive_logo" %>
-        <p class="drive_p">Seleziona un file dal tuo Google Drive</p>
-      </div>
+    <% if params[:file_id] != nil && params[:file_name]!= nil %>
+      <%= link_to "/notes/new" ,style: "text-decoration:none;" do%>
+        <div class="google_drive_container">
+          <%= image_tag "Google_Drive_logo.png",class:"google_drive_logo" %>
+          <p class="drive_p">Deseleziona file</p>
+        </div>
+      <% end %>
+    <% else %>
+      <%= link_to your_file_path ,style: "text-decoration:none;" do%>
+        <div class="google_drive_container">
+          <%= image_tag "Google_Drive_logo.png",class:"google_drive_logo" %>
+          <p class="drive_p">Seleziona un file dal tuo Google Drive</p>
+        </div>
+      <% end %>
     <% end %>
     <div class="mb-3">
       <%= file_name = nil %>
