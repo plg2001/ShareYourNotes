@@ -7,61 +7,116 @@
         <p class="drive_p">Seleziona un file dal tuo Google Drive</p>
       </div>
     <% end %>
-    <div class="overlay"></div>
     <div class="mb-3">
-      <%= form.label :name, class: "form-label",style: "font-weight: bold;" %>
-      <%= form.text_field :name, class: "form-control", placeholder: "Inserisci il nome", required: true, maxlength: 40 %>
+      <% if params[:file_id] != nil && params[:file_name]!= nil %>
+        <%= form.label :name, class: "form-label",style: "font-weight: bold;" %>
+        <%= form.text_field :name, class: "form-control",value: params[:file_name], required: true, maxlength: 40 %>
+      <% else %>
+        <%= form.label :name, class: "form-label",style: "font-weight: bold;" %>
+        <%= form.text_field :name, class: "form-control", placeholder: "Inserisci il nome", required: true, maxlength: 40 %>
+      <% end %>
     </div>
     <div class="mb-3">
       <%= form.label :description, class: "form-label" ,style: "font-weight: bold;"%>
       <%= form.text_area :description, class: "form-control", placeholder: "Inserisci la descrizione", required: true %>
     </div>
     <div class="mb-3">
-      <%= form.label :file, class: "form-label" ,style: "font-weight: bold;"%>
-      <%= form_tag(notes_path, multipart: true) do %>
-        <%= file_field_tag :file,class: "form-control" , required: true %>
-      </div>
-      <div class="mb-3">
-        <%= form.label :tags, class: "form-label" ,style: "font-weight: bold;"%>
-        <div class="custom-dropdown">
-          <div class="options-container">
-            <ul class="options-list">
-              <% Tag.all.each do |tag| %>
-                <li>
-                  <label>
-                    <%= check_box_tag "note[tag_ids][]", tag.id, @note.tags.include?(tag) %>
-                    <%= tag.name %>
-                  </label>
-                </li>
-              <% end %>
-            </ul>
+      <% if params[:file_id] != nil && params[:file_name] != nil %>
+        <%= hidden_field_tag :file_id, params[:file_id] %>
+        <%= hidden_field_tag :file_name, params[:file_name] %>
+        <%= form_tag(notes_path, multipart: true) do %>
+          <%= form.text_field :name, class: "form-control",value: params[:file_id], required: true, maxlength: 40 %>
+          <div class="mb-3">
+            <%= form.label :tags, class: "form-label" ,style: "font-weight: bold;"%>
+            <div class="custom-dropdown">
+              <div class="options-container">
+                <ul class="options-list">
+                  <% Tag.all.each do |tag| %>
+                    <li>
+                      <label>
+                        <%= check_box_tag "note[tag_ids][]", tag.id, @note.tags.include?(tag) %>
+                        <%= tag.name %>
+                      </label>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="mb-3">
-        <%= form.label :topics, class: "form-label" ,style: "font-weight: bold;"%>
-        <div class="custom-dropdown">
-          <div class="options-container">
-            <ul class="options-list">
-              <% Topic.all.each do |topic| %>
-                <li>
-                  <label>
-                    <%= check_box_tag "note[topic_ids][]", topic.id, @note.topics.include?(topic) %>
-                    <%= topic.name %>
-                  </label>
-                </li>
-              <% end %>
-            </ul>
+          <div class="mb-3">
+            <%= form.label :topics, class: "form-label" ,style: "font-weight: bold;"%>
+            <div class="custom-dropdown">
+              <div class="options-container">
+                <ul class="options-list">
+                  <% Topic.all.each do |topic| %>
+                    <li>
+                      <label>
+                        <%= check_box_tag "note[topic_ids][]", topic.id, @note.topics.include?(topic) %>
+                        <%= topic.name %>
+                      </label>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="mb-3">
-        <div class="div-field">
-          <label for="faculty_id">Facoltà</label>
-          <%= form.collection_select :faculty_id, Faculty.all, :id, :name, prompt: "Seleziona una facoltà",style: "font-weight: bold;"%>
-        </div>
-      </div>
-      <%= form.submit "Carica", class: "btn btn-primary" %>
+          <div class="mb-3">
+            <div class="div-field">
+              <label for="faculty_id">Facoltà</label>
+              <%= form.collection_select :faculty_id, Faculty.all, :id, :name, prompt: "Seleziona una facoltà",style: "font-weight: bold;"%>
+            </div>
+          </div>
+          <%= form.submit "Carica", class: "btn btn-primary" %>
+        <% end %>
+        
+      <% else %>
+        <%= form.label :file, class: "form-label" ,style: "font-weight: bold;"%>
+        <%= form_tag(notes_path, multipart: true) do %>
+          <%= file_field_tag :file,class: "form-control" , required: true %>
+          <div class="mb-3">
+            <%= form.label :tags, class: "form-label" ,style: "font-weight: bold;"%>
+            <div class="custom-dropdown">
+              <div class="options-container">
+                <ul class="options-list">
+                  <% Tag.all.each do |tag| %>
+                    <li>
+                      <label>
+                        <%= check_box_tag "note[tag_ids][]", tag.id, @note.tags.include?(tag) %>
+                        <%= tag.name %>
+                      </label>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <%= form.label :topics, class: "form-label" ,style: "font-weight: bold;"%>
+            <div class="custom-dropdown">
+              <div class="options-container">
+                <ul class="options-list">
+                  <% Topic.all.each do |topic| %>
+                    <li>
+                      <label>
+                        <%= check_box_tag "note[topic_ids][]", topic.id, @note.topics.include?(topic) %>
+                        <%= topic.name %>
+                      </label>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="div-field">
+              <label for="faculty_id">Facoltà</label>
+              <%= form.collection_select :faculty_id, Faculty.all, :id, :name, prompt: "Seleziona una facoltà",style: "font-weight: bold;"%>
+            </div>
+          </div>
+          <%= form.submit "Carica", class: "btn btn-primary" %>
+        <% end %>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
+
+  

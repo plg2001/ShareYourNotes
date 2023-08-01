@@ -114,54 +114,111 @@ class NotesController < ApplicationController
   end
 
   def create
-    @note = Note.new(note_params)
-    @note.user = current_user
-    @note.tags = Tag.where(id: params[:note][:tag_ids])
-    @note.topics = Topic.where(id: params[:note][:topic_ids])
-    file = params[:file]
-    filename = file.original_filename
-    tempfile = file.tempfile
 
-    session = GoogleDrive::Session.from_config("config.json")
-    destination_folder = session.collection_by_url("https://drive.google.com/drive/folders/1zJPM2hoIzMzuvfefRvQM8NXHee5pOfhL?hl=it")
-    uploaded_file = destination_folder.upload_from_file(tempfile.path,filename,convert: false)
+    if params[:file_id] != nil && params[:file_name] != nil
+      file_name = params[:file_name]
+      description = params[:note][:description]
+      @note = Note.new(name: file_name, description: description)
+      @note.user = current_user
+      @note.tags = Tag.where(id: params[:note][:tag_ids])
+      @note.topics = Topic.where(id: params[:note][:topic_ids])
+      file_id = params[:file_id]
+      
+
+      temp_file = open("https://drive.google.com/uc?id=#{file_id}")
+      path_file = temp_file.path
+
+      session = GoogleDrive::Session.from_config("config.json")
+      destination_folder = session.collection_by_url("https://drive.google.com/drive/folders/1zJPM2hoIzMzuvfefRvQM8NXHee5pOfhL?hl=it")
+
+      file = session.file_by_id(file_id)
+      uploaded_file = destination_folder.upload_from_file(path_file,file_name,convert: false)
+
+      if uploaded_file 
+        File.delete(path_file)
+        file_url = uploaded_file.human_url
+        @note.google_drive_link = file_url
+        
+        
+        @note.faculty_id = params[:note][:faculty_id] unless params[:note][:faculty_id].blank?
 
 
-   
-    if uploaded_file 
-          file_url = uploaded_file.human_url
-          @note.google_drive_link = file_url
+        if @note.tags.length > 0 && @note.topics.length > 0 && @note.faculty_id != nil
           
-          
-          @note.faculty_id = params[:note][:faculty_id] unless params[:note][:faculty_id].blank?
-
-
-          if @note.tags.length > 0 && @note.topics.length > 0 && @note.faculty_id != nil
-            
-            if @note.save
-              redirect_to @note, notice: "L'appunto è stato correttamente caricato"
-            else
-              render :new, alert: "Si è verificato un errore durante il caricamento dell'appunto"
-            end
+          if @note.save
+            redirect_to @note, notice: "L'appunto è stato correttamente caricato"
           else
-
-            alert = ""
-            if @note.tags.length == 0 
-              alert.concat("Inserire almeno un Tag, ")
-            end
-            if @note.topics.length == 0 
-              alert.concat("Inserire almeno un Topic, ")
-            end
-            if @note.faculty_id == nil
-              alert.concat("Inserire una Facoltà.")
-            end
-            flash[:error] = alert
-            render :new
+            render :new, alert: "Si è verificato un errore durante il caricamento dell'appunto"
           end
+        else
+
+          alert = ""
+          if @note.tags.length == 0 
+            alert.concat("Inserire almeno un Tag, ")
+          end
+          if @note.topics.length == 0 
+            alert.concat("Inserire almeno un Topic, ")
+          end
+          if @note.faculty_id == nil
+            alert.concat("Inserire una Facoltà.")
+          end
+          flash[:error] = alert
+          render :new
+        end
+      else
+        render :new, alert: 'Si è verificato un errore durante il caricamento del file'
+      end
+      
     else
-      render :new, alert: 'Si è verificato un errore durante il caricamento del file'
-    end
-  
+
+      @note = Note.new(note_params)
+      @note.user = current_user
+      @note.tags = Tag.where(id: params[:note][:tag_ids])
+      @note.topics = Topic.where(id: params[:note][:topic_ids])
+      file = params[:file]
+      filename = file.original_filename
+      tempfile = file.tempfile
+
+      session = GoogleDrive::Session.from_config("config.json")
+      destination_folder = session.collection_by_url("https://drive.google.com/drive/folders/1zJPM2hoIzMzuvfefRvQM8NXHee5pOfhL?hl=it")
+      uploaded_file = destination_folder.upload_from_file(tempfile.path,filename,convert: false)
+
+
+    
+      if uploaded_file 
+            file_url = uploaded_file.human_url
+            @note.google_drive_link = file_url
+            
+            
+            @note.faculty_id = params[:note][:faculty_id] unless params[:note][:faculty_id].blank?
+
+
+            if @note.tags.length > 0 && @note.topics.length > 0 && @note.faculty_id != nil
+              
+              if @note.save
+                redirect_to @note, notice: "L'appunto è stato correttamente caricato"
+              else
+                render :new, alert: "Si è verificato un errore durante il caricamento dell'appunto"
+              end
+            else
+
+              alert = ""
+              if @note.tags.length == 0 
+                alert.concat("Inserire almeno un Tag, ")
+              end
+              if @note.topics.length == 0 
+                alert.concat("Inserire almeno un Topic, ")
+              end
+              if @note.faculty_id == nil
+                alert.concat("Inserire una Facoltà.")
+              end
+              flash[:error] = alert
+              render :new
+            end
+      else
+        render :new, alert: 'Si è verificato un errore durante il caricamento del file'
+      end
+    end 
   end
 
   
