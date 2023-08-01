@@ -1,51 +1,49 @@
 <%= stylesheet_link_tag 'ricerca', media: 'all', 'data-turbolinks-track': 'reload' %>
-
 <% if @visualizzazioni_recenti.present? %>
   <div class="container">
     <h1 class="mt-5">Visualizzati di Recente</h1>
     <% @visualizzazioni_recenti.each do |visualizzazione| %>
       <div class="card my-4">
         <div class="card-body">
-        <div class="d-flex justify-content-start align-items-center">
-          <h4 class="card-title">
-            <a href="<%= visualizzazione.note_id %>"><%= visualizzazione.note.name %></a>
-          </h4>
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h4 class="card-title mb-0">
+              <a href="<%= visualizzazione.note_id %>"><%= visualizzazione.note.name %></a>
+            </h4>
 
-          <% if current_user && current_user != visualizzazione.note.user %>
-          <div class="d-flex gap-1 mb-1 BottoniStella justify-content-start">
-            <% Note::MAX_RATING.times do |n| %>
-              <%= button_to note_path(visualizzazione.note),
+            <% if current_user && current_user != visualizzazione.note.user %>
+              <div class="d-flex gap-1 mb-1 BottoniStella justify-content-start align-items-center">
+                <% Note::MAX_RATING.times do |n| %>
+                  <%= button_to note_path(visualizzazione.note),
               method: :patch,
               params: { note: { rating: n + 1 } },
               class: "border-0 bg-transparent d-flex justify-content-start BottoneSingolo" do %>
-                <%= inline_svg_tag("star.svg",
+                    <%= inline_svg_tag("star.svg",
               class: "w-8 h-8 #{star_rating_hover_class()} #{star_rating_class(visualizzazione.note, n)}") %>
-              <% end %>
-            <% end %>
-            <% if @toast %>
-              <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true" data-bs-delay="3000">
-                <div class="toast-body bg-black text-white">
-                  <% if @toast == :success %>
-                    <%= inline_svg_tag("check.svg", class: "h-4 w-4 text-success me-2") %>
-                    <span>Rating Added!</span>
-                  <% else %>
-                    <%= inline_svg_tag("warning.svg", class: "h-4 w-4 text-danger me-2") %>
-                    <span>Rating could not be added</span>
                   <% end %>
-                </div>
+                <% end %>
+                <% if @toast %>
+                  <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true" data-bs-delay="3000">
+                    <div class="toast-body bg-black text-white">
+                      <% if @toast == :success %>
+                        <%= inline_svg_tag("check.svg", class: "h-4 w-4 text-success me-2") %>
+                        <span>Rating Added!</span>
+                      <% else %>
+                        <%= inline_svg_tag("warning.svg", class: "h-4 w-4 text-danger me-2") %>
+                        <span>Rating could not be added</span>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            <% else %>
+              <div class="d-flex gap-3 mb-4 stella justify-content-start  align-items-center">
+                <% Note::MAX_RATING.times do |n| %>
+                  <%= inline_svg_tag("star.svg",
+              class: "w-8 h-8 #{star_rating_class(visualizzazione.note, n)}") %>
+                <% end %>
               </div>
             <% end %>
           </div>
-          <% else %>
-            <div class="d-flex gap-3 mb-4 stella justify-content-start">
-          <% Note::MAX_RATING.times do |n| %>
-            <%= inline_svg_tag("star.svg",
-              class: "w-8 h-8 #{star_rating_class(visualizzazione.note, n)}") %>
-          <% end %>
-          </div>
-          <% end %>
-          </div>
-
           <p class="card-text"><%= visualizzazione.note.description %></p>
           <p class="card-text"> Autore: <%= link_to visualizzazione.note.user.username, user_path(visualizzazione.note.user), class: 'link' %></p>
           <% if current_user != visualizzazione.note.user %>

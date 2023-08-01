@@ -1,23 +1,20 @@
 <%= stylesheet_link_tag 'ricerca', media: 'all', 'data-turbolinks-track': 'reload' %>
 <div class="container">
-
-<h1 class="mt-5">I miei appunti</h1>
-
-<% current_user.notes.each do |note| %>
-  <div class="card my-4">
-    <div class="card-body">
-          <div class="d-flex align-items-center gap-2 mb-2 BottoniStella ">
-            <h4 class="card-title"><a href="<%= personal_note_path(note.id) %>"><%= note.name %></a></h4>
-            <% Note::MAX_RATING.times do |n| %>
-              <%= inline_svg_tag("star.svg", class: "w-8 h-8 #{star_rating_class(note, n)}") %>
-            <% end %>
-          </div>
-
-          <p class="card-text"><%= note.description %></p>
-          <p class="card-text"> Autore: <%= note.user.username %></p>
-          <%= link_to "Elimina Nota", remove_note_path(note), method: :delete, class: "btn btn-danger" %>
-          <a href="<%= note.google_drive_link %>" class="btn btn-primary">Link Google Drive</a>
+  <h1 class="mt-5">I miei appunti</h1>
+  <% current_user.notes.each do |note| %>
+    <div class="card my-4">
+      <div class="card-body">
+        <div class="d-flex align-items-center gap-2 mb-2 BottoniStella ">
+          <h4 class="card-title"><a href="<%= personal_note_path(note.id) %>"><%= note.name %></a></h4>
+          <% Note::MAX_RATING.times do |n| %>
+            <%= inline_svg_tag("star.svg", class: "w-8 h-8 #{star_rating_class(note, n)}") %>
+          <% end %>
+        </div>
+        <p class="card-text"><%= note.description %></p>
+        <p class="card-text"> Autore: <%= note.user.username %></p>
+        <%= link_to "Elimina Nota", remove_note_path(note), method: :delete, class: "btn btn-danger" %>
+        <a href="<%= note.google_drive_link %>" class="btn btn-primary">Link Google Drive</a>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
 </div>
