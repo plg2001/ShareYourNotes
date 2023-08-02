@@ -62,7 +62,9 @@
               <% end %>
             <% end %>
           <% end %>
-          <a href="<%= note.google_drive_link %>" class="btn btn-primary">Link Google Drive</a>
+          <%= link_to  note.google_drive_link do%>
+            <%= image_tag("Google_Drive_logo.png",style: "width: 16px; height: 16px;") %>
+          <% end %>
         </div>
       </div>
     <% end %>
