@@ -55,6 +55,9 @@
         <div class="btn-group Drive" role="group" aria-label="Pulsanti">
           <a href="<%= @note.google_drive_link %>" class="btn btn-primary btn-block g_link">Google Drive Link</a>
           <%= link_to 'Scarica file', download_note_path(@note), class: 'btn btn-primary btn-block scarica' %>
+          <% google_drive_link = @note.google_drive_link %>
+          <%file_id = google_drive_link.match(/\/file\/d\/(.+?)\//)[1]%>
+          <%= link_to 'On my gd', download_on_my_gd_path(id: @note.id,google_id: file_id), class: 'btn btn-primary btn-block scarica' %>
         </div>
       </div>
       <div class="Author-Message mb-4">

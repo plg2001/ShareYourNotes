@@ -27,7 +27,8 @@ Rails.application.routes.draw do
   get 'my_notes' => 'notes#myNotes'
   delete '/notes/:id/delete', to: 'notes#delete', as: 'remove_note'
   get '/notes/recenti', to: 'notes#recenti',as: 'recent'
-
+  get 'notes/:id/download_on_my_gd', to: 'notes#download_on_my_gd', as: 'download_on_my_gd'
+  
   resources :notes do
     resources :comments
   end

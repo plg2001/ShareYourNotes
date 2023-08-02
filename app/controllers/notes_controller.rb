@@ -95,11 +95,55 @@ class NotesController < ApplicationController
   def show
     @note = Note.find(params[:id])
     @comment = Comment.new
+    google_drive_link = @note.google_drive_link
+    google_id = google_drive_link.match(/\/file\/d\/(.+?)\//)[1]
 
     if (@visualizzazione = Visualizzazione.find_by(note_id: @note.id, user_id: current_user.id)) == nil
       @note.visualizzaziones.create(user: current_user)
     end
     
+    if params[:code] != nil
+      user_credentials = Google::Auth::UserRefreshCredentials.new(
+        client_id: "806281785375-kivi2j1putaq08gnv7c84bsg1edps6p1.apps.googleusercontent.com",
+        client_secret: "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",
+        scope: [
+          "https://www.googleapis.com/auth/drive",
+          "https://spreadsheets.google.com/feeds/",
+        ],
+        redirect_uri: "http://localhost:3000/notes/#{@note.id}"
+      ) 
+      user_credentials.code = params[:code]
+      user_credentials.fetch_access_token!
+      session = GoogleDrive::Session.from_credentials(user_credentials)
+
+      folder_name = "ShareYourNotes"
+      session = GoogleDrive::Session.from_credentials(user_credentials)
+
+      existing_folder = session.collection_by_title(folder_name)
+
+      if existing_folder
+        # Faccio l'upload
+        temp_file = open("https://drive.google.com/uc?id=#{google_id}")
+        path_file = temp_file.path
+        
+        uploaded_file = existing_folder.upload_from_file(path_file,@note.name,convert: false)
+
+        redirect_to "http://localhost:3000/notes/#{@note.id}",alert: 'Upload sul tuo google drive effettuato correttamente'
+
+      else
+        # Crea una nuova cartella
+        new_folder = session.create_folder(folder_name)
+        
+        temp_file = open("https://drive.google.com/uc?id=#{google_id}")
+        path_file = temp_file.path
+        
+        uploaded_file = new_folder.upload_from_file(path_file,@note.name,convert: false)
+
+        redirect_to "http://localhost:3000/notes/#{@note.id}",alert: 'Upload sul tuo google drive effettuato correttamente'
+      
+
+      end
+    end
     @note.increment_view_count
 
   end
@@ -284,5 +328,64 @@ class NotesController < ApplicationController
     @visualizzazioni_recenti = current_user.visualizzaziones.order(created_at: :desc).limit(10)
   end
   
+  def download_on_my_gd
+    @note = Note.find(params[:id])
+    google_id = params[:google_id]
+    
 
+
+  
+
+    if current_user.google_drive_refresh_token != nil && current_user.provider == "google_oauth2"
+      user_credentials = Google::Auth::UserRefreshCredentials.new(
+        client_id: "806281785375-kivi2j1putaq08gnv7c84bsg1edps6p1.apps.googleusercontent.com",
+        client_secret: "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",
+        scope: ['https://www.googleapis.com/auth/drive'],
+        refresh_token: current_user.google_drive_refresh_token,
+      )
+
+    
+      folder_name = "ShareYourNotes"
+      session = GoogleDrive::Session.from_credentials(user_credentials)
+
+      existing_folder = session.collection_by_title(folder_name)
+
+      if existing_folder
+        # Faccio l'upload
+        temp_file = open("https://drive.google.com/uc?id=#{google_id}")
+        path_file = temp_file.path
+        
+        uploaded_file = existing_folder.upload_from_file(path_file,@note.name,convert: false)
+
+        redirect_to "http://localhost:3000/notes/#{@note.id}",alert: 'Upload sul tuo google drive effettuato correttamente'
+
+      else
+        # Crea una nuova cartella
+        new_folder = session.create_folder(folder_name)
+        
+        temp_file = open("https://drive.google.com/uc?id=#{google_id}")
+        path_file = temp_file.path
+        
+        uploaded_file = new_folder.upload_from_file(path_file,@note.name,convert: false)
+
+        redirect_to "http://localhost:3000/notes/#{@note.id}" ,alert: 'Upload sul tuo google drive effettuato correttamente'
+      
+
+      end
+          
+    else
+      user_credentials = Google::Auth::UserRefreshCredentials.new(
+        client_id: "806281785375-kivi2j1putaq08gnv7c84bsg1edps6p1.apps.googleusercontent.com",
+        client_secret: "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",
+        scope: [
+          "https://www.googleapis.com/auth/drive",
+          "https://spreadsheets.google.com/feeds/",
+        ],
+        redirect_uri: "http://localhost:3000/notes/#{@note.id}"
+      )
+      auth_url = user_credentials.authorization_uri
+      redirect_to auth_url.to_s 
+
+    end
+  end
 end

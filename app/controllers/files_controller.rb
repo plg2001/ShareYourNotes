@@ -34,11 +34,10 @@ class FilesController < ApplicationController
       )
 
       # Crea il client per l'API Google Drive
-      drive_service = Google::Apis::DriveV3::DriveService.new
-      drive_service.authorization = user_credentials
-
+      
       # Esegui la query per ottenere la lista dei file
-      @files = drive_service.list_files(fields: 'files(name, id, webViewLink)').files
+      session  = GoogleDrive::Session.from_credentials(user_credentials)
+      @files = session.files
       
     elsif @files == nil
       user_credentials = Google::Auth::UserRefreshCredentials.new(
