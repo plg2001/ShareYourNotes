@@ -109,44 +109,63 @@
             <% valueTopic = params[:topic] || nil %>
             <div class="input-group">
               <%= text_field_tag :search, params[:search], placeholder: "Cerca...", class: "form-control side" %>
+              <%= button_tag type: "button", class: "btn btn-primary", id: "mostraSelect" do %>
+                <%= image_tag("filter.svg") %>
+              <% end %>
               <%= select_tag :Filtro, options_for_select([
-                  ["Filtra", ""],
-                  ["Username", "user"],
-                  ["Facoltà", "faculty"],
-                  ["Topic", "topic"],
-                  ["Tag", "tag"],
-                  ["Valutazione minima", "rating"],
-                  ["Caricato dopo il", "after"],
-                  ["Caricato prima del", "before"],
-                  ["Ordine alfabetico", "order"]
-                ], params[:Filtro]), { class: "form-control", id: "Filtro" } %>
-              <div id="dropdown" class="form-group">
-                <div id="user-choice" style="display: none;">
-                  <%= text_field_tag :user_search, params[:user_search], placeholder: "Cerca per username", class: "form-control" %>
-                </div>
-                <div id="faculty-choice" style="display: none;">
-                  <%= select_tag :faculty, options_from_collection_for_select(Faculty.all, :id, :name, params[:faculty]), prompt: "Scegli una facoltà", class: "form-control", id: "faculty" %>
-                </div>
-                <div id="topic-choice" style="display: none;">
-                  <%= select_tag :topic, options_for_select(Topic.distinct.pluck(:name), params[:topic]), prompt: "Scegli uno o più topic", class: "form-control", id: "topic", value: params[:topic] || (params[:Filtro].try(:include?, 'topic') ? nil : valueTopic), multiple: true, size:2 %>
-                </div>
-                <div id="tag-choice" style="display: none;">
-                  <%= select_tag :tag, options_for_select(Tag.distinct.pluck(:name), params[:tag]), prompt: "Scegli uno o più tag", class: "form-control", id: "tag", value: params[:tag] || (params[:Filtro].try(:include?, 'tag') ? nil : valueTag), multiple: true, size:2 %>
-                </div>
-                <div id="rating-choice" style="display: none;">
-                  <%= select_tag :rating, options_for_select([[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]], params[:rating]), prompt: "Scegli una valutazione", class: "form-control", id: "rating" %>
-                </div>
-                <div id="after-choice" style="display: none;">
-                  <%= text_field_tag :after, params[:after], placeholder: "GG-MM-AAAA", class: "form-control", id: "after" %>
-                </div>
-                <div id="before-choice" style="display: none;">
-                  <%= text_field_tag :before, params[:before], placeholder: "GG-MM-AAAA", class: "form-control", id: "before" %>
-                </div>
-                <div id="order-choice" style="display: none;">
-                  <%= select_tag :order, options_for_select([["Ordine alfabetico", nil], ["A-Z", "asc"], ["Z-A", "desc"]], params[:order]), class: "form-control" %>
+                ["Username", "user"],
+                ["Facoltà", "faculty"],
+                ["Topic", "topic"],
+                ["Tag", "tag"],
+                ["Valutazione minima", "rating"],
+                ["Caricato dopo il", "after"],
+                ["Caricato prima del", "before"],
+                ["Ordine alfabetico", "order"]
+              ], params[:Filtro]), { class: "form-control", id: "Filtro", style: "display: none;" } %>
+              <div id="filtroHide" style="display: none;">
+                <div id="dropdown" class="form-group">
+                  <div id="user-choice" style="display: none;">
+                      <%= text_field_tag :user_search, params[:user_search], placeholder: "Cerca per username", class: "form-control" %>
+                  </div>
+                  <div id="faculty-choice" style="display: none;">
+                    <%= select_tag :faculty, options_from_collection_for_select(Faculty.all, :id, :name, params[:faculty]), prompt: "Scegli una facoltà", class: "form-control", id: "faculty" %>
+                  </div>
+                  <div id="topic-choice" style="display: none;">
+                    <%= select_tag :topic, options_for_select(Topic.distinct.pluck(:name), params[:topic]), prompt: "Scegli uno o più topic", class: "form-control", id: "topic", value: params[:topic] || (params[:Filtro].try(:include?, 'topic') ? nil : valueTopic), multiple: true, size:2 %>
+                  </div>
+                  <div id="tag-choice" style="display: none;">
+                    <%= select_tag :tag, options_for_select(Tag.distinct.pluck(:name), params[:tag]), prompt: "Scegli uno o più tag", class: "form-control", id: "tag", value: params[:tag] || (params[:Filtro].try(:include?, 'tag') ? nil : valueTag), multiple: true, size:2 %>
+                  </div>
+                  <div id="rating-choice" style="display: none;">
+                    <%= select_tag :rating, options_for_select([[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]], params[:rating]), prompt: "Scegli una valutazione", class: "form-control", id: "rating" %>
+                  </div>
+                  <div id="after-choice" style="display: none;">
+                    <%= text_field_tag :after, params[:after], placeholder: "GG-MM-AAAA", class: "form-control", id: "after" %>
+                  </div>
+                  <div id="before-choice" style="display: none;">
+                    <%= text_field_tag :before, params[:before], placeholder: "GG-MM-AAAA", class: "form-control", id: "before" %>
+                  </div>
+                  <div id="order-choice" style="display: none;">
+                    <%= select_tag :order, options_for_select([["Ordine alfabetico", nil], ["A-Z", "asc"], ["Z-A", "desc"]], params[:order]), class: "form-control" %>
+                  </div>
                 </div>
               </div>
               <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                const mostraSelect = document.getElementById("mostraSelect");
+                const filtroSelect = document.getElementById("Filtro");
+                const filtroHide = document.getElementById("filtroHide");
+
+                mostraSelect.addEventListener("click", function() {
+                  if (filtroHide.style.display === "none") {
+                    filtroHide.style.display = "block";
+                    filtroSelect.style.display = "block";
+                  } else {
+                    filtroHide.style.display = "none";
+                    filtroSelect.style.display = "none";
+                  }
+                });
+                });
                 document.getElementById("Filtro").addEventListener("change", function() {
                   var valueSelected = this.value;
                   var dropdownChoice = document.getElementById("dropdown");
@@ -233,7 +252,7 @@
           <% if user_signed_in? %>
           <%= link_to '#' do %>
             <li class="nav-item me-3 downn">
-              <%= image_tag("person_fill.svg", id: "personal-button", type: "button",class: " btn btn-primary", style: "width: 120%; height: 120%;")%>
+              <%= image_tag("person_fill.svg", id: "personal-button", class: "btn btn-primary", style: "width: 3.2em; height: 100%;") %>
             </li>
           <% end %>
             <div id="personal-area" class="personal-area hidden">
