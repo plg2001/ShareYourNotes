@@ -225,11 +225,17 @@
                   return true;
                 }
               </script>
-              <%= submit_tag "Cerca", class: "btn btn-primary", onclick: "return validateDateInput()" %>
+              <%= button_tag type: "submit", class: "btn btn-primary", onclick: "return validateDateInput()" do %>
+                <%= image_tag("search.svg") %>
+              <% end %>
             </div>
           <% end %>
           <% if user_signed_in? %>
-            <%= link_to "Area personale", "#", id: "personal-button", class: "btn btn-primary d-flex justify-content-center align-items-center" %>
+          <%= link_to '#' do %>
+            <li class="nav-item me-3 downn">
+              <%= image_tag("person_fill.svg", id: "personal-button", type: "button",class: " btn btn-primary", style: "width: 120%; height: 120%;")%>
+            </li>
+          <% end %>
             <div id="personal-area" class="personal-area hidden">
               <span class="close-button">&#10006;</span>
               <h1>Informazioni utente</h1>
