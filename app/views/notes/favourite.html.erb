@@ -21,7 +21,13 @@
             <h4 class="card-title">
               <a href="<%= favourite_note_path(note) %>"><%= note.name %></a>
             </h4>
-            <p class="card-text"><%= note.description %></p>
+            <% truncated_description = truncate(note.description, length: 650) %>
+          <p class="card-text">
+            <span class="truncated"><%= truncated_description %></span>
+            <% if note.description.length > 650 %>
+              <a href="#" class="read-more" data-full-content="<%= note.description %>">Mostra altro</a>
+            <% end %>
+          </p>
             <p class="card-text"> Autore: <%= link_to note.user.username, user_path(note.user), class: 'link' %></p>
             <% added_to_favorites_at = current_user.favourites.find_by(note_id: note.id) %>
               <% if added_to_favorites_at && added_to_favorites_at.added_to_favorites_at.present? %>
@@ -36,7 +42,9 @@
               <%= link_to remove_favourite_path(note_id: note.id), method: :delete ,style: "text-decoration: none;" do%>
                 <%= inline_svg_tag("heart-fill.svg") %>
               <% end %>
-            <a href="<%= note.google_drive_link %>" class="btn btn-primary">Link Google Drive</a>
+            <%= link_to  note.google_drive_link do%>
+            <%= image_tag("Google_Drive_logo.png",style: "width: 16px; height: 16px;") %>
+          <% end %>
       </div>
     </div>
   <% end %>
@@ -58,6 +66,13 @@
                 <a href="<%= favourite_note_path(note) %>"><%= note.name %></a>
               </h4>
               <p class="card-text"><%= note_topic.note.description %></p>
+              <% truncated_description = truncate(note_topic.note.description, length: 650) %>
+          <p class="card-text">
+            <span class="truncated"><%= truncated_description %></span>
+            <% if note_topic.note.description.length > 650 %>
+              <a href="#" class="read-more" data-full-content="<%= note_topic.note.description %>">Mostra altro</a>
+            <% end %>
+          </p>
               <p class="card-text"> Autore: <%= link_to note_topic.note.user.username, user_path(note.user), class: 'link' %></p>
               <% added_to_favorites_at = current_user.favourites.find_by(note_id: note.id) %>
               <% if added_to_favorites_at && added_to_favorites_at.added_to_favorites_at.present? %>
@@ -71,7 +86,9 @@
               <%= link_to remove_favourite_path(note_id: note.id), method: :delete ,style: "text-decoration: none;" do%>
                 <%= inline_svg_tag("heart-fill.svg") %>
               <% end %>
-              <a href="<%= note_topic.note.google_drive_link %>" class="btn btn-primary">Link Google Drive</a>
+              <%= link_to  note_topic.note.google_drive_link do%>
+            <%= image_tag("Google_Drive_logo.png",style: "width: 16px; height: 16px;") %>
+          <% end %>
             </div>
           </div>
         <% end %>
@@ -88,7 +105,13 @@
               <h4 class="card-title">
                 <a href="<%= favourite_note_path(note) %>"><%= note.name %></a>
               </h4>
-              <p class="card-text"><%= note_tag.note.description %></p>
+              <% truncated_description = truncate(note_tag.note.description, length: 650) %>
+          <p class="card-text">
+            <span class="truncated"><%= truncated_description %></span>
+            <% if note_tag.note.description.length > 650 %>
+              <a href="#" class="read-more" data-full-content="<%= note_tag.note.description %>">Mostra altro</a>
+            <% end %>
+          </p>
               <p class="card-text"> Autore: <%= link_to note_tag.note.user.username, user_path(note.user), class: 'link' %></p>
               <% added_to_favorites_at = current_user.favourites.find_by(note_id: note.id) %>
               <% if added_to_favorites_at && added_to_favorites_at.added_to_favorites_at.present? %>
@@ -102,7 +125,9 @@
               <%= link_to remove_favourite_path(note_id: note.id), method: :delete ,style: "text-decoration: none;" do%>
                 <%= inline_svg_tag("heart-fill.svg") %>
               <% end %>
-              <a href="<%= note_tag.note.google_drive_link %>" class="btn btn-primary">Link Google Drive</a>
+              <%= link_to  note_tag.note.google_drive_link do%>
+            <%= image_tag("Google_Drive_logo.png",style: "width: 16px; height: 16px;") %>
+          <% end %>
             </div>
           </div>
         <% end %>
@@ -155,3 +180,18 @@
     display: none;
   }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      var readMoreLinks = document.getElementsByClassName("read-more");
+
+      Array.from(readMoreLinks).forEach(function(link) {
+        link.addEventListener("click", function(event) {
+          event.preventDefault();
+          var contentElement = this.parentNode.querySelector(".truncated");
+          contentElement.textContent = this.getAttribute("data-full-content");
+          this.parentNode.removeChild(this);
+        });
+      });
+    });
+</script>
