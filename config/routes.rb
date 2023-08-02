@@ -43,6 +43,7 @@ Rails.application.routes.draw do
   delete '/remove_favourite', to: 'notes#remove_favourite', as: 'remove_favourite'
  
 
+  get '/users/search', to: 'users#search', as: 'user_search'
   get '/users/:id', to: 'users#show', as: 'user'
   
   resources :users

@@ -15,7 +15,17 @@ class UsersController < ApplicationController
   end
 
   
+  def search
+    @users = User.all
   
+    if params[:search].present?
+      @search_results = @users.where("name LIKE ?", "%#{params[:search]}%")
+    else
+      @search_results = nil
+    end
+
+    redirect_to root_path
+  end
 
   def update
     if user_params[:password].present?

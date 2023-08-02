@@ -43,10 +43,18 @@
                 <h1>Chat</h1>
                 <%= image_tag("chat1.svg",style: "margin-left: 20px;width: 20px; height: 20px;margin-top:12px;") %>
                 <%= image_tag("close.svg",style: "margin-left: 130px;cursor:pointer;",class: "close-button-chat") %>
-                </header>
+              </header>
               <main>
                 <section class="contact-list">
                   <h2>Invia un messaggio a:</h2>
+                  <%= form_tag(user_search_path, method: "get", class: "search-form") do %>
+                    <div class="input-group">
+                      <%= text_field_tag :search, params[:search], placeholder: "Cerca utente...", class: "form-control side" %>
+                      <%= button_tag type: "submit", class: "btn btn-primary" do %>
+                        <%= image_tag("search.svg") %>
+                      <% end %>
+                    </div>
+                  <% end %>
                   <% users = User.all %>
                   <h6>Amministratori</h6>
                   <% users.each do |user| %>
@@ -61,13 +69,11 @@
                               </div>
                               <%= user_online_status(user) %>
                             </li>
-                            
                           <% end %>
                         </div>
                       </ul>
                     <% end %>
                   <% end %>
-
                   <% users = User.all %>
                   <h6>Utenti</h6>
                   <% users.each do |user| %>
@@ -125,7 +131,7 @@
               <div id="filtroHide" style="display: none;">
                 <div id="dropdown" class="form-group">
                   <div id="user-choice" style="display: none;">
-                      <%= text_field_tag :user_search, params[:user_search], placeholder: "Cerca per username", class: "form-control" %>
+                    <%= text_field_tag :user_search, params[:user_search], placeholder: "Cerca per username", class: "form-control" %>
                   </div>
                   <div id="faculty-choice" style="display: none;">
                     <%= select_tag :faculty, options_from_collection_for_select(Faculty.all, :id, :name, params[:faculty]), prompt: "Scegli una facoltà", class: "form-control", id: "faculty" %>
@@ -250,11 +256,11 @@
             </div>
           <% end %>
           <% if user_signed_in? %>
-          <%= link_to '#' do %>
-            <li class="nav-item me-3 downn">
-              <%= image_tag("person_fill.svg", id: "personal-button", class: "btn btn-primary", style: "width: 3.2em; height: 100%;") %>
-            </li>
-          <% end %>
+            <%= link_to '#' do %>
+              <li class="nav-item me-3 downn">
+                <%= image_tag("person_fill.svg", id: "personal-button", class: "btn btn-primary", style: "width: 3.2em; height: 100%;") %>
+              </li>
+            <% end %>
             <div id="personal-area" class="personal-area hidden">
               <span class="close-button">&#10006;</span>
               <h1>Informazioni utente</h1>
