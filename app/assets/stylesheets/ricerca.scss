@@ -10,7 +10,7 @@ h4.card-title {
     margin-left: 890px;
   }
 
- .star-hover:hover{
+ .star:hover{
   transform: scale(1.5);
   transition: 0.2s ease-in;
   cursor: pointer;
@@ -21,3 +21,17 @@ h4.card-title {
   max-width: 30px; /* Imposta la larghezza massima desiderata, ad esempio 300px */
   overflow-wrap: break-word;
  }
+
+
+ .heart:hover{
+  transform: scale(1.5);
+  transition: 0.2s ease-in;
+  cursor: pointer;
+  fill: red;
+}
+ .heart-off:hover{
+  transform: scale(1.5);
+  transition: 0.2s ease-in;
+  cursor: pointer;
+  fill:grey;
+}

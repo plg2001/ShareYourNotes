@@ -1,5 +1,4 @@
 <%= stylesheet_link_tag 'ricerca', media: 'all', 'data-turbolinks-track': 'reload' %>
-
 <% if @notes.present? %>
   <div class="container">
     <h1 class="mt-5">Risultati trovati</h1>
@@ -10,7 +9,6 @@
             <h4 class="card-title mb-0">
               <a href="<%= note.id %>"><%= note.name %></a>
             </h4>
-
             <% if current_user && current_user != note.user %>
               <div class="d-flex gap-1 mb-1 BottoniStella justify-content-start align-items-center">
                 <% Note::MAX_RATING.times do |n| %>
@@ -45,21 +43,23 @@
               </div>
             <% end %>
           </div>
-
-          
-        <% truncated_description = truncate(note.description, length: 650) %>
-        <p class="card-text">
-          <span class="truncated"><%= truncated_description %></span>
-          <% if note.description.length > 650 %>
-            <a href="#" class="read-more" data-full-content="<%= note.description %>">Mostra altro</a>
-          <% end %>
-        </p> 
+          <% truncated_description = truncate(note.description, length: 650) %>
+          <p class="card-text">
+            <span class="truncated"><%= truncated_description %></span>
+            <% if note.description.length > 650 %>
+              <a href="#" class="read-more" data-full-content="<%= note.description %>">Mostra altro</a>
+            <% end %>
+          </p>
           <p class="card-text"> Autore: <%= link_to note.user.username, user_path(note.user), class: 'link' %></p>
           <% if current_user != note.user %>
             <% if current_user && current_user.favourite_notes.include?(note) %>
-              <%= link_to "Rimuovi dai preferiti", remove_favourite_path(note_id: note.id), method: :delete, class: "btn btn-danger" %>
+              <%= link_to remove_favourite_path(note_id: note.id), method: :delete ,style: "text-decoration: none;" do%>
+                <%= inline_svg_tag("heart-fill.svg") %>
+              <% end %>
             <% elsif current_user%>
-              <%= link_to "Aggiungi ai preferiti", add_favourite_path(note_id: note.id), method: :post, class: "btn btn-primary" %>
+              <%= link_to  add_favourite_path(note_id: note.id), method: :post ,style: "text-decoration: none;" do%>
+                <%= inline_svg_tag("heart.svg") %>
+              <% end %>
             <% end %>
           <% end %>
           <a href="<%= note.google_drive_link %>" class="btn btn-primary">Link Google Drive</a>
@@ -72,9 +72,7 @@
     <h1 class="mt-5">Nessun risultato</h1>
   </div>
 <% end %>
-
 <script>
-
   document.addEventListener("DOMContentLoaded", function() {
       var readMoreLinks = document.getElementsByClassName("read-more");
 
