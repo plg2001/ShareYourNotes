@@ -33,7 +33,7 @@
               <% else %>
                 <p class="card-text">Aggiunto ai preferiti in data: Non disponibile</p>
               <% end %>
-            <%= link_to remove_favourite_path(note_id: note.id), method: :delete ,style: "text-decoration: none;" do%>
+              <%= link_to remove_favourite_path(note_id: note.id), method: :delete ,style: "text-decoration: none;" do%>
                 <%= inline_svg_tag("heart-fill.svg") %>
               <% end %>
             <a href="<%= note.google_drive_link %>" class="btn btn-primary">Link Google Drive</a>

@@ -388,4 +388,16 @@ class NotesController < ApplicationController
 
     end
   end
+
+  def suggested
+    favourite = current_user.favourite_notes.includes(:note_topics, :note_tags)
+    favourite_topics = favourite.flat_map(&:note_topics).map(&:topic_id)
+    favourite_tags = favourite.flat_map(&:note_tags).map(&:tag_id)
+
+    @suggested_notes = Note.joins(:note_topics, :note_tags)
+                           .where('note_topics.topic_id IN (?) OR note_tags.tag_id IN (?)', favourite_topics, favourite_tags)
+                           .where.not(id: favourite.pluck(:id))
+                           .distinct
+  end
+
 end

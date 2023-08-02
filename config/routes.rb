@@ -58,6 +58,8 @@ Rails.application.routes.draw do
 
    get 'favourite', to: 'notes#favourite'
    resources :notes
+
+   get 'suggested', to: 'notes#suggested', as: :suggested
    
 end
 

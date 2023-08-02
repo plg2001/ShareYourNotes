@@ -48,9 +48,13 @@
           <p class="card-text"> Autore: <%= link_to visualizzazione.note.user.username, user_path(visualizzazione.note.user), class: 'link' %></p>
           <% if current_user != visualizzazione.note.user %>
             <% if current_user && current_user.favourite_notes.include?(visualizzazione.note) %>
-              <%= link_to "Rimuovi dai preferiti", remove_favourite_path(note_id: visualizzazione.note.id), method: :delete, class: "btn btn-danger" %>
+            <%= link_to remove_favourite_path(note_id: visualizzazione.note.id), method: :delete, style: "text-decoration: none;" do%>
+                <%= inline_svg_tag("heart-fill.svg") %>
+              <% end %>
             <% elsif current_user%>
-              <%= link_to "Aggiungi ai preferiti", add_favourite_path(note_id: visualizzazione.note.id), method: :post, class: "btn btn-primary" %>
+              <%= link_to  add_favourite_path(note_id: visualizzazione.note.id), method: :post ,style: "text-decoration: none;" do%>
+                <%= inline_svg_tag("heart.svg") %>
+              <% end %>
             <% end %>
           <% end %>
           <a href="<%= visualizzazione.note.google_drive_link %>" class="btn btn-primary">Link Google Drive</a>
