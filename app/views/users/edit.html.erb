@@ -4,7 +4,7 @@
   <%= form_for @user, html: { class: "needs-validation", novalidate: true } do |form| %>
     <div class="mb-3">
       <%= form.label :username, class: "form-label" %>
-      <%= form.text_field :username, class: "form-control", id: "username", style: "max-width: 300px;", required: true %>
+      <%= form.text_field :username, class: "form-control", id: "username", style: "margin-left: 0px;max-width: 300px;", required: true %>
       <div class="invalid-feedback">
         Inserisci un username valido.
       </div>
