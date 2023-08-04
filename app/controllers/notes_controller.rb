@@ -97,9 +97,11 @@ class NotesController < ApplicationController
     @comment = Comment.new
     google_drive_link = @note.google_drive_link
     google_id = google_drive_link.match(/\/file\/d\/(.+?)\//)[1]
-
-    if (@visualizzazione = Visualizzazione.find_by(note_id: @note.id, user_id: current_user.id)) == nil
-      @note.visualizzaziones.create(user: current_user)
+    
+    if user_signed_in? 
+      if (@visualizzazione = Visualizzazione.find_by(note_id: @note.id, user_id: current_user.id)) == nil
+        @note.visualizzaziones.create(user: current_user)
+      end
     end
     
     if params[:code] != nil

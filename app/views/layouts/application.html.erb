@@ -185,24 +185,7 @@
                     <% end %>
                   <% end %>
                   <% users = User.all %>
-                  <h6>Utenti</h6>
-                  <% users.each do |user| %>
-                    <% if user.admin == false && user != current_user %>
-                      <ul class="ul-contact">
-                        <%= link_to conversations_path(sender_id: current_user.id, recipient_id: user.id),style: "text-decoration:none;",method: 'post' do %>
-                          <div class="contact-box">
-                            <li class="contact">
-                              <%= image_tag("avatar.svg",style: "margin-left: 20px; margin-right:40px; width: 2em; height: 2em;") %>
-                              <div class="contact-info">
-                                <h3 id="username" style="text-decoration:none;"><%= user.username %></h3>
-                              </div>
-                              <%= user_online_status(user) %>
-                            </li>
-                          <% end %>
-                        </div>
-                      </ul>
-                    <% end %>
-                  <% end %>
+                  
                 </section>
               </main>
             </div>
