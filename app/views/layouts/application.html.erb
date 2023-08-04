@@ -48,10 +48,10 @@
                 <section class="contact-list">
                  
                   <%= form_tag(user_search_path, method: "get", class: "search-form", id: "search-form") do %>
-                    <div class="input-group" style="margin-bottom: 30px;">
+                    <div class="input-group" style="margin-bottom: 30px; border: 3px solid rgb(34,40,49); border-radius:10px;">
                       <%= text_field_tag :search, params[:search], placeholder: "Cerca utente...", class: "form-control side" %>
-                      <%= button_tag type: "submit", class: "btn btn-primary" do %>
-                        <%= image_tag("search.svg") %>
+                      <%= button_tag type: "submit", class: "btn",style: "background-color: rgb(34,40,49);" do %>
+                        <%= image_tag("search2.svg",style: "color: white;") %>
                       <% end %>
                     </div>
                   <% end %>
