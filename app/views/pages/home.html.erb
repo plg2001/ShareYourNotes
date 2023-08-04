@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+
+
+ <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,7 +15,6 @@
       <div class="container">
         <h1 class="display-4">Benvenuto su ShareYourNotes</h1>
         <p class="lead">Il posto perfetto per trovare e condividere appunti</p>
-        <a href="#" class="btn btn-primary btn-lg">Inizia Ora</a>
       </div>
     </section>
 
@@ -22,9 +23,38 @@
         <div class="row">
           <div class="col-md-4">
             <div class="card mb-4">
+
               <div class="card-body">
-                <h5 class="card-title">Cerca Appunti</h5>
-                <p class="card-text">Trova gli appunti che ti servono con facilità e rapidità.</p>
+                <h5 class="card-title"><%= link_to "Appunti Suggeriti", suggested_path, style: "text-decoration: none;"%></h5>
+                  <script>
+                      <%=  favourite = current_user.favourite_notes.includes(:note_topics, :note_tags)
+                            favourite_topics = favourite.flat_map(&:note_topics).map(&:topic_id)
+                            favourite_tags = favourite.flat_map(&:note_tags).map(&:tag_id)
+
+                            @suggested_notes = Note.joins(:note_topics, :note_tags)
+                           .where('note_topics.topic_id IN (?) OR note_tags.tag_id IN (?)', favourite_topics, favourite_tags)
+                           .where.not(id: favourite.pluck(:id))
+                           .distinct %>
+                  </script>
+                          
+                          
+                           <%@suggested_notes.each.with_index do |note, index|%>
+                           
+                            <% break if index == 3 %>
+                           <%= link_to suggested_note_path(note), style: "text-decoration: none;" do%>
+                           <div class="card mb-4 suggested-item">
+                            <div class="card-body "> 
+                              <p class="card-title fw-bold"style="font-size:18px;"><%= note.name %></p>
+                              <p class="card-text" style="font-size:13px;">Autore: <%= note.user.username %></p>
+                            </div>
+                           </div>
+
+                            <% end %>
+                           <% end %>
+                          
+
+
+              
               </div>
             </div>
           </div>

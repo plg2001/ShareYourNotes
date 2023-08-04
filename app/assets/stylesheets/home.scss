@@ -1,0 +1,11 @@
+.suggested-item{
+    border-radius: 10px;
+
+}
+
+.suggested-item:hover{
+    transform: scale(1.05);
+    transition: 0.2s ease-in;
+    cursor: pointer;
+    box-shadow: 5px 6px 6px 2px #e9ecef;
+}

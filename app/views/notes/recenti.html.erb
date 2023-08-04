@@ -62,9 +62,13 @@
                 <%= inline_svg_tag("heart.svg") %>
               <% end %>
             <% end %>
+          <% else %>
+            <%= link_to  remove_note_path(visualizzazione.note), method: :delete, style: "text-decoration: none;" do%>
+              <%= image_tag("delete.svg",style: "width: 20px; height: 20px; ") %>
+            <% end %>
           <% end %>
           <%= link_to  visualizzazione.note.google_drive_link do%>
-            <%= image_tag("Google_Drive_logo.png",style: "width: 16px; height: 16px;") %>
+            <%= image_tag("Google_Drive_logo.png",style: "width: 20px; height: 20px;") %>
           <% end %>
         </div>
       </div>

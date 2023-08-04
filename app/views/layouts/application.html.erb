@@ -72,7 +72,6 @@
                           dataType: 'json', // Imposta il tipo di dati atteso come JSON
                           success: function(data) {
                             // Aggiorna il contenuto della pagina con i dati ricevuti dal server
-                            // Ad esempio, potresti usare una funzione per manipolare i dati e mostrarli a tuo piacimento.
                             updateSearchResults(data);
                           },
                           error: function() {
@@ -364,10 +363,13 @@
                 <%= link_to "Preferiti", favourite_path, class: "mybtn mybtn-primary btn-block button-block" %>
                 <%= link_to "Miei Appunti", my_notes_path, class: "mybtn mybtn-primary btn-block button-block" %>
                 <%= link_to "Recenti", recent_path, class: "mybtn mybtn-primary btn-block button-block" %>
-                <%= link_to "Suggeriti", suggested_path, class: "mybtn mybtn-primary btn-block button-block" %>
                 <div class="button-container">
-                  <%= link_to 'Modifica Profilo', edit_user_path(current_user), class: "mybtn mybtn-warning pr-3" %>
-                  <%= link_to 'Elimina Account', user_path(current_user), method: :delete, data: { confirm: 'Sei sicuro di voler eliminare il tuo account?' }, class: "mybtn mybtn-danger" %>
+                   <%= link_to edit_user_path(current_user), style: "text-decoration: none;" do%>
+              <%= image_tag("edit.svg",style: "width: 100px; height: 45px; ") %>
+            <% end %>
+                 <%= link_to user_path(current_user), method: :delete, style: "text-decoration: none;", data: { confirm: 'Sei sicuro di voler eliminare il tuo account?' } do%>
+              <%= image_tag("delete.svg",style: "width: 100px; height: 45px; ") %>
+            <% end %>
                 </div>
               </div>
             </div>

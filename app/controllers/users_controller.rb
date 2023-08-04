@@ -15,7 +15,6 @@ class UsersController < ApplicationController
   end
 
   
-  def search
     def search
       @search_query = params[:search]
       @search_result = User.where('username LIKE ?', "%#{@search_query}%")
@@ -25,7 +24,6 @@ class UsersController < ApplicationController
         format.json { render json: @search_result }
       end
     end
-  end
 
   def update
     if user_params[:password].present?
