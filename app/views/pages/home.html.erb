@@ -27,17 +27,21 @@
               <div class="card-body">
                 <h5 class="card-title"><%= link_to "Appunti Suggeriti", suggested_path, style: "text-decoration: none;"%></h5>
                   <script>
-                      <%=  favourite = current_user.favourite_notes.includes(:note_topics, :note_tags)
+                      <%=  if user_signed_in?
+                      favourite = current_user.favourite_notes.includes(:note_topics, :note_tags)
                             favourite_topics = favourite.flat_map(&:note_topics).map(&:topic_id)
                             favourite_tags = favourite.flat_map(&:note_tags).map(&:tag_id)
 
                             @suggested_notes = Note.joins(:note_topics, :note_tags)
                            .where('note_topics.topic_id IN (?) OR note_tags.tag_id IN (?)', favourite_topics, favourite_tags)
                            .where.not(id: favourite.pluck(:id))
-                           .distinct %>
+                           .distinct 
+                           end%>
+                           
+                           
                   </script>
                           
-                          
+                          <% if user_signed_in? && @suggested_notes.length>0 %>
                            <%@suggested_notes.each.with_index do |note, index|%>
                            
                             <% break if index == 3 %>
@@ -50,19 +54,52 @@
                            </div>
 
                             <% end %>
-                           <% end %>
-                          
+                           <% end %> 
+                           <% else%>
+                           <%if !user_signed_in? %>
+  <div class="card mb-4 suggested-item">
+    <div class="card-body"> 
+      <p> Effettua l'accesso per visualizzare i recenti </p>
+    </div>
+  </div>
 
-
-              
+<% else %>
+  <div class="card mb-4 suggested-item">
+    <div class="card-body"> 
+      <p> Non hai appunti tra i preferiti </p>
+    </div>
+  </div>
+<% end %>  
+      <% end %>  
               </div>
             </div>
           </div>
           <div class="col-md-4">
             <div class="card mb-4">
-              <div class="card-body">
-                <h5 class="card-title">Carica Appunti</h5>
-                <p class="card-text">Condividi i tuoi appunti con la community e aiuta gli altri studenti.</p>
+              <div class="card-body" style="overflow-y: auto; max-height:500px;">
+                <header class="card-title" style="position: fixed; z-index:10000; background-color:white; width:387px; position:absolute; top:2px;"><%= link_to "I 10 migliori appunti", best_path, style: "text-decoration: none; font-size:20px"%></header> <br/><br/>
+                <script>
+                      <%=  @notes = Note.all
+
+              @best_notes = @notes.where("rating <= 5").order(rating: :desc).limit(10) %>
+                  </script>
+                          
+                          
+                           <%@best_notes.each do |note|%>
+                           
+                            
+                           <%= link_to best_note_path(note), style: "text-decoration: none;" do%>
+                           
+                           <div class="card mb-4 suggested-item;  z-index:1000;">
+                            <div class="card-body "> 
+                              <p class="card-title fw-bold"style="font-size:18px;"><%= note.name %></p>
+                              <p class="card-text" style="font-size:13px;">Autore: <%= note.user.username %></p>
+                            </div>
+                           </div>
+   
+
+                            <% end %>
+                           <% end %>
               </div>
             </div>
           </div>

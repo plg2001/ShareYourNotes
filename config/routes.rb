@@ -53,6 +53,7 @@ Rails.application.routes.draw do
   get '/notes/:id', to: 'notes#show', as: 'favourite_note'
   get '/notes/:id', to: 'notes#show', as: 'personal_note'
   get '/notes/:id', to: 'notes#show', as: 'suggested_note'
+  get '/notes/:id', to: 'notes#show', as: 'best_note'
 
   resources :conversations do
     resources :messages
@@ -62,6 +63,8 @@ Rails.application.routes.draw do
    resources :notes
 
    get 'suggested', to: 'notes#suggested', as: :suggested
+
+   get 'best', to: 'notes#best', as: :best
    
 end
 

@@ -402,4 +402,11 @@ class NotesController < ApplicationController
                            .distinct
   end
 
+  def best
+    @notes = Note.all
+
+    @best_notes = @notes.where("rating <= 5").order(rating: :desc)
+
+  end
+
 end
