@@ -32,3 +32,16 @@ body {
     text-decoration: none;
   }
   
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    
+  }
+  ::-webkit-scrollbar-track {
+    background: #ddd;
+    
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #bdbdbd;
+   
+  }

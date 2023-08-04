@@ -1,130 +1,113 @@
-
-
- <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %><!DOCTYPE html>
+<%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %><!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
-</head>
-<body>
-   <div class="content">
-    <section class="jumbotron text-center">
-      <div class="container">
-        <h1 class="display-4">Benvenuto su ShareYourNotes</h1>
-        <p class="lead">Il posto perfetto per trovare e condividere appunti</p>
-      </div>
-    </section>
-
-    <section class="features bg-light py-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card mb-4">
-
-              <div class="card-body">
-                <h5 class="card-title"><%= link_to "Appunti Suggeriti", suggested_path, style: "text-decoration: none;"%></h5>
+  </head>
+  <body>
+    <div class="content">
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="display-4">Benvenuto su ShareYourNotes</h1>
+          <p class="lead">Il posto perfetto per trovare e condividere appunti</p>
+        </div>
+      </section>
+      <section class="features bg-light py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card mb-4">
+                <div class="card-body">
+                  <h5 class="card-title"><%= link_to "Appunti Suggeriti", suggested_path, style: "text-decoration: none;"%></h5>
+                  <br/>
                   <script>
-                      <%=  if user_signed_in?
-                      favourite = current_user.favourite_notes.includes(:note_topics, :note_tags)
-                            favourite_topics = favourite.flat_map(&:note_topics).map(&:topic_id)
-                            favourite_tags = favourite.flat_map(&:note_tags).map(&:tag_id)
+                    <%=  if user_signed_in?
+                    favourite = current_user.favourite_notes.includes(:note_topics, :note_tags)
+                          favourite_topics = favourite.flat_map(&:note_topics).map(&:topic_id)
+                          favourite_tags = favourite.flat_map(&:note_tags).map(&:tag_id)
 
-                            @suggested_notes = Note.joins(:note_topics, :note_tags)
-                           .where('note_topics.topic_id IN (?) OR note_tags.tag_id IN (?)', favourite_topics, favourite_tags)
-                           .where.not(id: favourite.pluck(:id))
-                           .distinct 
-                           end%>
-                           
-                           
+                          @suggested_notes = Note.joins(:note_topics, :note_tags)
+                         .where('note_topics.topic_id IN (?) OR note_tags.tag_id IN (?)', favourite_topics, favourite_tags)
+                         .where.not(id: favourite.pluck(:id))
+                         .distinct
+                         end%>
                   </script>
-                          
-                          <% if user_signed_in? && @suggested_notes.length>0 %>
-                           <%@suggested_notes.each.with_index do |note, index|%>
-                           
-                            <% break if index == 3 %>
-                           <%= link_to suggested_note_path(note), style: "text-decoration: none;" do%>
-                           <div class="card mb-4 suggested-item">
-                            <div class="card-body "> 
-                              <p class="card-title fw-bold"style="font-size:18px;"><%= note.name %></p>
-                              <p class="card-text" style="font-size:13px;">Autore: <%= note.user.username %></p>
-                            </div>
-                           </div>
-
-                            <% end %>
-                           <% end %> 
-                           <% else%>
-                           <%if !user_signed_in? %>
-  <div class="card mb-4 suggested-item">
-    <div class="card-body"> 
-      <p> Effettua l'accesso per visualizzare i recenti </p>
-    </div>
-  </div>
-
-<% else %>
-  <div class="card mb-4 suggested-item">
-    <div class="card-body"> 
-      <p> Non hai appunti tra i preferiti </p>
-    </div>
-  </div>
-<% end %>  
-      <% end %>  
+                  <% if user_signed_in? && @suggested_notes.length>0 %>
+                    <%@suggested_notes.each.with_index do |note, index|%>
+                      <% break if index == 3 %>
+                      <%= link_to suggested_note_path(note), style: "text-decoration: none;" do%>
+                        <div class="card mb-4 suggested-item">
+                          <div class="card-body ">
+                            <p class="card-title fw-bold"style="font-size:18px;"><%= note.name %></p>
+                            <p class="card-text" style="font-size:13px;">Autore: <%= note.user.username %></p>
+                          </div>
+                        </div>
+                      <% end %>
+                    <% end %>
+                  <% else%>
+                    <%if !user_signed_in? %>
+                      <div class="card mb-4 suggested-item">
+                        <div class="card-body">
+                          <p> Effettua l'accesso per visualizzare i recenti </p>
+                        </div>
+                      </div>
+                    <% else %>
+                      <div class="card mb-4 suggested-item">
+                        <div class="card-body">
+                          <p> Non hai appunti tra i preferiti </p>
+                        </div>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-4">
-              <div class="card-body" style="overflow-y: auto; max-height:500px;">
-                <header class="card-title" style="position: fixed; z-index:10000; background-color:white; width:387px; position:absolute; top:2px;"><%= link_to "I 10 migliori appunti", best_path, style: "text-decoration: none; font-size:20px"%></header> <br/><br/>
-                <script>
-                      <%=  @notes = Note.all
-
-              @best_notes = @notes.where("rating <= 5").order(rating: :desc).limit(10) %>
+            <div class="col-md-4">
+              <div class="card mb-4">
+                <div class="card-body my_overflow" style="overflow-y: auto; max-height:500px;">
+                  <header class="card-title" style="position: fixed; z-index:998; background-color:white; width:91%; position:absolute; top:0px;"><%= link_to "I 10 migliori appunti", best_path, style: "text-decoration: none; font-size:20px"%></header>
+                  <br/>
+                  <br/>
+                  <script>
+                    <%=  @notes = Note.all
+                        @best_notes = @notes.order(rating: :desc).limit(10) %>
                   </script>
-                          
-                          
-                           <%@best_notes.each do |note|%>
-                           
-                            
-                           <%= link_to best_note_path(note), style: "text-decoration: none;" do%>
-                           
-                           <div class="card mb-4 suggested-item;  z-index:1000;">
-                            <div class="card-body "> 
-                              <p class="card-title fw-bold"style="font-size:18px;"><%= note.name %></p>
-                              <p class="card-text" style="font-size:13px;">Autore: <%= note.user.username %></p>
-                            </div>
-                           </div>
-   
-
-                            <% end %>
-                           <% end %>
+                  <%@best_notes.each do |note|%>
+                    <%= link_to best_note_path(note), style: "text-decoration: none;" do%>
+                      <div class="card mb-4 suggested-item">
+                        <div class="card-body ">
+                          <p class="card-title fw-bold"style="font-size:18px;"><%= note.name %></p>
+                          <p class="card-text" style="font-size:13px;">Autore: <%= note.user.username %></p>
+                        </div>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-4">
-              <div class="card-body">
-                <h5 class="card-title">Interagisci</h5>
-                <p class="card-text">Commenta, valuta e discuti gli appunti con gli altri utenti.</p>
+            <div class="col-md-4">
+              <div class="card mb-4">
+                <div class="card-body">
+                  <h5 class="card-title">Interagisci</h5>
+                  <p class="card-text">Commenta, valuta e discuti gli appunti con gli altri utenti.</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  </div>
-
-  <footer class="bg-light text-center py-3 footer col fixed-bottom " id="myfooter">
-    <div class="container">
-      <p class="mb-0">ShareYourNotes &copy; 2023. Tutti i diritti riservati.</p>
+      </section>
     </div>
-  </footer>
-  <style>
-    #myfooter{
-      z-index: 4;
-    }
-  </style>
-</body>
+    <footer class="bg-light text-center py-3 footer col fixed-bottom " id="myfooter">
+      <div class="container">
+        <p class="mb-0">ShareYourNotes &copy; 2023. Tutti i diritti riservati.</p>
+      </div>
+    </footer>
+    <style>
+      #myfooter{
+        z-index: 4;
+      }
+    </style>
+  </body>
 </html>

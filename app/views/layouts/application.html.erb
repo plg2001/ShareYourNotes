@@ -82,7 +82,6 @@
                     });
                   </script>
                   <script>
-                  
                     function updateSearchResults(data) {
                       var searchResultsDiv = document.getElementById("search-results");
                       searchResultsDiv.innerHTML = ""; // Svuota il contenuto precedente
@@ -103,12 +102,12 @@
                             listItem.classList.add("contact");
                             listItem.style.marginTop = "20px"
 
-                          
+
                             <% conversation_id = nil %>
                             <% Conversation.all.each do |conversation| %>
                              if (<%= conversation.sender_id == current_user.id %> && <%= conversation.recipient_id %> == user.id){
                                <% conversation_id = conversation.id %>;
-                             }                              
+                             }
                             <% end %>
                             var userLink = document.createElement("a");
                             userLink.href = "/conversations/" + <%= conversation_id %> + "/messages"
@@ -131,7 +130,7 @@
                             usernameHeader.style.textDecoration = "none";
                             usernameHeader.textContent = user.username;
 
-                            
+
                             var onlineStatus = document.createElement("span");
                             <% User.all.each do |user|%>
                               if(user.id == <%= user.id %>){
@@ -144,8 +143,8 @@
                                 }
                               }
                             <% end %>
-                
-                           
+
+
 
 
                             contactInfo.appendChild(usernameHeader);
@@ -184,7 +183,6 @@
                     <% end %>
                   <% end %>
                   <% users = User.all %>
-                  
                 </section>
               </main>
             </div>
@@ -365,12 +363,12 @@
                 <%= link_to "Recenti", recent_path, class: "mybtn mybtn-primary btn-block button-block" %>
                 <%= link_to "Classifica", best_path, class: "mybtn mybtn-primary btn-block button-block" %>
                 <div class="button-container">
-                   <%= link_to edit_user_path(current_user), style: "text-decoration: none;" do%>
-              <%= image_tag("edit.svg",style: "width: 100px; height: 45px; ") %>
-            <% end %>
-                 <%= link_to user_path(current_user), method: :delete, style: "text-decoration: none;", data: { confirm: 'Sei sicuro di voler eliminare il tuo account?' } do%>
-              <%= image_tag("delete.svg",style: "width: 100px; height: 45px; ") %>
-            <% end %>
+                  <%= link_to edit_user_path(current_user), style: "text-decoration: none;" do%>
+                    <%= image_tag("edit.svg",style: "width: 100px; height: 45px; ") %>
+                  <% end %>
+                  <%= link_to user_path(current_user), method: :delete, style: "text-decoration: none;", data: { confirm: 'Sei sicuro di voler eliminare il tuo account?' } do%>
+                    <%= image_tag("delete.svg",style: "width: 100px; height: 45px; ") %>
+                  <% end %>
                 </div>
               </div>
             </div>
