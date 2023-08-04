@@ -16,15 +16,15 @@ class UsersController < ApplicationController
 
   
   def search
-    @users = User.all
+    def search
+      @search_query = params[:search]
+      @search_result = User.where('username LIKE ?', "%#{@search_query}%")
   
-    if params[:search].present?
-      @search_results = @users.where("name LIKE ?", "%#{params[:search]}%")
-    else
-      @search_results = nil
+      respond_to do |format|
+        format.html
+        format.json { render json: @search_result }
+      end
     end
-
-    redirect_to root_path
   end
 
   def update

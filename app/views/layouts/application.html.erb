@@ -47,14 +47,124 @@
               <main>
                 <section class="contact-list">
                   <h2>Invia un messaggio a:</h2>
-                  <%= form_tag(user_search_path, method: "get", class: "search-form") do %>
-                    <div class="input-group">
+                  <%= form_tag(user_search_path, method: "get", class: "search-form", id: "search-form") do %>
+                    <div class="input-group" style="margin-bottom: 30px;">
                       <%= text_field_tag :search, params[:search], placeholder: "Cerca utente...", class: "form-control side" %>
                       <%= button_tag type: "submit", class: "btn btn-primary" do %>
                         <%= image_tag("search.svg") %>
                       <% end %>
                     </div>
                   <% end %>
+                  <div id="search-results">
+                    <!-- Qui verranno visualizzati i risultati della ricerca -->
+                  </div>
+                  <script>
+                    $(document).ready(function() {
+                      $('#search-form').submit(function(e) {
+                        e.preventDefault(); // Ferma la sottomissione del form normale
+                        var formData = $(this).serialize(); // Ottieni i dati del form
+                        var url = $(this).attr('action');
+
+                        $.ajax({
+                          type: 'GET',
+                          url: url,
+                          data: formData,
+                          dataType: 'json', // Imposta il tipo di dati atteso come JSON
+                          success: function(data) {
+                            // Aggiorna il contenuto della pagina con i dati ricevuti dal server
+                            // Ad esempio, potresti usare una funzione per manipolare i dati e mostrarli a tuo piacimento.
+                            updateSearchResults(data);
+                          },
+                          error: function() {
+                            // Gestisci gli errori, se necessario
+                          }
+                        });
+                      });
+                    });
+                  </script>
+                  <script>
+                  
+                    function updateSearchResults(data) {
+                      var searchResultsDiv = document.getElementById("search-results");
+                      searchResultsDiv.innerHTML = ""; // Svuota il contenuto precedente
+
+                      if (data.length === 0) {
+                        searchResultsDiv.innerHTML = "<p>Nessun utente trovato.</p>";
+                      } else {
+                        var userList = document.createElement("ul");
+                        userList.classList.add("ul-contact");
+
+                        data.forEach(function(user) {
+
+                          if (user.id != <%= current_user.id %>){
+                            var contactBox = document.createElement("div");
+                            contactBox.classList.add("contact-box");
+
+                            var listItem = document.createElement("li");
+                            listItem.classList.add("contact");
+                            listItem.style.marginTop = "20px"
+
+                          
+                            <% conversation_id = nil %>
+                            <% Conversation.all.each do |conversation| %>
+                             if (<%= conversation.sender_id == current_user.id %> && <%= conversation.recipient_id %> == user.id){
+                               <% conversation_id = conversation.id %>;
+                             }                              
+                            <% end %>
+                            var userLink = document.createElement("a");
+                            userLink.href = "/conversations/" + <%= conversation_id %> + "/messages"
+                            userLink.style.textDecoration = "none";
+
+                            // Dentro la funzione updateSearchResults
+                            var userImage = document.createElement("img");
+                            userImage.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='grey' class='bi bi-person-circle' viewBox='0 0 16 16'%3E%3Cpath d='M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z'/%3E%3Cpath fill-rule='evenodd' d='M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z'/%3E%3C/svg%3E";
+                            userImage.style.marginLeft = "20px";
+                            userImage.style.marginRight = "40px";
+                            userImage.style.width = "2em";
+                            userImage.style.height = "2em";
+
+
+                            var contactInfo = document.createElement("div");
+                            contactInfo.classList.add("contact-info");
+
+                            var usernameHeader = document.createElement("h3");
+                            usernameHeader.id = "username";
+                            usernameHeader.style.textDecoration = "none";
+                            usernameHeader.textContent = user.username;
+
+                            
+                            var onlineStatus = document.createElement("span");
+                            <% User.all.each do |user|%>
+                              if(user.id == <%= user.id %>){
+                                if (user.last_seen != null && <%= user.last_seen > 10.minutes.ago %> ){
+                                  var onlineStatus = document.createElement("span");
+                                  onlineStatus.classList = "online-indicator online"
+                                }
+                                else{
+                                  onlineStatus.classList = "online-indicator offline"
+                                }
+                              }
+                            <% end %>
+                
+                           
+
+
+                            contactInfo.appendChild(usernameHeader);
+                            listItem.appendChild(userImage);
+                            listItem.appendChild(contactInfo);
+                            listItem.appendChild(onlineStatus);
+                            userLink.appendChild(listItem);
+                            contactBox.appendChild(userLink);
+                            searchResultsDiv.appendChild(contactBox);
+
+                          }
+                        });
+
+
+                        searchResultsDiv.appendChild(userList);
+                      }
+                    }
+                  </script>
                   <% users = User.all %>
                   <h6>Amministratori</h6>
                   <% users.each do |user| %>
