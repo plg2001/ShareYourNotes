@@ -55,7 +55,7 @@ class NotesController < ApplicationController
       @notes = @notes.where("uploaded_at <= ?", before_date.end_of_day)
     end
   
-    order = params[:order] == 'desc' ? 'name DESC' : 'name ASC'
+    order = params[:order] == 'desc' ? 'name ASC' : 'name DESC'
     @notes = @notes.order(order)
   
     render 'search'

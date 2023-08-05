@@ -192,7 +192,7 @@
           <% if user_signed_in? %>
             <li class="nav-item me-3 downn"><%= link_to "Log out", signout_path, method: :delete, class: "nav-link",style:"color:white;"%></li>
             <% if current_user.admin %>
-              <li class="nav-item me-3 downn"><%= link_to "Admin Dahsboard", admin_dashboard_path, class: "nav-link",style:"color:white;" %></li>
+              <li class="nav-item me-3 downn"><%= link_to "Admin Dashboard", admin_dashboard_path, class: "nav-link",style:"color:white;" %></li>
             <% else %>
               <li class="nav-item me-3 downn"><%= link_to 'Crea richiesta', create_richiesta_admin_richiesta_admins_path,class: "nav-link",style:"color:white;" ,method: :post %></li>
             <% end %>
@@ -221,10 +221,10 @@
               <div id="filtroHide" style="display: none;">
                 <div id="dropdown" class="form-group">
                   <div id="user-choice" style="display: none;">
-                    <%= text_field_tag :user_search, params[:user_search], placeholder: "Cerca per username", class: "form-control" %>
+                    <%= text_field_tag :user_search, params[:user_search], placeholder: "Cerca per username", class: "form-control", style: "height: 2.5em;" %>
                   </div>
                   <div id="faculty-choice" style="display: none;">
-                    <%= select_tag :faculty, options_from_collection_for_select(Faculty.all, :id, :name, params[:faculty]), prompt: "Scegli una facoltà", class: "form-control", id: "faculty" %>
+                    <%= select_tag :faculty, options_from_collection_for_select(Faculty.all, :id, :name, params[:faculty]), prompt: "Scegli una facoltà", class: "form-control", id: "faculty", style: "height: 2.5em;" %>
                   </div>
                   <div id="topic-choice" style="display: none;">
                     <%= select_tag :topic, options_for_select(Topic.distinct.pluck(:name), params[:topic]), prompt: "Scegli uno o più topic", class: "form-control", id: "topic", value: params[:topic] || (params[:Filtro].try(:include?, 'topic') ? nil : valueTopic), multiple: true, size:2 %>
@@ -233,16 +233,16 @@
                     <%= select_tag :tag, options_for_select(Tag.distinct.pluck(:name), params[:tag]), prompt: "Scegli uno o più tag", class: "form-control", id: "tag", value: params[:tag] || (params[:Filtro].try(:include?, 'tag') ? nil : valueTag), multiple: true, size:2 %>
                   </div>
                   <div id="rating-choice" style="display: none;">
-                    <%= select_tag :rating, options_for_select([[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]], params[:rating]), prompt: "Scegli una valutazione", class: "form-control", id: "rating" %>
+                    <%= select_tag :rating, options_for_select([[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]], params[:rating]), prompt: "Scegli una valutazione", class: "form-control", id: "rating", style: "height: 2.5em;" %>
                   </div>
                   <div id="after-choice" style="display: none;">
-                    <%= text_field_tag :after, params[:after], placeholder: "GG-MM-AAAA", class: "form-control", id: "after" %>
+                    <%= text_field_tag :after, params[:after], placeholder: "GG-MM-AAAA", class: "form-control", id: "after", style: "height: 2.5em;" %>
                   </div>
                   <div id="before-choice" style="display: none;">
-                    <%= text_field_tag :before, params[:before], placeholder: "GG-MM-AAAA", class: "form-control", id: "before" %>
+                    <%= text_field_tag :before, params[:before], placeholder: "GG-MM-AAAA", class: "form-control", id: "before", style: "height: 2.5em;" %>
                   </div>
                   <div id="order-choice" style="display: none;">
-                    <%= select_tag :order, options_for_select([["Ordine alfabetico", nil], ["A-Z", "asc"], ["Z-A", "desc"]], params[:order]), class: "form-control" %>
+                    <%= select_tag :order, options_for_select([["Ordine alfabetico", nil], ["A-Z", "asc"], ["Z-A", "desc"]], params[:order]), class: "form-control", style: "height: 2.5em;" %>
                   </div>
                 </div>
               </div>

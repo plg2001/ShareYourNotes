@@ -6,7 +6,7 @@
     <h1 class="mt-5">Classifica</h1>
   </div>
   <div class="col">
-    <button id="tagtopicButton" class="mybtn mybtn-primary btn-block button-block" style="position: relative;">Dividi per Tag e Topic</button>
+    <button id="tagtopicButton" class="mybtn mybtn-primary btn-block button-block" style="position: relative;">Dividi per Categorie</button>
   </div>
 </div>
 
@@ -89,7 +89,7 @@
 <div class="container">
   <div id="best2" class="hidden">
     <% if @best_notes.any? %>
-  <h2>Note divise per Topic e Tag</h2>
+  <h2>Note divise per Categorie</h2>
   <% @topic_ids_union.each_with_index do |topic_id, index| %>
     <% topic = Topic.find(topic_id) %>
     <% tag = Tag.find(@tag_ids_union[index]) %>
