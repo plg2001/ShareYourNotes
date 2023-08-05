@@ -33,10 +33,10 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
           <li class="nav-item me-3">
-            <%= link_to "About",conversations_path,class: "nav-link" %>
+            <%= link_to "About",conversations_path,class:"nav-link",style:"color:white;" %>
           </li>
           <% if user_signed_in? %>
-            <li class="nav-item me-3"><%= link_to "Carica Appunti", new_note_path, class:"nav-link" %></li>
+            <li class="nav-item me-3"><%= link_to "Carica Appunti", new_note_path, class:"nav-link ",style:"color:white;" %></li>
             <li class="nav-item me-3"><%= link_to '#' do %><%= image_tag("chat1.svg", id: "chat-button", style: "width: 40px; height: 40px;",class:"nav-link") %><% end %></li>
             <div id="chat-area" class="chat-area">
               <header>
@@ -51,7 +51,7 @@
                     <div class="input-group" style="margin-bottom: 30px; border: 3px solid rgb(34,40,49); border-radius:10px;">
                       <%= text_field_tag :search, params[:search], placeholder: "Cerca utente...", class: "form-control side" %>
                       <%= button_tag type: "submit", class: "btn",style: "background-color: rgb(34,40,49);" do %>
-                        <%= image_tag("search2.svg",style: "color: white;") %>
+                        <%= image_tag("search2.svg") %>
                       <% end %>
                     </div>
                   <% end %>
@@ -190,22 +190,22 @@
         </ul>
         <ul class="navbar-nav  ms-auto">
           <% if user_signed_in? %>
-            <li class="nav-item me-3 downn"><%= link_to "Log out", signout_path, method: :delete, class: "nav-link" %></li>
+            <li class="nav-item me-3 downn"><%= link_to "Log out", signout_path, method: :delete, class: "nav-link",style:"color:white;"%></li>
             <% if current_user.admin %>
-              <li class="nav-item me-3 downn"><%= link_to "Admin Dahsboard", admin_dashboard_path, class: "nav-link" %></li>
+              <li class="nav-item me-3 downn"><%= link_to "Admin Dahsboard", admin_dashboard_path, class: "nav-link",style:"color:white;" %></li>
             <% else %>
-              <li class="nav-item me-3 downn"><%= link_to 'Crea richiesta', create_richiesta_admin_richiesta_admins_path,class: "nav-link", method: :post %></li>
+              <li class="nav-item me-3 downn"><%= link_to 'Crea richiesta', create_richiesta_admin_richiesta_admins_path,class: "nav-link",style:"color:white;" ,method: :post %></li>
             <% end %>
           <% else %>
-            <li class="nav-item me-3 downn"><%= link_to "Sign In", signin_path,class: "nav-link"%></li>
-            <li class="nav-item me-3 downn"><%= link_to "Sign Up", signup_path,type: "button",class: " btn btn-primary"%></li>
+            <li class="nav-item me-3 downn"><%= link_to "Sign In", signin_path,class: "nav-link",style:"color:white;"%></li>
+            <li class="nav-item me-3 downn"><%= link_to "Sign Up", signup_path,class: "btn nav-link",style:"color:white;background: none; border: 2px solid white" %></li>
           <% end %>
           <%= form_tag(search_path, method: "get", class: "nav-link search-form") do %>
             <% valueTag = params[:tag] || nil %>
             <% valueTopic = params[:topic] || nil %>
             <div class="input-group">
               <%= text_field_tag :search, params[:search], placeholder: "Cerca...", class: "form-control side" %>
-              <%= button_tag type: "button", class: "btn btn-primary", id: "mostraSelect" do %>
+              <%= button_tag type: "button", class: "btn",style: "background: none; border: 2px solid white", id: "mostraSelect" do %>
                 <%= image_tag("filter.svg") %>
               <% end %>
               <%= select_tag :Filtro, options_for_select([
@@ -340,21 +340,21 @@
                   return true;
                 }
               </script>
-              <%= button_tag type: "submit", class: "btn btn-primary", onclick: "return validateDateInput()" do %>
-                <%= image_tag("search.svg") %>
+              <%= button_tag type: "submit", class: "btn",style: "background: none; border: 2px solid white" do %>
+                  <%= image_tag("search2.svg") %>
               <% end %>
             </div>
           <% end %>
           <% if user_signed_in? %>
             <%= link_to '#' do %>
               <li class="nav-item me-3 downn">
-                <%= image_tag("person_fill.svg", id: "personal-button", class: "btn btn-primary", style: "width: 3.2em; height: 100%;") %>
+                <%= image_tag("person_fill.svg", id: "personal-button", class: "btn btn-primary", style: " background: none; border: 2px solid white ;width: 3.2em; height: 100%;") %>
               </li>
             <% end %>
             <div id="personal-area" class="personal-area hidden">
               <span class="close-button">&#10006;</span>
               <h1>Informazioni utente</h1>
-              <p><strong>Username:</strong> <%= current_user.username %></p>
+              <p><strong>Username:</strong> <%= current_user.username + "#" + current_user.id.to_s  %></p>
               <p><strong>Name:</strong> <%= current_user.name %></p>
               <p><strong>Email:</strong> <%= current_user.email %></p>
               <div class="all-button-container">

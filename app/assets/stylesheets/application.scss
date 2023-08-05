@@ -6,7 +6,8 @@ body {
   line-height: 1.6;
   margin: 0;
   padding: 0;
-  background-color: #f8f8f8;
+  background-color: rgb(34,40,49);
+  
 }
 .nav-item:hover{
     transform: scale(1.075);
@@ -15,7 +16,8 @@ body {
 }
 .logos-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 100px;
   }
   
  .logo_omniauth{

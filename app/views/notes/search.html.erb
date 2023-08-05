@@ -1,13 +1,22 @@
 <%= stylesheet_link_tag 'ricerca', media: 'all', 'data-turbolinks-track': 'reload' %>
 <% if @notes.present? %>
   <div class="container">
-    <h1 class="mt-5">Risultati trovati</h1>
+    <h1 class="mt-5 fw-bold" style="color: white;">Risultati trovati</h1>
     <% @notes.each do |note| %>
-      <div class="card my-4">
+      <script>
+        $(document).ready(function() {
+          // Aggiungi un gestore di eventi clic alla classe "note-card"
+          $(".note-card").click(function() {
+            var note_id = this.id;
+            window.location.href =  note_id;
+          });
+        });
+      </script>
+      <div id= "<%= note.id %>" class="note-card card my-4">
         <div class="card-body">
           <div class="d-flex justify-content-between align-items-center mb-2">
             <h4 class="card-title mb-0">
-              <a href="<%= note.id %>"><%= note.name %></a>
+              <p><%= note.name %></p>
             </h4>
             <% if current_user && current_user != note.user %>
               <div class="d-flex gap-1 mb-1 BottoniStella justify-content-start align-items-center">
@@ -80,15 +89,17 @@
 <% end %>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-      var readMoreLinks = document.getElementsByClassName("read-more");
+    var readMoreLinks = document.getElementsByClassName("read-more");
 
-      Array.from(readMoreLinks).forEach(function(link) {
-        link.addEventListener("click", function(event) {
-          event.preventDefault();
-          var contentElement = this.parentNode.querySelector(".truncated");
-          contentElement.textContent = this.getAttribute("data-full-content");
-          this.parentNode.removeChild(this);
-        });
+    Array.from(readMoreLinks).forEach(function(link) {
+      link.addEventListener("click", function(event) {
+        event.preventDefault();
+        event.stopPropagation(); // Aggiungi questa riga per fermare la propagazione dell'evento click
+        var contentElement = this.parentNode.querySelector(".truncated");
+        contentElement.textContent = this.getAttribute("data-full-content");
+        this.parentNode.removeChild(this);
       });
     });
+  });
 </script>
+

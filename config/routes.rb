@@ -54,6 +54,7 @@ Rails.application.routes.draw do
   get '/notes/:id', to: 'notes#show', as: 'personal_note'
   get '/notes/:id', to: 'notes#show', as: 'suggested_note'
   get '/notes/:id', to: 'notes#show', as: 'best_note'
+  get '/notes/:id', to: 'notes#show', as: 'note_show'
 
   resources :conversations do
     resources :messages

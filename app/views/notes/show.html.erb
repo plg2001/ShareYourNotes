@@ -53,11 +53,35 @@
       </div>
       <div class="text-center mb-4">
         <div class="btn-group Drive" role="group" aria-label="Pulsanti">
-          <a href="<%= @note.google_drive_link %>" class="btn btn-primary btn-block g_link">Google Drive Link</a>
-          <%= link_to 'Scarica file', download_note_path(@note), class: 'btn btn-primary btn-block scarica' %>
-          <% google_drive_link = @note.google_drive_link %>
-          <%file_id = google_drive_link.match(/\/file\/d\/(.+?)\//)[1]%>
-          <%= link_to 'On my gd', download_on_my_gd_path(id: @note.id,google_id: file_id), class: 'btn btn-primary btn-block scarica' %>
+          <%= link_to  @note.google_drive_link,style: "text-decoration: none; color: black;" do%>
+            <div class="google-drive-button">
+              <%= image_tag("Google_Drive_logo.png",style: "width: 45px; height: 45px;") %>
+              <label class="fw-bold">Link Google Drive</label>
+            </div>
+          <% end %>
+          <div class="download-open">
+            <%= image_tag("download.svg",style: "width: 45px; height: 45px;") %>
+            <label class="fw-bold" style="color:black;" >Download</label>
+          </div>
+          <div id="dialog" class="dialog-container">
+            <span class="dialog-close"><%= image_tag("close.svg") %></span>
+            <div class="local-cloud">
+              <%= link_to download_note_path(@note),style: "text-decoration: none;" do %>
+                <div class="scarica">
+                  <%= image_tag("local.svg",style: "width: 45px; height: 45px;") %><br />
+                  <label style="color:white;" class="fw-bold">Locale</label>
+                </div>
+              <% end %>
+              <% google_drive_link = @note.google_drive_link %>
+              <%file_id = google_drive_link.match(/\/file\/d\/(.+?)\//)[1]%>
+              <%= link_to download_on_my_gd_path(id: @note.id,google_id: file_id),style: "text-decoration: none;" do %>
+                <div class="scarica">
+                  <%= image_tag("cloud.svg",style: "width: 45px; height: 45px;",class: "scarica") %><br />
+                  <label style="color:white;" class="fw-bold scarica">Drive</label>
+                </div>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
       <div class="Author-Message mb-4">
@@ -179,5 +203,22 @@
         contenitoreDiv.classList.add('hidden');
          mostraBtn.textContent = "Mostra Informazioni";
       }
+    });
+  </script>
+  <script>
+    var mainArea = document.querySelector('.main-area');
+    var download_dialog = document.querySelector('.download-open');
+    var dialog = document.querySelector('.dialog-container');
+
+    download_dialog.addEventListener('click',function(event){
+      mainArea.style.display = 'block';
+      dialog.style.display = 'block';
+
+    })
+
+    var dialogClose = document.querySelector('.dialog-close');
+    dialogClose.addEventListener('click', function(event){
+      dialog.style.display = 'none';
+      mainArea.style.display = 'none';
     });
   </script>

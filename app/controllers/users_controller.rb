@@ -15,15 +15,15 @@ class UsersController < ApplicationController
   end
 
   
-    def search
-      @search_query = params[:search]
-      @search_result = User.where('username LIKE ?', "%#{@search_query}%")
+  def search
+    @search_query = params[:search]
+    @search_result = User.where('username LIKE ? OR id = ?', "%#{@search_query}%", @search_query)
   
-      respond_to do |format|
-        format.html
-        format.json { render json: @search_result }
-      end
+    respond_to do |format|
+      format.html
+      format.json { render json: @search_result }
     end
+  end
 
   def update
     if user_params[:password].present?

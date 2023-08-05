@@ -1,8 +1,9 @@
 <%= stylesheet_link_tag 'ricerca', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag 'usershow', media: 'all', 'data-turbolinks-track': 'reload' %>
 <div class="container text-center pagina">
-  <h1 class='boh'><strong><%= @user.username %></strong> </h1>
-  <p class='boh'><%= @user.name %></p>
+  <h1 class='boh fw-bold'><strong><%= @user.username + "#" + @user.id.to_s%></strong> </h1>
+  <p class='boh fw-bold'><%= @user.name %></p>
+
 
   <div class="d-flex gap-3 mb-4 BottoniStella justify-content-center">
     <% Note::MAX_RATING.times do |n| %>
