@@ -1,7 +1,18 @@
 <%= stylesheet_link_tag 'ricerca', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<div class="container">
+<div class="row align-items-end justify-content-center">
+  <div class="col">
+    <h1 class="mt-5">Classifica</h1>
+  </div>
+  <div class="col">
+    <button id="tagtopicButton" class="mybtn mybtn-primary btn-block button-block" style="position: relative;">Dividi per Tag e Topic</button>
+  </div>
+</div>
+
+<div id="best">
 <% if @best_notes.any? %>
   <div class="container">
-    <h1 class="mt-5">Classifica</h1>
     <% @best_notes.each do |note| %>
       <div class="card my-4">
         <div class="card-body">
@@ -74,6 +85,95 @@
     <h1 class="mt-5">Nessun risultato</h1>
   </div>
 <% end %>
+</div>
+<div class="container">
+  <div id="best2" class="hidden">
+    <% if @best_notes.any? %>
+  <h2>Note divise per Topic e Tag</h2>
+  <% @topic_ids_union.each_with_index do |topic_id, index| %>
+    <% topic = Topic.find(topic_id) %>
+    <% tag = Tag.find(@tag_ids_union[index]) %>
+
+    <h3><%= topic.name %> e <%= tag.name %><br> Numero di note associate al topic e tag: <%= @notes_union[index].size %> <% if @notes_union[index].size > 1 %>appunti<% else %>appunto<% end %></h3>
+    <% @notes_union[index].each do |note| %>
+      <div class="card my-4">
+        <div class="card-body">
+          <h4 class="card-title">
+            <a href="<%= best_note_path(note) %>"><%= note.name %></a>
+          </h4>
+          <% truncated_description = truncate(note.description, length: 650) %>
+          <p class="card-text">
+            <span class="truncated"><%= truncated_description %></span>
+            <% if note.description.length > 650 %>
+              <a href="#" class="read-more" data-full-content="<%= note.description %>">Mostra altro</a>
+            <% end %>
+          </p>
+          <p class="card-text"> Autore: <%= link_to note.user.username, user_path(note.user), class: 'link' %></p>
+          <% if current_user != note.user %>
+            <% if current_user && current_user.favourite_notes.include?(note) %>
+              <%= link_to remove_favourite_path(note_id: note.id), method: :delete, style: "text-decoration: none;" do %>
+                <%= inline_svg_tag("heart-fill.svg") %>
+              <% end %>
+            <% elsif current_user %>
+              <%= link_to add_favourite_path(note_id: note.id), method: :post, style: "text-decoration: none;" do %>
+                <%= inline_svg_tag("heart.svg") %>
+              <% end %>
+            <% end %>
+          <% end %>
+          <%= link_to note.google_drive_link do %>
+            <%= image_tag("Google_Drive_logo.png", style: "width: 16px; height: 16px;") %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% else %>
+  <p>Nessuna nota disponibile</p>
+<% end %>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var tagtopicButton = document.getElementById('tagtopicButton');
+    var best2 = document.getElementById('best2');
+    var best = document.getElementById('best');
+    var isVisible = false;
+
+    tagtopicButton.addEventListener('click', function() {
+      isVisible = !isVisible;
+      if (isVisible) {
+        best2.classList.remove('hidden');
+        best.classList.add('hidden');
+        tagtopicButton.textContent = 'Mostra la Classifica';
+      } else {
+        best2.classList.add('hidden');
+        best.classList.remove('hidden');
+        tagtopicButton.textContent = 'Dividi per Categorie';
+      }
+    });
+  });
+  
+</script>
+<style>
+  .hidden {
+    display: none;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      var readMoreLinks = document.getElementsByClassName("read-more");
+
+      Array.from(readMoreLinks).forEach(function(link) {
+        link.addEventListener("click", function(event) {
+          event.preventDefault();
+          var contentElement = this.parentNode.querySelector(".truncated");
+          contentElement.textContent = this.getAttribute("data-full-content");
+          this.parentNode.removeChild(this);
+        });
+      });
+    });
+</script>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
       var readMoreLinks = document.getElementsByClassName("read-more");
