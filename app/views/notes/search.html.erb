@@ -71,7 +71,7 @@
               <% end %>
             <% end %>
           <% else %>
-            <%= link_to  remove_note_path(note), method: :delete, style: "text-decoration: none;" do%>
+            <%= link_to  remove_note_path(note), method: :delete, style: "text-decoration: none;", style: "text-decoration: none;", data: { confirm: 'Sei sicuro di voler eliminare l\'appunto?' } do%>
               <%= image_tag("delete.svg",style: "width: 20px; height: 20px; ") %>
             <% end %>
           <% end %>
