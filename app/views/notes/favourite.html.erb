@@ -1,63 +1,63 @@
 <%= stylesheet_link_tag 'ricerca', media: 'all', 'data-turbolinks-track': 'reload' %>
-
 <div class="container">
-
-<div class="row align-items-end justify-content-center">
-  <div class="col">
-    <h1 class="mt-5">Preferiti</h1>
+  <div class="row align-items-end justify-content-center">
+    <div class="col">
+      <% if @favourite_notes.length == 0  %>
+        <h3 class="mt-5 fw-bold" style="color:white">Non hai appunti tra i preferiti</h3>
+      <% else %>
+        <h1 class="mt-5 fw-bold" style="color:white">Preferiti</h1>
+      <% end %>
+    </div>
+    <div class="col">
+      <button id="dateButton" class="mybtn mybtn-primary btn-block button-block" style="position: relative;">Mostra data di aggiunta</button>
+    </div>
+    <div class="col">
+      <button id="tagtopicButton" class="mybtn mybtn-primary btn-block button-block" style="position: relative;">Dividi per Tag e Topic</button>
+    </div>
   </div>
-  <div class="col">
-    <button id="dateButton" class="mybtn mybtn-primary btn-block button-block" style="position: relative;">Mostra data di aggiunta</button>
-  </div>
-  <div class="col">
-    <button id="tagtopicButton" class="mybtn mybtn-primary btn-block button-block" style="position: relative;">Dividi per Tag e Topic</button>
-  </div>
-</div>
-
-<div id="favourite">
-  <% @favourite_notes.each do |note| %>
-    <div class="card my-4">
-      <div class="card-body">
-            <h4 class="card-title">
-              <a href="<%= favourite_note_path(note) %>"><%= note.name %></a>
-            </h4>
-            <% truncated_description = truncate(note.description, length: 650) %>
+  <div id="favourite">
+    <% @favourite_notes.each do |note| %>
+      <div class="card my-4">
+        <div class="card-body">
+          <h4 class="card-title">
+            <a href="<%= favourite_note_path(note) %>"><%= note.name %></a>
+          </h4>
+          <% truncated_description = truncate(note.description, length: 650) %>
           <p class="card-text">
             <span class="truncated"><%= truncated_description %></span>
             <% if note.description.length > 650 %>
               <a href="#" class="read-more" data-full-content="<%= note.description %>">Mostra altro</a>
             <% end %>
           </p>
-            <p class="card-text"> Autore: <%= link_to note.user.username, user_path(note.user), class: 'link' %></p>
-            <% added_to_favorites_at = current_user.favourites.find_by(note_id: note.id) %>
-              <% if added_to_favorites_at && added_to_favorites_at.added_to_favorites_at.present? %>
-                <% d = added_to_favorites_at.added_to_favorites_at.day %>
-                <% m = added_to_favorites_at.added_to_favorites_at.strftime("%B") %>
-                <% y = added_to_favorites_at.added_to_favorites_at.year %>
-                <p class="card-text date hidden">Aggiunto ai preferiti in data: <%= "#{d} #{m} #{y}" %></p>
-
-              <% else %>
-                <p class="card-text">Aggiunto ai preferiti in data: Non disponibile</p>
-              <% end %>
-              <%= link_to remove_favourite_path(note_id: note.id), method: :delete ,style: "text-decoration: none;" do%>
-                <%= inline_svg_tag("heart-fill.svg") %>
-              <% end %>
-            <%= link_to  note.google_drive_link do%>
+          <p class="card-text"> Autore: <%= link_to note.user.username, user_path(note.user), class: 'link' %></p>
+          <% added_to_favorites_at = current_user.favourites.find_by(note_id: note.id) %>
+          <% if added_to_favorites_at && added_to_favorites_at.added_to_favorites_at.present? %>
+            <% d = added_to_favorites_at.added_to_favorites_at.day %>
+            <% m = added_to_favorites_at.added_to_favorites_at.strftime("%B") %>
+            <% y = added_to_favorites_at.added_to_favorites_at.year %>
+            <p class="card-text date hidden">Aggiunto ai preferiti in data: <%= "#{d} #{m} #{y}" %></p>
+          <% else %>
+            <p class="card-text">Aggiunto ai preferiti in data: Non disponibile</p>
+          <% end %>
+          <%= link_to remove_favourite_path(note_id: note.id), method: :delete ,style: "text-decoration: none;" do%>
+            <%= inline_svg_tag("heart-fill.svg") %>
+          <% end %>
+          <%= link_to  note.google_drive_link do%>
             <%= image_tag("Google_Drive_logo.png",style: "width: 16px; height: 16px;") %>
           <% end %>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
   </div>
 </div>
-
 <div class="container">
   <div id="favourite2" class="hidden">
     <% if @favourite_notes.any? %>
       <h2>Note divise per Topic</h2>
       <% @note_topics.each do |topic_id, note_topics| %>
         <% topic = note_topics.first.topic %>
-        <h3><%= topic.name %> <br> Numero di note associate al topic: <%= note_topics.size %> <% if note_topics.size > 1 %>appunti<% else %>appunto<% end %></h3>
+        <h3><%= topic.name %> <br>
+          Numero di note associate al topic: <%= note_topics.size %> <% if note_topics.size > 1 %>appunti<% else %>appunto<% end %></h3>
         <% note_topics.each do |note_topic| %>
           <div class="card my-4">
             <div class="card-body">
@@ -67,12 +67,12 @@
               </h4>
               <p class="card-text"><%= note_topic.note.description %></p>
               <% truncated_description = truncate(note_topic.note.description, length: 650) %>
-          <p class="card-text">
-            <span class="truncated"><%= truncated_description %></span>
-            <% if note_topic.note.description.length > 650 %>
-              <a href="#" class="read-more" data-full-content="<%= note_topic.note.description %>">Mostra altro</a>
-            <% end %>
-          </p>
+              <p class="card-text">
+                <span class="truncated"><%= truncated_description %></span>
+                <% if note_topic.note.description.length > 650 %>
+                  <a href="#" class="read-more" data-full-content="<%= note_topic.note.description %>">Mostra altro</a>
+                <% end %>
+              </p>
               <p class="card-text"> Autore: <%= link_to note_topic.note.user.username, user_path(note.user), class: 'link' %></p>
               <% added_to_favorites_at = current_user.favourites.find_by(note_id: note.id) %>
               <% if added_to_favorites_at && added_to_favorites_at.added_to_favorites_at.present? %>
@@ -87,17 +87,17 @@
                 <%= inline_svg_tag("heart-fill.svg") %>
               <% end %>
               <%= link_to  note_topic.note.google_drive_link do%>
-            <%= image_tag("Google_Drive_logo.png",style: "width: 16px; height: 16px;") %>
-          <% end %>
+                <%= image_tag("Google_Drive_logo.png",style: "width: 16px; height: 16px;") %>
+              <% end %>
             </div>
           </div>
         <% end %>
       <% end %>
-
       <h2>Note divise per Tag</h2>
       <% @note_tags.each do |tag_id, note_tags| %>
         <% tag = note_tags.first.tag %>
-        <h3><%= tag.name %> <br> Numero di note associate al tag: <%= note_tags.size %> <% if note_tags.size > 1 %>appunti<% else %>appunto<% end %></h3>
+        <h3><%= tag.name %> <br>
+          Numero di note associate al tag: <%= note_tags.size %> <% if note_tags.size > 1 %>appunti<% else %>appunto<% end %></h3>
         <% note_tags.each do |note_tag| %>
           <div class="card my-4">
             <div class="card-body">
@@ -106,12 +106,12 @@
                 <a href="<%= favourite_note_path(note) %>"><%= note.name %></a>
               </h4>
               <% truncated_description = truncate(note_tag.note.description, length: 650) %>
-          <p class="card-text">
-            <span class="truncated"><%= truncated_description %></span>
-            <% if note_tag.note.description.length > 650 %>
-              <a href="#" class="read-more" data-full-content="<%= note_tag.note.description %>">Mostra altro</a>
-            <% end %>
-          </p>
+              <p class="card-text">
+                <span class="truncated"><%= truncated_description %></span>
+                <% if note_tag.note.description.length > 650 %>
+                  <a href="#" class="read-more" data-full-content="<%= note_tag.note.description %>">Mostra altro</a>
+                <% end %>
+              </p>
               <p class="card-text"> Autore: <%= link_to note_tag.note.user.username, user_path(note.user), class: 'link' %></p>
               <% added_to_favorites_at = current_user.favourites.find_by(note_id: note.id) %>
               <% if added_to_favorites_at && added_to_favorites_at.added_to_favorites_at.present? %>
@@ -126,8 +126,8 @@
                 <%= inline_svg_tag("heart-fill.svg") %>
               <% end %>
               <%= link_to  note_tag.note.google_drive_link do%>
-            <%= image_tag("Google_Drive_logo.png",style: "width: 16px; height: 16px;") %>
-          <% end %>
+                <%= image_tag("Google_Drive_logo.png",style: "width: 16px; height: 16px;") %>
+              <% end %>
             </div>
           </div>
         <% end %>
@@ -180,7 +180,6 @@
     display: none;
   }
 </style>
-
 <script>
   document.addEventListener("DOMContentLoaded", function() {
       var readMoreLinks = document.getElementsByClassName("read-more");
