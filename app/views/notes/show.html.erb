@@ -1,9 +1,9 @@
 <%= stylesheet_link_tag 'show', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag 'valutazione', media: 'all', 'data-turbolinks-track': 'reload' %>
 <div class="container Pagina">
-  <h1 class="fw-bold text-center mb-4"><%= @note.name %></h1>
+  <h1 class="fw-bold text-center mb-4" style="color:black;"><%= @note.name %></h1>
   <div class="monstraDescrizione_container">
-    <button id="mostraDescrizione" class="btn btn-info text-center">Mostra Descrizione</button>
+    <button id="mostraDescrizione" class="btn text-center" style="background-color: #f77062;color:black;border: 3px solid black;border-radius: 80px">Mostra Descrizione</button>
   </div>
   <div class="description-box hidden" id="box">
     <h6 class="text-center mb-4 hidden" id="Descrizione"><%= @note.description %></h6>
@@ -88,12 +88,13 @@
         <p class="Autore"><strong>Autore:</strong> <%= link_to @note.user.username, user_path(@note.user), class: 'link' %></p>
         <% if user_signed_in? %>
           <% if current_user.id != @note.user.id %>
-            <p class="Message"><%= link_to 'Message me', conversations_path(sender_id: current_user.id, recipient_id: @note.user.id), method: 'post', class: "btn btn-primary" %></p>
+            <p class="Message" style="background-color: #f77062;color:black;border: 3px solid black;border-radius: 80px">
+            <%= link_to 'Message me', conversations_path(sender_id: current_user.id, recipient_id: @note.user.id), method: 'post', class: "btn" %></p>
           <% end %>
         <% end %>
       </div>
       <p class="text-center mb-4"><strong>Data di caricamento:</strong> <%= @note.uploaded_at %></p>
-      <button id="mostraBtn" class="btn btn-info">Mostra Informazioni</button>
+      <button id="mostraBtn" class="btn " style="background-color: #f77062;color:black;border: 3px solid black;border-radius: 80px">Mostra Informazioni</button>
       <div class="dropright text-center mb-4 hidden" id="contenitoreDiv">
         <div class="dropdown-content row">
           <div class="row">
@@ -151,7 +152,7 @@
         <% end %>
         <%= form_with(model: [@note, @note.comments.build], url: note_comments_path(@note)) do |form| %>
           <%= form.text_area :content, placeholder: 'Add a comment',cols: "42.5" %>
-          <%= form.submit 'Add comment',class: "btn btn-primary add_comment" %>
+          <%= form.submit 'Add comment',class: "btn add_comment",style: "background-color: #f77062;color:black;border: 3px solid black;border-radius: 80px" %>
         <% end %>
       </div>
     </div>
