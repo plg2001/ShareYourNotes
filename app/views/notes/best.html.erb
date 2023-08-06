@@ -3,7 +3,7 @@
 <div class="container">
 <div class="row align-items-end justify-content-center">
   <div class="col">
-    <h1 class="mt-5">Classifica</h1>
+    <h1 class="mt-5 fw-bold" style="color:white;">Classifica</h1>
   </div>
   <div class="col">
     <button id="tagtopicButton" class="mybtn mybtn-primary btn-block button-block" style="position: relative;">Dividi per Categorie</button>
@@ -89,12 +89,12 @@
 <div class="container">
   <div id="best2" class="hidden">
     <% if @best_notes.any? %>
-  <h2>Note divise per Categorie</h2>
+  <h2 class="fw-bold" style="color:white;">Note divise per Categorie</h2>
   <% @topic_ids_union.each_with_index do |topic_id, index| %>
     <% topic = Topic.find(topic_id) %>
     <% tag = Tag.find(@tag_ids_union[index]) %>
 
-    <h3><%= topic.name %> e <%= tag.name %><br> Numero di note associate al topic e tag: <%= @notes_union[index].size %> <% if @notes_union[index].size > 1 %>appunti<% else %>appunto<% end %></h3>
+    <h3  style="color:white;"><%= topic.name %> e <%= tag.name %><br> Numero di note associate al topic e tag: <%= @notes_union[index].size %> <% if @notes_union[index].size > 1 %>appunti<% else %>appunto<% end %></h3>
     <% @notes_union[index].each do |note| %>
       <div class="card my-4">
         <div class="card-body">
@@ -128,7 +128,7 @@
     <% end %>
   <% end %>
 <% else %>
-  <p>Nessuna nota disponibile</p>
+  <p class="fw-bold" style="color:white;">Nessuna nota disponibile</p>
 <% end %>
   </div>
 </div>
