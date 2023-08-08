@@ -27,9 +27,24 @@
               method: :patch,
               params: { note: { rating: n + 1 } },
               class: "border-0 bg-transparent d-flex justify-content-center BottoneSingolo" do %>
-              <%= inline_svg_tag("star.svg", class: "w-8 h-8 #{star_rating_hover_class()} #{star_rating_class(@note, n)}") %>
+              <svg xmlns="http://www.w3.org/2000/svg" id="<%= n + 1 %>" width="16" height="16" fill="currentColor" class="star" viewBox="0 0 16 16">
+                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+              </svg>
             <% end %>
           <% end %>
+          <script>
+         const rating = <%= @note.rating%>
+         const stars = document.querySelectorAll(".star");
+
+         stars.forEach(function(star){
+          if (star.id <= rating){
+            star.classList.add("text-warning");
+          }
+          else {
+            star.classList.add("text-muted");
+          }
+         })
+        </script>
         </div>
         <% if @toast %>
           <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true" data-bs-delay="3000">
@@ -46,7 +61,9 @@
         <% else %>
           <div class="d-flex gap-3 BottoniStella justify-content-center">
             <% Note::MAX_RATING.times do |n| %>
-              <%= inline_svg_tag("star.svg", class: "w-8 h-8 #{star_rating_class(@note, n)}") %>
+              <svg xmlns="http://www.w3.org/2000/svg"  id="<%= n + 1 %>" width="16" height="16" fill="currentColor" class="star" viewBox="0 0 16 16">
+                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+              </svg>
             <% end %>
           </div>
         <% end %>
@@ -89,7 +106,7 @@
         <% if user_signed_in? %>
           <% if current_user.id != @note.user.id %>
             <p class="Message" style="background-color: #f77062;color:black;border: 3px solid black;border-radius: 80px">
-            <%= link_to 'Message me', conversations_path(sender_id: current_user.id, recipient_id: @note.user.id), method: 'post', class: "btn" %></p>
+              <%= link_to 'Message me', conversations_path(sender_id: current_user.id, recipient_id: @note.user.id), method: 'post', class: "btn" %></p>
           <% end %>
         <% end %>
       </div>
@@ -223,3 +240,49 @@
       mainArea.style.display = 'none';
     });
   </script>
+ <!-- Nel tuo file HTML, preferibilmente prima della chiusura del tag body -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    if (<%= @note.user.id == current_user.id%>){return}
+    // Seleziona tutti gli elementi SVG delle stelle
+    const stars = document.querySelectorAll(".star");
+
+    // Funzione di callback quando il mouse entra nell'elemento SVG
+    function handleMouseOver(event) {
+      const starId = event.target.id; // Ottieni l'ID dell'elemento SVG selezionato (ad esempio, "star1")
+      
+      stars.forEach(function(star) {
+        // Ottieni l'ID della stella corrente
+        const currentStarId = star.id;
+        
+        // Confronta l'ID della stella corrente con l'ID dell'elemento SVG su cui è avvenuto l'hover
+        // Se l'ID della stella corrente è minore dell'ID della stella su cui è avvenuto l'hover,
+        // aggiungi la classe "yellow" per cambiarne il colore
+        if(currentStarId <= starId) {
+          if(star.classList.contains("text-warning") == false)
+          star.classList.add("hover-star");
+        } 
+      });
+      // Esegui altre azioni desiderate quando il mouse entra nell'elemento SVG
+    }
+
+    // Funzione di callback quando il mouse esce dall'elemento SVG
+    function handleMouseOut(event) {
+      const starId = event.target.id; // Ottieni l'ID dell'elemento SVG selezionato (ad esempio, "star1")
+     
+
+      
+      stars.forEach(function(star) {
+        if(star.classList.contains("hover-star")){
+        star.classList.remove("hover-star");
+      }
+      });
+    }
+
+    // Aggiungi l'evento di hover a ciascun elemento SVG
+    stars.forEach(function(star) {
+      star.addEventListener("mouseover", handleMouseOver);
+      star.addEventListener("mouseleave", handleMouseOut);
+    });
+  });
+</script>

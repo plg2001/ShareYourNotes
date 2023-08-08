@@ -142,17 +142,13 @@ body {
   max-width: 100%;
 }
 
-  .star-rating-icon:hover {
-    transform: scale(1.075);
-    transition: 0.2s ease-in;
-    cursor: pointer;
+  .yellow{
+    fill: yellow;
   }
 
-  .star-hover:hover{
-    transform: scale(1.5);
-    transition: 0.2s ease-in;
+  .hover-star{
     cursor: pointer;
-    fill: #ffc107;
+    fill: #ffc10773;
    }
    
    
