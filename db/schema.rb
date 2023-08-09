@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_28_130201) do
+ActiveRecord::Schema.define(version: 2023_08_09_152309) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 2023_07_28_130201) do
     t.integer "rating", default: 0, null: false
     t.integer "views", default: 0
     t.integer "downloads", default: 0
+    t.string "format"
     t.index ["faculty_id"], name: "index_notes_on_faculty_id"
     t.index ["user_id"], name: "index_notes_on_user_id"
   end

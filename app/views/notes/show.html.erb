@@ -89,8 +89,17 @@
                 <%= image_tag("local.svg",style: "width: 45px; height: 45px;",id: "local") %><br />
                 <label style="color:white;" class="fw-bold">Locale</label>
               </div>
+              <% file_extension = @note.format %>
+              <% file_id = 0 %>
               <% google_drive_link = @note.google_drive_link %>
-              <%file_id = google_drive_link.match(/\/file\/d\/(.+?)\//)[1]%>
+
+              <% if file_extension == ".pdf" %>
+                <% file_id = google_drive_link.match(/\/file\/d\/(.+?)\//)[1]   %>
+              <% end %>
+
+              <% if file_extension == ".docx" %>
+                <% file_id = google_drive_link.match(/\/document\/d\/(.+?)\//)[1]   %>
+              <% end %>
               <%= link_to download_on_my_gd_path(id: @note.id,google_id: file_id),style: "text-decoration: none;" do %>
                 <div class="scarica">
                   <%= image_tag("cloud.svg",style: "width: 45px; height: 45px;",class: "scarica") %><br />
@@ -162,8 +171,19 @@
           </div>
         </div>
         <div class="preview mb-4">
+          <% file_extension = @note.format %>
+          <% file_id = 0 %>
           <% google_drive_link = @note.google_drive_link %>
-          <%file_id = google_drive_link.match(/\/file\/d\/(.+?)\//)[1]%>
+
+          <% if file_extension == ".pdf" %>
+            <% file_id = google_drive_link.match(/\/file\/d\/(.+?)\//)[1]   %>
+          <% end %>
+
+          <% if file_extension == ".docx" %>
+            <% file_id = google_drive_link.match(/\/document\/d\/(.+?)\//)[1]   %>
+          <% end %>
+          
+          
           <% preview_url = "https://drive.google.com/file/d/#{file_id}/preview" %>
           <iframe src="<%= preview_url %>" width="900px" height="600px"></iframe>
         </div>

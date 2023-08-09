@@ -96,8 +96,20 @@ class NotesController < ApplicationController
   def show
     @note = Note.find(params[:id])
     @comment = Comment.new
+
+    file_extension = @note.format
+
+    google_id = 0
     google_drive_link = @note.google_drive_link
-    google_id = google_drive_link.match(/\/file\/d\/(.+?)\//)[1]
+
+    if file_extension == "pdf"
+      google_id = google_drive_link.match(/\/file\/d\/(.+?)\//)[1]  
+    end
+
+    if file_extension == "docx"
+      google_id = google_drive_link.match(/\/document\/d\/(.+?)\//)[1]  
+    end
+    
     
     if user_signed_in? 
       if (@visualizzazione = Visualizzazione.find_by(note_id: @note.id, user_id: current_user.id)) == nil
@@ -169,6 +181,7 @@ class NotesController < ApplicationController
       @note.user = current_user
       @note.tags = Tag.where(id: params[:note][:tag_ids])
       @note.topics = Topic.where(id: params[:note][:topic_ids])
+      @note.format = File.extname(file_name)
       file_id = params[:file_id]
       
       
@@ -224,9 +237,9 @@ class NotesController < ApplicationController
       @note.tags = Tag.where(id: params[:note][:tag_ids])
       @note.topics = Topic.where(id: params[:note][:topic_ids])
       file = params[:file]
-
       filename = file.original_filename
-     
+      @note.format = File.extname(filename)
+
       tempfile = file.tempfile
 
       session = GoogleDrive::Session.from_config("config.json")
@@ -281,9 +294,11 @@ class NotesController < ApplicationController
   def download_file
     @note = Note.find(params[:id])
     @note.increment_download_count
+    file_extension= @note.format
     session = GoogleDrive::Session.from_config("config.json")
     file = session.file_by_url(@note.google_drive_link)
-    file_extension = File.extname(@note.name)
+    
+
 
     if params[:format] != nil
       user_required_format = params[:format]
@@ -298,6 +313,18 @@ class NotesController < ApplicationController
         ConvertApi.config.api_secret = 'aTSx7qLnIcyq8oDe'
         result = ConvertApi.convert('docx', { File: file.web_content_link }, from_format: 'pdf')
         redirect_to result.files[0].url
+      end
+    end
+
+    if file_extension == ".docx" 
+      if user_required_format == "pdf"
+        ConvertApi.config.api_secret = 'aTSx7qLnIcyq8oDe'
+        result = ConvertApi.convert('pdf', { File: file.web_content_link }, from_format: 'docx')
+        redirect_to result.files[0].url
+      end
+
+      if user_required_format == "docx"
+        redirect_to file.web_content_link
       end
     end
     # Convert the downloaded file data to PDF using ConvertApi
