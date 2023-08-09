@@ -339,7 +339,7 @@ class NotesController < ApplicationController
     render :new, alert: "File deselezionato"
   end
 
-  def update
+  def updaterating
     @note = Note.find(params[:id])
     
 
@@ -466,6 +466,22 @@ class NotesController < ApplicationController
         @tag_ids_union << tag_id
         @notes_union << [note]
       end
+    end
+  end
+  
+
+  def edit
+    @note = current_user.notes.find(params[:id])
+  end
+
+
+  def update
+    @note = current_user.notes.find(params[:id])
+
+    if @note.update(note_params)
+      redirect_to @note, notice: 'Appunto aggiornato con successo.'
+    else
+      render :edit
     end
   end
 

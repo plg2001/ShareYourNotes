@@ -36,12 +36,16 @@ Rails.application.routes.draw do
   resources :notes
   
 
-  
+  resources :notes do
+    member do
+      get 'edit' # Aggiungi una route per l'azione di modifica
+    end
+  end
 
   get '/favourite', to: 'notes#favourite', as: 'favourite'
   post '/add_favourite', to: 'notes#add_favourite', as: 'add_favourite'
   delete '/remove_favourite', to: 'notes#remove_favourite', as: 'remove_favourite'
- 
+  
 
   get '/users/search', to: 'users#search', as: 'user_search'
   get '/users/:id', to: 'users#show', as: 'user'
@@ -64,7 +68,7 @@ Rails.application.routes.draw do
    resources :notes
 
    get 'suggested', to: 'notes#suggested', as: :suggested
-
+   patch '/updaterating/:id', to: 'notes#updaterating', as: 'update_rating'
    get 'best', to: 'notes#best', as: :best
    
 end

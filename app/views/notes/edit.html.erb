@@ -1,0 +1,48 @@
+
+<h1>Modifica Appunto</h1>
+
+<%= form_for @note, url: note_path(@note), method: :patch do |f| %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, value: @note.name  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description, value: @note.description %>
+  </div>
+
+
+
+  <div class="mb-3">
+    <%= f.label :tags, class: "form-label" ,style: "color:white; font-weight: bold;" %>
+    <div class="custom-dropdown">
+      <div class="options-container">
+        <ul class="options-list">
+          <% Tag.all.each do |tag| %>
+            <li>
+              <div class="tag-all">
+                <%= check_box_tag "note[tag_ids][]", tag.id, @note.tags.include?(tag) %>
+                <%= tag.name %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  
+<div class="mb-3">
+  <div class="div-field">
+    <%= f.label :faculty_id, "Facoltà", style: "color: white;" %>
+    <%= f.collection_select :faculty_id, Faculty.all, :id, :name, prompt: "Seleziona una facoltà", style: "font-weight: bold;" %>
+  </div>
+</div>
+  <div class="actions">
+    <%= f.submit "Salva modifiche" %>
+  </div>
+<% end %>
+
+<%= link_to "Torna all'appunto", @note %>

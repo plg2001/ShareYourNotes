@@ -1,5 +1,6 @@
 <%= stylesheet_link_tag 'show', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag 'valutazione', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= link_to "Modifica Appunto", edit_note_path(@note) %>
 <div class="container Pagina">
   <h1 class="fw-bold text-center mb-4" style="color:black;"><%= @note.name %></h1>
   <div class="monstraDescrizione_container">
@@ -23,7 +24,7 @@
       <% if current_user && current_user != @note.user %>
         <div class="d-flex gap-3 BottoniStella justify-content-center">
           <% Note::MAX_RATING.times do |n| %>
-            <%= button_to note_path(@note),
+            <%= button_to update_rating_path(@note),
               method: :patch,
               params: { note: { rating: n + 1 } },
               class: "border-0 bg-transparent d-flex justify-content-center BottoneSingolo" do %>
