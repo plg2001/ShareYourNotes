@@ -1,5 +1,6 @@
 require 'google_drive'
 require "googleauth"
+require 'convert_api'
 
 class NotesController < ApplicationController
   before_action :authenticate_user!
@@ -146,7 +147,7 @@ class NotesController < ApplicationController
 
       end
     end
-    @note.increment_view_count
+   
 
   end
   
@@ -223,7 +224,9 @@ class NotesController < ApplicationController
       @note.tags = Tag.where(id: params[:note][:tag_ids])
       @note.topics = Topic.where(id: params[:note][:topic_ids])
       file = params[:file]
+
       filename = file.original_filename
+      puts "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD  " + File.extname(filename) 
       tempfile = file.tempfile
 
       session = GoogleDrive::Session.from_config("config.json")
@@ -280,9 +283,29 @@ class NotesController < ApplicationController
     @note.increment_download_count
     session = GoogleDrive::Session.from_config("config.json")
     file = session.file_by_url(@note.google_drive_link)
+    file_extension = File.extname(@note.name)
 
+    if params[:format] != nil
+      user_required_format = params[:format]
+    end
 
-    redirect_to file.web_content_link
+    if file_extension == ".pdf" 
+      if user_required_format == "pdf"
+        redirect_to file.web_content_link
+      end
+
+      if user_required_format == "docx"
+        ConvertApi.config.api_secret = 'aTSx7qLnIcyq8oDe'
+        result = ConvertApi.convert('docx', { File: file.web_content_link }, from_format: 'pdf')
+        redirect_to result.files[0].url
+      end
+    end
+    # Convert the downloaded file data to PDF using ConvertApi
+    
+
+  
+   
+    
   end
 
   def deseleziona
@@ -334,9 +357,6 @@ class NotesController < ApplicationController
     @note = Note.find(params[:id])
     google_id = params[:google_id]
     
-
-
-  
 
     if current_user.google_drive_refresh_token != nil && current_user.provider == "google_oauth2"
       user_credentials = Google::Auth::UserRefreshCredentials.new(
