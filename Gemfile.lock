@@ -98,6 +98,7 @@ GEM
     chartkick (5.0.2)
     coderay (1.1.3)
     concurrent-ruby (1.2.2)
+    convert_api (1.4.0)
     crass (1.0.6)
     date (3.3.3)
     declarative (0.0.20)
@@ -428,6 +429,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   chartkick
+  convert_api
   devise
   devise_lastseenable
   faraday (= 0.17.4)

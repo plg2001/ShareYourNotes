@@ -226,7 +226,7 @@ class NotesController < ApplicationController
       file = params[:file]
 
       filename = file.original_filename
-      puts "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD  " + File.extname(filename) 
+     
       tempfile = file.tempfile
 
       session = GoogleDrive::Session.from_config("config.json")
