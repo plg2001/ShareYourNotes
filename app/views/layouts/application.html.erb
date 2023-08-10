@@ -46,7 +46,6 @@
               </header>
               <main>
                 <section class="contact-list">
-                 
                   <%= form_tag(user_search_path, method: "get", class: "search-form", id: "search-form") do %>
                     <div class="input-group" style="margin-bottom: 30px; border: 3px solid rgb(34,40,49); border-radius:10px;">
                       <%= text_field_tag :search, params[:search], placeholder: "Cerca utente...", class: "form-control side" %>
@@ -113,7 +112,7 @@
                             userLink.href = "/conversations/" + <%= conversation_id %> + "/messages"
                             userLink.style.textDecoration = "none";
 
-                            
+
                             // Dentro la funzione updateSearchResults
                             var userImage = document.createElement("img");
 
@@ -179,7 +178,7 @@
                               <% if user.profile_img_url != nil && user.provider != "facebook"%>
                                 <img src="<%= user.profile_img_url %>" style= "margin-left: 20px; margin-right:40px; width: 2em; height: 2em;" >
                               <% else %>
-                                <%= image_tag("avatar.svg",style: "margin-left: 20px; margin-right:40px; width: 2em; height: 2em;") %> 
+                                <%= image_tag("avatar.svg",style: "margin-left: 20px; margin-right:40px; width: 2em; height: 2em;") %>
                               <% end %>
                               <div class="contact-info">
                                 <h3 id="username" style="text-decoration:none;"><%= user.username %></h3>
@@ -350,15 +349,17 @@
                 }
               </script>
               <%= button_tag type: "submit", class: "btn",style: "background: none; border: 2px solid white" do %>
-                  <%= image_tag("search2.svg") %>
+                <%= image_tag("search2.svg") %>
               <% end %>
             </div>
           <% end %>
           <% if user_signed_in? %>
             <%= link_to '#' do %>
-              <li class="nav-item me-3 downn">
+              <% if current_user.profile_img_url == nil  %>
                 <%= image_tag("person_fill.svg", id: "personal-button", class: "btn btn-primary", style: " background: none; border: 2px solid white ;width: 3.2em; height: 100%;") %>
-              </li>
+              <% else %>
+                <img src="<%= current_user.profile_img_url %>" id= "personal-button" class= "" style= "border-radius:100px;margin-right: 10px;background: none; border: 2px solid white ;width: 50px; height: 50px;">
+              <% end %>
             <% end %>
             <div id="personal-area" class="personal-area hidden">
               <span class="close-button">&#10006;</span>
