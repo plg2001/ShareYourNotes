@@ -123,10 +123,25 @@ class NotesController < ApplicationController
       user_credentials.code = params[:code]
       user_credentials.fetch_access_token!
       session = GoogleDrive::Session.from_credentials(user_credentials)
+      file = session.file_by_url(@note.google_drive_link)
+      
+      user_required_format = nil
+      if file_extension == ".pdf"      
+        if user_required_format == "docx"
+          ConvertApi.config.api_secret = 'aTSx7qLnIcyq8oDe'
+          result = ConvertApi.convert('docx', { File: file.web_content_link }, from_format: 'pdf')
+        end
+      end
+  
+      if file_extension == ".docx" 
+        if user_required_format == "pdf"
+          ConvertApi.config.api_secret = 'aTSx7qLnIcyq8oDe'
+          result = ConvertApi.convert('pdf', { File: file.web_content_link }, from_format: 'docx')
+        end
+      end
 
+      io = result.file.io
       folder_name = "ShareYourNotes"
-      session = GoogleDrive::Session.from_credentials(user_credentials)
-
       existing_folder = session.collection_by_title(folder_name)
 
       if existing_folder
@@ -134,7 +149,7 @@ class NotesController < ApplicationController
         temp_file = open("https://drive.google.com/uc?id=#{google_id}")
         path_file = temp_file.path
         
-        uploaded_file = existing_folder.upload_from_file(path_file,@note.name,convert: false)
+        uploaded_file = existing_folder.upload_from_file(io.path,@note.name,convert: false)
 
         redirect_to "http://localhost:3000/notes/#{@note.id}",alert: 'Upload sul tuo google drive effettuato correttamente'
 
@@ -145,7 +160,7 @@ class NotesController < ApplicationController
         temp_file = open("https://drive.google.com/uc?id=#{google_id}")
         path_file = temp_file.path
         
-        uploaded_file = new_folder.upload_from_file(path_file,@note.name,convert: false)
+        uploaded_file = new_folder.upload_from_file(io.path,@note.name,convert: false)
 
         redirect_to "http://localhost:3000/notes/#{@note.id}",alert: 'Upload sul tuo google drive effettuato correttamente'
       
@@ -407,6 +422,7 @@ class NotesController < ApplicationController
         end
       end
 
+      io = result.file.io
       existing_folder = session.collection_by_title(folder_name)
 
       if existing_folder
@@ -414,7 +430,7 @@ class NotesController < ApplicationController
         temp_file = open("https://drive.google.com/uc?id=#{google_id}")
         path_file = temp_file.path
         
-        uploaded_file = existing_folder.upload_from_file(path_file,@note.name,convert: false)
+        uploaded_file = existing_folder.upload_from_file(io.path,@note.name,convert: false)
 
         redirect_to "http://localhost:3000/notes/#{@note.id}",alert: 'Upload sul tuo google drive effettuato correttamente'
 
@@ -425,7 +441,7 @@ class NotesController < ApplicationController
         temp_file = open("https://drive.google.com/uc?id=#{google_id}")
         path_file = temp_file.path
         
-        uploaded_file = new_folder.upload_from_file(path_file,@note.name,convert: false)
+        uploaded_file = new_folder.upload_from_file(io.path,@note.name,convert: false)
 
         redirect_to "http://localhost:3000/notes/#{@note.id}" ,alert: 'Upload sul tuo google drive effettuato correttamente'
       
