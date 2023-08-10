@@ -27,7 +27,8 @@ class User < ApplicationRecord
     access_token = auth.credentials.token
     refresh_token = auth.credentials.refresh_token
     expires_at = auth.credentials.expires_at
-  
+    
+    user_image = auth.info.image
     name_split = auth.info.name.split(" ")
     user = User.where(email: auth.info.email).first
   
@@ -39,7 +40,8 @@ class User < ApplicationRecord
         user.update!(
           google_drive_access_token: access_token,
           google_drive_refresh_token: refresh_token,
-          google_drive_expires_at: expires_at
+          google_drive_expires_at: expires_at,
+          profile_img_url: user_image
         )
       end
     else
@@ -55,7 +57,8 @@ class User < ApplicationRecord
         password_confirmation: password,
         google_drive_access_token: access_token,
         google_drive_refresh_token: refresh_token,
-        google_drive_expires_at: expires_at
+        google_drive_expires_at: expires_at,
+        profile_img_url: user_image
       )
       user.skip_confirmation!
       user.save!
