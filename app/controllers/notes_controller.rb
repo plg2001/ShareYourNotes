@@ -5,6 +5,11 @@ require 'convert_api'
 class NotesController < ApplicationController
   before_action :authenticate_user!
   skip_before_action :authenticate_user!, only: [:index, :search, :show]
+
+  def index
+    order = params[:order] == 'desc' ? 'name DESC' : 'name ASC'
+    @notes = Note.order(order)
+  end
   
   def search
     @notes = Note.all
@@ -51,7 +56,7 @@ class NotesController < ApplicationController
       @notes = @notes.where("uploaded_at <= ?", before_date.end_of_day)
     end
   
-    order = params[:order] == 'desc' ? 'name DESC' : 'name ASC'
+    order = params[:order] == 'desc' ? 'name ASC' : 'name DESC'
     @notes = @notes.order(order)
   
     render 'search'
@@ -191,7 +196,7 @@ class NotesController < ApplicationController
       uploaded_file = destination_folder.upload_from_file(path_file,file_name,convert: false)
 
       if uploaded_file 
-        File.delete(path_file)
+  
         file_url = uploaded_file.human_url
         @note.google_drive_link = file_url
         
@@ -334,7 +339,7 @@ class NotesController < ApplicationController
     render :new, alert: "File deselezionato"
   end
 
-  def updaterating
+  def update
     @note = Note.find(params[:id])
     
 
@@ -461,22 +466,6 @@ class NotesController < ApplicationController
         @tag_ids_union << tag_id
         @notes_union << [note]
       end
-    end
-  end
-  
-
-  def edit
-    @note = current_user.notes.find(params[:id])
-  end
-
-
-  def update
-    @note = current_user.notes.find(params[:id])
-
-    if @note.update(note_params)
-      redirect_to @note, notice: 'Appunto aggiornato con successo.'
-    else
-      render :edit
     end
   end
 
