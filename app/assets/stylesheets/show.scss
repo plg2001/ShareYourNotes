@@ -470,8 +470,9 @@ display: inline-block;
   font-family: Arial, sans-serif;
   width: 350px;
   height: 100px;
-  border: 2px solid white; 
-  
+ 
+  border: none; /* Rimuovi il bordo bianco */
+  overflow: hidden; /* Nascondi l'overflow per mostrare solo l'animazione */
 }
 
 
@@ -592,7 +593,7 @@ display: inline-block;
 
 .card1 {
   background-color: #222831;
-  height: 23rem;
+  height: 21rem;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -603,10 +604,8 @@ display: inline-block;
   box-shadow: 0 10px 50px #f77062;
 }
 
-.card__name {
-  margin-top: 15px;
-  font-size: 1.5em;
-}
+
+
 .cardlink {
   display: inline-block;
   padding: 10px 20px;

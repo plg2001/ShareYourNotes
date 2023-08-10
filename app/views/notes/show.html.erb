@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag 'show', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'progress_bar', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag 'valutazione', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= link_to "Modifica Appunto", edit_note_path(@note) %>
 <div class="container Pagina">
@@ -103,7 +104,7 @@
           <%= image_tag("download.svg",style: "width: 45px; height: 45px;") %>
           <label class="fw-bold" style="color:black;" >Download</label>
         </div>
-        <div id="dialog" class="dialog-container">
+        <div id="dialog" class="dialog-container ">
           <span class="dialog-close"><%= image_tag("close.svg") %></span>
           <span class="dialog-back" id="back"><%= image_tag("back.png") %></span>
           <div class="local-cloud">
@@ -130,6 +131,7 @@
                 <label style="color:white; margin-top: 5px;" class="fw-bold">Word</label>
               </div>
             <% end %>
+             
           </div>
           <% file_extension = @note.format %>
           <% file_id = 0 %>
@@ -155,6 +157,7 @@
               </div>
             <% end %>
           </div>
+          <div class="cssload-zenith" id="load" style="margin-top:50px;display:none;" ></div>
         </div>
       </div>
     </div>
@@ -246,12 +249,11 @@
         <%end%>
       </div>
       <div class="d-flex gap-1 stelle justify-content-center">
-      <% Note::MAX_RATING.times do |n| %>
-      <%= inline_svg_tag("star.svg",
+        <% Note::MAX_RATING.times do |n| %>
+          <%= inline_svg_tag("star.svg",
         class: "w-8 h-8 #{staruser_rating_class(@note.user, n)}") %>
-    <% end %>
-  </div>
-    </div>
+        <% end %>
+      </div>
     <button class="btn1 draw-border">Message</button>
   </div>
 </div>
@@ -265,20 +267,20 @@
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-  
+
     const card = document.getElementById("id_card");
     const img = document.getElementById("click");
     const online_indicator = document.getElementById("indicator");
 
     img.addEventListener("click",function(e){
       if (card.style.display == "none"){
-       card.style.display = "flex";
+       $(card).slideToggle();
        }
        else{
-        card.style.display = "none";
+        $(card).slideToggle();
        }
     });
-    
+
 
     if (<%= @note.user.last_seen != nil %> && <%= @note.user.last_seen > 10.minutes.ago %> ){
       online_indicator.classList.add("online1");
@@ -286,9 +288,9 @@
     else{
       online_indicator.classList.add("offline1");
       }
-    
+
     }
-    
+
   )
 </script>
 <script>
@@ -299,12 +301,18 @@
     const back_img = document.getElementById("back");
     const seleziona_il_formato1 = document.getElementById("seleziona_il_formato1");
     const label_format = document.getElementById("label-format");
+    const load = document.getElementById("load");
 
     selection_format.addEventListener("click",function(e){
       dialog.style.height = "270px";
       back_img.style.display = "block";
       seleziona_il_formato1.style.display = "flex";
       label_format.style.display ="block";
+    })
+
+    seleziona_il_formato1.addEventListener("click",function(e){
+      load.style.display = "flex";
+      seleziona_il_formato1.style.display ="none"
     })
 
     back_img.addEventListener("click",function(e){
