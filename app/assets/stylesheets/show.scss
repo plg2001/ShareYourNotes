@@ -537,7 +537,11 @@ display: inline-block;
   fill:grey;
 }
 
-
+.user_img:hover{
+  transform: scale(1.25);
+  transition: 0.2s ease-in;
+  cursor: pointer;
+}
 .user_img{
   position: fixed;
     bottom: 0;
@@ -577,7 +581,7 @@ display: inline-block;
 
 .user_box {
   display: grid;
-  height: 75vh;
+  height: 65vh;
   font-family: 'Baloo Paaji 2', cursive;
   position: fixed;
     bottom: 0;
@@ -588,7 +592,7 @@ display: inline-block;
 
 .card1 {
   background-color: #222831;
-  height: 25rem;
+  height: 23rem;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -603,6 +607,19 @@ display: inline-block;
   margin-top: 15px;
   font-size: 1.5em;
 }
+.cardlink {
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  transition: background-position 0.5s ease, color 0.5s ease;
+}
+
+.cardlink:hover {
+  background-position: -100% 0;
+  color: #f77062;
+}
+
 
 .card__image {
   height: 120px;
@@ -746,6 +763,10 @@ display: inline-block;
   font-size: 1.2em;
 }
 
-  
+.grid-child-posts{
+  position: relative;
+  top: -5px;
+}
+
 
 

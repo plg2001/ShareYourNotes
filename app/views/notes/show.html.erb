@@ -235,14 +235,22 @@
     <% else %>
       <%= image_tag("avatar.svg",class:'card__image',style:"border: 5px solid black;",id: "img") %>
     <% end %>
-    <p class="card__name"><%= @note.user.username %></p>
+    <p class="card__name" ><%= link_to @note.user.username, user_path(@note.user), class: 'cardlink',style: "text-decoration:none;font-weight:bold;" %></p>
     <div class="grid-container">
       <div class="grid-child-posts">
-        902 Post
+        <%= count = Note.where(user_id: @note.user.id).count%>
+        <% if count == 1%>
+          <label>Appunto</label>
+        <%else%>
+          <label>Appunti</label>
+        <%end%>
       </div>
-      <div class="grid-child-followers">
-        1300 Likes
-      </div>
+      <div class="d-flex gap-1 stelle justify-content-center">
+      <% Note::MAX_RATING.times do |n| %>
+      <%= inline_svg_tag("star.svg",
+        class: "w-8 h-8 #{staruser_rating_class(@note.user, n)}") %>
+    <% end %>
+  </div>
     </div>
     <button class="btn1 draw-border">Message</button>
   </div>

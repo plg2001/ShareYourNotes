@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag 'ricerca', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag 'usershow', media: 'all', 'data-turbolinks-track': 'reload' %>
 <div class="container text-center pagina">
-  <h1 class='boh fw-bold'><strong><%= @user.username + "#" + @user.id.to_s%></strong> </h1>
+  <h1 class='boh fw-bold'style="color:black"><strong><%= @user.username + "#" + @user.id.to_s%></strong> </h1>
   <p class='boh fw-bold'><%= @user.name %></p>
 
 
@@ -18,7 +18,7 @@
 
 <div class="container">
 
-<h1 class="mt-5">Appunti di <%= @user.username %></h1>
+<h1 class="mt-5"style="color:black">Appunti di <%= @user.username %></h1>
 
 <% @user.notes.each do |note| %>
   <div class="card my-4">
