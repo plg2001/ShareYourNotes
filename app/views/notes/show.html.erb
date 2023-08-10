@@ -3,39 +3,38 @@
 <%= link_to "Modifica Appunto", edit_note_path(@note) %>
 <div class="container Pagina">
   <div style= "display: flex; flex-wrap: wrap; gap: 80px; justify-content: center;">
-  <h1 class="fw-bold text-center mb-4" style="color:black;"><%= @note.name %></h1>
-  <% if current_user != @note.user %>
-    <% if current_user && current_user.favourite_notes.include?(@note) %>
-      <%= link_to remove_favourite_path(note_id: @note.id), method: :delete ,style: "text-decoration: none;" do%>
-      <%= inline_svg_tag("heart-fill.svg", style: "margin-top: 70%;") %>
-    <% end %>
-    <% elsif current_user%>
-      <%= link_to  add_favourite_path(note_id: @note.id), method: :post ,style: "text-decoration: none;" do%>
-      <%= inline_svg_tag("heart.svg", style: "margin-top: 70%;") %>
-    <% end %>
-    <% end %>
+    <h1 class="fw-bold text-center mb-4" style="color:black;"><%= @note.name %></h1>
+    <% if current_user != @note.user %>
+      <% if current_user && current_user.favourite_notes.include?(@note) %>
+        <%= link_to remove_favourite_path(note_id: @note.id), method: :delete ,style: "text-decoration: none;" do%>
+          <%= inline_svg_tag("heart-fill.svg", style: "margin-top: 70%;") %>
+        <% end %>
+      <% elsif current_user%>
+        <%= link_to  add_favourite_path(note_id: @note.id), method: :post ,style: "text-decoration: none;" do%>
+          <%= inline_svg_tag("heart.svg", style: "margin-top: 70%;") %>
+        <% end %>
+      <% end %>
     <% else %>
       <%= link_to  remove_note_path(@note), method: :delete, style: "text-decoration: none;", style: "text-decoration: none;", data: { confirm: 'Sei sicuro di voler eliminare l\'appunto?' } do%>
-      <%= image_tag("delete.svg",style: "width: 20px; height: 20px; margin-top: 80%;") %>
+        <%= image_tag("delete.svg",style: "width: 20px; height: 20px; margin-top: 80%;") %>
+      <% end %>
     <% end %>
-  <% end %>
   </div>
   <div class="Author-Message mb-4" >
-        <p class="Autore"><%= link_to @note.user.username, user_path(@note.user), class: 'link' %></p>
-        <% if user_signed_in? %>
-          <% if current_user.id != @note.user.id %>
-            <p class="Message" style="background-color: #f77062;color:black;border: 3px solid black;border-radius: 80px">
-              <%= link_to 'Message me', conversations_path(sender_id: current_user.id, recipient_id: @note.user.id), method: 'post', class: "btn" %></p>
-          <% end %>
-        <% end %>
-      </div>
-      <p class="text-center mb-4">
-  <% date_string = @note.uploaded_at.to_s %>
-  <% parsed_date = DateTime.parse(date_string) %>
-  <% formatted_date = parsed_date.strftime("%d-%m-%Y") %>
-  <%= formatted_date %>
-</p>
-
+    <p class="Autore"><%= link_to @note.user.username, user_path(@note.user), class: 'link' %></p>
+    <% if user_signed_in? %>
+      <% if current_user.id != @note.user.id %>
+        <p class="Message" style="background-color: #f77062;color:black;border: 3px solid black;border-radius: 80px">
+          <%= link_to 'Message me', conversations_path(sender_id: current_user.id, recipient_id: @note.user.id), method: 'post', class: "btn" %></p>
+      <% end %>
+    <% end %>
+  </div>
+  <p class="text-center mb-4">
+    <% date_string = @note.uploaded_at.to_s %>
+    <% parsed_date = DateTime.parse(date_string) %>
+    <% formatted_date = parsed_date.strftime("%d-%m-%Y") %>
+    <%= formatted_date %>
+  </p>
   <div class="monstraDescrizione_container">
     <button id="mostraDescrizione" class="btn text-center" style="background-color: #f77062;color:black;border: 3px solid black;border-radius: 80px">Mostra Descrizione</button>
   </div>
@@ -54,35 +53,35 @@
           <p><%= @note.downloads %></p>
         </div>
       </div>
-    <div class="rating-section mb-4">
-      <% if current_user && current_user != @note.user %>
-        <div class="d-flex gap-0 BottoniStella justify-content-center">
-          <% Note::MAX_RATING.times do |n| %>
-            <%= button_to update_rating_path(@note),
+      <div class="rating-section mb-4">
+        <% if current_user && current_user != @note.user %>
+          <div class="d-flex gap-0 BottoniStella justify-content-center">
+            <% Note::MAX_RATING.times do |n| %>
+              <%= button_to update_rating_path(@note),
               method: :patch,
               params: { note: { rating: n + 1 } },
               class: "border-0 bg-transparent d-flex justify-content-center BottoneSingolo" do %>
-              <svg xmlns="http://www.w3.org/2000/svg" id="<%= n + 1 %>" width="16" height="16" fill="currentColor" class="star" viewBox="0 0 16 16">
-                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-              </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" id="<%= n + 1 %>" width="16" height="16" fill="currentColor" class="star" viewBox="0 0 16 16">
+                  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                </svg>
+              <% end %>
             <% end %>
-          <% end %>
-          <script>
-            const rating = <%= @note.rating%>
-            const stars = document.querySelectorAll(".star");
+            <script>
+              const rating = <%= @note.rating%>
+              const stars = document.querySelectorAll(".star");
 
-            stars.forEach(function(star){
-             if (star.id <= rating){
-               star.classList.add("text-warning");
-             }
-             else {
-               star.classList.add("text-muted");
-             }
-            })
-          </script>
-        </div>
+              stars.forEach(function(star){
+               if (star.id <= rating){
+                 star.classList.add("text-warning");
+               }
+               else {
+                 star.classList.add("text-muted");
+               }
+              })
+            </script>
+          </div>
         <% else %>
-          <div class="d-flex gap-0 BottoniStella justify-content-center">
+          <div class="d-flex gap-3 BottoniStella justify-content-center">
             <% Note::MAX_RATING.times do |n| %>
               <svg xmlns="http://www.w3.org/2000/svg"  id="<%= n + 1 %>" width="16" height="16" fill="currentColor" class="star" viewBox="0 0 16 16">
                 <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
@@ -91,113 +90,47 @@
           </div>
         <% end %>
       </div>
-      </div>
-      <div class="text-center mb-4">
-        <div class="btn-group Drive" role="group" aria-label="Pulsanti">
-          <%= link_to  @note.google_drive_link,style: "text-decoration: none; color: black;" do%>
-            <div class="google-drive-button">
-              <%= image_tag("Google_Drive_logo.png",style: "width: 45px; height: 45px;") %>
-              <label class="fw-bold">Link Google Drive</label>
-            </div>
-          <% end %>
-          <div class="download-open">
-            <%= image_tag("download.svg",style: "width: 45px; height: 45px;") %>
-            <label class="fw-bold" style="color:black;" >Download</label>
+    </div>
+    <div class="text-center mb-4">
+      <div class="btn-group Drive" role="group" aria-label="Pulsanti">
+        <%= link_to  @note.google_drive_link,style: "text-decoration: none; color: black;" do%>
+          <div class="google-drive-button">
+            <%= image_tag("Google_Drive_logo.png",style: "width: 45px; height: 45px;") %>
+            <label class="fw-bold">Link Google Drive</label>
           </div>
-          <div id="dialog" class="dialog-container">
-            <span class="dialog-close"><%= image_tag("close.svg") %></span>
-            <span class="dialog-back" id="back"><%= image_tag("back.png") %></span>
-            <div class="local-cloud">
-              <div class="scarica" id="format1">
-                <%= image_tag("local.svg",style: "width: 45px; height: 45px;",id: "local") %><br />
-                <label style="color:white;" class="fw-bold">Locale</label>
-              </div>
-              <div class="scarica" id="format2">
-                <%= image_tag("cloud.svg",style: "width: 45px; height: 45px;",class: "scarica") %><br />
-                <label style="color:white;" class="fw-bold scarica">Drive</label>
-              </div>
-            </div>
-            <label style="color:white;display:none; margin-top:30px;" id="label-format" class="fw-bold">Seleziona il Formato</label>
-            <div class="local-cloud" style = "display: none;margin-top: 30px;" id="seleziona_il_formato1">
-            
-              <%= link_to download_note_path(@note,format: "pdf"),style: "text-decoration: none;" do %>
-                <div class="scarica">
-                  <%= image_tag("pdf.svg",style: "width: 45px; height: 45px;") %><br />
-                  <label style="color:white;margin-top: 5px;" class="fw-bold">PDF</label>
-                </div>
-              <% end %>
-              <%= link_to download_note_path(@note,format: "docx"),style: "text-decoration: none;" do %>
-                <div class="scarica">
-                  <%= image_tag("word.svg",style: "width: 45px; height: 45px;") %><br />
-                  <label style="color:white; margin-top: 5px;" class="fw-bold">Word</label>
-                </div>
-              <% end %>
-            </div>
-
-            <% file_extension = @note.format %>
-            <% file_id = 0 %>
-            <% google_drive_link = @note.google_drive_link %>
-            <% if file_extension == ".pdf" %>
-              <% file_id = google_drive_link.match(/\/file\/d\/(.+?)\//)[1]   %>
-            <% end %>
-            <% if file_extension == ".docx" %>
-              <% file_id = google_drive_link.match(/\/document\/d\/(.+?)\//)[1]   %>
-            <% end %>
-
-            <label style="color:white;display:none; margin-top:30px;" id="label-format" class="fw-bold">Seleziona il Formato</label>
-            <div class="local-cloud" style = "display: none;margin-top: 30px;" id="seleziona_il_formato2">
-              <%= link_to download_on_my_gd_path(id: @note.id,google_id: file_id, format: "pdf"),style: "text-decoration: none;" do %>
-                <div class="scarica">
-                  <%= image_tag("pdf.svg",style: "width: 45px; height: 45px;") %><br />
-                  <label style="color:white;margin-top: 5px;" class="fw-bold">PDF</label>
-                </div>
-              <% end %>
-              <%= link_to download_on_my_gd_path(id: @note.id,google_id: file_id,format: "docx"),style: "text-decoration: none;" do %>
-                <div class="scarica">
-                  <%= image_tag("word.svg",style: "width: 45px; height: 45px;") %><br />
-                  <label style="color:white; margin-top: 5px;" class="fw-bold">Word</label>
-                </div>
-              <% end %>
-            </div>
-          </div>
+        <% end %>
+        <div class="download-open">
+          <%= image_tag("download.svg",style: "width: 45px; height: 45px;") %>
+          <label class="fw-bold" style="color:black;" >Download</label>
         </div>
-      </div>
-      
-      <button id="mostraBtn" class="btn " style="background-color: #f77062;color:black;border: 3px solid black;border-radius: 80px">Mostra Informazioni</button>
-      <div class="dropright text-center mb-4 hidden" id="contenitoreDiv">
-        <div class="dropdown-content row">
-          <div class="row">
-            <div class="col">
-              <h6 class="dropdown-header">Tags:</h6>
-              <ul class="list-unstyled tags-topics-list">
-                <% @note.tags.each do |tag| %>
-                  <li class="tag-topic-item"><%= tag.name %></li>
-                <% end %>
-              </ul>
+        <div id="dialog" class="dialog-container">
+          <span class="dialog-close"><%= image_tag("close.svg") %></span>
+          <span class="dialog-back" id="back"><%= image_tag("back.png") %></span>
+          <div class="local-cloud">
+            <div class="scarica" id="format1">
+              <%= image_tag("local.svg",style: "width: 45px; height: 45px;",id: "local") %><br />
+              <label style="color:white;" class="fw-bold">Locale</label>
             </div>
-            <div class="col">
-              <h6 class="dropdown-header">Topics:</h6>
-              <ul class="list-unstyled tags-topics-list">
-                <% @note.topics.each do |topic| %>
-                  <li class="tag-topic-item"><%= topic.name %></li>
-                <% end %>
-              </ul>
-            </div>
-            <div class="col">
-              <h6 class="dropdown-header">Facoltà:</h6>
-              <ul class="list-unstyled tags-topics-list">
-                <% if @note.faculty != nil %>
-                  <li class="tag-topic-item"><%= @note.faculty.name %></li>
-                <% end %>
-              </div>
-            </div>
-            <div class="chart">
-              <%= pie_chart CreateRating.where(note_id: @note.id).group(:rating).count, width: "200px", height: "200px", 
-            donut: true, empty: "Non ci sono valutazioni"%>
+            <div class="scarica" id="format2">
+              <%= image_tag("cloud.svg",style: "width: 45px; height: 45px;",class: "scarica") %><br />
+              <label style="color:white;" class="fw-bold scarica">Drive</label>
             </div>
           </div>
-        </div>
-        <div class="preview mb-4">
+          <label style="color:white;display:none; margin-top:30px;" id="label-format" class="fw-bold">Seleziona il Formato</label>
+          <div class="local-cloud" style = "display: none;margin-top: 30px;" id="seleziona_il_formato1">
+            <%= link_to download_note_path(@note,format: "pdf"),style: "text-decoration: none;" do %>
+              <div class="scarica">
+                <%= image_tag("pdf.svg",style: "width: 45px; height: 45px;") %><br />
+                <label style="color:white;margin-top: 5px;" class="fw-bold">PDF</label>
+              </div>
+            <% end %>
+            <%= link_to download_note_path(@note,format: "docx"),style: "text-decoration: none;" do %>
+              <div class="scarica">
+                <%= image_tag("word.svg",style: "width: 45px; height: 45px;") %><br />
+                <label style="color:white; margin-top: 5px;" class="fw-bold">Word</label>
+              </div>
+            <% end %>
+          </div>
           <% file_extension = @note.format %>
           <% file_id = 0 %>
           <% google_drive_link = @note.google_drive_link %>
@@ -207,208 +140,316 @@
           <% if file_extension == ".docx" %>
             <% file_id = google_drive_link.match(/\/document\/d\/(.+?)\//)[1]   %>
           <% end %>
-          <% preview_url = "https://drive.google.com/file/d/#{file_id}/preview" %>
-          <iframe src="<%= preview_url %>" width="900px" height="600px"></iframe>
+          <label style="color:white;display:none; margin-top:30px;" id="label-format" class="fw-bold">Seleziona il Formato</label>
+          <div class="local-cloud" style = "display: none;margin-top: 30px;" id="seleziona_il_formato2">
+            <%= link_to download_on_my_gd_path(id: @note.id,google_id: file_id, format: "pdf"),style: "text-decoration: none;" do %>
+              <div class="scarica">
+                <%= image_tag("pdf.svg",style: "width: 45px; height: 45px;") %><br />
+                <label style="color:white;margin-top: 5px;" class="fw-bold">PDF</label>
+              </div>
+            <% end %>
+            <%= link_to download_on_my_gd_path(id: @note.id,google_id: file_id,format: "docx"),style: "text-decoration: none;" do %>
+              <div class="scarica">
+                <%= image_tag("word.svg",style: "width: 45px; height: 45px;") %><br />
+                <label style="color:white; margin-top: 5px;" class="fw-bold">Word</label>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
-    <div class="chart-comment">
-      <div class="comment">
-        <h2 class="fw-bold h2_Comment">Commenti:</h2>
-        <% @note.comments.each do |comment| %>
-          <p class="commento"><strong>
-              <%= comment.user.username %>:</strong>
-            <span class="comment-content">
-              <%= comment.short_content %>
-            </span>
-            <% if comment.content.length > 100 %>
-              <a href="#" class="read-more" data-full-content="<%= comment.content %>">Mostra altro</a>
-            <% end %>
-          </p>
+    <button id="mostraBtn" class="btn " style="background-color: #f77062;color:black;border: 3px solid black;border-radius: 80px">Mostra Informazioni</button>
+    <div class="dropright text-center mb-4 hidden" id="contenitoreDiv">
+      <div class="dropdown-content row">
+        <div class="row">
+          <div class="col">
+            <h6 class="dropdown-header">Tags:</h6>
+            <ul class="list-unstyled tags-topics-list">
+              <% @note.tags.each do |tag| %>
+                <li class="tag-topic-item"><%= tag.name %></li>
+              <% end %>
+            </ul>
+          </div>
+          <div class="col">
+            <h6 class="dropdown-header">Topics:</h6>
+            <ul class="list-unstyled tags-topics-list">
+              <% @note.topics.each do |topic| %>
+                <li class="tag-topic-item"><%= topic.name %></li>
+              <% end %>
+            </ul>
+          </div>
+          <div class="col">
+            <h6 class="dropdown-header">Facoltà:</h6>
+            <ul class="list-unstyled tags-topics-list">
+              <% if @note.faculty != nil %>
+                <li class="tag-topic-item"><%= @note.faculty.name %></li>
+              <% end %>
+            </div>
+          </div>
+          <div class="chart">
+            <%= pie_chart CreateRating.where(note_id: @note.id).group(:rating).count, width: "200px", height: "200px", 
+            donut: true, empty: "Non ci sono valutazioni"%>
+          </div>
+        </div>
+      </div>
+      <div class="preview mb-4">
+        <% file_extension = @note.format %>
+        <% file_id = 0 %>
+        <% google_drive_link = @note.google_drive_link %>
+        <% if file_extension == ".pdf" %>
+          <% file_id = google_drive_link.match(/\/file\/d\/(.+?)\//)[1]   %>
         <% end %>
-        <%= form_with(model: [@note, @note.comments.build], url: note_comments_path(@note)) do |form| %>
-          <%= form.text_area :content, placeholder: 'Add a comment',cols: "42.5" %>
-          <%= form.submit 'Add comment',class: "btn add_comment",style: "background-color: #f77062;color:black;border: 3px solid black;border-radius: 80px" %>
+        <% if file_extension == ".docx" %>
+          <% file_id = google_drive_link.match(/\/document\/d\/(.+?)\//)[1]   %>
         <% end %>
+        <% preview_url = "https://drive.google.com/file/d/#{file_id}/preview" %>
+        <iframe src="<%= preview_url %>" width="900px" height="600px"></iframe>
       </div>
     </div>
   </div>
-  <div class="user_img">
-      <% if @note.user.profile_img_url != nil && @note.user.provider != "facebook"%>
-        <img src="<%= @note.user.profile_img_url %>" class="scrolling-image">
-      <% else %>
-        <%= image_tag("avatar.svg",class:'scrolling-image') %> 
+  <div class="chart-comment">
+    <div class="comment">
+      <h2 class="fw-bold h2_Comment">Commenti:</h2>
+      <% @note.comments.each do |comment| %>
+        <p class="commento"><strong>
+            <%= comment.user.username %>:</strong>
+          <span class="comment-content">
+            <%= comment.short_content %>
+          </span>
+          <% if comment.content.length > 100 %>
+            <a href="#" class="read-more" data-full-content="<%= comment.content %>">Mostra altro</a>
+          <% end %>
+        </p>
       <% end %>
-      
+      <%= form_with(model: [@note, @note.comments.build], url: note_comments_path(@note)) do |form| %>
+        <%= form.text_area :content, placeholder: 'Add a comment',cols: "42.5" %>
+        <%= form.submit 'Add comment',class: "btn add_comment",style: "background-color: #f77062;color:black;border: 3px solid black;border-radius: 80px" %>
+      <% end %>
+    </div>
   </div>
-  <%= user_online_status(@note.user) %>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const selection_format = document.getElementById("format1");
-      const dialog = document.getElementById("dialog");
-      const local = document.getElementById("local");
-      const back_img = document.getElementById("back");
-      const seleziona_il_formato1 = document.getElementById("seleziona_il_formato1");
-      const label_format = document.getElementById("label-format");
+</div>
+<div class="user_box">
+  <div class="card1" id="id_card" style="display:none;">
+    <% if @note.user.profile_img_url != nil && @note.user.provider != "facebook"%>
+      <img src="<%= @note.user.profile_img_url %>" id= "img"  class="card__image" style="border: 5px solid black;">
+    <% else %>
+      <%= image_tag("avatar.svg",class:'card__image',style:"border: 5px solid black;",id: "img") %>
+    <% end %>
+    <p class="card__name"><%= @note.user.username %></p>
+    <div class="grid-container">
+      <div class="grid-child-posts">
+        902 Post
+      </div>
+      <div class="grid-child-followers">
+        1300 Likes
+      </div>
+    </div>
+    <button class="btn1 draw-border">Message</button>
+  </div>
+</div>
+<div class="user_img" id="click">
+  <% if @note.user.profile_img_url != nil && @note.user.provider != "facebook"%>
+    <img src="<%= @note.user.profile_img_url %>" id= "img"  class="scrolling-image" style="border: 5px solid black;">
+  <% else %>
+    <%= image_tag("avatar.svg",class:'scrolling-image',style:"border: 5px solid black;",id: "img") %>
+  <% end %>
+  <%= inline_svg_tag("online_indicator.svg", id: "indicator") %>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  
+    const card = document.getElementById("id_card");
+    const img = document.getElementById("click");
+    const online_indicator = document.getElementById("indicator");
 
-      selection_format.addEventListener("click",function(e){
-        dialog.style.height = "270px";
-        back_img.style.display = "block";
-        seleziona_il_formato1.style.display = "flex";
-        label_format.style.display ="block";
-      })
-
-      back_img.addEventListener("click",function(e){
-        dialog.style.height = "100px";
-        back_img.style.display = "none";
-        seleziona_il_formato1.style.display = "none";
-        label_format.style.display ="none";
-      })
-    })
-  </script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const selection_format = document.getElementById("format2");
-      const dialog = document.getElementById("dialog");
-      const local = document.getElementById("local");
-      const back_img = document.getElementById("back");
-      const seleziona_il_formato2 = document.getElementById("seleziona_il_formato2");
-      const label_format = document.getElementById("label-format");
-
-      selection_format.addEventListener("click",function(e){
-        dialog.style.height = "270px";
-        back_img.style.display = "block";
-        seleziona_il_formato2.style.display = "flex";
-        label_format.style.display ="block";
-      })
-
-      back_img.addEventListener("click",function(e){
-        dialog.style.height = "100px";
-        back_img.style.display = "none";
-        seleziona_il_formato2.style.display = "none";
-        label_format.style.display ="none";
-      })
-    })
-  </script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      var readMoreLinks = document.getElementsByClassName("read-more");
-
-      Array.from(readMoreLinks).forEach(function(link) {
-        link.addEventListener("click", function(event) {
-          event.preventDefault();
-          var contentElement = this.parentNode.querySelector(".comment-content");
-          contentElement.textContent = this.getAttribute("data-full-content");
-          this.parentNode.removeChild(this);
-        });
-      });
+    img.addEventListener("click",function(e){
+      if (card.style.display == "none"){
+       card.style.display = "flex";
+       }
+       else{
+        card.style.display = "none";
+       }
     });
-  </script>
-  <script>
-    // Ottieni il riferimento al bottone e al contenitore della div
-    const mostraBtn = document.getElementById('mostraBtn');
-    const contenitoreDiv = document.getElementById('contenitoreDiv');
+    
 
-    const mostraDescrizione = document.getElementById('mostraDescrizione');
-    const Descrizione = document.getElementById('Descrizione');
-
-    const box = document.getElementById('box');
-
-    mostraDescrizione.addEventListener('click',function(){
-      if (Descrizione.classList.contains('hidden')){
-        Descrizione.classList.remove('hidden');
-        box.classList.remove('hidden');
-        mostraDescrizione.textContent = "Mostra Meno"
+    if (<%= @note.user.last_seen != nil %> && <%= @note.user.last_seen > 10.minutes.ago %> ){
+      online_indicator.classList.add("online1");
       }
-      else {
-        Descrizione.classList.add('hidden');
-        box.classList.add('hidden');
-        mostraDescrizione.textContent = "Mostra Descrizione"
+    else{
+      online_indicator.classList.add("offline1");
       }
-    })
-
-    // Aggiungi un gestore di eventi per il clic sul bottone
-    mostraBtn.addEventListener('click', function() {
-      // Inverti lo stato di visualizzazione del contenuto
-      if (contenitoreDiv.classList.contains('hidden')) {
-        contenitoreDiv.classList.remove('hidden');
-        mostraBtn.textContent = "Mostra Meno";
-      } else {
-        contenitoreDiv.classList.add('hidden');
-         mostraBtn.textContent = "Mostra Informazioni";
-      }
-    });
-  </script>
-  <script>
-    var mainArea = document.querySelector('.main-area');
-    var download_dialog = document.querySelector('.download-open');
-    var dialog = document.querySelector('.dialog-container');
-
-    download_dialog.addEventListener('click',function(event){
-      mainArea.style.display = 'block';
-      dialog.style.display = 'block';
-
-    })
-
-    var dialogClose = document.querySelector('.dialog-close');
+    
+    }
+    
+  )
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const selection_format = document.getElementById("format1");
+    const dialog = document.getElementById("dialog");
+    const local = document.getElementById("local");
+    const back_img = document.getElementById("back");
+    const seleziona_il_formato1 = document.getElementById("seleziona_il_formato1");
     const label_format = document.getElementById("label-format");
-    dialogClose.addEventListener('click', function(event){
-      dialog.style.display = 'none';
-      dialog.style.height = '100px';
-      mainArea.style.display = 'none';
+
+    selection_format.addEventListener("click",function(e){
+      dialog.style.height = "270px";
+      back_img.style.display = "block";
+      seleziona_il_formato1.style.display = "flex";
+      label_format.style.display ="block";
+    })
+
+    back_img.addEventListener("click",function(e){
+      dialog.style.height = "100px";
+      back_img.style.display = "none";
       seleziona_il_formato1.style.display = "none";
+      label_format.style.display ="none";
+    })
+  })
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const selection_format = document.getElementById("format2");
+    const dialog = document.getElementById("dialog");
+    const local = document.getElementById("local");
+    const back_img = document.getElementById("back");
+    const seleziona_il_formato2 = document.getElementById("seleziona_il_formato2");
+    const label_format = document.getElementById("label-format");
+
+    selection_format.addEventListener("click",function(e){
+      dialog.style.height = "270px";
+      back_img.style.display = "block";
+      seleziona_il_formato2.style.display = "flex";
+      label_format.style.display ="block";
+    })
+
+    back_img.addEventListener("click",function(e){
+      dialog.style.height = "100px";
+      back_img.style.display = "none";
       seleziona_il_formato2.style.display = "none";
       label_format.style.display ="none";
-    });
-  </script>
-  <!-- Nel tuo file HTML, preferibilmente prima della chiusura del tag body -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      
-        if (<%=user_signed_in? && @note.user.id != current_user.id%>){
-      
-      // Seleziona tutti gli elementi SVG delle stelle
-      const stars = document.querySelectorAll(".star");
+    })
+  })
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var readMoreLinks = document.getElementsByClassName("read-more");
 
-      // Funzione di callback quando il mouse entra nell'elemento SVG
-      function handleMouseOver(event) {
-        const starId = event.target.id; // Ottieni l'ID dell'elemento SVG selezionato (ad esempio, "star1")
-
-        stars.forEach(function(star) {
-          // Ottieni l'ID della stella corrente
-          const currentStarId = star.id;
-
-          // Confronta l'ID della stella corrente con l'ID dell'elemento SVG su cui è avvenuto l'hover
-          // Se l'ID della stella corrente è minore dell'ID della stella su cui è avvenuto l'hover,
-          // aggiungi la classe "yellow" per cambiarne il colore
-          if(currentStarId <= starId) {
-            if(star.classList.contains("text-warning") == false)
-            star.classList.add("hover-star");
-          }
-        });
-        // Esegui altre azioni desiderate quando il mouse entra nell'elemento SVG
-      }
-
-      
-
-      // Funzione di callback quando il mouse esce dall'elemento SVG
-      function handleMouseOut(event) {
-        const starId = event.target.id; // Ottieni l'ID dell'elemento SVG selezionato (ad esempio, "star1")
-
-
-
-        stars.forEach(function(star) {
-          if(star.classList.contains("hover-star")){
-          star.classList.remove("hover-star");
-        }
-        });
-      }
-
-      // Aggiungi l'evento di hover a ciascun elemento SVG
-      stars.forEach(function(star) {
-        star.addEventListener("mouseover", handleMouseOver);
-        star.addEventListener("mouseleave", handleMouseOut);
+    Array.from(readMoreLinks).forEach(function(link) {
+      link.addEventListener("click", function(event) {
+        event.preventDefault();
+        var contentElement = this.parentNode.querySelector(".comment-content");
+        contentElement.textContent = this.getAttribute("data-full-content");
+        this.parentNode.removeChild(this);
       });
-      }
     });
-  </script>
+  });
+</script>
+<script>
+  // Ottieni il riferimento al bottone e al contenitore della div
+  const mostraBtn = document.getElementById('mostraBtn');
+  const contenitoreDiv = document.getElementById('contenitoreDiv');
+
+  const mostraDescrizione = document.getElementById('mostraDescrizione');
+  const Descrizione = document.getElementById('Descrizione');
+
+  const box = document.getElementById('box');
+
+  mostraDescrizione.addEventListener('click',function(){
+    if (Descrizione.classList.contains('hidden')){
+      Descrizione.classList.remove('hidden');
+      box.classList.remove('hidden');
+      mostraDescrizione.textContent = "Mostra Meno"
+    }
+    else {
+      Descrizione.classList.add('hidden');
+      box.classList.add('hidden');
+      mostraDescrizione.textContent = "Mostra Descrizione"
+    }
+  })
+
+  // Aggiungi un gestore di eventi per il clic sul bottone
+  mostraBtn.addEventListener('click', function() {
+    // Inverti lo stato di visualizzazione del contenuto
+    if (contenitoreDiv.classList.contains('hidden')) {
+      contenitoreDiv.classList.remove('hidden');
+      mostraBtn.textContent = "Mostra Meno";
+    } else {
+      contenitoreDiv.classList.add('hidden');
+       mostraBtn.textContent = "Mostra Informazioni";
+    }
+  });
+</script>
+<script>
+  var mainArea = document.querySelector('.main-area');
+  var download_dialog = document.querySelector('.download-open');
+  var dialog = document.querySelector('.dialog-container');
+
+  download_dialog.addEventListener('click',function(event){
+    mainArea.style.display = 'block';
+    dialog.style.display = 'block';
+
+  })
+
+  var dialogClose = document.querySelector('.dialog-close');
+  const label_format = document.getElementById("label-format");
+  dialogClose.addEventListener('click', function(event){
+    dialog.style.display = 'none';
+    dialog.style.height = '100px';
+    mainArea.style.display = 'none';
+    seleziona_il_formato1.style.display = "none";
+    seleziona_il_formato2.style.display = "none";
+    label_format.style.display ="none";
+  });
+</script>
+<!-- Nel tuo file HTML, preferibilmente prima della chiusura del tag body -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+
+      if (<%=user_signed_in? && @note.user.id != current_user.id%>){
+
+    // Seleziona tutti gli elementi SVG delle stelle
+    const stars = document.querySelectorAll(".star");
+
+    // Funzione di callback quando il mouse entra nell'elemento SVG
+    function handleMouseOver(event) {
+      const starId = event.target.id; // Ottieni l'ID dell'elemento SVG selezionato (ad esempio, "star1")
+
+      stars.forEach(function(star) {
+        // Ottieni l'ID della stella corrente
+        const currentStarId = star.id;
+
+        // Confronta l'ID della stella corrente con l'ID dell'elemento SVG su cui è avvenuto l'hover
+        // Se l'ID della stella corrente è minore dell'ID della stella su cui è avvenuto l'hover,
+        // aggiungi la classe "yellow" per cambiarne il colore
+        if(currentStarId <= starId) {
+          if(star.classList.contains("text-warning") == false)
+          star.classList.add("hover-star");
+        }
+      });
+      // Esegui altre azioni desiderate quando il mouse entra nell'elemento SVG
+    }
+
+
+
+    // Funzione di callback quando il mouse esce dall'elemento SVG
+    function handleMouseOut(event) {
+      const starId = event.target.id; // Ottieni l'ID dell'elemento SVG selezionato (ad esempio, "star1")
+
+
+
+      stars.forEach(function(star) {
+        if(star.classList.contains("hover-star")){
+        star.classList.remove("hover-star");
+      }
+      });
+    }
+
+    // Aggiungi l'evento di hover a ciascun elemento SVG
+    stars.forEach(function(star) {
+      star.addEventListener("mouseover", handleMouseOver);
+      star.addEventListener("mouseleave", handleMouseOut);
+    });
+    }
+  });
+</script>
