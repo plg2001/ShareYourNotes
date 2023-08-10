@@ -1,6 +1,7 @@
 .toast {
-    animation: toast 3s linear 1 both;
-    
+    animation: toast 3s linear 1 both;  
+    left: 500px;
+    position: relative;
   }
   
   
@@ -28,3 +29,6 @@
       visibility: hidden;
     }
   }
+
+
+  

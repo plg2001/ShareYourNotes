@@ -21,7 +21,7 @@
             <% if current_user && current_user != note.user %>
               <div class="d-flex gap-1 mb-1 BottoniStella justify-content-start align-items-center">
                 <% Note::MAX_RATING.times do |n| %>
-                  <%= button_to note_path(note),
+                  <%= button_to update_rating_path(note),
                   method: :patch,
                   params: { note: { rating: n + 1 } },
                   class: "border-0 bg-transparent d-flex justify-content-start BottoneSingolo" do %>
