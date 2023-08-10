@@ -5,11 +5,6 @@ require 'convert_api'
 class NotesController < ApplicationController
   before_action :authenticate_user!
   skip_before_action :authenticate_user!, only: [:index, :search, :show]
-
-  def index
-    order = params[:order] == 'desc' ? 'name DESC' : 'name ASC'
-    @notes = Note.order(order)
-  end
   
   def search
     @notes = Note.all
@@ -56,7 +51,7 @@ class NotesController < ApplicationController
       @notes = @notes.where("uploaded_at <= ?", before_date.end_of_day)
     end
   
-    order = params[:order] == 'desc' ? 'name ASC' : 'name DESC'
+    order = params[:order] == 'desc' ? 'name DESC' : 'name ASC'
     @notes = @notes.order(order)
   
     render 'search'
@@ -89,9 +84,7 @@ class NotesController < ApplicationController
     end
   end
 
-  def note_params
-    params.require(:note).permit(:title, :content, :user_id, favourite_note_ids: [])
-  end  
+  
 
   def show
     @note = Note.find(params[:id])
@@ -286,10 +279,6 @@ class NotesController < ApplicationController
 
   
   
-  def note_params
-    params.require(:note).permit(:name, :description,:google_drive_link, :faculty_id)
-  end  
-
 
   def download_file
     @note = Note.find(params[:id])
@@ -339,7 +328,7 @@ class NotesController < ApplicationController
     render :new, alert: "File deselezionato"
   end
 
-  def update
+  def update_rating
     @note = Note.find(params[:id])
     
 
@@ -469,4 +458,24 @@ class NotesController < ApplicationController
     end
   end
 
+
+  def edit
+    @note = current_user.notes.find(params[:id])
+  end
+
+
+  def update
+    @note = current_user.notes.find(params[:id])
+
+    if @note.update(note_params)
+      redirect_to @note, notice: 'Appunto aggiornato con successo.'
+    else
+      render :edit
+    end
+  end
+
+  def note_params
+    params.require(:note).permit(:name, :description, :user_id, :google_drive_link, :faculty_id)
+  end  
+  
 end
