@@ -368,7 +368,7 @@ class NotesController < ApplicationController
     notetopics = NoteTopic.where(note_id: params[:id])
     notetopics.delete_all
     favourites = Favourite.where(note_id: params[:id])
-    favourite.delete_all
+    favourites.delete_all
     createrating = CreateRating.where(note_id: params[:id])
     createrating.delete_all
     comments = Comment.where(note_id: params[:id])
