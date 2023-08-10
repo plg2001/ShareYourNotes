@@ -47,18 +47,6 @@
             })
           </script>
         </div>
-        <% if @toast %>
-          <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true" data-bs-delay="3000">
-            <div class="toast-body bg-black text-white">
-              <% if @toast == :success %>
-                <%= inline_svg_tag("check.svg", class: "h-4 w-4 text-success me-2") %>
-                <span>Rating Added!</span>
-              <% else %>
-                <%= inline_svg_tag("warning.svg", class: "h-4 w-4 text-danger me-2") %>
-                <span>Rating could not be added</span>
-              <% end %>
-            </div>
-          <% end %>
         <% else %>
           <div class="d-flex gap-3 BottoniStella justify-content-center">
             <% Note::MAX_RATING.times do |n| %>
@@ -308,7 +296,9 @@
   <!-- Nel tuo file HTML, preferibilmente prima della chiusura del tag body -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      if (<%= @note.user.id == current_user.id%>){return}
+      
+        if (<%=user_signed_in? && @note.user.id != current_user.id%>){
+      
       // Seleziona tutti gli elementi SVG delle stelle
       const stars = document.querySelectorAll(".star");
 
@@ -331,6 +321,8 @@
         // Esegui altre azioni desiderate quando il mouse entra nell'elemento SVG
       }
 
+      
+
       // Funzione di callback quando il mouse esce dall'elemento SVG
       function handleMouseOut(event) {
         const starId = event.target.id; // Ottieni l'ID dell'elemento SVG selezionato (ad esempio, "star1")
@@ -349,5 +341,6 @@
         star.addEventListener("mouseover", handleMouseOver);
         star.addEventListener("mouseleave", handleMouseOut);
       });
+      }
     });
   </script>

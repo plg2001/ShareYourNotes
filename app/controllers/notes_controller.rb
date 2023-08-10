@@ -337,14 +337,13 @@ class NotesController < ApplicationController
 
     else
       @create_rating.update(rating: params[:note][:rating])
-      @toast = :success
     end
     
 
     average_rating = CreateRating.where(note_id: @note.id).average(:rating)
     @note.update(rating: average_rating)
 
-    render :show
+    redirect_to @note, notice: "Valutazione aggiunta con successo!"
   end
 
   def delete
