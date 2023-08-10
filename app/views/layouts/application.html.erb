@@ -33,7 +33,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
           <li class="nav-item me-3">
-            <%= link_to "Faq",faq_path,class:"nav-link",style:"color:white;" %>
+            <%= link_to "About",conversations_path,class:"nav-link",style:"color:white;" %>
           </li>
           <% if user_signed_in? %>
             <li class="nav-item me-3"><%= link_to "Carica Appunti", new_note_path, class:"nav-link ",style:"color:white;" %></li>
@@ -113,9 +113,16 @@
                             userLink.href = "/conversations/" + <%= conversation_id %> + "/messages"
                             userLink.style.textDecoration = "none";
 
+                            
                             // Dentro la funzione updateSearchResults
                             var userImage = document.createElement("img");
-                            userImage.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='grey' class='bi bi-person-circle' viewBox='0 0 16 16'%3E%3Cpath d='M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z'/%3E%3Cpath fill-rule='evenodd' d='M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z'/%3E%3C/svg%3E";
+
+                            if(  user.profile_img_url == null  || user.provider != "facebook"){
+                              userImage.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='grey' class='bi bi-person-circle' viewBox='0 0 16 16'%3E%3Cpath d='M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z'/%3E%3Cpath fill-rule='evenodd' d='M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z'/%3E%3C/svg%3E";
+                            }
+                            else{
+                              userImage.src =  user.profile_img_url
+                            }
                             userImage.style.marginLeft = "20px";
                             userImage.style.marginRight = "40px";
                             userImage.style.width = "2em";
@@ -145,8 +152,6 @@
                             <% end %>
 
 
-
-
                             contactInfo.appendChild(usernameHeader);
                             listItem.appendChild(userImage);
                             listItem.appendChild(contactInfo);
@@ -171,7 +176,11 @@
                         <%= link_to conversations_path(sender_id: current_user.id, recipient_id: user.id),style: "text-decoration:none;",method: 'post' do %>
                           <div class="contact-box">
                             <li class="contact">
-                              <%= image_tag("avatar.svg",style: "margin-left: 20px; margin-right:40px; width: 2em; height: 2em;") %>
+                              <% if user.profile_img_url != nil && user.provider != "facebook"%>
+                                <img src="<%= user.profile_img_url %>" style= "margin-left: 20px; margin-right:40px; width: 2em; height: 2em;" >
+                              <% else %>
+                                <%= image_tag("avatar.svg",style: "margin-left: 20px; margin-right:40px; width: 2em; height: 2em;") %> 
+                              <% end %>
                               <div class="contact-info">
                                 <h3 id="username" style="text-decoration:none;"><%= user.username %></h3>
                               </div>
