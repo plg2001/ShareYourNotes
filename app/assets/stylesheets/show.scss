@@ -101,7 +101,16 @@ body {
 
 .track {
   display: flex;
-  justify-content: space-between;
+  justify-content:end;
+  
+  .value{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    left: -73%;
+    gap: 25px;
+    top: -7px;
+  }
 }
 
 .rating-section {
@@ -112,8 +121,9 @@ body {
 
 .Author-Message {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  gap: 50px;
 }
 
 .btn-group.Drive {
@@ -528,5 +538,38 @@ display: inline-block;
 }
 
 
+.user_img{
+  position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 20px;
+    z-index: 999;
+
+
+    .scrolling-image {
+      width: 60px; /* Imposta la larghezza dell'immagine */
+      height: 60px; /* Imposta l'altezza dell'immagine */
+      border-radius: 50%; /* Rendi l'immagine circolare */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Aggiungi un'ombra all'immagine */
+  }}
+  
+  .online-indicator {
+    width: 8px;
+    height: 8px;
+    position: relative;
+    top: -1000px;
+  }
+  
+  .online {
+    background-color: green;
+  }
+  
+  .offline {
+    background-color: red;
+  
+  }
+  
+  
+  
 
 

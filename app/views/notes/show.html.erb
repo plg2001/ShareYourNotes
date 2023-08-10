@@ -20,6 +20,22 @@
     <% end %>
   <% end %>
   </div>
+  <div class="Author-Message mb-4" >
+        <p class="Autore"><%= link_to @note.user.username, user_path(@note.user), class: 'link' %></p>
+        <% if user_signed_in? %>
+          <% if current_user.id != @note.user.id %>
+            <p class="Message" style="background-color: #f77062;color:black;border: 3px solid black;border-radius: 80px">
+              <%= link_to 'Message me', conversations_path(sender_id: current_user.id, recipient_id: @note.user.id), method: 'post', class: "btn" %></p>
+          <% end %>
+        <% end %>
+      </div>
+      <p class="text-center mb-4">
+  <% date_string = @note.uploaded_at.to_s %>
+  <% parsed_date = DateTime.parse(date_string) %>
+  <% formatted_date = parsed_date.strftime("%d-%m-%Y") %>
+  <%= formatted_date %>
+</p>
+
   <div class="monstraDescrizione_container">
     <button id="mostraDescrizione" class="btn text-center" style="background-color: #f77062;color:black;border: 3px solid black;border-radius: 80px">Mostra Descrizione</button>
   </div>
@@ -28,18 +44,19 @@
   </div>
   <div class="note-details">
     <div class="track mb-4">
-      <div class="visualizzazioni">
-        <%= inline_svg_tag("eye-fill.svg", class: "w-8 h-8") %>
-        <p><%= @note.views %></p>
+      <div class = "value">
+        <div class="visualizzazioni">
+          <%= inline_svg_tag("eye-fill.svg", class: "w-8 h-8") %>
+          <p><%= @note.views %></p>
+        </div>
+        <div class="download">
+          <%= inline_svg_tag("download.svg", class: "w-8 h-8") %>
+          <p><%= @note.downloads %></p>
+        </div>
       </div>
-      <div class="download">
-        <%= inline_svg_tag("download.svg", class: "w-8 h-8") %>
-        <p><%= @note.downloads %></p>
-      </div>
-    </div>
     <div class="rating-section mb-4">
       <% if current_user && current_user != @note.user %>
-        <div class="d-flex gap-3 BottoniStella justify-content-center">
+        <div class="d-flex gap-0 BottoniStella justify-content-center">
           <% Note::MAX_RATING.times do |n| %>
             <%= button_to update_rating_path(@note),
               method: :patch,
@@ -65,7 +82,7 @@
           </script>
         </div>
         <% else %>
-          <div class="d-flex gap-3 BottoniStella justify-content-center">
+          <div class="d-flex gap-0 BottoniStella justify-content-center">
             <% Note::MAX_RATING.times do |n| %>
               <svg xmlns="http://www.w3.org/2000/svg"  id="<%= n + 1 %>" width="16" height="16" fill="currentColor" class="star" viewBox="0 0 16 16">
                 <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
@@ -73,6 +90,7 @@
             <% end %>
           </div>
         <% end %>
+      </div>
       </div>
       <div class="text-center mb-4">
         <div class="btn-group Drive" role="group" aria-label="Pulsanti">
@@ -144,16 +162,7 @@
           </div>
         </div>
       </div>
-      <div class="Author-Message mb-4">
-        <p class="Autore"><strong>Autore:</strong> <%= link_to @note.user.username, user_path(@note.user), class: 'link' %></p>
-        <% if user_signed_in? %>
-          <% if current_user.id != @note.user.id %>
-            <p class="Message" style="background-color: #f77062;color:black;border: 3px solid black;border-radius: 80px">
-              <%= link_to 'Message me', conversations_path(sender_id: current_user.id, recipient_id: @note.user.id), method: 'post', class: "btn" %></p>
-          <% end %>
-        <% end %>
-      </div>
-      <p class="text-center mb-4"><strong>Data di caricamento:</strong> <%= @note.uploaded_at %></p>
+      
       <button id="mostraBtn" class="btn " style="background-color: #f77062;color:black;border: 3px solid black;border-radius: 80px">Mostra Informazioni</button>
       <div class="dropright text-center mb-4 hidden" id="contenitoreDiv">
         <div class="dropdown-content row">
@@ -224,6 +233,15 @@
       </div>
     </div>
   </div>
+  <div class="user_img">
+      <% if @note.user.profile_img_url != nil && @note.user.provider != "facebook"%>
+        <img src="<%= @note.user.profile_img_url %>" class="scrolling-image">
+      <% else %>
+        <%= image_tag("avatar.svg",class:'scrolling-image') %> 
+      <% end %>
+      
+  </div>
+  <%= user_online_status(@note.user) %>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const selection_format = document.getElementById("format1");
