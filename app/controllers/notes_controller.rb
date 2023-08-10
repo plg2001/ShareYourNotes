@@ -102,11 +102,11 @@ class NotesController < ApplicationController
     google_id = 0
     google_drive_link = @note.google_drive_link
 
-    if file_extension == "pdf"
+    if file_extension == ".pdf"
       google_id = google_drive_link.match(/\/file\/d\/(.+?)\//)[1]  
     end
 
-    if file_extension == "docx"
+    if file_extension == ".docx"
       google_id = google_drive_link.match(/\/document\/d\/(.+?)\//)[1]  
     end
     
@@ -327,7 +327,7 @@ class NotesController < ApplicationController
         redirect_to file.web_content_link
       end
     end
-    # Convert the downloaded file data to PDF using ConvertApi
+ 
     
 
   
@@ -383,9 +383,16 @@ class NotesController < ApplicationController
   def download_on_my_gd
     @note = Note.find(params[:id])
     google_id = params[:google_id]
+    file_extension = @note.format
+
+    if params[:format] != nil
+      user_required_format = params[:format]
+    end
+
     
 
     if current_user.google_drive_refresh_token != nil && current_user.provider == "google_oauth2"
+
       user_credentials = Google::Auth::UserRefreshCredentials.new(
         client_id: "806281785375-kivi2j1putaq08gnv7c84bsg1edps6p1.apps.googleusercontent.com",
         client_secret: "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",
@@ -393,9 +400,24 @@ class NotesController < ApplicationController
         refresh_token: current_user.google_drive_refresh_token,
       )
 
-    
+      
       folder_name = "ShareYourNotes"
       session = GoogleDrive::Session.from_credentials(user_credentials)
+      file = session.file_by_url(@note.google_drive_link)
+      
+      if file_extension == ".pdf"      
+        if user_required_format == "docx"
+          ConvertApi.config.api_secret = 'aTSx7qLnIcyq8oDe'
+          result = ConvertApi.convert('docx', { File: file.web_content_link }, from_format: 'pdf')
+        end
+      end
+  
+      if file_extension == ".docx" 
+        if user_required_format == "pdf"
+          ConvertApi.config.api_secret = 'aTSx7qLnIcyq8oDe'
+          result = ConvertApi.convert('pdf', { File: file.web_content_link }, from_format: 'docx')
+        end
+      end
 
       existing_folder = session.collection_by_title(folder_name)
 

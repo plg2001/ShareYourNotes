@@ -84,40 +84,52 @@
           <div id="dialog" class="dialog-container">
             <span class="dialog-close"><%= image_tag("close.svg") %></span>
             <span class="dialog-back" id="back"><%= image_tag("back.png") %></span>
-
             <div class="local-cloud">
-              <div class="scarica" id="format">
+              <div class="scarica" id="format1">
                 <%= image_tag("local.svg",style: "width: 45px; height: 45px;",id: "local") %><br />
                 <label style="color:white;" class="fw-bold">Locale</label>
               </div>
-              <% file_extension = @note.format %>
-              <% file_id = 0 %>
-              <% google_drive_link = @note.google_drive_link %>
-
-              <% if file_extension == ".pdf" %>
-                <% file_id = google_drive_link.match(/\/file\/d\/(.+?)\//)[1]   %>
-              <% end %>
-
-              <% if file_extension == ".docx" %>
-                <% file_id = google_drive_link.match(/\/document\/d\/(.+?)\//)[1]   %>
-              <% end %>
-              <%= link_to download_on_my_gd_path(id: @note.id,google_id: file_id),style: "text-decoration: none;" do %>
-                <div class="scarica">
-                  <%= image_tag("cloud.svg",style: "width: 45px; height: 45px;",class: "scarica") %><br />
-                  <label style="color:white;" class="fw-bold scarica">Drive</label>
-                </div>
-              <% end %>
+              <div class="scarica" id="format2">
+                <%= image_tag("cloud.svg",style: "width: 45px; height: 45px;",class: "scarica") %><br />
+                <label style="color:white;" class="fw-bold scarica">Drive</label>
+              </div>
             </div>
-
             <label style="color:white;display:none; margin-top:30px;" id="label-format" class="fw-bold">Seleziona il Formato</label>
-            <div class="local-cloud" style = "display: none;margin-top: 30px;" id="seleziona_il_formato">
+            <div class="local-cloud" style = "display: none;margin-top: 30px;" id="seleziona_il_formato1">
+            
               <%= link_to download_note_path(@note,format: "pdf"),style: "text-decoration: none;" do %>
                 <div class="scarica">
                   <%= image_tag("pdf.svg",style: "width: 45px; height: 45px;") %><br />
                   <label style="color:white;margin-top: 5px;" class="fw-bold">PDF</label>
                 </div>
               <% end %>
-              <%= link_to download_note_path(@note,format: "docx"),params[:word_id],style: "text-decoration: none;" do %>
+              <%= link_to download_note_path(@note,format: "docx"),style: "text-decoration: none;" do %>
+                <div class="scarica">
+                  <%= image_tag("word.svg",style: "width: 45px; height: 45px;") %><br />
+                  <label style="color:white; margin-top: 5px;" class="fw-bold">Word</label>
+                </div>
+              <% end %>
+            </div>
+
+            <% file_extension = @note.format %>
+            <% file_id = 0 %>
+            <% google_drive_link = @note.google_drive_link %>
+            <% if file_extension == ".pdf" %>
+              <% file_id = google_drive_link.match(/\/file\/d\/(.+?)\//)[1]   %>
+            <% end %>
+            <% if file_extension == ".docx" %>
+              <% file_id = google_drive_link.match(/\/document\/d\/(.+?)\//)[1]   %>
+            <% end %>
+
+            <label style="color:white;display:none; margin-top:30px;" id="label-format" class="fw-bold">Seleziona il Formato</label>
+            <div class="local-cloud" style = "display: none;margin-top: 30px;" id="seleziona_il_formato2">
+              <%= link_to download_on_my_gd_path(id: @note.id,google_id: file_id, format: "pdf"),style: "text-decoration: none;" do %>
+                <div class="scarica">
+                  <%= image_tag("pdf.svg",style: "width: 45px; height: 45px;") %><br />
+                  <label style="color:white;margin-top: 5px;" class="fw-bold">PDF</label>
+                </div>
+              <% end %>
+              <%= link_to download_on_my_gd_path(id: @note.id,google_id: file_id,format: "docx"),style: "text-decoration: none;" do %>
                 <div class="scarica">
                   <%= image_tag("word.svg",style: "width: 45px; height: 45px;") %><br />
                   <label style="color:white; margin-top: 5px;" class="fw-bold">Word</label>
@@ -175,16 +187,12 @@
           <% file_extension = @note.format %>
           <% file_id = 0 %>
           <% google_drive_link = @note.google_drive_link %>
-
           <% if file_extension == ".pdf" %>
             <% file_id = google_drive_link.match(/\/file\/d\/(.+?)\//)[1]   %>
           <% end %>
-
           <% if file_extension == ".docx" %>
             <% file_id = google_drive_link.match(/\/document\/d\/(.+?)\//)[1]   %>
           <% end %>
-          
-          
           <% preview_url = "https://drive.google.com/file/d/#{file_id}/preview" %>
           <iframe src="<%= preview_url %>" width="900px" height="600px"></iframe>
         </div>
@@ -213,24 +221,48 @@
   </div>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      const selection_format = document.getElementById("format");
+      const selection_format = document.getElementById("format1");
       const dialog = document.getElementById("dialog");
       const local = document.getElementById("local");
       const back_img = document.getElementById("back");
-      const seleziona_il_formato = document.getElementById("seleziona_il_formato");
+      const seleziona_il_formato1 = document.getElementById("seleziona_il_formato1");
       const label_format = document.getElementById("label-format");
 
       selection_format.addEventListener("click",function(e){
         dialog.style.height = "270px";
         back_img.style.display = "block";
-        seleziona_il_formato.style.display = "flex";
+        seleziona_il_formato1.style.display = "flex";
         label_format.style.display ="block";
       })
 
       back_img.addEventListener("click",function(e){
         dialog.style.height = "100px";
         back_img.style.display = "none";
-        seleziona_il_formato.style.display = "none";
+        seleziona_il_formato1.style.display = "none";
+        label_format.style.display ="none";
+      })
+    })
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const selection_format = document.getElementById("format2");
+      const dialog = document.getElementById("dialog");
+      const local = document.getElementById("local");
+      const back_img = document.getElementById("back");
+      const seleziona_il_formato2 = document.getElementById("seleziona_il_formato2");
+      const label_format = document.getElementById("label-format");
+
+      selection_format.addEventListener("click",function(e){
+        dialog.style.height = "270px";
+        back_img.style.display = "block";
+        seleziona_il_formato2.style.display = "flex";
+        label_format.style.display ="block";
+      })
+
+      back_img.addEventListener("click",function(e){
+        dialog.style.height = "100px";
+        back_img.style.display = "none";
+        seleziona_il_formato2.style.display = "none";
         label_format.style.display ="none";
       })
     })
@@ -301,7 +333,8 @@
       dialog.style.display = 'none';
       dialog.style.height = '100px';
       mainArea.style.display = 'none';
-      seleziona_il_formato.style.display = "none";
+      seleziona_il_formato1.style.display = "none";
+      seleziona_il_formato2.style.display = "none";
       label_format.style.display ="none";
     });
   </script>
