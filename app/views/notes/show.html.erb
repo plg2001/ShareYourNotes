@@ -7,17 +7,17 @@
   <% if current_user != @note.user %>
     <% if current_user && current_user.favourite_notes.include?(@note) %>
       <%= link_to remove_favourite_path(note_id: @note.id), method: :delete ,style: "text-decoration: none;" do%>
-      <%= inline_svg_tag("heart-fill.svg", style: "margin-top: 70%") %>
+      <%= inline_svg_tag("heart-fill.svg", style: "margin-top: 70%;") %>
     <% end %>
     <% elsif current_user%>
       <%= link_to  add_favourite_path(note_id: @note.id), method: :post ,style: "text-decoration: none;" do%>
-      <%= inline_svg_tag("heart.svg", style: "margin-top: 70%") %>
+      <%= inline_svg_tag("heart.svg", style: "margin-top: 70%;") %>
+    <% end %>
     <% end %>
     <% else %>
       <%= link_to  remove_note_path(@note), method: :delete, style: "text-decoration: none;", style: "text-decoration: none;", data: { confirm: 'Sei sicuro di voler eliminare l\'appunto?' } do%>
-      <%= image_tag("delete.svg",style: "width: 20px; height: 20px; ") %>
+      <%= image_tag("delete.svg",style: "width: 20px; height: 20px; margin-top: 80%;") %>
     <% end %>
-  <% end %>
   <% end %>
   </div>
   <div class="monstraDescrizione_container">
