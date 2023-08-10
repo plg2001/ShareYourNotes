@@ -68,7 +68,8 @@ class NotesController < ApplicationController
     favourite = current_user.favourites.find_or_initialize_by(note: note)
     favourite.added_to_favorites_at = Time.current
     favourite.save
-    redirect_to search_path, notice: 'Nota aggiunta ai preferiti'
+    flash[:notice] = 'Nota aggiunta ai preferiti'
+    redirect_to request.referer || root_path
   end
   
 
@@ -76,11 +77,14 @@ class NotesController < ApplicationController
     note = Note.find(params[:note_id])
     current_user.favourite_notes.delete(note)
     if request.referer.include?('search')
-      redirect_to search_path, notice: 'Nota eliminata dai preferiti.'
+      flash[:notice] = 'Nota eliminata dai preferiti.'
+      redirect_to request.referer || root_path
     elsif request.referer.include?('favourite')
-      redirect_to favourite_path, notice: 'Nota eliminata dai preferiti.'
+      flash[:notice] = 'Nota eliminata dai preferiti.'
+      redirect_to request.referer || root_path
     else
-      redirect_to favourite_path, notice: 'Nota eliminata dai preferiti.'
+      flash[:notice] = 'Nota eliminata dai preferiti.'
+      redirect_to request.referer || root_path
     end
   end
 

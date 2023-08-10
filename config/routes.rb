@@ -64,9 +64,6 @@ Rails.application.routes.draw do
     resources :messages
    end
 
-   get 'favourite', to: 'notes#favourite'
-   resources :notes
-
    get 'suggested', to: 'notes#suggested', as: :suggested
    patch '/update_rating/:id', to: 'notes#update_rating', as: 'update_rating'
    get 'best', to: 'notes#best', as: :best

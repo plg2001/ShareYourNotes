@@ -62,11 +62,11 @@
           <p class="card-text"> Autore: <%= link_to note.user.username, user_path(note.user), class: 'link' %></p>
           <% if current_user != note.user %>
             <% if current_user && current_user.favourite_notes.include?(note) %>
-              <%= link_to remove_favourite_path(note_id: note.id), method: :delete ,style: "text-decoration: none;" do%>
+              <%= link_to remove_favourite_path(note_id: note.id), method: :delete, style: "text-decoration: none;" do%>
                 <%= inline_svg_tag("heart-fill.svg") %>
               <% end %>
             <% elsif current_user%>
-              <%= link_to  add_favourite_path(note_id: note.id), method: :post ,style: "text-decoration: none;" do%>
+              <%= link_to  add_favourite_path(note_id: note.id), method: :post, style: "text-decoration: none;" do%>
                 <%= inline_svg_tag("heart.svg") %>
               <% end %>
             <% end %>
