@@ -514,7 +514,18 @@ display: inline-block;
   justify-content: center;
 }
 
-
+.heart:hover{
+  transform: scale(1.5);
+  transition: 0.2s ease-in;
+  cursor: pointer;
+  fill: red;
+}
+ .heart-off:hover{
+  transform: scale(1.5);
+  transition: 0.2s ease-in;
+  cursor: pointer;
+  fill:grey;
+}
 
 
 

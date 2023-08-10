@@ -2,7 +2,23 @@
 <%= stylesheet_link_tag 'valutazione', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= link_to "Modifica Appunto", edit_note_path(@note) %>
 <div class="container Pagina">
+  <div style= "display: flex; flex-wrap: wrap; gap: 80px; justify-content: center;">
   <h1 class="fw-bold text-center mb-4" style="color:black;"><%= @note.name %></h1>
+  <% if current_user != @note.user %>
+    <% if current_user && current_user.favourite_notes.include?(@note) %>
+      <%= link_to remove_favourite_path(note_id: @note.id), method: :delete ,style: "text-decoration: none;" do%>
+      <%= inline_svg_tag("heart-fill.svg", style: "margin-top: 70%") %>
+    <% end %>
+    <% elsif current_user%>
+      <%= link_to  add_favourite_path(note_id: @note.id), method: :post ,style: "text-decoration: none;" do%>
+      <%= inline_svg_tag("heart.svg", style: "margin-top: 70%") %>
+    <% end %>
+    <% else %>
+      <%= link_to  remove_note_path(@note), method: :delete, style: "text-decoration: none;", style: "text-decoration: none;", data: { confirm: 'Sei sicuro di voler eliminare l\'appunto?' } do%>
+      <%= image_tag("delete.svg",style: "width: 20px; height: 20px; ") %>
+    <% end %>
+  <% end %>
+  <% end %>
   <div class="monstraDescrizione_container">
     <button id="mostraDescrizione" class="btn text-center" style="background-color: #f77062;color:black;border: 3px solid black;border-radius: 80px">Mostra Descrizione</button>
   </div>
