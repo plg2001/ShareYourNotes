@@ -47,7 +47,7 @@
       <div class = "value">
         <div class="visualizzazioni">
           <%= inline_svg_tag("eye-fill.svg", class: "w-8 h-8") %>
-          <p><%= @note.views %></p>
+          <p><%= @note.visualizzaziones.count %></p>
         </div>
         <div class="download">
           <%= inline_svg_tag("download.svg", class: "w-8 h-8") %>
@@ -250,9 +250,10 @@
       </div>
       <div class="d-flex gap-1 stelle justify-content-center">
         <% Note::MAX_RATING.times do |n| %>
-          <%= inline_svg_tag("star.svg",
+          <%= inline_svg_tag("star1.svg",
         class: "w-8 h-8 #{staruser_rating_class(@note.user, n)}") %>
         <% end %>
+      </div>
       </div>
     <button class="btn1 draw-border">Message</button>
   </div>

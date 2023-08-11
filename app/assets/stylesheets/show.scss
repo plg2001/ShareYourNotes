@@ -593,7 +593,7 @@ display: inline-block;
 
 .card1 {
   background-color: #222831;
-  height: 21rem;
+  height: 23rem;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -604,7 +604,10 @@ display: inline-block;
   box-shadow: 0 10px 50px #f77062;
 }
 
-
+.card__name {
+  margin-top: 15px;
+  font-size: 1.5em;
+}
 
 .cardlink {
   display: inline-block;
