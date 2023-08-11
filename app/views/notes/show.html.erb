@@ -131,7 +131,6 @@
                 <label style="color:white; margin-top: 5px;" class="fw-bold">Word</label>
               </div>
             <% end %>
-             
           </div>
           <% file_extension = @note.format %>
           <% file_id = 0 %>
@@ -233,29 +232,33 @@
 </div>
 <div class="user_box">
   <div class="card1" id="id_card" style="display:none;">
-    <% if @note.user.profile_img_url != nil && @note.user.provider != "facebook"%>
-      <img src="<%= @note.user.profile_img_url %>" id= "img"  class="card__image" style="border: 5px solid black;">
-    <% else %>
-      <%= image_tag("avatar.svg",class:'card__image',style:"border: 5px solid black;",id: "img") %>
-    <% end %>
-    <p class="card__name" ><%= link_to @note.user.username, user_path(@note.user), class: 'cardlink',style: "text-decoration:none;font-weight:bold;" %></p>
-    <div class="grid-container">
-      <div class="grid-child-posts">
-        <%= count = Note.where(user_id: @note.user.id).count%>
-        <% if count == 1%>
-          <label>Appunto</label>
-        <%else%>
-          <label>Appunti</label>
-        <%end%>
+    <div class="message-swap" id="message-swap">
+      <% if @note.user.profile_img_url != nil && @note.user.provider != "facebook"%>
+        <img src="<%= @note.user.profile_img_url %>" id= "img"  class="card__image" style="border: 5px solid black;">
+      <% else %>
+        <%= image_tag("avatar.svg",class:'card__image',style:"border: 5px solid black;",id: "img") %>
+      <% end %>
+      <p class="card__name" ><%= link_to @note.user.username, user_path(@note.user), class: 'cardlink',style: "text-decoration:none;font-weight:bold;" %></p>
+      <div class="grid-container">
+        <div class="grid-child-posts">
+          <%= count = Note.where(user_id: @note.user.id).count%>
+          <% if count == 1%>
+            <label>Appunto</label>
+          <%else%>
+            <label>Appunti</label>
+          <%end%>
+        </div>
+        <div class="d-flex gap-1 stelle justify-content-center">
+          <% Note::MAX_RATING.times do |n| %>
+            <%= inline_svg_tag("star1.svg",
+        class: "w-8 h-8 #{staruser_rating_class(@note.user, n)} star-in-card")%>
+          <% end %>
+        </div>
       </div>
-      <div class="d-flex gap-1 stelle justify-content-center">
-        <% Note::MAX_RATING.times do |n| %>
-          <%= inline_svg_tag("star1.svg",
-        class: "w-8 h-8 #{staruser_rating_class(@note.user, n)}") %>
-        <% end %>
-      </div>
-      </div>
-    <button class="btn1 draw-border">Message</button>
+      <button class="btn1 draw-border" id="message-btn">Message</button>
+    </div>
+    <div class="message-section" id="message-section"style="display:none;">
+    </div>
   </div>
 </div>
 <div class="user_img" id="click">
@@ -266,6 +269,71 @@
   <% end %>
   <%= inline_svg_tag("online_indicator.svg", id: "indicator") %>
 </div>
+<script>
+  $(document).ready(function() {
+    $("#message-btn").click(function(event) {
+      event.preventDefault();
+      const message_section = document.getElementById("message-section");
+      
+      var senderId = <%= current_user.id %>; // Inserisci qui il modo per ottenere l'ID dell'utente corrente
+      var recipientId = <%= @note.user.id %>; // Inserisci qui il modo per ottenere l'ID dell'utente destinatario
+
+      <% conversation_id = nil %>
+      <% Conversation.all.each do |conversation| %>
+          if (<%= conversation.sender_id == current_user.id %> && <%= conversation.recipient_id %> == recipientId){
+              <% conversation_id = conversation.id %>;
+            }
+      <% end %>
+
+      var url ="/conversations/" + <%= conversation_id %> + "/messages"
+
+      $.ajax({
+        url: url,
+        method: "GET",
+        success: function(responseHTML) {
+
+
+          $("#message-section").html(responseHTML);
+          
+        },
+        error: function(xhr, status, error) {
+          console.error(error);
+        }
+      });
+      setTimeout(function(){
+      const navs =  document.querySelectorAll(".navbar");
+      navs.forEach(function(nav){
+        nav.style.display = "none";
+        message_section.style.display = "flex"
+        })
+      },100);
+    });
+
+
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      const message_btn = document.getElementById("message-btn");
+      const message_swap = document.getElementById("message-swap");
+      
+      message_btn.addEventListener("click",function(e){
+        message_swap.style.display = "none"
+       
+      })
+
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const stars = document.querySelectorAll(".star-in-card");
+    stars.forEach(function(star){
+      if(star.classList.contains("text-warning") == false){
+        star.classList.add("white-star");
+      }
+    })
+  });
+</script>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
 
@@ -418,9 +486,7 @@
     seleziona_il_formato2.style.display = "none";
     label_format.style.display ="none";
   });
-</script>
-<!-- Nel tuo file HTML, preferibilmente prima della chiusura del tag body -->
-<script>
+
   document.addEventListener("DOMContentLoaded", function() {
 
       if (<%=user_signed_in? && @note.user.id != current_user.id%>){
