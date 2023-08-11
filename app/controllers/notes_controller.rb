@@ -362,7 +362,9 @@ class NotesController < ApplicationController
     average_rating = CreateRating.where(note_id: @note.id).average(:rating)
     @note.update(rating: average_rating)
 
-    redirect_to @note, notice: "Valutazione aggiunta con successo!"
+    flash[:notice] = 'Valutazione aggiunta con successo!'
+    redirect_to request.referer || root_path
+    
   end
 
   def delete
@@ -510,6 +512,7 @@ class NotesController < ApplicationController
 
     if @note.update(note_params)
       redirect_to @note, notice: 'Appunto aggiornato con successo.'
+      Valutazione aggiunta con successo!
     else
       render :edit
     end
