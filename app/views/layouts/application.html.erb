@@ -212,7 +212,12 @@
             <% valueTag = params[:tag] || nil %>
             <% valueTopic = params[:topic] || nil %>
             <div class="input-group">
-              <%= text_field_tag :search, params[:search], placeholder: "Cerca...", class: "form-control side" %>
+              <%= text_field_tag :search, params[:search], placeholder: "Cerca...", class: "form-control side", id: "name-search", list: "name-suggestions", autocomplete: "off" %>
+              <datalist id="name-suggestions">
+                <% Note.distinct.pluck(:name).each do |name| %>
+                  <option value="<%= name %>">
+                <% end %>
+              </datalist>
               <%= button_tag type: "button", class: "btn",style: "background: none; border: 2px solid white", id: "mostraSelect" do %>
                 <%= image_tag("filter.svg") %>
               <% end %>
@@ -229,7 +234,12 @@
               <div id="filtroHide" style="display: none;">
                 <div id="dropdown" class="form-group">
                   <div id="user-choice" style="display: none;">
-                    <%= text_field_tag :user_search, params[:user_search], placeholder: "Cerca per username", class: "form-control", style: "height: 2.5em;" %>
+                    <%= text_field_tag :user_search, params[:user_search], placeholder: "Cerca per username", class: "form-control", id: "username-search", list: "username-suggestions", autocomplete: "off", style: "height: 2.5em;" %>
+                    <datalist id="username-suggestions">
+                      <% User.joins(:notes).distinct.pluck(:username).each do |username| %>
+                        <option value="<%= username %>">
+                      <% end %>
+                    </datalist>
                   </div>
                   <div id="faculty-choice" style="display: none;">
                     <%= select_tag :faculty, options_from_collection_for_select(Faculty.all, :id, :name, params[:faculty]), prompt: "Scegli una facoltà", class: "form-control", id: "faculty", style: "height: 2.5em;" %>
@@ -256,20 +266,47 @@
               </div>
               <script>
                 document.addEventListener("DOMContentLoaded", function() {
-                const mostraSelect = document.getElementById("mostraSelect");
-                const filtroSelect = document.getElementById("Filtro");
-                const filtroHide = document.getElementById("filtroHide");
+                  const mostraSelect = document.getElementById("mostraSelect");
+                  const filtroSelect = document.getElementById("Filtro");
+                  const filtroHide = document.getElementById("filtroHide");
+                  const NameSearch = document.getElementById("name-search");
+                  const NameSuggestions = document.getElementById("name-suggestions");
 
-                mostraSelect.addEventListener("click", function() {
-                  if (filtroHide.style.display === "none") {
-                    filtroHide.style.display = "block";
-                    filtroSelect.style.display = "block";
-                  } else {
-                    filtroHide.style.display = "none";
-                    filtroSelect.style.display = "none";
-                  }
+                  mostraSelect.addEventListener("click", function() {
+                    if (filtroHide.style.display === "none") {
+                      filtroHide.style.display = "block";
+                      filtroSelect.style.display = "block";
+                    } else {
+                      filtroHide.style.display = "none";
+                      filtroSelect.style.display = "none";
+                    }
+                  });
+
+                  NameSearch.addEventListener("name", function() {
+                    const names = NameSearch.value.toLowerCase();
+                    const suggestions = NameSuggestions.querySelectorAll("suggestion");
+
+                    suggestions.forEach(function(suggestion) {
+                      if (suggestion.value.toLowerCase().indexOf(name) !== -1) {
+                        suggestion.style.display = "block";
+                      } else {
+                        suggestion.style.display = "none";
+                      }
+                    });
+                  });
+
+                  document.getElementById("Filtro").addEventListener("change", function() {
+                    const selectedFilter = this.value;
+                    
+                    UsernameSuggestions.style.display = "none";
+                    
+                    if (selectedFilter === "user") {
+                      UsernameSuggestions.style.display = "block";
+                    }
+                  });
+
                 });
-                });
+                
                 document.getElementById("Filtro").addEventListener("change", function() {
                   var valueSelected = this.value;
                   var dropdownChoice = document.getElementById("dropdown");

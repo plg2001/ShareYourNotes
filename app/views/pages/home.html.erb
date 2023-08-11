@@ -31,6 +31,7 @@
                           @suggested_notes = Note.joins(:note_topics, :note_tags)
                          .where('note_topics.topic_id IN (?) OR note_tags.tag_id IN (?)', favourite_topics, favourite_tags)
                          .where.not(id: favourite.pluck(:id))
+                         .where.not(user_id: current_user.id)
                          .distinct
                          end%>
                   </script>
