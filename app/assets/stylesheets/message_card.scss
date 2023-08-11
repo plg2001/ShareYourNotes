@@ -1,0 +1,113 @@
+/* Aggiungi questo CSS per il message-section */
+
+#message-section{
+    display: block; /* Mostra il message-section */
+    overflow: auto; /* Aggiungi scrolling se necessario */
+    height: 400px; 
+    
+  }
+  
+  .msger {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .msger-header {
+    display: flex;
+    align-items: center;
+    background-color: #f77062;
+    padding: 10px;
+    color: white;
+  }
+  
+  .msger-header-title {
+    flex-grow: 1;
+    font-size: 1.2em;
+  }
+  
+  .msger-header-options {
+    font-size: 1.2em;
+    cursor: pointer;
+  }
+  
+  .msger-chat {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: scroll;
+  }
+  
+  .msg {
+    display: flex;
+    margin: 10px 0;
+  }
+  
+  .msg-img {
+    max-width: 2em;
+    max-height: 2em;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .msg-bubble {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .msg-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    color: black;
+  }
+
+  .msg-info-name {
+    font-weight: bold;
+    font-size: 0.7em;
+  }
+  .msg-info-time {
+    font-size: 0.55em;
+  }
+  
+  .msg-text {
+    font-size: 1em;
+    color: black;
+    max-width: 200px;
+    word-wrap: break-word;
+  }
+  
+  .msger-inputarea {
+    padding: 10px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+  }
+  
+  .msger-input {
+    flex-grow: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 20px;
+    background-color: #f1f1f1;
+    font-size: 1.1em;
+    outline: none;
+  }
+  
+  .msger-send-btn {
+    background-color: #f77062;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .msger-send-btn:hover {
+    background-color: #eb196e;
+  }

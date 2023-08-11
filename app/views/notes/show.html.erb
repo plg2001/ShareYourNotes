@@ -1,6 +1,8 @@
 <%= stylesheet_link_tag 'show', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag 'progress_bar', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag 'valutazione', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'message_card', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 <%= link_to "Modifica Appunto", edit_note_path(@note) %>
 <div class="container Pagina">
   <div style= "display: flex; flex-wrap: wrap; gap: 80px; justify-content: center;">
@@ -301,11 +303,13 @@
         }
       });
       setTimeout(function(){
-      const navs =  document.querySelectorAll(".navbar");
-      navs.forEach(function(nav){
-        nav.style.display = "none";
+      const navs =  document.querySelectorAll(".navbar")[1];
+
+        navs.style.display = "none";
+        const styleTag = document.querySelector("link#message_style");
+        styleTag.parentNode.removeChild(styleTag);
+      
         message_section.style.display = "flex"
-        })
       },100);
     });
 
