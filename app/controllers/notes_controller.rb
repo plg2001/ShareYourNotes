@@ -24,15 +24,15 @@ class NotesController < ApplicationController
       @notes = @notes.where(faculty: faculty)
     end
 
-    if params[:topic].present?
-      topics = params[:topic]
-      topic_ids = Topic.where(name: topics).pluck(:id)
+    if params[:topics].present?
+      topic = params[:topics]
+      topic_ids = Topic.where(name: topic).pluck(:id)
       @notes = @notes.joins(:note_topics).where(note_topics: { topic_id: topic_ids })
     end
-  
-    if params[:tag].present?
-      tags = params[:tag]
-      tag_ids = Tag.where(name: tags).pluck(:id)
+
+    if params[:tags].present?
+      tag = params[:tags]
+      tag_ids = Tag.where(name: tag).pluck(:id)
       @notes = @notes.joins(:note_tags).where(note_tags: { tag_id: tag_ids })
     end
 

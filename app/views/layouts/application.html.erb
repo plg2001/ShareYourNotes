@@ -238,7 +238,7 @@
                 ["Caricato prima del", "before"],
                 ["Ordine alfabetico", "order"]
               ], params[:Filtro]), { class: "form-control", id: "Filtro", style: "display: none;" } %>
-                <div id="filtroHide" style="display: none;">
+                <div id="filtroHide" style="display: none; width: 12em; background-color: white;">
                   <div id="dropdown" class="form-group">
                     <div id="user-choice" style="display: none;">
                       <%= text_field_tag :user_search, params[:user_search], placeholder: "Cerca per username", class: "form-control", id: "username-search", list: "username-suggestions", autocomplete: "off", style: "height: 2.5em;" %>
@@ -251,11 +251,21 @@
                       <div id="faculty-choice" style="display: none;">
                         <%= select_tag :faculty, options_from_collection_for_select(Faculty.all, :id, :name, params[:faculty]), prompt: "Scegli una facoltà", class: "form-control", id: "faculty", style: "height: 2.5em;" %>
                       </div>
-                      <div id="topic-choice" style="display: none;">
-                        <%= select_tag :topic, options_for_select(Topic.distinct.pluck(:name), params[:topic]), prompt: "Scegli uno o più topic", class: "form-control", id: "topic", value: params[:topic] || (params[:Filtro].try(:include?, 'topic') ? nil : valueTopic), multiple: true, size:2 %>
+                      <div id="topic-choice" style="display: none; height: 3.5em; overflow-y: auto; margin-left: 5%; background-color: white;">
+                        <% Topic.distinct.pluck(:name).each do |topic| %>
+                          <label style="color: black; margin-top: 1%;">
+                            <%= check_box_tag 'topics[]', topic, (params[:topics] || []).include?(topic) %>
+                            <%= topic %>
+                          </label><br>
+                        <% end %>
                       </div>
-                      <div id="tag-choice" style="display: none;">
-                        <%= select_tag :tag, options_for_select(Tag.distinct.pluck(:name), params[:tag]), prompt: "Scegli uno o più tag", class: "form-control", id: "tag", value: params[:tag] || (params[:Filtro].try(:include?, 'tag') ? nil : valueTag), multiple: true, size:2 %>
+                      <div id="tag-choice" style="display: none; height: 3.5em; overflow-y: auto; margin-left: 5%; top: 1%; background-color: white;">
+                        <% Tag.distinct.pluck(:name).each do |tag| %>
+                          <label style="color: black; margin-top: 1%;">
+                            <%= check_box_tag 'tags[]', tag, (params[:tags] || []).include?(tag) %>
+                            <%= tag %>
+                          </label><br>
+                        <% end %>
                       </div>
                       <div id="rating-choice" style="display: none;">
                         <%= select_tag :rating, options_for_select([[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]], params[:rating]), prompt: "Scegli una valutazione", class: "form-control", id: "rating", style: "height: 2.5em;" %>
