@@ -1,19 +1,30 @@
 class ConversationsController < ApplicationController
     before_action :authenticate_user!
-   def index
-    @users = User.all
-    @conversations = Conversation.all
+    def index
+      @users = User.all
+      @conversations = Conversation.all
     end
-   def create
-    if Conversation.between(params[:sender_id],params[:recipient_id])
-      .present?
-       @conversation = Conversation.between(params[:sender_id],
+
+    def create
+      if Conversation.between(params[:sender_id],params[:recipient_id]).present?
+        @conversation = Conversation.between(params[:sender_id],
         params[:recipient_id]).first
-    else
-     @conversation = Conversation.create!(conversation_params)
+      else
+        @conversation = Conversation.create!(conversation_params)
+      end
+      redirect_to conversation_messages_path(@conversation)
     end
-    redirect_to conversation_messages_path(@conversation)
-   end
+
+    def create_ajax
+      if Conversation.between(params[:sender_id],params[:recipient_id]).present?
+        @conversation = Conversation.between(params[:sender_id],
+        params[:recipient_id]).first
+      else
+        @conversation = Conversation.create!(conversation_params)
+      end
+      render json: { conversation_id: @conversation.id }
+    end
+    
    private
     def conversation_params
      params.permit(:sender_id, :recipient_id)

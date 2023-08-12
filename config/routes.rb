@@ -60,6 +60,9 @@ Rails.application.routes.draw do
   get '/notes/:id', to: 'notes#show', as: 'best_note'
   get '/notes/:id', to: 'notes#show', as: 'note_show'
 
+
+  post '/conversations/create_ajax', to: 'conversations#create_ajax'
+
   resources :conversations do
     resources :messages
    end

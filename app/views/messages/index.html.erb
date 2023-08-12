@@ -1,7 +1,4 @@
-
 <%= stylesheet_link_tag 'message', media: 'all', 'data-turbolinks-track': 'reload', id:'message_style' %>
-
-
 <section class="msger">
   <header class="msger-header">
     <div class="msger-header-title">
@@ -17,7 +14,12 @@
         <% user = User.find(message.user_id) %>
         <% if current_user != user %>
           <div class="msg left-msg">
-            <%= image_tag("avatar.svg",style: "max-width: 2em; max-height: 2em;",class: "msg-img") %>
+            <% if user.profile_img_url != nil && user.provider != "facebook"%>
+              <img src="<%= user.profile_img_url %>" id= "img"  class="msg-img" style="max-width: 2em; max-height: 2em;">
+            <% else %>
+              <%= image_tag("avatar.svg",class:"msg-img",style:"max-width: 2em; max-height: 2em;") %>
+            <% end %>
+            
             <div class="msg-bubble">
               <div class="msg-info">
                 <div class="msg-info-name"><%= user.username%></div>
@@ -30,7 +32,11 @@
           </div>
         <% else %>
           <div class="msg right-msg">
-            <%= image_tag("avatar.svg",style: "max-width: 2em; max-height: 2em;",class: "msg-img") %>
+            <% if user.profile_img_url != nil && user.provider != "facebook"%>
+              <img src="<%= user.profile_img_url %>" id= "img"  class="msg-img" style="max-width: 2em; max-height: 2em;">
+            <% else %>
+              <%= image_tag("avatar.svg",class:"msg-img",style:"max-width: 2em; max-height: 2em;") %>
+            <% end %>
             <div class="msg-bubble">
               <div class="msg-info">
                 <div class="msg-info-name"><%= user.username%></div>
@@ -44,9 +50,8 @@
         <%end %>
       <%end %>
     <%end %>
-  </main> 
+  </main>
   <%= form_for [@conversation, @message], html: { class: "msger-inputarea" } do |f| %>
-
     <%= f.text_field :body, class: "msger-input", placeholder: "Scrivi un messaggio..." %>
     <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
     <%= f.submit "Invia", class: "msger-send-btn" %>

@@ -108,9 +108,13 @@
                                <% conversation_id = conversation.id %>;
                              }
                             <% end %>
+
                             var userLink = document.createElement("a");
-                            userLink.href = "/conversations/" + <%= conversation_id %> + "/messages"
-                            userLink.style.textDecoration = "none";
+
+                            if( <%= conversation_id != nil %>){
+                              userLink.href = "/conversations/" + <%= conversation_id %> + "/messages"
+                              userLink.style.textDecoration = "none";
+                            }
 
 
                             // Dentro la funzione updateSearchResults
@@ -164,6 +168,9 @@
 
 
                         searchResultsDiv.appendChild(userList);
+                        setTimeout(function(){
+                          CreateConversation(user.id);
+                        },5000);
                       }
                     }
                   </script>
@@ -216,12 +223,12 @@
               <datalist id="name-suggestions">
                 <% Note.distinct.pluck(:name).each do |name| %>
                   <option value="<%= name %>">
+                  <% end %>
+                </datalist>
+                <%= button_tag type: "button", class: "btn",style: "background: none; border: 2px solid white", id: "mostraSelect" do %>
+                  <%= image_tag("filter.svg") %>
                 <% end %>
-              </datalist>
-              <%= button_tag type: "button", class: "btn",style: "background: none; border: 2px solid white", id: "mostraSelect" do %>
-                <%= image_tag("filter.svg") %>
-              <% end %>
-              <%= select_tag :Filtro, options_for_select([
+                <%= select_tag :Filtro, options_for_select([
                 ["Username", "user"],
                 ["Facoltà", "faculty"],
                 ["Topic", "topic"],
@@ -231,239 +238,253 @@
                 ["Caricato prima del", "before"],
                 ["Ordine alfabetico", "order"]
               ], params[:Filtro]), { class: "form-control", id: "Filtro", style: "display: none;" } %>
-              <div id="filtroHide" style="display: none;">
-                <div id="dropdown" class="form-group">
-                  <div id="user-choice" style="display: none;">
-                    <%= text_field_tag :user_search, params[:user_search], placeholder: "Cerca per username", class: "form-control", id: "username-search", list: "username-suggestions", autocomplete: "off", style: "height: 2.5em;" %>
-                    <datalist id="username-suggestions">
-                      <% User.joins(:notes).distinct.pluck(:username).each do |username| %>
-                        <option value="<%= username %>">
-                      <% end %>
-                    </datalist>
+                <div id="filtroHide" style="display: none;">
+                  <div id="dropdown" class="form-group">
+                    <div id="user-choice" style="display: none;">
+                      <%= text_field_tag :user_search, params[:user_search], placeholder: "Cerca per username", class: "form-control", id: "username-search", list: "username-suggestions", autocomplete: "off", style: "height: 2.5em;" %>
+                      <datalist id="username-suggestions">
+                        <% User.joins(:notes).distinct.pluck(:username).each do |username| %>
+                          <option value="<%= username %>">
+                          <% end %>
+                        </datalist>
+                      </div>
+                      <div id="faculty-choice" style="display: none;">
+                        <%= select_tag :faculty, options_from_collection_for_select(Faculty.all, :id, :name, params[:faculty]), prompt: "Scegli una facoltà", class: "form-control", id: "faculty", style: "height: 2.5em;" %>
+                      </div>
+                      <div id="topic-choice" style="display: none;">
+                        <%= select_tag :topic, options_for_select(Topic.distinct.pluck(:name), params[:topic]), prompt: "Scegli uno o più topic", class: "form-control", id: "topic", value: params[:topic] || (params[:Filtro].try(:include?, 'topic') ? nil : valueTopic), multiple: true, size:2 %>
+                      </div>
+                      <div id="tag-choice" style="display: none;">
+                        <%= select_tag :tag, options_for_select(Tag.distinct.pluck(:name), params[:tag]), prompt: "Scegli uno o più tag", class: "form-control", id: "tag", value: params[:tag] || (params[:Filtro].try(:include?, 'tag') ? nil : valueTag), multiple: true, size:2 %>
+                      </div>
+                      <div id="rating-choice" style="display: none;">
+                        <%= select_tag :rating, options_for_select([[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]], params[:rating]), prompt: "Scegli una valutazione", class: "form-control", id: "rating", style: "height: 2.5em;" %>
+                      </div>
+                      <div id="after-choice" style="display: none;">
+                        <%= text_field_tag :after, params[:after], placeholder: "GG-MM-AAAA", class: "form-control", id: "after", style: "height: 2.5em;" %>
+                      </div>
+                      <div id="before-choice" style="display: none;">
+                        <%= text_field_tag :before, params[:before], placeholder: "GG-MM-AAAA", class: "form-control", id: "before", style: "height: 2.5em;" %>
+                      </div>
+                      <div id="order-choice" style="display: none;">
+                        <%= select_tag :order, options_for_select([["Ordine alfabetico", nil], ["A-Z", "asc"], ["Z-A", "desc"]], params[:order]), class: "form-control", style: "height: 2.5em;" %>
+                      </div>
+                    </div>
                   </div>
-                  <div id="faculty-choice" style="display: none;">
-                    <%= select_tag :faculty, options_from_collection_for_select(Faculty.all, :id, :name, params[:faculty]), prompt: "Scegli una facoltà", class: "form-control", id: "faculty", style: "height: 2.5em;" %>
-                  </div>
-                  <div id="topic-choice" style="display: none;">
-                    <%= select_tag :topic, options_for_select(Topic.distinct.pluck(:name), params[:topic]), prompt: "Scegli uno o più topic", class: "form-control", id: "topic", value: params[:topic] || (params[:Filtro].try(:include?, 'topic') ? nil : valueTopic), multiple: true, size:2 %>
-                  </div>
-                  <div id="tag-choice" style="display: none;">
-                    <%= select_tag :tag, options_for_select(Tag.distinct.pluck(:name), params[:tag]), prompt: "Scegli uno o più tag", class: "form-control", id: "tag", value: params[:tag] || (params[:Filtro].try(:include?, 'tag') ? nil : valueTag), multiple: true, size:2 %>
-                  </div>
-                  <div id="rating-choice" style="display: none;">
-                    <%= select_tag :rating, options_for_select([[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]], params[:rating]), prompt: "Scegli una valutazione", class: "form-control", id: "rating", style: "height: 2.5em;" %>
-                  </div>
-                  <div id="after-choice" style="display: none;">
-                    <%= text_field_tag :after, params[:after], placeholder: "GG-MM-AAAA", class: "form-control", id: "after", style: "height: 2.5em;" %>
-                  </div>
-                  <div id="before-choice" style="display: none;">
-                    <%= text_field_tag :before, params[:before], placeholder: "GG-MM-AAAA", class: "form-control", id: "before", style: "height: 2.5em;" %>
-                  </div>
-                  <div id="order-choice" style="display: none;">
-                    <%= select_tag :order, options_for_select([["Ordine alfabetico", nil], ["A-Z", "asc"], ["Z-A", "desc"]], params[:order]), class: "form-control", style: "height: 2.5em;" %>
-                  </div>
-                </div>
-              </div>
-              <script>
-                document.addEventListener("DOMContentLoaded", function() {
-                  const mostraSelect = document.getElementById("mostraSelect");
-                  const filtroSelect = document.getElementById("Filtro");
-                  const filtroHide = document.getElementById("filtroHide");
-                  const NameSearch = document.getElementById("name-search");
-                  const NameSuggestions = document.getElementById("name-suggestions");
+                  <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                      const mostraSelect = document.getElementById("mostraSelect");
+                      const filtroSelect = document.getElementById("Filtro");
+                      const filtroHide = document.getElementById("filtroHide");
+                      const NameSearch = document.getElementById("name-search");
+                      const NameSuggestions = document.getElementById("name-suggestions");
 
-                  mostraSelect.addEventListener("click", function() {
-                    if (filtroHide.style.display === "none") {
-                      filtroHide.style.display = "block";
-                      filtroSelect.style.display = "block";
-                    } else {
-                      filtroHide.style.display = "none";
-                      filtroSelect.style.display = "none";
-                    }
-                  });
+                      mostraSelect.addEventListener("click", function() {
+                        if (filtroHide.style.display === "none") {
+                          filtroHide.style.display = "block";
+                          filtroSelect.style.display = "block";
+                        } else {
+                          filtroHide.style.display = "none";
+                          filtroSelect.style.display = "none";
+                        }
+                      });
 
-                  NameSearch.addEventListener("name", function() {
-                    const names = NameSearch.value.toLowerCase();
-                    const suggestions = NameSuggestions.querySelectorAll("suggestion");
+                      NameSearch.addEventListener("name", function() {
+                        const names = NameSearch.value.toLowerCase();
+                        const suggestions = NameSuggestions.querySelectorAll("suggestion");
 
-                    suggestions.forEach(function(suggestion) {
-                      if (suggestion.value.toLowerCase().indexOf(name) !== -1) {
-                        suggestion.style.display = "block";
-                      } else {
-                        suggestion.style.display = "none";
+                        suggestions.forEach(function(suggestion) {
+                          if (suggestion.value.toLowerCase().indexOf(name) !== -1) {
+                            suggestion.style.display = "block";
+                          } else {
+                            suggestion.style.display = "none";
+                          }
+                        });
+                      });
+
+                      document.getElementById("Filtro").addEventListener("change", function() {
+                        const selectedFilter = this.value;
+
+                        UsernameSuggestions.style.display = "none";
+
+                        if (selectedFilter === "user") {
+                          UsernameSuggestions.style.display = "block";
+                        }
+                      });
+
+                    });
+
+                    document.getElementById("Filtro").addEventListener("change", function() {
+                      var valueSelected = this.value;
+                      var dropdownChoice = document.getElementById("dropdown");
+                      Array.from(dropdownChoice.children).forEach(function(child) {
+                        child.style.display = "none";
+                      });
+                      var selectedChoice = document.getElementById(valueSelected + "-choice");
+                      if (selectedChoice) {
+                        selectedChoice.style.display = "block";
+                      }
+                      if (valueSelected === "rating") {
+                        showChoice(valueSelected);
                       }
                     });
-                  });
-
-                  document.getElementById("Filtro").addEventListener("change", function() {
-                    const selectedFilter = this.value;
-                    
-                    UsernameSuggestions.style.display = "none";
-                    
-                    if (selectedFilter === "user") {
-                      UsernameSuggestions.style.display = "block";
+                    document.addEventListener("DOMContentLoaded", function() {
+                      var valueSelected = document.getElementById("Filtro").value;
+                      showChoice(valueSelected);
+                    });
+                    function showChoice(value) {
+                      var dropdownChoice = document.getElementById("dropdown");
+                      Array.from(dropdownChoice.children).forEach(function(child) {
+                        child.style.display = "none";
+                      });
+                      var selectedChoice = document.getElementById(value + "-choice");
+                      if (selectedChoice) {
+                        selectedChoice.style.display = "block";
+                      }
+                      if (value === "rating") {
+                        document.getElementById("search").value = "";
+                      }
                     }
-                  });
+                    function validateDateInput() {
+                      var afterInput = document.getElementById("after");
+                      var beforeInput = document.getElementById("before");
 
-                });
-                
-                document.getElementById("Filtro").addEventListener("change", function() {
-                  var valueSelected = this.value;
-                  var dropdownChoice = document.getElementById("dropdown");
-                  Array.from(dropdownChoice.children).forEach(function(child) {
-                    child.style.display = "none";
-                  });
-                  var selectedChoice = document.getElementById(valueSelected + "-choice");
-                  if (selectedChoice) {
-                    selectedChoice.style.display = "block";
-                  }
-                  if (valueSelected === "rating") {
-                    showChoice(valueSelected);
-                  }
-                });
-                document.addEventListener("DOMContentLoaded", function() {
-                  var valueSelected = document.getElementById("Filtro").value;
-                  showChoice(valueSelected);
-                });
-                function showChoice(value) {
-                  var dropdownChoice = document.getElementById("dropdown");
-                  Array.from(dropdownChoice.children).forEach(function(child) {
-                    child.style.display = "none";
-                  });
-                  var selectedChoice = document.getElementById(value + "-choice");
-                  if (selectedChoice) {
-                    selectedChoice.style.display = "block";
-                  }
-                  if (value === "rating") {
-                    document.getElementById("search").value = "";
-                  }
-                }
-                function validateDateInput() {
-                  var afterInput = document.getElementById("after");
-                  var beforeInput = document.getElementById("before");
+                      var afterValue = afterInput.value.trim();
+                      var beforeValue = beforeInput.value.trim();
 
-                  var afterValue = afterInput.value.trim();
-                  var beforeValue = beforeInput.value.trim();
-
-                  if (afterValue === "" && beforeValue === "") {
-                    return true;
-                  }
-                  if (afterValue !== "" && !isValidDate(afterValue)) {
-                    return false;
-                  }
-                  if (beforeValue !== "" && !isValidDate(beforeValue)) {
-                    return false;
-                  }
-                  return true;
-                }
-                function isValidDate(dateString) {
-                  var datePattern = /^\d{2}-\d{2}-\d{4}$/;
-                  if (!datePattern.test(dateString)) {
-                    alert("Data inserita in modo errato, formato corretto: GG-MM-AAAA");
-                    return false;
-                  }
-                  var p = dateString.split("-");
-                  var d = parseInt(p[0], 10);
-                  var m = parseInt(p[1], 10);
-                  var y = parseInt(p[2], 10);
-                  var isValid = true;
-                  if (d < 1 || d > 31 || isNaN(d)) {
-                    alert("Giorno inserito errato");
-                    isValid = false;
-                  }
-                  if (m < 1 || m > 12 || isNaN(m)) {
-                    alert("Mese inserito errato");
-                    isValid = false;
-                  }
-                  if (!isValid) {
-                    return false;
-                  }
-                  var date = new Date(y, m - 1, d);
-                  if (isNaN(date.getTime())) {
-                    return false;
-                  }
-                  return true;
-                }
-              </script>
-              <%= button_tag type: "submit", class: "btn",style: "background: none; border: 2px solid white" do %>
-                <%= image_tag("search2.svg") %>
-              <% end %>
-            </div>
-          <% end %>
-          <% if user_signed_in? %>
-            <%= link_to '#' do %>
-              <% if current_user.profile_img_url == nil  %>
-                <%= image_tag("person_fill.svg", id: "personal-button", class: "btn btn-primary", style: " background: none; border: 2px solid white ;width: 3.2em; height: 100%;") %>
-              <% else %>
-                <img src="<%= current_user.profile_img_url %>" id= "personal-button" class= "" style= "border-radius:100px;margin-right: 10px;background: none; border: 2px solid white ;width: 50px; height: 50px;">
-              <% end %>
-            <% end %>
-            <div id="personal-area" class="personal-area hidden">
-              <span class="close-button">&#10006;</span>
-              <h1 class= "fw-bold" style="color:black;">Informazioni utente</h1>
-              <p><strong>Username:</strong> <%= current_user.username + "#" + current_user.id.to_s  %></p>
-              <p><strong>Name:</strong> <%= current_user.name %></p>
-              <p><strong>Email:</strong> <%= current_user.email %></p>
-              <div class="all-button-container">
-                <%= link_to "Preferiti", favourite_path, class: "mybtn mybtn-primary btn-block button-block" %>
-                <%= link_to "Miei Appunti", my_notes_path, class: "mybtn mybtn-primary btn-block button-block" %>
-                <%= link_to "Recenti", recent_path, class: "mybtn mybtn-primary btn-block button-block" %>
-                <%= link_to "Classifica", best_path, class: "mybtn mybtn-primary btn-block button-block" %>
-                <div class="button-container">
-                  <%= link_to edit_user_path(current_user), style: "text-decoration: none;" do%>
-                    <%= image_tag("edit.svg",style: "width: 100px; height: 45px; ") %>
-                  <% end %>
-                  <%= link_to user_path(current_user), method: :delete, style: "text-decoration: none;", data: { confirm: 'Sei sicuro di voler eliminare il tuo account?' } do%>
-                    <%= image_tag("delete.svg",style: "width: 100px; height: 45px; ") %>
+                      if (afterValue === "" && beforeValue === "") {
+                        return true;
+                      }
+                      if (afterValue !== "" && !isValidDate(afterValue)) {
+                        return false;
+                      }
+                      if (beforeValue !== "" && !isValidDate(beforeValue)) {
+                        return false;
+                      }
+                      return true;
+                    }
+                    function isValidDate(dateString) {
+                      var datePattern = /^\d{2}-\d{2}-\d{4}$/;
+                      if (!datePattern.test(dateString)) {
+                        alert("Data inserita in modo errato, formato corretto: GG-MM-AAAA");
+                        return false;
+                      }
+                      var p = dateString.split("-");
+                      var d = parseInt(p[0], 10);
+                      var m = parseInt(p[1], 10);
+                      var y = parseInt(p[2], 10);
+                      var isValid = true;
+                      if (d < 1 || d > 31 || isNaN(d)) {
+                        alert("Giorno inserito errato");
+                        isValid = false;
+                      }
+                      if (m < 1 || m > 12 || isNaN(m)) {
+                        alert("Mese inserito errato");
+                        isValid = false;
+                      }
+                      if (!isValid) {
+                        return false;
+                      }
+                      var date = new Date(y, m - 1, d);
+                      if (isNaN(date.getTime())) {
+                        return false;
+                      }
+                      return true;
+                    }
+                  </script>
+                  <%= button_tag type: "submit", class: "btn",style: "background: none; border: 2px solid white" do %>
+                    <%= image_tag("search2.svg") %>
                   <% end %>
                 </div>
-              </div>
-            </div>
-            <script>
-              document.addEventListener('DOMContentLoaded', function() {
-                var personalArea = document.getElementById('personal-area');
-                var personalButton = document.getElementById('personal-button');
-                var closeButton = document.querySelector('.close-button');
+              <% end %>
+              <% if user_signed_in? %>
+                <%= link_to '#' do %>
+                  <% if current_user.profile_img_url == nil  %>
+                    <%= image_tag("person_fill.svg", id: "personal-button", class: "btn btn-primary", style: " background: none; border: 2px solid white ;width: 3.2em; height: 100%;") %>
+                  <% else %>
+                    <img src="<%= current_user.profile_img_url %>" id= "personal-button" class= "" style= "border-radius:100px;margin-right: 10px;background: none; border: 2px solid white ;width: 50px; height: 50px;">
+                  <% end %>
+                <% end %>
+                <div id="personal-area" class="personal-area hidden">
+                  <span class="close-button">&#10006;</span>
+                  <h1 class= "fw-bold" style="color:black;">Informazioni utente</h1>
+                  <p><strong>Username:</strong> <%= current_user.username + "#" + current_user.id.to_s  %></p>
+                  <p><strong>Name:</strong> <%= current_user.name %></p>
+                  <p><strong>Email:</strong> <%= current_user.email %></p>
+                  <div class="all-button-container">
+                    <%= link_to "Preferiti", favourite_path, class: "mybtn mybtn-primary btn-block button-block" %>
+                    <%= link_to "Miei Appunti", my_notes_path, class: "mybtn mybtn-primary btn-block button-block" %>
+                    <%= link_to "Recenti", recent_path, class: "mybtn mybtn-primary btn-block button-block" %>
+                    <%= link_to "Classifica", best_path, class: "mybtn mybtn-primary btn-block button-block" %>
+                    <div class="button-container">
+                      <%= link_to edit_user_path(current_user), style: "text-decoration: none;" do%>
+                        <%= image_tag("edit.svg",style: "width: 100px; height: 45px; ") %>
+                      <% end %>
+                      <%= link_to user_path(current_user), method: :delete, style: "text-decoration: none;", data: { confirm: 'Sei sicuro di voler eliminare il tuo account?' } do%>
+                        <%= image_tag("delete.svg",style: "width: 100px; height: 45px; ") %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+                <script>
+                  document.addEventListener('DOMContentLoaded', function() {
+                    var personalArea = document.getElementById('personal-area');
+                    var personalButton = document.getElementById('personal-button');
+                    var closeButton = document.querySelector('.close-button');
 
-                var chatArea = document.getElementById('chat-area');
-                var chatButton = document.getElementById('chat-button');
-                var closeButtonchat = document.querySelector('.close-button-chat');
+                    var chatArea = document.getElementById('chat-area');
+                    var chatButton = document.getElementById('chat-button');
+                    var closeButtonchat = document.querySelector('.close-button-chat');
 
-                var mainArea = document.querySelector('.main-area');
+                    var mainArea = document.querySelector('.main-area');
 
-                personalButton.addEventListener('click', function(event) {
-                  event.preventDefault();
-                  personalArea.classList.toggle('hidden');
-                  mainArea.style.display = 'block';
-                });
-                closeButton.addEventListener('click', function(event) {
-                  personalArea.classList.add('hidden');
-                  mainArea.style.display = 'none';
-                });
-                chatButton.addEventListener('click', function(event) {
-                  event.preventDefault();
-                  chatArea.classList.add('chat-hidden');
-                  mainArea.style.display = 'block';
-                });
-                closeButtonchat.addEventListener('click', function(event) {
-                  chatArea.classList.toggle('chat-hidden');
-                  mainArea.style.display = 'none';
-                });
-              });
-            </script>
+                    personalButton.addEventListener('click', function(event) {
+                      event.preventDefault();
+                      personalArea.classList.toggle('hidden');
+                      mainArea.style.display = 'block';
+                    });
+                    closeButton.addEventListener('click', function(event) {
+                      personalArea.classList.add('hidden');
+                      mainArea.style.display = 'none';
+                    });
+                    chatButton.addEventListener('click', function(event) {
+                      event.preventDefault();
+                      chatArea.classList.add('chat-hidden');
+                      mainArea.style.display = 'block';
+                    });
+                    closeButtonchat.addEventListener('click', function(event) {
+                      chatArea.classList.toggle('chat-hidden');
+                      mainArea.style.display = 'none';
+                    });
+                  });
+                </script>
+              <% end %>
+            </ul>
+          </div>
+        </nav>
+        <% flash.each do |name, message| %>
+          <% if current_user.present? %>
+            <% message.chomp!('.') if message.ends_with?('.') %>
+            <% if message.starts_with?("Signed") %>
+              <% message += " #{current_user.username}" %>
+            <% end %>
+            <%= content_tag(:div,message, class: "alert alert-info alert-#{name} fade show",data: { dismiss: "alert", timeout: 3000 }) %>
           <% end %>
-        </ul>
-      </div>
-    </nav>
-    <% flash.each do |name, message| %>
-      <% if current_user.present? %>
-        <% message.chomp!('.') if message.ends_with?('.') %>
-        <% if message.starts_with?("Signed") %>
-          <% message += " #{current_user.username}" %>
         <% end %>
-        <%= content_tag(:div,message, class: "alert alert-info alert-#{name} fade show",data: { dismiss: "alert", timeout: 3000 }) %>
-      <% end %>
-    <% end %>
-    <%= yield %>
-  </body>
-</html>
+        <%= yield %>
+      </body>
+    </html>
+    <script>
+      function CreateConversation(userId){
+          var listItems= document.querySelectorAll(".contact");
+
+          listItems.forEach(function(item){
+            item.addEventListener("click",function(){
+              aalert("awfawfwafwfw") ;
+            })
+          })
+
+        
+      }
+    </script>
+   
