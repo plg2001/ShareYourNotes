@@ -381,9 +381,19 @@ class NotesController < ApplicationController
     comments.delete_all
     views = Visualizzazione.where(note_id: params[:id])
     views.delete_all
+    delete_G_Drive(note.google_drive_link)
     note.delete
     redirect_to my_notes_path, notice: 'La nota è stata cancellata con successo.'
   end
+
+
+  def delete_G_Drive(google_drive_link)
+    session = GoogleDrive::Session.from_config("config.json")
+    file_id = google_drive_link.match(/\/file\/d\/(.+?)\//)[1]
+    file = session.file_by_id(file_id)
+    file.delete
+  end
+
 
   def recenti
     @visualizzazioni_recenti = current_user.visualizzaziones.order(created_at: :desc).limit(10)
@@ -505,6 +515,10 @@ class NotesController < ApplicationController
 
   def edit
     @note = current_user.notes.find(params[:id])
+
+    @tags = Tag.all
+    @topics = Topic.all
+
   end
 
 
@@ -512,8 +526,9 @@ class NotesController < ApplicationController
     @note = current_user.notes.find(params[:id])
 
     if @note.update(note_params)
+      @note.tags = Tag.where(id: params[:note][:tag_ids])
+      @note.topics = Topic.where(id: params[:note][:topic_ids])
       redirect_to @note, notice: 'Appunto aggiornato con successo.'
-      Valutazione aggiunta con successo!
     else
       render :edit
     end

@@ -169,7 +169,7 @@
 
                         searchResultsDiv.appendChild(userList);
                         setTimeout(function(){
-                          CreateConversation(user.id);
+                          CreateConversation(user.id, listItem);
                         },5000);
                       }
                     }
@@ -485,16 +485,11 @@
       </body>
     </html>
     <script>
-      function CreateConversation(userId){
-          var listItems= document.querySelectorAll(".contact");
+      function CreateConversation(userId, listItem){
 
-          listItems.forEach(function(item){
-            item.addEventListener("click",function(){
-              aalert("awfawfwafwfw") ;
-            })
-          })
-
-        
+            listItem.addEventListener("click",function(){
+              alert("awfawfwafwfw") ;
+            })       
       }
     </script>
    

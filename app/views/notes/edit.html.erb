@@ -33,6 +33,24 @@
     </div>
   </div>
 
+   <div class="mb-3">
+    <%= f.label :tags, class: "form-label" ,style: "color:white; font-weight: bold;" %>
+    <div class="custom-dropdown">
+      <div class="options-container">
+        <ul class="options-list">
+          <% Topic.all.each do |topic| %>
+            <li>
+              <div class="tag-all">
+                <%= check_box_tag "note[topic_ids][]", topic.id, @note.topics.include?(topic) %>
+                <%= topic.name %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
   
 <div class="mb-3">
   <div class="div-field">
