@@ -72,6 +72,8 @@
                           success: function(data) {
                             // Aggiorna il contenuto della pagina con i dati ricevuti dal server
                             updateSearchResults(data);
+                          
+                            
                           },
                           error: function() {
                             // Gestisci gli errori, se necessario
@@ -102,25 +104,31 @@
                             listItem.style.marginTop = "20px"
 
 
-                            <% conversation_id = nil %>
-                            <% Conversation.all.each do |conversation| %>
-                             if (<%= conversation.sender_id == current_user.id %> && <%= conversation.recipient_id %> == user.id){
-                               <% conversation_id = conversation.id %>;
-                             }
-                            <% end %>
+                           
 
                             var userLink = document.createElement("a");
 
-                            if( <%= conversation_id != nil %>){
-                              userLink.href = "/conversations/" + <%= conversation_id %> + "/messages"
-                              userLink.style.textDecoration = "none";
-                            }
+                            userLink.style.textDecoration = "none";
+                           
 
+                           
+                              
+                              
+                            userLink.style.cursor = "pointer";
+                            userLink.setAttribute("data-method","post");
+                            userLink.setAttribute("rel","nofollow");
+                            userLink.href = "/conversations?recipient_id="+ user.id + "&sender_id=<%= current_user.id %>";
 
+                            
+
+                            userLink.appendChild(listItem);
+
+                            
                             // Dentro la funzione updateSearchResults
                             var userImage = document.createElement("img");
+                            userImage.style.borderRadius = "100%"
 
-                            if(  user.profile_img_url == null  || user.provider != "facebook"){
+                            if(  user.profile_img_url == null  || user.provider == "facebook"){
                               userImage.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='grey' class='bi bi-person-circle' viewBox='0 0 16 16'%3E%3Cpath d='M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z'/%3E%3Cpath fill-rule='evenodd' d='M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z'/%3E%3C/svg%3E";
                             }
                             else{
@@ -159,7 +167,7 @@
                             listItem.appendChild(userImage);
                             listItem.appendChild(contactInfo);
                             listItem.appendChild(onlineStatus);
-                            userLink.appendChild(listItem);
+                           
                             contactBox.appendChild(userLink);
                             searchResultsDiv.appendChild(contactBox);
 
@@ -168,9 +176,7 @@
 
 
                         searchResultsDiv.appendChild(userList);
-                        setTimeout(function(){
-                          CreateConversation(user.id, listItem);
-                        },5000);
+                        
                       }
                     }
                   </script>
@@ -183,7 +189,7 @@
                           <div class="contact-box">
                             <li class="contact">
                               <% if user.profile_img_url != nil && user.provider != "facebook"%>
-                                <img src="<%= user.profile_img_url %>" style= "margin-left: 20px; margin-right:40px; width: 2em; height: 2em;" >
+                                <img src="<%= user.profile_img_url %>" style= "border-radius:100%;margin-left: 20px; margin-right:40px; width: 2em; height: 2em;" >
                               <% else %>
                                 <%= image_tag("avatar.svg",style: "margin-left: 20px; margin-right:40px; width: 2em; height: 2em;") %>
                               <% end %>
@@ -485,11 +491,5 @@
       </body>
     </html>
     <script>
-      function CreateConversation(userId, listItem){
-
-            listItem.addEventListener("click",function(){
-              alert("awfawfwafwfw") ;
-            })       
-      }
     </script>
    

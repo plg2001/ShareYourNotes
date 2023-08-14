@@ -50,7 +50,7 @@ class User < ApplicationRecord
       user = User.create!(
         provider: auth.provider,
         uid: auth.uid,
-        username: name_split[0] + "" + "ShareYourNotes"+auth.uid,
+        username: name_split[0] + "" + "ShareYourNotes",
         name: name_split[0],
         email: auth.info.email,
         password: password,

@@ -2,7 +2,6 @@
 <%= stylesheet_link_tag 'progress_bar', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag 'valutazione', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag 'message_card', media: 'all', 'data-turbolinks-track': 'reload' %>
-
 <div class="container Pagina">
   <div style= "display: flex; flex-wrap: wrap; gap: 80px; justify-content: center;">
     <h1 class="fw-bold text-center mb-4" style="color:black;"><%= @note.name %></h1>
@@ -21,7 +20,7 @@
         <%= image_tag("delete.svg",style: "width: 20px; height: 20px; margin-top: 80%;") %>
       <% end %>
       <%= link_to edit_note_path(@note), style:"text-decoration: none;" do%>
-         <%= inline_svg_tag("edit.svg", style: "width: 20px; height: 20px; margin-top: 80%;") %>
+        <%= inline_svg_tag("edit.svg", style: "width: 20px; height: 20px; margin-top: 80%;") %>
       <% end %>
     <% end %>
   </div>
@@ -261,7 +260,7 @@
       </div>
       <button class="btn1 draw-border" id="message-btn">Message</button>
     </div>
-    <div class="message-section" id="message-section"style="display:none;">
+    <div class="message-section" id="message-section" style="display:none;">
     </div>
   </div>
 </div>
@@ -277,8 +276,8 @@
   $(document).ready(function() {
     $("#message-btn").click(function(event) {
       event.preventDefault();
-      const message_section = document.getElementById("message-section");
-      
+
+
       var senderId = <%= current_user.id %>; // Inserisci qui il modo per ottenere l'ID dell'utente corrente
       var recipientId = <%= @note.user.id %>; // Inserisci qui il modo per ottenere l'ID dell'utente destinatario
 
@@ -289,43 +288,78 @@
             }
       <% end %>
 
-      var url ="/conversations/" + <%= conversation_id %> + "/messages"
-
-      $.ajax({
-        url: url,
-        method: "GET",
-        success: function(responseHTML) {
+      if (<%= conversation_id != nil%>){
+        var conversationId = <%= conversation_id%>
+        getConversation(conversationId);
+      }
 
 
-          $("#message-section").html(responseHTML);
-          
-        },
-        error: function(xhr, status, error) {
-          console.error(error);
-        }
-      });
-      setTimeout(function(){
-      const navs =  document.querySelectorAll(".navbar")[1];
+      else{
+          $.ajax({
+            type: 'POST',
+            url: '/conversations/create_ajax',
+            dataType: 'json',
+            data: { sender_id: <%= current_user.id %>, recipient_id: recipientId},
+            success: function(response) {
 
-        navs.style.display = "none";
-        const styleTag = document.querySelector("link#message_style");
-        styleTag.parentNode.removeChild(styleTag);
-      
-        message_section.style.display = "flex"
-      },100);
+              var conversationId = response.conversation_id;
+              getConversation(conversationId);
+            },
+            error: function() {
+              console.error('Errore durante la creazione della conversazione.');
+            }
+          });
+      }
     });
-
-
   });
+</script>
+<script>
+  function getConversation(conversationId){
+
+    var message_section = document.getElementById("message-section");
+
+    let url ="/conversations/" + conversationId + "/messages"
+
+    $.ajax({
+      url: url,
+      method: "GET",
+      success: function(responseHTML) {
+
+        $("#message-section").html(responseHTML);
+
+      },
+      error: function(xhr, status, error) {
+
+        console.error(error);
+      }
+    });
+    setTimeout(function(){
+    const navs =  document.querySelectorAll(".navbar")[1];
+
+      navs.style.display = "none";
+      const styleTag = document.querySelector("link#message_style");
+      styleTag.parentNode.removeChild(styleTag);
+
+      message_section.style.display = "flex";
+      const submitMessage = document.querySelector("#submitMessage");
+      submitMessage.addEventListener("click",function(e){
+        
+      })
+
+    },100);
+
+
+
+    }
 </script>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
       const message_btn = document.getElementById("message-btn");
       const message_swap = document.getElementById("message-swap");
-      
+
       message_btn.addEventListener("click",function(e){
         message_swap.style.display = "none"
-       
+
       })
 
   });
