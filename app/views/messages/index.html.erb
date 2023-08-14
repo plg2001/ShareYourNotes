@@ -58,4 +58,11 @@
   <% end %>
 </section>
 
+<script>
+  function scrollToBottom() {
+    var list = document.querySelector('.msger-chat');
+    list.scrollTop = list.scrollHeight;
+  }
 
+  window.onload = scrollToBottom;
+</script>
