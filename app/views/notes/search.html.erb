@@ -9,6 +9,7 @@
           $(".note-card").click(function() {
             var note_id = this.id;
             window.location.href =  note_id;
+            localStorage.setItem("OpenClose", 0);
           });
         });
       </script>

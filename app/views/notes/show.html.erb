@@ -272,47 +272,50 @@
   <% end %>
   <%= inline_svg_tag("online_indicator.svg", id: "indicator") %>
 </div>
-
 <script>
   $(document).ready(function() {
-    $("#message-btn").click(function(event) {
-      event.preventDefault();
-
-
-      var senderId = <%= current_user.id %>; // Inserisci qui il modo per ottenere l'ID dell'utente corrente
-      var recipientId = <%= @note.user.id %>; // Inserisci qui il modo per ottenere l'ID dell'utente destinatario
-
-      <% conversation_id = nil %>
-      <% Conversation.all.each do |conversation| %>
-          if (<%= conversation.sender_id == current_user.id %> && <%= conversation.recipient_id %> == recipientId){
-              <% conversation_id = conversation.id %>;
-            }
-      <% end %>
-
-      if (<%= conversation_id != nil%>){
-        var conversationId = <%= conversation_id%>
-        getConversation(conversationId);
-      }
-
-
-      else{
-          $.ajax({
-            type: 'POST',
-            url: '/conversations/create_ajax',
-            dataType: 'json',
-            data: { sender_id: <%= current_user.id %>, recipient_id: recipientId},
-            success: function(response) {
-
-              var conversationId = response.conversation_id;
-              getConversation(conversationId);
-            },
-            error: function() {
-              console.error('Errore durante la creazione della conversazione.');
-            }
-          });
-      }
+    $("#message-btn").click(function(){
+    Conversazione();
     });
   });
+
+
+      function Conversazione(){
+
+
+        var senderId = <%= current_user.id %>; // Inserisci qui il modo per ottenere l'ID dell'utente corrente
+        var recipientId = <%= @note.user.id %>; // Inserisci qui il modo per ottenere l'ID dell'utente destinatario
+
+        <% conversation_id = nil %>
+      <% Conversation.all.each do |conver| %>
+        <% if (conver.sender_id == current_user.id && conver.recipient_id == @note.user.id) %>
+          <% conversation_id = conver.id %>
+        <% end %>
+      <% end %>
+
+        if (<%= conversation_id != nil%>){
+          var conversationId = <%= conversation_id%>
+          getConversation(conversationId);
+        }
+
+
+        else{
+            $.ajax({
+              type: 'POST',
+              url: '/conversations/create_ajax',
+              dataType: 'json',
+              data: { sender_id: <%= current_user.id %>, recipient_id: recipientId},
+              success: function(response) {
+
+                var conversationId = response.conversation_id;
+                getConversation(conversationId);
+              },
+              error: function() {
+                console.error('Errore durante la creazione della conversazione.');
+              }
+            });
+        }
+      }
 </script>
 <script>
   function getConversation(conversationId){
@@ -342,13 +345,37 @@
       styleTag.parentNode.removeChild(styleTag);
 
       message_section.style.display = "flex";
-     
-      localStorage.setItem("OpenClose", 1);
 
 
+      $("#submitMessage").click(function(){
+        localStorage.setItem("OpenClose", 1);
+      })
+      const scrollList = document.querySelector(".msger-chat")
+      scrollToBottom(scrollList);
     },100);
-    
+
     }
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(){
+
+    var openclose = localStorage.getItem("OpenClose");
+    if( openclose == 1){
+      const message_swap = document.getElementById("message-swap");
+      const card = document.getElementById("id_card");
+      card.style.display = "flex";
+      message_swap.style.display = "none"
+      Conversazione();
+      localStorage.setItem("OpenClose", 0);
+    }
+
+  })
+
+
+  function scrollToBottom(list) {
+    list.scrollTop = list.scrollHeight;
+  }
+
 </script>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
