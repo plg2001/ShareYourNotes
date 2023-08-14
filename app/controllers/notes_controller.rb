@@ -93,6 +93,7 @@ class NotesController < ApplicationController
   def show
     @note = Note.find(params[:id])
     @comment = Comment.new
+    
 
     file_extension = @note.format
 

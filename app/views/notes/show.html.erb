@@ -272,6 +272,7 @@
   <% end %>
   <%= inline_svg_tag("online_indicator.svg", id: "indicator") %>
 </div>
+
 <script>
   $(document).ready(function() {
     $("#message-btn").click(function(event) {
@@ -341,15 +342,12 @@
       styleTag.parentNode.removeChild(styleTag);
 
       message_section.style.display = "flex";
-      const submitMessage = document.querySelector("#submitMessage");
-      submitMessage.addEventListener("click",function(e){
-        
-      })
+     
+      localStorage.setItem("OpenClose", 1);
+
 
     },100);
-
-
-
+    
     }
 </script>
 <script>
@@ -383,7 +381,7 @@
 
     img.addEventListener("click",function(e){
       if (card.style.display == "none"){
-       $(card).slideToggle();
+        $(card).slideToggle();
        }
        else{
         $(card).slideToggle();
