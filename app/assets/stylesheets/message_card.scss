@@ -31,6 +31,8 @@
   .msger-header-title {
     flex-grow: 1;
     font-size: 1.2em;
+    color: black;
+    font-weight: bold;
   }
   
   .msger-header-options {
@@ -94,6 +96,10 @@
     margin: 0 0 0 10px;
   }
   
+  .prova{
+    width: 1.2em;
+    height: 1.2em;
+  }
   .msg-text {
     font-size: 1em;
     color: black;
@@ -123,9 +129,12 @@
     color: white;
     border: none;
     border-radius: 20px;
-    padding: 5px 20px;
+    padding: 5px 25px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    color: black;
+    font-weight: bold;
+    margin-left: 13px;
   }
   
   .msger-send-btn:hover {

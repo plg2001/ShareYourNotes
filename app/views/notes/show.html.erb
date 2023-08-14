@@ -258,7 +258,12 @@
           <% end %>
         </div>
       </div>
-      <button class="btn1 draw-border" id="message-btn">Message</button>
+      
+      <% if current_user.id != @note.user.id %>
+         <button class="btn1 draw-border" id="message-btn">Message</button>
+      <% end %>
+      
+     
     </div>
     <div class="message-section" id="message-section" style="display:none;">
     </div>

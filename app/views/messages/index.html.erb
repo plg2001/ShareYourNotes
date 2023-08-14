@@ -15,7 +15,7 @@
         <% if current_user != user %>
           <div class="msg left-msg">
             <% if user.profile_img_url != nil && user.provider != "facebook"%>
-              <img src="<%= user.profile_img_url %>" id= "img"  class="msg-img" style="max-width: 2em; max-height: 2em;">
+              <img src="<%= user.profile_img_url %>" id= "img"  class="msg-img prova" style="max-width: 2em; max-height: 2em;">
             <% else %>
               <%= image_tag("avatar.svg",class:"msg-img",style:"max-width: 2em; max-height: 2em;") %>
             <% end %>
@@ -33,7 +33,7 @@
         <% else %>
           <div class="msg right-msg">
             <% if user.profile_img_url != nil && user.provider != "facebook"%>
-              <img src="<%= user.profile_img_url %>" id= "img"  class="msg-img" style="max-width: 2em; max-height: 2em;">
+              <img src="<%= user.profile_img_url %>" id= "img"  class="msg-img prova" style="max-width: 2em; max-height: 2em;">
             <% else %>
               <%= image_tag("avatar.svg",class:"msg-img",style:"max-width: 2em; max-height: 2em;") %>
             <% end %>
