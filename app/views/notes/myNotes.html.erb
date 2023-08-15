@@ -2,7 +2,16 @@
 <div class="container">
   <h1 class="mt-5">I miei appunti</h1>
   <% current_user.notes.each do |note| %>
-    <div class="card my-4">
+    <script>
+        $(document).ready(function() {
+          // Aggiungi un gestore di eventi clic alla classe "note-card"
+          $(".card").click(function() {
+            var note_id = this.id;
+            window.location.href =  "/notes/" + note_id;
+          });
+        });
+    </script>
+    <div id="<%=note.id%>"class="card my-4">
       <div class="card-body">
         <div class="d-flex align-items-center gap-2 mb-2 BottoniStella ">
           <h4 class="card-title"><a href="<%= personal_note_path(note.id) %>"><%= note.name %></a></h4>

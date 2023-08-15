@@ -3,7 +3,16 @@
   <div class="container">
     <h1 class="mt-5">Visualizzati di Recente</h1>
     <% @visualizzazioni_recenti.each do |visualizzazione| %>
-      <div class="card my-4">
+      <script>
+        $(document).ready(function() {
+          // Aggiungi un gestore di eventi clic alla classe "note-card"
+          $(".card").click(function() {
+            var note_id = this.id;
+            window.location.href =  "/notes/" + note_id;
+          });
+        });
+      </script>
+      <div id="<%= visualizzazione.note.id%>"class="card my-4" style="cursor:pointer;">
         <div class="card-body">
           <div class="d-flex justify-content-between align-items-center mb-2">
             <h4 class="card-title mb-0">

@@ -452,6 +452,10 @@
     seleziona_il_formato1.addEventListener("click",function(e){
       load.style.display = "flex";
       seleziona_il_formato1.style.display ="none"
+       setTimeout(function(){
+        load.style.display = "none";
+          seleziona_il_formato1.style.display ="flex"
+        },2000)
     })
 
     back_img.addEventListener("click",function(e){
@@ -460,6 +464,8 @@
       seleziona_il_formato1.style.display = "none";
       label_format.style.display ="none";
     })
+
+   
   })
 </script>
 <script>
@@ -484,7 +490,12 @@
       seleziona_il_formato2.style.display = "none";
       label_format.style.display ="none";
     })
+    
+
+    
   })
+
+
 </script>
 <script>
   document.addEventListener("DOMContentLoaded", function() {

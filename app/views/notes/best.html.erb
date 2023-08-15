@@ -14,7 +14,16 @@
 <% if @best_notes.any? %>
   <div class="container">
     <% @best_notes.each do |note| %>
-      <div class="card my-4">
+     <script>
+        $(document).ready(function() {
+          // Aggiungi un gestore di eventi clic alla classe "note-card"
+          $(".card").click(function() {
+            var note_id = this.id;
+            window.location.href =  "/notes/" + note_id;
+          });
+        });
+      </script>
+      <div id="<%=note.id%>"class="card my-4" style="cursor:pointer;">
         <div class="card-body">
           <div class="d-flex justify-content-between align-items-center mb-2">
             <h4 class="card-title mb-0">

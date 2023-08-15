@@ -1,0 +1,96 @@
+
+  
+  /* Stile per l'intestazione della pagina */
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Stile per il form */
+  form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .field {
+    margin-bottom: 20px;
+  }
+  
+  .field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .field input[type="text"],
+  .field textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Stile per le etichette dei checkbox */
+  .form-label {
+    font-weight: bold;
+    color: white;
+  }
+  
+  /* Stile per il dropdown personalizzato */
+  .custom-dropdown {
+    position: relative;
+  }
+  
+  .options-container {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  .options-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .options-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  /* Stile per il dropdown delle facoltà */
+  .div-field {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Stile per il pulsante di submit */
+  .actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .actions input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .actions a {
+    text-decoration: none;
+    color: #007bff;
+    margin-top: 10px;
+    display: inline-block;
+  }
+  

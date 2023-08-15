@@ -55,6 +55,7 @@
     <%= f.text_field :body, class: "msger-input", placeholder: "Scrivi un messaggio..." %>
     <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
     <%= f.submit "Invia" ,id:"submitMessage", class: "msger-send-btn" %>
+    
   <% end %>
 </section>
 
