@@ -393,11 +393,12 @@
       const message_btn = document.getElementById("message-btn");
       const message_swap = document.getElementById("message-swap");
 
-      message_btn.addEventListener("click",function(e){
-        message_swap.style.display = "none"
+      if (message_btn != null){
+        message_btn.addEventListener("click",function(e){
+          message_swap.style.display = "none"
 
-      })
-
+        })
+      }
   });
 </script>
 <script>
@@ -447,30 +448,31 @@
     const seleziona_il_formato1 = document.getElementById("seleziona_il_formato1");
     const label_format = document.getElementById("label-format");
     const load = document.getElementById("load");
+    
+    if(selection_format!= null){
+      selection_format.addEventListener("click",function(e){
+        dialog.style.height = "270px";
+        back_img.style.display = "block";
+        seleziona_il_formato1.style.display = "flex";
+        label_format.style.display ="block";
+      })
+    
+      seleziona_il_formato1.addEventListener("click",function(e){
+        load.style.display = "flex";
+        seleziona_il_formato1.style.display ="none"
+        setTimeout(function(){
+          load.style.display = "none";
+            seleziona_il_formato1.style.display ="flex"
+          },2000)
+      })
 
-    selection_format.addEventListener("click",function(e){
-      dialog.style.height = "270px";
-      back_img.style.display = "block";
-      seleziona_il_formato1.style.display = "flex";
-      label_format.style.display ="block";
+      back_img.addEventListener("click",function(e){
+        dialog.style.height = "100px";
+        back_img.style.display = "none";
+        seleziona_il_formato1.style.display = "none";
+        label_format.style.display ="none";
     })
-
-    seleziona_il_formato1.addEventListener("click",function(e){
-      load.style.display = "flex";
-      seleziona_il_formato1.style.display ="none"
-       setTimeout(function(){
-        load.style.display = "none";
-          seleziona_il_formato1.style.display ="flex"
-        },2000)
-    })
-
-    back_img.addEventListener("click",function(e){
-      dialog.style.height = "100px";
-      back_img.style.display = "none";
-      seleziona_il_formato1.style.display = "none";
-      label_format.style.display ="none";
-    })
-
+    }
    
   })
 </script>
@@ -483,6 +485,7 @@
     const seleziona_il_formato2 = document.getElementById("seleziona_il_formato2");
     const label_format = document.getElementById("label-format");
 
+       if(selection_format!= null){
     selection_format.addEventListener("click",function(e){
       dialog.style.height = "270px";
       back_img.style.display = "block";
@@ -496,7 +499,7 @@
       seleziona_il_formato2.style.display = "none";
       label_format.style.display ="none";
     })
-    
+       }
 
     
   })
@@ -557,26 +560,29 @@
   var download_dialog = document.querySelector('.download-open');
   var dialog = document.querySelector('.dialog-container');
 
-  download_dialog.addEventListener('click',function(event){
-    mainArea.style.display = 'block';
-    dialog.style.display = 'block';
+  if (download_dialog != null){
+    download_dialog.addEventListener('click',function(event){
+      mainArea.style.display = 'block';
+      dialog.style.display = 'block';
+      
+    })
+  
 
-  })
-
-  var dialogClose = document.querySelector('.dialog-close');
-  const label_format = document.getElementById("label-format");
-  dialogClose.addEventListener('click', function(event){
-    dialog.style.display = 'none';
-    dialog.style.height = '100px';
-    mainArea.style.display = 'none';
-    seleziona_il_formato1.style.display = "none";
-    seleziona_il_formato2.style.display = "none";
-    label_format.style.display ="none";
-  });
-
+    var dialogClose = document.querySelector('.dialog-close');
+    const label_format = document.getElementById("label-format");
+    
+    dialogClose.addEventListener('click', function(event){
+      dialog.style.display = 'none';
+      dialog.style.height = '100px';
+      mainArea.style.display = 'none';
+      seleziona_il_formato1.style.display = "none";
+      seleziona_il_formato2.style.display = "none";
+      label_format.style.display ="none";
+    });
+  }
   document.addEventListener("DOMContentLoaded", function() {
 
-      if (<%=user_signed_in? && @note.user.id != current_user.id%>){
+    if (<%=user_signed_in? && @note.user.id != current_user.id%>){
 
     // Seleziona tutti gli elementi SVG delle stelle
     const stars = document.querySelectorAll(".star");
