@@ -242,7 +242,8 @@
                 ["Valutazione minima", "rating"],
                 ["Caricato dopo il", "after"],
                 ["Caricato prima del", "before"],
-                ["Ordine alfabetico", "order"]
+                ["Ordine alfabetico", "order"],
+                ["Appunti o videolezioni", "format"]
               ], params[:Filtro]), { class: "form-control", id: "Filtro", style: "display: none;" } %>
                 <div id="filtroHide" style="display: none; width: 12em; background-color: white;">
                   <div id="dropdown" class="form-group">
@@ -283,7 +284,10 @@
                         <%= text_field_tag :before, params[:before], placeholder: "GG-MM-AAAA", class: "form-control", id: "before", style: "height: 2.5em;" %>
                       </div>
                       <div id="order-choice" style="display: none;">
-                        <%= select_tag :order, options_for_select([["Ordine alfabetico", nil], ["A-Z", "asc"], ["Z-A", "desc"]], params[:order]), class: "form-control", style: "height: 2.5em;" %>
+                        <%= select_tag :order, options_for_select([["A-Z", "asc"], ["Z-A", "desc"]], params[:order]), class: "form-control", style: "height: 2.5em;" %>
+                      </div>
+                      <div id="format-choice" style="display: none;">
+                        <%= select_tag :format, options_for_select([["Appunti e videolezioni", nil], ["Appunti", "appunti"], ["Video", "video"]], params[:format]), class: "form-control", style: "height: 2.5em;" %>
                       </div>
                     </div>
                   </div>

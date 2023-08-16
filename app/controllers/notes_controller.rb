@@ -50,6 +50,15 @@ class NotesController < ApplicationController
       before_date = Date.parse(params[:before])
       @notes = @notes.where("uploaded_at <= ?", before_date.end_of_day)
     end
+
+    if params[:format].present?
+      file_extension = params[:format]
+      if file_extension == "appunti"
+        @notes = @notes.where("LOWER(format) = ? OR LOWER(format) = ?", ".pdf", ".docx")
+      elsif file_extension == "video"
+        @notes = @notes.where("LOWER(format) = ? OR LOWER(format) = ? OR LOWER(format) = ?", ".mp4", ".avi", ".mov")
+      end
+    end
   
     order = params[:order] == 'desc' ? 'name DESC' : 'name ASC'
     @notes = @notes.order(order)
