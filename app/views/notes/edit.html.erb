@@ -1,5 +1,5 @@
 <%= stylesheet_link_tag 'edit_appunto', media: 'all', 'data-turbolinks-track': 'reload' %>
-<h1>Modifica Appunto</h1>
+<h1 class="text-center">Modifica Appunto</h1>
 <div class="container">
   <%= form_for @note, url: note_path(@note), method: :patch, class: "container" do |f| %>
     <div class="field mb-3">
