@@ -1,9 +1,10 @@
 <%= stylesheet_link_tag 'crea_appunto', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'progress_bar', media: 'all', 'data-turbolinks-track': 'reload' %>
 <% if params[:alert].present? %>
   <%= content_tag(:div, params[:alert][:success],style: "margin-bottom: -50px", class: "alert alert-info fade show", data: { dismiss: "alert", timeout: 3000 }) %>
 <% end %>
 <div class="container">
-  <%= form_with(model: @note, url: notes_path, multipart: true, class: "container") do |form| %>
+  <%= form_with(id:"form",model: @note, url: notes_path, multipart: true, class: "container") do |form| %>
     <% if params[:file_id] != nil && params[:file_name]!= nil %>
       <%= link_to "/notes/new" ,style: "text-decoration:none;" do%>
         <div class="google_drive_container">
@@ -43,9 +44,9 @@
                 <ul class="options-list">
                   <% Tag.all.each do |tag| %>
                     <li>
-                     <div class="tag-all">
+                     <div class="tag-all check">
                         <%= check_box_tag "note[tag_ids][]", tag.id, @note.tags.include?(tag) %>
-                        <%= tag.name%>
+                        <span class="__name" style="cursor:pointer;"><%= tag.name  %></span>
                       </div>
                     </li>
                   <% end %>
@@ -60,9 +61,9 @@
                 <ul class="options-list">
                   <% Topic.all.each do |topic| %>
                     <li>
-                      <div class="topic-all">
+                      <div class="topic-all check">
                         <%= check_box_tag "note[topic_ids][]", topic.id, @note.topics.include?(topic) %>
-                        <%= topic.name %>
+                        <span class="__name" style="cursor:pointer;"><%= topic.name%></span>
                       </div>
                     </li>
                   <% end %>
@@ -77,11 +78,12 @@
             </div>
           </div>
           <%= form.submit "Carica", class: "btn btn-primary" %>
+          <div class="cssload-zenith" id="load" style="margin-top:50px;display:none;" ></div>
         <% end %>
       <% else %>
         <%= form.label :file, class: "form-label" ,style: "color:white;font-weight: bold;"%>
         <%= form_tag(notes_path, multipart: true) do %>
-          <%= file_field_tag :file,class: "form-control" , required: true %>
+          <%= file_field_tag :file,class: "form-control" , required: true,accept: ".pdf, .docx, .mp4, .mov, .avi" %>
           <div class="mb-3" style="margin-top:30px">
             <%= form.label :tags, class: "form-label" ,style: "color:white;font-weight: bold;"%>
             <div class="custom-dropdown">
@@ -89,9 +91,9 @@
                 <ul class="options-list">
                   <% Tag.all.each do |tag| %>
                     <li>
-                      <div class="tag-all" >
+                      <div class="tag-all check" >
                         <%= check_box_tag "note[tag_ids][]", tag.id, @note.tags.include?(tag) %>
-                        <%= tag.name %>
+                        <span class="__name" style="cursor:pointer;"><%= tag.name %></span>
                       </div>
                     </li>
                   <% end %>
@@ -106,9 +108,9 @@
                 <ul class="options-list">
                   <% Topic.all.each do |topic| %>
                     <li>
-                      <div class="topic-all">
+                      <div class="topic-all check">
                         <%= check_box_tag "note[topic_ids][]", topic.id, @note.topics.include?(topic) %>
-                        <%= topic.name %>
+                        <span class="__name" style="cursor:pointer;"><%= topic.name%></span>
                       </div>
                       </label>
                     </li>
@@ -123,8 +125,35 @@
               <%= form.collection_select :faculty_id, Faculty.all, :id, :name, prompt: "Seleziona una facoltà",style: "font-weight: bold;"%>
             </div>
           </div>
-          <%= form.submit "Carica", class: "btn btn-primary" %>
+          <div class="load">
+            <%= form.submit "Carica",id:"carica" ,class: "btn btn-primary" %> 
+            <div class="cssload-zenith" id="load"  style="margin-right:1100px;display:none;"></div>
+          </div>
         <% end %>
       <% end %>
     <% end %>
   </div>
+
+  <script>
+     document.addEventListener("DOMContentLoaded", function() {
+      const form = document.getElementById("form");
+      const rotellina = document.getElementById("load");
+
+      form.addEventListener("submit",function(){
+        rotellina.style.display = "flex"
+
+      })
+     })
+  </script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const checks = document.querySelectorAll(".check");
+
+    checks.forEach(function(check){
+      var box = check.firstElementChild;
+      check.addEventListener("click",function(){
+         box.checked = true
+      })
+    })
+  });
+</script>

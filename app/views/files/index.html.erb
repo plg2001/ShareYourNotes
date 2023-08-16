@@ -7,7 +7,7 @@
   </div>
 </div>
 <ul class="list-file">
-  <% @files.select { |file| file.name =~ /\.(pdf|docx?)\z/i }.each do |file| %>
+  <% @files.select { |file| file.name =~ /\.(pdf|docx|mov|mp4|avi?)\z/i }.each do |file| %>
     <%= link_to new_note_path(file_name: file.name,file_id: file.id,alert: { success: "Il file è stato selezionato dal Google Drive!" }),style: "text-decoration: none; font-weight: bold;color: #0000FF" do %>
       <div class="div_file">
         <li class="file">

@@ -250,51 +250,61 @@ class NotesController < ApplicationController
       @note.tags = Tag.where(id: params[:note][:tag_ids])
       @note.topics = Topic.where(id: params[:note][:topic_ids])
       file = params[:file]
-      filename = file.original_filename
-      @note.format = File.extname(filename)
-
-      tempfile = file.tempfile
-
-      session = GoogleDrive::Session.from_config("config.json")
-      destination_folder = session.collection_by_url("https://drive.google.com/drive/folders/1zJPM2hoIzMzuvfefRvQM8NXHee5pOfhL?hl=it")
-      uploaded_file = destination_folder.upload_from_file(tempfile.path,filename,convert: false)
 
 
-    
-      if uploaded_file 
-            file_url = uploaded_file.human_url
-            @note.google_drive_link = file_url
-            
-            
-            @note.faculty_id = params[:note][:faculty_id] unless params[:note][:faculty_id].blank?
+      allowed_extensions = [".pdf", ".docx", ".mp4", ".mov", ".avi"]
+      if file && allowed_extensions.include?(File.extname(file.original_filename).downcase)
+        
+        filename = file.original_filename
+        @note.format = File.extname(filename)
+
+        tempfile = file.tempfile
+
+        session = GoogleDrive::Session.from_config("config.json")
+        destination_folder = session.collection_by_url("https://drive.google.com/drive/folders/1zJPM2hoIzMzuvfefRvQM8NXHee5pOfhL?hl=it")
+        uploaded_file = destination_folder.upload_from_file(tempfile.path,filename,convert: false)
 
 
-            if @note.tags.length > 0 && @note.topics.length > 0 && @note.faculty_id != nil
+      
+        if uploaded_file 
+              file_url = uploaded_file.human_url
+              @note.google_drive_link = file_url
               
-              if @note.save
-                redirect_to @note, notice: "L'appunto è stato correttamente caricato"
-              else
-                render :new, alert: "Si è verificato un errore durante il caricamento dell'appunto"
-              end
-            else
+              
+              @note.faculty_id = params[:note][:faculty_id] unless params[:note][:faculty_id].blank?
 
-              alert = ""
-              if @note.tags.length == 0 
-                alert.concat("Inserire almeno un Tag, ")
+
+              if @note.tags.length > 0 && @note.topics.length > 0 && @note.faculty_id != nil
+                
+                if @note.save
+                  redirect_to @note, notice: "L'appunto è stato correttamente caricato"
+                else
+                  render :new, alert: "Si è verificato un errore durante il caricamento dell'appunto"
+                end
+              else
+
+                alert = ""
+                if @note.tags.length == 0 
+                  alert.concat("Inserire almeno un Tag, ")
+                end
+                if @note.topics.length == 0 
+                  alert.concat("Inserire almeno un Topic, ")
+                end
+                if @note.faculty_id == nil
+                  alert.concat("Inserire una Facoltà.")
+                end
+                flash[:error] = alert
+                render :new
               end
-              if @note.topics.length == 0 
-                alert.concat("Inserire almeno un Topic, ")
-              end
-              if @note.faculty_id == nil
-                alert.concat("Inserire una Facoltà.")
-              end
-              flash[:error] = alert
-              render :new
-            end
+        else
+          render :new, alert: 'Si è verificato un errore durante il caricamento del file'
+        
+        end 
       else
-        render :new, alert: 'Si è verificato un errore durante il caricamento del file'
+        flash[:error] = "Formato del file non consentito. Sono consentiti solo file PDF, DOCX, MP4, MOV e AVI."
+        render :new
       end
-    end 
+    end
   end
 
   
