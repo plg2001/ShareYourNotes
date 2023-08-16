@@ -19,6 +19,13 @@
             <h4 class="card-title mb-0">
               <p><%= note.name %></p>
             </h4>
+            <% file_extension = note.format %>
+            <% if file_extension == ".pdf" || file_extension == ".docx"%>
+              <p style="font-size:10px">testo</p>
+            <% end %>
+            <% if ['.mp4', '.avi', '.mov'].include?(file_extension.downcase) %>
+              <p style="font-size:10px">video</p>
+            <% end %>
             <% if current_user && current_user != note.user %>
               <div class="d-flex gap-1 mb-1 BottoniStella justify-content-start align-items-center">
                 <% Note::MAX_RATING.times do |n| %>
