@@ -163,7 +163,7 @@
             </div>
             <div class="cssload-zenith" id="load" style="margin-top:50px;display:none;" ></div>
           </div>
-          <% end %>
+        <% end %>
       </div>
     </div>
     <button id="mostraBtn" class="btn " style="background-color: #f77062;color:black;border: 3px solid black;border-radius: 80px">Mostra Informazioni</button>
@@ -261,12 +261,9 @@
           <% end %>
         </div>
       </div>
-      
-      <% if current_user.id != @note.user.id %>
-         <button class="btn1 draw-border" id="message-btn">Message</button>
+      <% if user_signed_in? && current_user.id != @note.user.id %>
+        <button class="btn1 draw-border" id="message-btn">Message</button>
       <% end %>
-      
-     
     </div>
     <div class="message-section" id="message-section" style="display:none;">
     </div>
@@ -290,7 +287,7 @@
 
       function Conversazione(){
 
-
+      <% if user_signed_in?%>
         var senderId = <%= current_user.id %>; // Inserisci qui il modo per ottenere l'ID dell'utente corrente
         var recipientId = <%= @note.user.id %>; // Inserisci qui il modo per ottenere l'ID dell'utente destinatario
 
@@ -323,6 +320,7 @@
               }
             });
         }
+        <% end %>
       }
 </script>
 <script>
@@ -383,7 +381,6 @@
   function scrollToBottom(list) {
     list.scrollTop = list.scrollHeight;
   }
-
 </script>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
@@ -445,7 +442,7 @@
     const seleziona_il_formato1 = document.getElementById("seleziona_il_formato1");
     const label_format = document.getElementById("label-format");
     const load = document.getElementById("load");
-    
+
     if(selection_format!= null){
       selection_format.addEventListener("click",function(e){
         dialog.style.height = "270px";
@@ -453,7 +450,7 @@
         seleziona_il_formato1.style.display = "flex";
         label_format.style.display ="block";
       })
-    
+
       seleziona_il_formato1.addEventListener("click",function(e){
         load.style.display = "flex";
         seleziona_il_formato1.style.display ="none"
@@ -470,7 +467,7 @@
         label_format.style.display ="none";
     })
     }
-   
+
   })
 </script>
 <script>
@@ -498,10 +495,8 @@
     })
        }
 
-    
+
   })
-
-
 </script>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
@@ -561,13 +556,13 @@
     download_dialog.addEventListener('click',function(event){
       mainArea.style.display = 'block';
       dialog.style.display = 'block';
-      
+
     })
-  
+
 
     var dialogClose = document.querySelector('.dialog-close');
     const label_format = document.getElementById("label-format");
-    
+
     dialogClose.addEventListener('click', function(event){
       dialog.style.display = 'none';
       dialog.style.height = '100px';

@@ -151,8 +151,23 @@
 
     checks.forEach(function(check){
       var box = check.firstElementChild;
+      box.style.cursor="pointer"
+      check.style.cursor="pointer"
       check.addEventListener("click",function(){
-         box.checked = true
+          if(box.checked == true){
+          box.checked = false
+        }
+        else{
+          box.checked = true
+        }
+      })
+      box.addEventListener("click",function(){
+        if(box.checked == true){
+          box.checked = false
+        }
+        else{
+          box.checked = true
+        }
       })
     })
   });

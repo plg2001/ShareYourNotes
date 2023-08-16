@@ -1,66 +1,87 @@
-
+<%= stylesheet_link_tag 'edit_appunto', media: 'all', 'data-turbolinks-track': 'reload' %>
 <h1>Modifica Appunto</h1>
-
-<%= form_for @note, url: note_path(@note), method: :patch do |f| %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name, value: @note.name  %>
-  </div>
-
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description, value: @note.description %>
-  </div>
-
-
-
-  <div class="mb-3">
-    <%= f.label :tags, class: "form-label" ,style: "color:white; font-weight: bold;" %>
-    <div class="custom-dropdown">
-      <div class="options-container">
-        <ul class="options-list">
-          <% Tag.all.each do |tag| %>
-            <li>
-              <div class="tag-all">
-                <%= check_box_tag "note[tag_ids][]", tag.id, @note.tags.include?(tag) %>
-                <%= tag.name %>
-              </div>
-            </li>
-          <% end %>
-        </ul>
+<div class="container">
+  <%= form_for @note, url: note_path(@note), method: :patch, class: "container" do |f| %>
+    <div class="field mb-3">
+      <%= f.label :name, style: "color:white;font-weight: bold;"%>
+      <%= f.text_field :name, value: @note.name, class: "form-control", required: true, maxlength: 40%>
+    </div>
+    <div class="field mb-3">
+      <%= f.label :description, class: "form-label", style: "color:white;font-weight: bold;" %>
+      <%= f.text_area :description, value: @note.description, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :tags, class: "form-label" ,style: "color:white; font-weight: bold;" %>
+      <div class="custom-dropdown">
+        <div class="options-container">
+          <ul class="options-list">
+            <% Tag.all.each do |tag| %>
+              <li>
+                <div class="tag-all check">
+                  <%= check_box_tag "note[tag_ids][]", tag.id, @note.tags.include?(tag) %>
+                  <%= tag.name %>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-
-   <div class="mb-3">
-    <%= f.label :tags, class: "form-label" ,style: "color:white; font-weight: bold;" %>
-    <div class="custom-dropdown">
-      <div class="options-container">
-        <ul class="options-list">
-          <% Topic.all.each do |topic| %>
-            <li>
-              <div class="tag-all">
-                <%= check_box_tag "note[topic_ids][]", topic.id, @note.topics.include?(topic) %>
-                <%= topic.name %>
-              </div>
-            </li>
-          <% end %>
-        </ul>
+    <div class="mb-3">
+      <%= f.label :tags, class: "form-label" ,style: "color:white; font-weight: bold;" %>
+      <div class="custom-dropdown">
+        <div class="options-container">
+          <ul class="options-list">
+            <% Topic.all.each do |topic| %>
+              <li>
+                <div class="topic-all check">
+                  <%= check_box_tag "note[topic_ids][]", topic.id, @note.topics.include?(topic) %>
+                  <%= topic.name %>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-
-  
-<div class="mb-3">
-  <div class="div-field">
-    <%= f.label :faculty_id, "Facoltà", style: "color: white;" %>
-    <%= f.collection_select :faculty_id, Faculty.all, :id, :name, prompt: "Seleziona una facoltà", style: "font-weight: bold;" %>
-  </div>
+    <div class="mb-3">
+      <div class="div-field">
+        <%= f.label :faculty_id, "Facoltà", style: "color: white;" %>
+        <%= f.collection_select :faculty_id, Faculty.all, :id, :name, prompt: "Seleziona una facoltà", style: "font-weight: bold;" %>
+      </div>
+    </div>
+    <div class="actions">
+      <%= f.submit "Salva modifiche" , class:"btn",style: "color:white;font-weight: bold;" %>
+      <%= link_to "Torna all'appunto", @note, class:"btn",style: "color:white;font-weight: bold;" %>
+    </div>
+  <% end %>
 </div>
-  <div class="actions">
-    <%= f.submit "Salva modifiche" %>
-  </div>
-<% end %>
 
-<%= link_to "Torna all'appunto", @note %>
+
+ <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const checks = document.querySelectorAll(".check");
+
+    checks.forEach(function(check){
+      var box = check.firstElementChild;
+      box.style.cursor="pointer"
+      check.style.cursor="pointer"
+      check.addEventListener("click",function(){
+        if(box.checked == true){
+          box.checked = false
+        }
+        else{
+          box.checked = true
+        }
+      })
+      box.addEventListener("click",function(){
+        if(box.checked == true){
+          box.checked = false
+        }
+        else{
+          box.checked = true
+        }
+      })
+    })
+  });
+</script>

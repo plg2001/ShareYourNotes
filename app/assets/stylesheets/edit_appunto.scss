@@ -1,0 +1,85 @@
+.container{
+
+    padding-top: 30px;
+    .custom-dropdown {
+        .options-container {
+            
+
+            max-height: 100px; // Imposta l'altezza massima del contenitore
+            overflow-y: auto; // Abilita lo scorrimento verticale se necessario
+            border: 3px solid grey;
+            .options-list{
+                list-style: none; // Rimuove i punti dalla lista
+                padding-left: 7px;
+            }
+            /* Stile dello slider */
+        
+            /* Aggiungi un'ombra sottile all'area di contenuto scorrevole */
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+    }
+} 
+
+
+/* Stile del contenitore */
+.file-field-container {
+    display: flex; /* Utilizziamo Flexbox per allineare gli elementi in orizzontale */
+    align-items: center; /* Allinea verticalmente gli elementi al centro */
+    gap: 10px; /* Aggiunge uno spazio tra i due elementi */
+  }
+  
+  /* Stile del pulsante */
+  .file-field-container form {
+    margin: 0; /* Rimuove il margine predefinito del form */
+  }
+  
+  /* Stile dell'immagine nel pulsante */
+  .file-field-container img {
+    border: none; /* Rimuove il bordo dell'immagine nel pulsante */
+    vertical-align: middle; /* Allinea verticalmente l'immagine al centro con il testo */
+  }
+
+   
+  .google_drive_container {
+    border: 3px solid grey;/* Aggiunge un bordo al container */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Aggiunge un effetto ombra al container */
+    padding: 20px; /* Spazio interno al container per il contenuto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 30px;
+    width: 400px;
+    margin-bottom: 20px;
+    height: 100px;
+    background-color: whitesmoke;
+  }
+
+  
+
+  .google_drive_logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .drive_p{
+    margin-bottom: 0px;
+    font-weight: bold;
+  }
+
+  .google_drive_container:hover{
+    transform: scale(1.075);
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}
+
+ .tag-all{color: white;}
+ .topic-all{color: white;}
+
+
+
+ .load{
+  display: flex;
+  flex-wrap: wrap;
+  
+  }

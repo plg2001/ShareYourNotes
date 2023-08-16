@@ -52,6 +52,7 @@ class UsersController < ApplicationController
 
   def destroy
     begin
+      prova(@user)
       @user.destroy
       redirect_to root_path, notice: 'Account eliminato con successo.'
     rescue => e
@@ -60,6 +61,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def prova(user)
+    notes = Note.where(user_id: user.id)
+    notes.each do |note|
+      google_drive_link= note.google_drive_link
+      delete_G_Drive(google_drive_link)
+    end
+  end
+
+  def delete_G_Drive(google_drive_link)
+    session = GoogleDrive::Session.from_config("config.json")
+    file_id = google_drive_link.match(/\/file\/d\/(.+?)\//)[1]
+    file = session.file_by_id(file_id)
+    file.delete
+  end
+  
   private
 
   def set_user
