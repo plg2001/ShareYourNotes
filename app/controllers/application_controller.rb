@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters ,if: :devise_controller?
     
     def application
-        puts "DFDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"
     end
 
     def access_denied(exception)

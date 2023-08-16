@@ -10,7 +10,23 @@
     <div class="content">
       <section class="jumbotron text-center">
         <div class="container">
-          <h1 class="display-4" style="color:white;">Benvenuto su ShareYourNotes</h1>
+          <% if user_signed_in? %>
+           <% if current_user.first_login %>
+              <h1 class="display-4" style="color: white;">Benvenuto <%= current_user.username %> su ShareYourNotes</h1>
+              <% current_user.update(first_login: false) %>
+            <% else %>
+              <% current_hour = Time.now.hour %>
+              <% if (0..11).include?(current_hour) %>
+                <h1 class="display-4" style="color:white;">Buongiorno <%= current_user.username %> bentornato su ShareYourNotes</h1>
+              <% elsif (12..16).include?(current_hour) %>
+                <h1 class="display-4" style="color:white;">Buon pomeriggio <%= current_user.username %> bentornato su ShareYourNotes</h1>
+              <% else %>
+                <h1 class="display-4" style="color:white;">Buona sera <%= current_user.username %> bentornato su ShareYourNotes</h1>
+              <% end %>
+            <% end %>
+          <% else %>
+            <h1 class="display-4" style="color:white;">Benvenuto su ShareYourNotes</h1>
+          <% end %>
           <p class="lead" style="color:white;">Il posto perfetto per trovare e condividere appunti</p>
         </div>
       </section>

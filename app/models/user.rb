@@ -12,14 +12,15 @@ class User < ApplicationRecord
          def password_required?
            password.present? || password_confirmation.present?
          end
-         
+         attribute :first_login, :boolean, default: true
+
   has_many :richiesta_admins, dependent: :destroy
   has_many :notes, dependent: :destroy
   has_many :favourites, dependent: :destroy
   has_many :favourite_notes, through: :favourites, source: :note
-  has_many :create_ratings
-  has_many :comments
-  has_many :visualizzaziones
+  has_many :create_ratings, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :visualizzaziones, dependent: :destroy
  
   
 
