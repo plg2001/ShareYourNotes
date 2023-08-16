@@ -204,14 +204,11 @@
         <% file_extension = @note.format %>
         <% file_id = 0 %>
         <% google_drive_link = @note.google_drive_link %>
-        <% if file_extension == ".pdf" %>
+        <% if file_extension == ".pdf" || ['.mp4', '.avi', '.mov'].include?(file_extension.downcase) %>
           <% file_id = google_drive_link.match(/\/file\/d\/(.+?)\//)[1]   %>
         <% end %>
         <% if file_extension == ".docx" %>
           <% file_id = google_drive_link.match(/\/document\/d\/(.+?)\//)[1]   %>
-        <% end %>
-        <% if ['.mp4', '.avi', '.mov'].include?(file_extension.downcase) %>
-          <% file_id = google_drive_link.match(/\/file\/d\/(.+?)\//)[1]   %>
         <% end %>
         <% preview_url = "https://drive.google.com/file/d/#{file_id}/preview" %>
         <iframe src="<%= preview_url %>" width="900px" height="600px"></iframe>
