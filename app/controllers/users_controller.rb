@@ -53,6 +53,8 @@ class UsersController < ApplicationController
   def destroy
     begin
       prova(@user)
+      createrating = CreateRating.where(user_id: @user.id)
+      createrating.delete_all
       @user.destroy
       redirect_to root_path, notice: 'Account eliminato con successo.'
     rescue => e

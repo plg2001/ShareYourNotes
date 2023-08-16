@@ -369,7 +369,8 @@ class NotesController < ApplicationController
 
   def update_rating
     @note = Note.find(params[:id])
-    
+    @user = User.find(@note.user.id)
+
 
     if (@create_rating = CreateRating.find_by(note_id: @note.id, user_id: current_user.id)) == nil
       @create_rating = CreateRating.create!(note_id: @note.id, user_id: current_user.id, rating: params[:note][:rating])
@@ -379,12 +380,30 @@ class NotesController < ApplicationController
     end
     
 
+
     average_rating = CreateRating.where(note_id: @note.id).average(:rating)
     @note.update(rating: average_rating)
+
+    setUserRating(@user)
 
     flash[:notice] = 'Valutazione aggiunta con successo!'
     redirect_to request.referer || root_path
     
+  end
+
+  def setUserRating(user)
+    sum_ratings = 0
+      i = 0
+      user.notes.each do |note|
+        sum_ratings += note.rating
+        i += 1
+      end
+      if i == 0
+        i = 1
+      end
+      average_rating = sum_ratings / i
+
+      user.update(rating: average_rating)
   end
 
   def delete

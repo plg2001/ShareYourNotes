@@ -61,5 +61,5 @@ en:
       not_found: "not found"
       not_locked: "was not locked"
       not_saved:
-        one: "1 error prohibited this %{resource} from being saved:"
+        one: "Impossibile creare un nuovo utente a causa dell'errore:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
