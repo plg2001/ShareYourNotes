@@ -12,7 +12,6 @@ class User < ApplicationRecord
          def password_required?
            password.present? || password_confirmation.present?
          end
-         attribute :first_login, :boolean, default: true
 
   has_many :richiesta_admins, dependent: :destroy
   has_many :notes, dependent: :destroy

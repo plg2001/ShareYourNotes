@@ -11,9 +11,9 @@
       <section class="jumbotron text-center">
         <div class="container">
           <% if user_signed_in? %>
-           <% if current_user.first_login %>
+           <% if !current_user.first_login %>
               <h1 class="display-4" style="color: white;">Benvenuto <%= current_user.username %> su ShareYourNotes</h1>
-              <% current_user.update(first_login: false) %>
+              <% current_user.update(first_login: true) %>
             <% else %>
               <% current_hour = Time.now.hour %>
               <% if (0..11).include?(current_hour) %>
