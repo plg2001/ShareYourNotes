@@ -62,6 +62,8 @@ Rails.application.routes.draw do
 
 
   post '/conversations/create_ajax', to: 'conversations#create_ajax'
+  post '/tags/search', to: 'tags#search'
+  post '/topics/search', to: 'topics#search'
 
   resources :conversations do
     resources :messages

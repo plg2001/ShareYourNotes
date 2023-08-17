@@ -9,7 +9,11 @@
             max-height: 100px; // Imposta l'altezza massima del contenitore
             overflow-y: auto; // Abilita lo scorrimento verticale se necessario
             border: 3px solid grey;
-            .options-list{
+            .options-list1{
+                list-style: none; // Rimuove i punti dalla lista
+                padding-left: 7px;
+            }
+            .options-list2{
                 list-style: none; // Rimuove i punti dalla lista
                 padding-left: 7px;
             }
@@ -84,3 +88,7 @@
   flex-wrap: wrap;
   
   }
+
+
+
+  //Vars 

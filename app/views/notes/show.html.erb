@@ -285,43 +285,43 @@
   });
 
 
-      function Conversazione(){
+    function Conversazione(){
 
-      <% if user_signed_in?%>
-        var senderId = <%= current_user.id %>; // Inserisci qui il modo per ottenere l'ID dell'utente corrente
-        var recipientId = <%= @note.user.id %>; // Inserisci qui il modo per ottenere l'ID dell'utente destinatario
+    <% if user_signed_in? %>
+      var senderId = <%= current_user.id %>; // Inserisci qui il modo per ottenere l'ID dell'utente corrente
+      var recipientId = <%= @note.user.id %>; // Inserisci qui il modo per ottenere l'ID dell'utente destinatario
 
-        <% conversation_id = nil %>
+      <% conversation_id = nil %>
       <% Conversation.all.each do |conver| %>
-        <% if (conver.sender_id == current_user.id && conver.recipient_id == @note.user.id) %>
+      <% if (conver.sender_id == current_user.id && conver.recipient_id == @note.user.id) %>
           <% conversation_id = conver.id %>
         <% end %>
       <% end %>
 
-        if (<%= conversation_id != nil%>){
-          var conversationId = <%= conversation_id%>
-          getConversation(conversationId);
-        }
-
-
-        else{
-            $.ajax({
-              type: 'POST',
-              url: '/conversations/create_ajax',
-              dataType: 'json',
-              data: { sender_id: <%= current_user.id %>, recipient_id: recipientId},
-              success: function(response) {
-
-                var conversationId = response.conversation_id;
-                getConversation(conversationId);
-              },
-              error: function() {
-                console.error('Errore durante la creazione della conversazione.');
-              }
-            });
-        }
-        <% end %>
+      if (<%= conversation_id != nil%>){
+        var conversationId = <%= conversation_id%>
+        getConversation(conversationId);
       }
+
+
+      else{
+          $.ajax({
+            type: 'POST',
+            url: '/conversations/create_ajax',
+            dataType: 'json',
+            data: { sender_id: <%= current_user.id %>, recipient_id: recipientId},
+            success: function(response) {
+
+              var conversationId = response.conversation_id;
+              getConversation(conversationId);
+            },
+            error: function() {
+              console.error('Errore durante la creazione della conversazione.');
+            }
+          });
+      }
+    <% end %>
+    }
 </script>
 <script>
   function getConversation(conversationId){

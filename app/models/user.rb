@@ -50,7 +50,6 @@ class User < ApplicationRecord
       user = User.create!(
         provider: auth.provider,
         uid: auth.uid,
-        username: name_split[0] + "" + "ShareYourNotes" + auth.uid,
         name: name_split[0],
         email: auth.info.email,
         password: password,
@@ -62,6 +61,9 @@ class User < ApplicationRecord
       )
       user.skip_confirmation!
       user.save!
+
+
+      user.update!(username: name_split[0] + "#"+user.id.to_s)
     end
   
     user
