@@ -8,7 +8,11 @@
             max-height: 100px; // Imposta l'altezza massima del contenitore
             overflow-y: auto; // Abilita lo scorrimento verticale se necessario
             border: 3px solid grey;
-            .options-list{
+            .options-list1{
+                list-style: none; // Rimuove i punti dalla lista
+                padding-left: 7px;
+            }
+            .options-list2{
                 list-style: none; // Rimuove i punti dalla lista
                 padding-left: 7px;
             }
@@ -82,4 +86,63 @@
   display: flex;
   flex-wrap: wrap;
   
+  }
+
+
+
+  .search-tag {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 25px;
+    padding: 8px;
+    border: 2px solid #fff; /* Contorno bianco */
+    width: 300px; /* Imposta la larghezza desiderata */
+    height:  50px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    margin-top: 30px;
+  }
+  .search-topic {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 25px;
+    padding: 8px;
+    border: 2px solid #fff; /* Contorno bianco */
+    width: 300px; /* Imposta la larghezza desiderata */
+    height:  50px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+  }
+  
+  .search-wrapper {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    border: 2px solid transparent; /* Contorno trasparente per l'input */
+    border-radius: 25px;
+    overflow: hidden;
+  }
+  
+  .search-input {
+    border: none;
+    padding: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    outline: none;
+    background-color: transparent; /* Sfondo trasparente per l'input */
+    width: 100%;
+    color: white; 
+  }
+  
+  .search-icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 8px;
+    cursor: pointer;
+    background-color: transparent; /* Sfondo trasparente per l'icona */
+  }
+  
+  /* Stili aggiuntivi per il placeholder */
+  ::placeholder {
+    color: #999;
   }
