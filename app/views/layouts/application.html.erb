@@ -484,10 +484,6 @@
         </nav>
         <% flash.each do |name, message| %>
           <% if current_user.present? %>
-            <% message.chomp!('.') if message.ends_with?('.') %>
-            <% if message.starts_with?("Signed") %>
-              <% message += " #{current_user.username}" %>
-            <% end %>
             <%= content_tag(:div,message, class: "alert alert-info alert-#{name} fade show",data: { dismiss: "alert", timeout: 3000 }) %>
           <% end %>
         <% end %>
