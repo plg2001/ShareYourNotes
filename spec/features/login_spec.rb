@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'CaricaAppunto', type: :feature, js: true do
+RSpec.feature 'CaricaAppunto', type: :feature do
   let(:user) { User.create(
         username: 'test',
         email: 'test@example.com', 
