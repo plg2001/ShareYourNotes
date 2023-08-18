@@ -134,7 +134,7 @@
                   <% Topic.all.each do |topic| %>
                     <li>
                       <div class="topic-all check">
-                        <%= check_box_tag "note[topic_ids][]", topic.id, @note.topics.include?(topic) %>
+                        <%= check_box_tag "note[topic_ids][]", topic.id, @note.topics.include?(topic),id: "topic"+topic.id.to_s %>
                         <span class="__name" style="cursor:pointer;"><%= topic.name%></span>
                       </div>
                     </label>
