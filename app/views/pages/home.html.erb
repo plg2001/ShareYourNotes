@@ -12,7 +12,7 @@
         <div class="container">
           <% if user_signed_in? %>
            <% if !current_user.first_login %>
-              <h1 class="display-4" style="color: white;">Benvenuto <%= current_user.username %> su ShareYourNotes</h1>
+              <h1 class="display-4" id="messaggio_login" style="color: white;">Benvenuto <%= current_user.username %> su ShareYourNotes</h1>
               <% current_user.update(first_login: true) %>
             <% else %>
               <% current_hour = Time.now.hour %>

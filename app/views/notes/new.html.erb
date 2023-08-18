@@ -111,7 +111,7 @@
                   <% Tag.all.each do |tag| %>
                     <li>
                       <div class="tag-all check" >
-                        <%= check_box_tag "note[tag_ids][]", tag.id, @note.tags.include?(tag) %>
+                        <%= check_box_tag "note[tag_ids][]", tag.id, @note.tags.include?(tag),id: "tag"+tag.id.to_s %>
                         <span class="__name" style="cursor:pointer;"><%= tag.name %></span>
                       </div>
                     </li>
