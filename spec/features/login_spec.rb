@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'CaricaAppunto', type: :feature do
+RSpec.feature 'CaricaAppunto', type: :feature, js: true do
   let(:user) { User.create(
         username: 'test',
         email: 'test@example.com', 
@@ -46,13 +46,15 @@ RSpec.feature 'CaricaAppunto', type: :feature do
 
     expect(find("#topic"+topic.id.to_s)).to be_checked
     
-    expect(page).to have_select('Faculty')
+    expect(page).to have_select('note_faculty_id')
 
-    select('Option 2', from: 'Faculty')
+    select('Ingegneria Informatica', from: 'note_faculty_id')
 
-    expect(page).to have_select('Faculty', selected: 'Option 2')
+    expect(page).to have_select('note_faculty_id', selected: 'Ingegneria Informatica')
 
-
+    click_button 'Carica'
+    
+    expect(current_path).to eq "/notes/1"
   end
 
   scenario 'a user provides invalid credentials' do

@@ -10,6 +10,7 @@ Rails.application.configure do
   config.annotations.register_directories('features')
   config.annotations.register_extensions('feature') { |tag| /#\s*(#{tag}):?\s*(.*)$/ }
   config.hosts << "www.example.com"
+  config.hosts << "127.0.0.1"
 
   # Settings specified here will take precedence over those in config/application.rb.
 

@@ -8,7 +8,8 @@ require 'rspec/rails'
 require 'capybara/rspec'
 # Add additional requires below this line. Rails is not loaded until this point!
 Capybara.javascript_driver = :selenium
-config.include Capybara::DSL, type: :feature
+Capybara.default_driver = :selenium 
+Capybara.server = :puma
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
@@ -54,6 +55,7 @@ RSpec.configure do |config|
   #       # ...
   #     end
   #
+  config.include Capybara::DSL, type: :feature
   # The different available types are documented in the features, such as in
   # https://rspec.info/features/6-0/rspec-rails
   config.infer_spec_type_from_file_location!
