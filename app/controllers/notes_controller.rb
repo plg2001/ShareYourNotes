@@ -259,7 +259,8 @@ class NotesController < ApplicationController
       @note.tags = Tag.where(id: params[:note][:tag_ids])
       @note.topics = Topic.where(id: params[:note][:topic_ids])
       file = params[:file]
-
+      name = (params[:note][:name]).to_s
+      description = (params[:note][:description]).to_s
 
       allowed_extensions = [".pdf", ".docx", ".mp4", ".mov", ".avi"]
       if file && allowed_extensions.include?(File.extname(file.original_filename).downcase)
@@ -283,7 +284,7 @@ class NotesController < ApplicationController
               @note.faculty_id = params[:note][:faculty_id] unless params[:note][:faculty_id].blank?
 
 
-              if @note.tags.length > 0 && @note.topics.length > 0 && @note.faculty_id != nil
+              if name.length > 0 && description.length > 0 && @note.tags.length > 0 && @note.topics.length > 0 && @note.faculty_id != nil
                 
                 if @note.save
                   redirect_to @note, notice: "L'appunto è stato correttamente caricato"
@@ -293,6 +294,12 @@ class NotesController < ApplicationController
               else
 
                 alert = ""
+                if name.length == 0 
+                  alert.concat("Inserire un nome, ")
+                end
+                if description.length == 0 
+                  alert.concat("Inserire una descrizione, ")
+                end
                 if @note.tags.length == 0 
                   alert.concat("Inserire almeno un Tag, ")
                 end

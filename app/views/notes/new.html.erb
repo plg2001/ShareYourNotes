@@ -27,11 +27,11 @@
         <% file_name = params[:file_name] %>
       <% end %>
       <%= form.label :name, class: "form-label",style: "color:white;font-weight: bold;" %>
-      <%= form.text_field :name, class: "form-control",value: file_name, placeholder: "Inserisci il nome", required: true, maxlength: 40 %>
+      <%= form.text_field :name, class: "form-control",value: file_name, placeholder: "Inserisci il nome", maxlength: 40 %>
     </div>
     <div class="mb-3">
       <%= form.label :description, class: "form-label" ,style: "color:white;font-weight: bold;"%>
-      <%= form.text_area :description, class: "form-control", placeholder: "Inserisci la descrizione", required: true %>
+      <%= form.text_area :description, class: "form-control", placeholder: "Inserisci la descrizione"%>
     </div>
     <div class="mb-3">
       <% if params[:file_id] != nil && params[:file_name] != nil %>
