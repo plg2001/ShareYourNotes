@@ -107,3 +107,6 @@ Then("I should be on the note page") do
   expect(current_path).to eq "/notes/1"
 end
  
+Then("I should be on the new page") do
+  expect(current_path).to eq "/notes"
+end
