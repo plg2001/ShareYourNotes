@@ -6,12 +6,14 @@
 <% end %>
 <div class="container">
   <%= form_with(id:"form",model: @note, url: notes_path, multipart: true, class: "container") do |form| %>
+  <%= file_name = nil %>
     <% if params[:file_id] != nil && params[:file_name]!= nil %>
       <%= link_to "/notes/new" ,style: "text-decoration:none;" do%>
         <div class="google_drive_container">
           <%= image_tag "Google_Drive_logo.png",class:"google_drive_logo" %>
           <p class="drive_p">Deseleziona file</p>
         </div>
+        <% file_name = params[:file_name] %>
       <% end %>
     <% else %>
       <%= link_to your_file_path ,style: "text-decoration:none;" do%>
@@ -22,22 +24,18 @@
       <% end %>
     <% end %>
     <div class="mb-3">
-      <%= file_name = nil %>
-      <% if params[:file_id] != nil && params[:file_name]!= nil %>
-        <% file_name = params[:file_name] %>
-      <% end %>
-      <%= form.label :name, class: "form-label",style: "color:white;font-weight: bold;" %>
-      <%= form.text_field :name, class: "form-control",value: file_name, placeholder: "Inserisci il nome", maxlength: 40 %>
-    </div>
-    <div class="mb-3">
-      <%= form.label :description, class: "form-label" ,style: "color:white;font-weight: bold;"%>
-      <%= form.text_area :description, class: "form-control", placeholder: "Inserisci la descrizione"%>
-    </div>
-    <div class="mb-3">
       <% if params[:file_id] != nil && params[:file_name] != nil %>
         <%= hidden_field_tag :file_id, params[:file_id] %>
         <%= hidden_field_tag :file_name, params[:file_name] %>
         <%= form_tag(notes_path, multipart: true) do %>
+        <div class="mb-3">
+          <%= form.label :name, class: "form-label",style: "color:white;font-weight: bold;" %>
+          <%= form.text_field :name, class: "form-control", value: file_name, placeholder: "Inserisci il nome", maxlength: 40 %>
+        </div>
+        <div class="mb-3">
+          <%= form.label :description, class: "form-label" ,style: "color:white;font-weight: bold;"%>
+          <%= form.text_area :description, class: "form-control", placeholder: "Inserisci la descrizione"%>
+        </div>
           <div class="mb-3">
             <%= form.label :tags, class: "form-label" ,style: "color:white; font-weight: bold;"%>
              <div class="search-tag">
@@ -94,8 +92,16 @@
           <div class="cssload-zenith" id="load" style="margin-top:50px;display:none;" ></div>
         <% end %>
       <% else %>
-        <%= form.label :file, class: "form-label" ,style: "color:white;font-weight: bold;"%>
         <%= form_tag(notes_path, multipart: true) do %>
+        <div class="mb-3">
+      <%= form.label :name, class: "form-label",style: "color:white;font-weight: bold;" %>
+      <%= form.text_field :name, class: "form-control", placeholder: "Inserisci il nome", maxlength: 40 %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :description, class: "form-label" ,style: "color:white;font-weight: bold;"%>
+      <%= form.text_area :description, class: "form-control", placeholder: "Inserisci la descrizione"%>
+    </div>
+        <%= form.label :file, class: "form-label" ,style: "color:white;font-weight: bold;"%>
           <%= file_field_tag :file,class: "form-control" , required: true,accept: ".pdf, .docx, .mp4, .mov, .avi" %>
           <div class="mb-3" style="margin-top:30px">
             <%= form.label :tags, class: "form-label" ,style: "color:white;font-weight: bold;"%>
