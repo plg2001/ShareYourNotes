@@ -48,7 +48,9 @@ RSpec.feature ' New Note', type: :feature do
 
   scenario 'A valid user uploads a valid note' do
     tag1
+    tag2
     topic1
+    topic2
     faculty1
     user 
     user.confirm
@@ -64,13 +66,19 @@ RSpec.feature ' New Note', type: :feature do
 
     expect(find('#tag'+tag1.id.to_s)).not_to be_checked
     find('input', id: 'tag'+tag1.id.to_s).click
-
     expect(find("#tag"+tag1.id.to_s)).to be_checked
+    
+    expect(find('#tag'+tag2.id.to_s)).not_to be_checked
+    find('input', id: 'tag'+tag2.id.to_s).click
+    expect(find("#tag"+tag2.id.to_s)).to be_checked
 
     expect(find('#topic'+topic1.id.to_s)).not_to be_checked
     find('input', id: 'topic'+topic1.id.to_s).click
-
     expect(find("#topic"+topic1.id.to_s)).to be_checked
+
+    expect(find('#topic'+topic2.id.to_s)).not_to be_checked
+    find('input', id: 'topic'+topic2.id.to_s).click
+    expect(find("#topic"+topic2.id.to_s)).to be_checked
     
     expect(page).to have_select('note_faculty_id')
 

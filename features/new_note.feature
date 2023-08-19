@@ -21,8 +21,12 @@ Feature: New Note
     And I attach a file with valid format
     When I check the tag checkbox for "Tag_Name1"
     Then I have the tag checkbox for "Tag_Name1" checked
+    When I check the tag checkbox for "Tag_Name2"
+    Then I have the tag checkbox for "Tag_Name2" checked
     When I check the topic checkbox for "Topic_Name1"
     Then I have the topic checkbox for "Topic_Name1" checked
+    When I check the topic checkbox for "Topic_Name2"
+    Then I have the topic checkbox for "Topic_Name2" checked
     When I select "Faculty_Name1" from the select faculty
     Then I have "Faculty_Name1" from the select faculty selected
     And I click "Carica"
