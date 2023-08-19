@@ -195,13 +195,11 @@ class NotesController < ApplicationController
   end
 
   def create
-    puts "Name: #{params[:note][:name]}"
-    puts "Description: #{params[:note][:description]}"
+
     if params[:file_id] != nil && params[:file_name] != nil
       file_name = params[:note][:name]
       description = params[:note][:description]
-      @note = Note.new(name: params[:note][:name], description: params[:note][:description])
-      puts params[:note][:name]
+      @note = Note.new(name: file_name, description: description)
       @note.user = current_user
       @note.tags = Tag.where(id: params[:note][:tag_ids])
       @note.topics = Topic.where(id: params[:note][:topic_ids])
