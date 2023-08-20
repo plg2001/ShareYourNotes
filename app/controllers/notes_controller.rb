@@ -213,17 +213,17 @@ class NotesController < ApplicationController
       session = GoogleDrive::Session.from_config("config.json")
       destination_folder = session.collection_by_url("https://drive.google.com/drive/folders/1zJPM2hoIzMzuvfefRvQM8NXHee5pOfhL?hl=it")
 
-    
-      
-      uploaded_file = destination_folder.upload_from_file(path_file,file_name,convert: false)
+      @note.faculty_id = params[:note][:faculty_id] unless params[:note][:faculty_id].blank?
+      if file_name.length > 0 && description.length > 0 && @note.tags.length > 0 && @note.topics.length > 0 && @note.faculty_id != nil
+
+          uploaded_file = destination_folder.upload_from_file(path_file,file_name,convert: false)
 
       
         
         
-        @note.faculty_id = params[:note][:faculty_id] unless params[:note][:faculty_id].blank?
+        
 
 
-        if file_name.length > 0 && description.length > 0 && @note.tags.length > 0 && @note.topics.length > 0 && @note.faculty_id != nil
 
           if uploaded_file 
   
@@ -282,6 +282,12 @@ class NotesController < ApplicationController
 
         session = GoogleDrive::Session.from_config("config.json")
         destination_folder = session.collection_by_url("https://drive.google.com/drive/folders/1zJPM2hoIzMzuvfefRvQM8NXHee5pOfhL?hl=it")
+        @note.faculty_id = params[:note][:faculty_id] unless params[:note][:faculty_id].blank?
+
+
+        if name.length > 0 && description.length > 0 && @note.tags.length > 0 && @note.topics.length > 0 && @note.faculty_id != nil
+          
+        
         uploaded_file = destination_folder.upload_from_file(tempfile.path,filename,convert: false)
 
 
@@ -289,11 +295,7 @@ class NotesController < ApplicationController
        
               
               
-              @note.faculty_id = params[:note][:faculty_id] unless params[:note][:faculty_id].blank?
-
-
-              if name.length > 0 && description.length > 0 && @note.tags.length > 0 && @note.topics.length > 0 && @note.faculty_id != nil
-                
+             
                 if uploaded_file 
                   file_url = uploaded_file.human_url
                   @note.google_drive_link = file_url
