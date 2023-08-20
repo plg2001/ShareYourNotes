@@ -12,7 +12,7 @@ Feature: New Note
     And I fill in "Password" with "test12345"
     And I click "Log in"
     Then I should be on the home page
-    Then I should see "Benvenuto test su ShareYourNotes"
+    Then I should see "Benvenuto test su ShareYourNotes" in "#messaggio_login"
     When I visit the page to upload note
     Then I should be on the upload note page
   Scenario: A valid user uploads a valid note

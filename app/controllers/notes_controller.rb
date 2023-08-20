@@ -217,16 +217,22 @@ class NotesController < ApplicationController
       
       uploaded_file = destination_folder.upload_from_file(path_file,file_name,convert: false)
 
-      if uploaded_file 
-  
-        file_url = uploaded_file.human_url
-        @note.google_drive_link = file_url
+      
         
         
         @note.faculty_id = params[:note][:faculty_id] unless params[:note][:faculty_id].blank?
 
 
-        if @note.tags.length > 0 && @note.topics.length > 0 && @note.faculty_id != nil
+        if file_name.length > 0 && description.length > 0 && @note.tags.length > 0 && @note.topics.length > 0 && @note.faculty_id != nil
+
+          if uploaded_file 
+  
+            file_url = uploaded_file.human_url
+            @note.google_drive_link = file_url
+
+          else
+            render :new, alert: 'Si è verificato un errore durante il caricamento del file'
+          end
           
           if @note.save
             redirect_to @note, notice: "L'appunto è stato correttamente caricato"
@@ -236,6 +242,12 @@ class NotesController < ApplicationController
         else
 
           alert = ""
+          if name.length == 0 
+            alert.concat("Inserire un nome, ")
+          end
+          if description.length == 0 
+            alert.concat("Inserire una descrizione, ")
+          end
           if @note.tags.length == 0 
             alert.concat("Inserire almeno un Tag, ")
           end
@@ -248,9 +260,7 @@ class NotesController < ApplicationController
           flash[:error] = alert
           render :new
         end
-      else
-        render :new, alert: 'Si è verificato un errore durante il caricamento del file'
-      end
+      
       
     else
 
@@ -276,9 +286,7 @@ class NotesController < ApplicationController
 
 
       
-        if uploaded_file 
-              file_url = uploaded_file.human_url
-              @note.google_drive_link = file_url
+       
               
               
               @note.faculty_id = params[:note][:faculty_id] unless params[:note][:faculty_id].blank?
@@ -286,6 +294,15 @@ class NotesController < ApplicationController
 
               if name.length > 0 && description.length > 0 && @note.tags.length > 0 && @note.topics.length > 0 && @note.faculty_id != nil
                 
+                if uploaded_file 
+                  file_url = uploaded_file.human_url
+                  @note.google_drive_link = file_url
+
+                else
+                  render :new, alert: 'Si è verificato un errore durante il caricamento del file'
+                
+                end 
+
                 if @note.save
                   redirect_to @note, notice: "L'appunto è stato correttamente caricato"
                 else
@@ -312,10 +329,7 @@ class NotesController < ApplicationController
                 flash[:error] = alert
                 render :new
               end
-        else
-          render :new, alert: 'Si è verificato un errore durante il caricamento del file'
         
-        end 
       else
         flash[:error] = "Formato del file non consentito. Sono consentiti solo file PDF, DOCX, MP4, MOV e AVI."
         render :new
@@ -570,12 +584,16 @@ class NotesController < ApplicationController
 
   def update
     @note = current_user.notes.find(params[:id])
-
-    if @note.update(note_params)
-      @note.tags = Tag.where(id: params[:note][:tag_ids])
-      @note.topics = Topic.where(id: params[:note][:topic_ids])
-      redirect_to @note, notice: 'Appunto aggiornato con successo.'
+    if(params[:note][:tag_ids] != nil && params[:note][:topic_ids] && params[:note][:name].length > 0 && params[:note][:description].length > 0)
+      if @note.update(note_params)     
+        @note.tags = Tag.where(id: params[:note][:tag_ids])
+        @note.topics = Topic.where(id: params[:note][:topic_ids])
+        redirect_to @note, notice: 'Appunto aggiornato con successo.'
+      else
+        render :edit
+      end
     else
+      flash[:error] = "Compilare tutti i campi"
       render :edit
     end
   end

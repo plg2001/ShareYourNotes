@@ -12,7 +12,7 @@ Feature: Comments
     And I fill in "Password" with "test12345"
     And I click "Log in"
     Then I should be on the home page
-    Then I should see "Benvenuto test su ShareYourNotes"
+    Then I should see "Benvenuto test su ShareYourNotes" in "#messaggio_login"
     When I visit the page to upload note
     Then I should be on the upload note page
     And I fill in "Name" with "note_test"
@@ -40,7 +40,7 @@ Feature: Comments
     When I fill in "Commento" with " "
     And I click "Add comment"
     Then I should be on the note page
-    And I not should see ".commento"
-    And I not should see ".comment-content"
+    And I should not see ".commento"
+    And I should not see ".comment-content"
     
   

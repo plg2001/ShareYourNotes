@@ -4,15 +4,13 @@
   <%= form_for @note, url: note_path(@note), method: :patch, class: "container" do |f| %>
     <div class="field mb-3">
       <%= f.label :name, style: "color:white;font-weight: bold;"%>
-      <%= f.text_field :name, value: @note.name, class: "form-control", required: true, maxlength: 40%>
+      <%= f.text_field :name, value: @note.name, class: "form-control", maxlength: 40%>
     </div>
     <div class="field mb-3">
       <%= f.label :description, class: "form-label", style: "color:white;font-weight: bold;" %>
       <%= f.text_area :description, value: @note.description, class: "form-control" %>
     </div>
-    <%= f.label :file, class: "form-label" ,style: "color:white;font-weight: bold;"%>
     <%= form_tag(notes_path, multipart: true) do %>
-      <%= file_field_tag :file,class: "form-control" , required: true,accept: ".pdf, .docx, .mp4, .mov, .avi" %>
       <div class="mb-3">
         <%= f.label :tags, class: "form-label" ,style: "color:white; font-weight: bold;" %>
         <div class="search-tag">

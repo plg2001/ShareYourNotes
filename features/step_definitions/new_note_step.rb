@@ -56,8 +56,8 @@ Then("I should be on the home page") do
 end
 
 
-Then("I should see {string}") do |content|
-  expect(page.find('#messaggio_login')).to have_text(content)
+Then("I should see {string} in {string}") do |content, content2|
+  expect(page.find(content2)).to have_text(content)
 end
 
 When("I visit the page to upload note") do
