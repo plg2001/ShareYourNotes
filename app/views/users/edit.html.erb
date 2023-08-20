@@ -3,35 +3,35 @@
   <h1>Modifica delle informazioni</h1>
   <%= form_for @user, html: { class: "needs-validation", novalidate: true } do |form| %>
     <div class="mb-3">
-      <%= form.label :username, class: "form-label" %>
+      <%= form.label :username, class: "form-label", style: "color: white;"%>
       <%= form.text_field :username, class: "form-control", id: "username", style: "margin-left: 0px;max-width: 300px;", required: true %>
       <div class="invalid-feedback">
         Inserisci un username valido.
       </div>
     </div>
     <div class="mb-3">
-      <%= form.label :name, class: "form-label" %>
+      <%= form.label :name, class: "form-label", style: "color: white;" %>
       <%= form.text_field :name, class: "form-control", id: "name", style: "max-width: 300px;", required: true %>
       <div class="invalid-feedback">
         Inserisci un nome valido.
       </div>
     </div>
     <div class="mb-3">
-      <%= form.label :current_password, "Password precedente", class: "form-label" %>
+      <%= form.label :current_password, "Password precedente", class: "form-label", style: "color: white;" %>
       <%= form.password_field :current_password, class: "form-control", id: "current_password", style: "max-width: 300px;", required: true %>
       <div class="invalid-feedback">
         Inserisci la password precedente.
       </div>
     </div>
     <div class="mb-3">
-      <%= form.label :password, class: "form-label" %>
+      <%= form.label :password, class: "form-label", style: "color: white;" %>
       <%= form.password_field :password, class: "form-control", id: "password", style: "max-width: 300px;", required: true %>
       <div class="invalid-feedback">
         Inserisci una nuova password.
       </div>
     </div>
     <div class="mb-3">
-      <%= form.label :password_confirmation, "Conferma password", class: "form-label" %>
+      <%= form.label :password_confirmation, "Conferma password", class: "form-label", style: "color: white;" %>
       <%= form.password_field :password_confirmation, class: "form-control", id: "password_confirmation", style: "max-width: 300px;", required: true %>
       <div class="invalid-feedback">
         Le password non corrispondono.

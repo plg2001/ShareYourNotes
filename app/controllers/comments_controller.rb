@@ -4,8 +4,12 @@ class CommentsController < ApplicationController
       @comment = @note.comments.build(comment_params)
       @comment.user = current_user
       @comment.content = params[:comment][:content]
-      if @comment.save
-        redirect_to @note, notice: 'Comment added successfully!'
+      if @comment.content.strip != ''
+        if @comment.save
+          redirect_to @note, notice: 'Comment added successfully!'
+        else
+          redirect_to @note, alert: 'Failed to add comment.'
+        end
       else
         redirect_to @note, alert: 'Failed to add comment.'
       end

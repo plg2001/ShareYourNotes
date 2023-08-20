@@ -2,12 +2,9 @@
 
 require 'rails_helper'
 
-RSpec.feature ' New Note', type: :feature do
-  let(:user) { User.create(
-        username: 'test',
-        email: 'test@example.com', 
-        password: 'password'
-        )
+RSpec.feature 'New Note', type: :feature do
+    let!(:user) { 
+      User.create(username: 'test', email: 'test@example.com', password: 'password')
     }
 
     let!(:tag1) {
@@ -46,19 +43,16 @@ RSpec.feature ' New Note', type: :feature do
       Faculty.create(name: 'Chimica')
     }
 
+    background do
+      user.confirm
+      visit signin_path
+      fill_in 'Email', with: user.email
+      fill_in 'Password', with: 'password'
+      click_button 'Log in'
+      expect(page.find('#messaggio_login')).to have_text('Benvenuto ' + user.username + ' su ShareYourNotes')
+    end
+
   scenario 'A valid user uploads a valid note' do
-    tag1
-    tag2
-    topic1
-    topic2
-    faculty1
-    user 
-    user.confirm
-    visit signin_path
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: 'password'
-    click_button 'Log in'
-    expect(page.find('#messaggio_login')).to have_text('Benvenuto ' + user.username + ' su ShareYourNotes')
     visit new_note_path
     fill_in 'Name', with: 'note test'
     fill_in 'Description', with: 'note description'
@@ -89,19 +83,10 @@ RSpec.feature ' New Note', type: :feature do
     click_button 'Carica'
     
     expect(current_path).to eq "/notes/1"
+
   end
 
   scenario 'A valid user uploads an invalid note because miss the name' do
-    tag1
-    topic1
-    faculty1
-    user 
-    user.confirm
-    visit signin_path
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: 'password'
-    click_button 'Log in'
-    expect(page.find('#messaggio_login')).to have_text('Benvenuto ' + user.username + ' su ShareYourNotes')
     visit new_note_path
     fill_in 'Description', with: 'note description'
 
@@ -129,16 +114,6 @@ RSpec.feature ' New Note', type: :feature do
   end
 
   scenario 'A valid user uploads an invalid note because miss the description' do
-    tag1
-    topic1
-    faculty1
-    user 
-    user.confirm
-    visit signin_path
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: 'password'
-    click_button 'Log in'
-    expect(page.find('#messaggio_login')).to have_text('Benvenuto ' + user.username + ' su ShareYourNotes')
     visit new_note_path
     fill_in 'Name', with: 'note test'
 
@@ -166,16 +141,6 @@ RSpec.feature ' New Note', type: :feature do
   end
 
   scenario 'A valid user uploads an invalid note because miss the file' do
-    tag1
-    topic1
-    faculty1
-    user 
-    user.confirm
-    visit signin_path
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: 'password'
-    click_button 'Log in'
-    expect(page.find('#messaggio_login')).to have_text('Benvenuto ' + user.username + ' su ShareYourNotes')
     visit new_note_path
     fill_in 'Name', with: 'note test'
     fill_in 'Description', with: 'note description'
@@ -202,16 +167,6 @@ RSpec.feature ' New Note', type: :feature do
   end
 
   scenario 'A valid user uploads an invalid note because miss the tags' do
-    tag1
-    topic1
-    faculty1
-    user 
-    user.confirm
-    visit signin_path
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: 'password'
-    click_button 'Log in'
-    expect(page.find('#messaggio_login')).to have_text('Benvenuto ' + user.username + ' su ShareYourNotes')
     visit new_note_path
     fill_in 'Name', with: 'note test'
     fill_in 'Description', with: 'note description'
@@ -235,16 +190,6 @@ RSpec.feature ' New Note', type: :feature do
   end
 
   scenario 'A valid user uploads an invalid note because miss the topics' do
-    tag1
-    topic1
-    faculty1
-    user 
-    user.confirm
-    visit signin_path
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: 'password'
-    click_button 'Log in'
-    expect(page.find('#messaggio_login')).to have_text('Benvenuto ' + user.username + ' su ShareYourNotes')
     visit new_note_path
     fill_in 'Name', with: 'note test'
     fill_in 'Description', with: 'note description'
@@ -268,16 +213,6 @@ RSpec.feature ' New Note', type: :feature do
   end
 
   scenario 'A valid user uploads an invalid note because miss the faculty' do
-    tag1
-    topic1
-    faculty1
-    user 
-    user.confirm
-    visit signin_path
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: 'password'
-    click_button 'Log in'
-    expect(page.find('#messaggio_login')).to have_text('Benvenuto ' + user.username + ' su ShareYourNotes')
     visit new_note_path
     fill_in 'Name', with: 'note test'
     fill_in 'Description', with: 'note description'
