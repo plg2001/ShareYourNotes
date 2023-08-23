@@ -28,11 +28,16 @@ class UsersController < ApplicationController
   def update
     if user_params[:password].present?
       if @user.valid_password?(user_params[:current_password])
-        if @user.update(user_params.except(:current_password))
-          bypass_sign_in(@user)
-          redirect_to user_path(@user), notice: 'Le informazioni sono state modificate.'
+        if user_params[:name].length > 0 && user_params[:username].length > 0
+          if @user.update(user_params.except(:current_password))
+            bypass_sign_in(@user)
+            redirect_to user_path(@user), notice: 'Le informazioni sono state modificate.'
+          else
+            flash.now[:alert] = 'Si è verificato un errore durante la modifica delle informazioni.'
+            render :edit
+          end
         else
-          flash.now[:alert] = 'Si è verificato un errore durante la modifica delle informazioni.'
+          flash.now[:alert] = 'Riempire i campi di name e username.'
           render :edit
         end
       else
@@ -40,11 +45,16 @@ class UsersController < ApplicationController
         render :edit
       end
     else
-      if @user.update(name: user_params[:name], username: user_params[:username])
-        bypass_sign_in(@user)
-        redirect_to user_path(@user), notice: 'Le informazioni sono state modificate.'
+      if user_params[:name].length > 0 && user_params[:username].length > 0
+        if @user.update(name: user_params[:name], username: user_params[:username])
+          bypass_sign_in(@user)
+          redirect_to user_path(@user), notice: 'Le informazioni sono state modificate.'
+        else
+          flash.now[:alert] = 'Si è verificato un errore durante la modifica delle informazioni.'
+          render :edit
+        end
       else
-        flash.now[:alert] = 'Si è verificato un errore durante la modifica delle informazioni.'
+        flash.now[:alert] = 'Riempire i campi di name e username.'
         render :edit
       end
     end
@@ -53,8 +63,6 @@ class UsersController < ApplicationController
   def destroy
     begin
       prova(@user)
-      createrating = CreateRating.where(user_id: @user.id)
-      createrating.delete_all
       @user.destroy
       redirect_to root_path, notice: 'Account eliminato con successo.'
     rescue => e
