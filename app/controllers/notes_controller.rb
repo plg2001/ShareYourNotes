@@ -208,7 +208,10 @@ class NotesController < ApplicationController
       
       
       temp_file = open("https://drive.google.com/uc?id=#{file_id}")
-      path_file = temp_file.path
+      tempfile = Tempfile.new(file_name)
+      tempfile.binmode
+      tempfile.write(temp_file.read)
+      tempfile.rewind
 
       session = GoogleDrive::Session.from_config("config.json")
       destination_folder = session.collection_by_url("https://drive.google.com/drive/folders/1zJPM2hoIzMzuvfefRvQM8NXHee5pOfhL?hl=it")
@@ -216,8 +219,10 @@ class NotesController < ApplicationController
       @note.faculty_id = params[:note][:faculty_id] unless params[:note][:faculty_id].blank?
       if file_name.length > 0 && description.length > 0 && @note.tags.length > 0 && @note.topics.length > 0 && @note.faculty_id != nil
 
-          uploaded_file = destination_folder.upload_from_file(path_file,file_name,convert: false)
+          uploaded_file = destination_folder.upload_from_file(tempfile.path,file_name,convert: false)
 
+          tempfile.close
+          tempfile.unlink
       
         
         
