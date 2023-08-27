@@ -139,20 +139,20 @@ class NotesController < ApplicationController
       session = GoogleDrive::Session.from_credentials(user_credentials)
       file = session.file_by_url(@note.google_drive_link)
       
-      user_required_format = nil
-      if file_extension == ".pdf"      
-        if user_required_format == "docx"
-          ConvertApi.config.api_secret = 'aTSx7qLnIcyq8oDe'
-          result = ConvertApi.convert('docx', { File: file.web_content_link }, from_format: 'pdf')
-        end
-      end
+      #user_required_format = nil
+      #if file_extension == ".pdf"      
+      #  if user_required_format == "docx"
+      #    ConvertApi.config.api_secret = 'aTSx7qLnIcyq8oDe'
+      #    result = ConvertApi.convert('docx', { File: file.web_content_link }, from_format: 'pdf')
+      #  end
+      #end
   
-      if file_extension == ".docx" 
-        if user_required_format == "pdf"
-          ConvertApi.config.api_secret = 'aTSx7qLnIcyq8oDe'
-          result = ConvertApi.convert('pdf', { File: file.web_content_link }, from_format: 'docx')
-        end
-      end
+      #if file_extension == ".docx" 
+      #  if user_required_format == "pdf"
+      #    ConvertApi.config.api_secret = 'aTSx7qLnIcyq8oDe'
+      #    result = ConvertApi.convert('pdf', { File: file.web_content_link }, from_format: 'docx')
+      #  end
+      #end
 
       io = result.file.io
       folder_name = "ShareYourNotes"
@@ -160,24 +160,32 @@ class NotesController < ApplicationController
 
       if existing_folder
         # Faccio l'upload
-        temp_file = open("https://drive.google.com/uc?id=#{google_id}")
-        path_file = temp_file.path
+        temp_file = Tempfile.new
+        open("https://drive.google.com/uc?id=#{google_id}") do |url_file|
+          temp_file.write(url_file.read)
+        end
+        temp_file.close
         
-        uploaded_file = existing_folder.upload_from_file(io.path,@note.name,convert: false)
+        uploaded_file = existing_folder.upload_from_file(temp_file.path,@note.name,convert: false)
+
+        temp_file.unlink
 
         redirect_to "http://localhost:3000/notes/#{@note.id}",alert: 'Upload sul tuo google drive effettuato correttamente'
 
       else
         # Crea una nuova cartella
         new_folder = session.create_folder(folder_name)
+        temp_file = Tempfile.new
+        open("https://drive.google.com/uc?id=#{google_id}") do |url_file|
+          temp_file.write(url_file.read)
+        end
+        temp_file.close
         
-        temp_file = open("https://drive.google.com/uc?id=#{google_id}")
-        path_file = temp_file.path
-        
-        uploaded_file = new_folder.upload_from_file(io.path,@note.name,convert: false)
+        uploaded_file = new_folder.upload_from_file(temp_file.path,@note.name,convert: false)
+
+        temp_file.unlink
 
         redirect_to "http://localhost:3000/notes/#{@note.id}",alert: 'Upload sul tuo google drive effettuato correttamente'
-      
 
       end
     end
