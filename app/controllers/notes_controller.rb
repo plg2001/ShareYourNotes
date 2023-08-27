@@ -154,7 +154,7 @@ class NotesController < ApplicationController
       #  end
       #end
 
-      io = result.file.io
+      #io = result.file.io
       folder_name = "ShareYourNotes"
       existing_folder = session.collection_by_title(folder_name)
 
