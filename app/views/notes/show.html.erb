@@ -114,11 +114,11 @@
             <span class="dialog-back" id="back"><%= image_tag("back.png") %></span>
             <div class="local-cloud">
               <div class="scarica" id="format1">
-                <%= image_tag("local.svg",style: "width: 45px; height: 45px;",id: "local") %><br />
+                <%= image_tag("local.svg",style: "width: 45px; height: 45px;",id: "local-img") %><br />
                 <label style="color:white;" class="fw-bold">Locale</label>
               </div>
               <div class="scarica" id="format2">
-                <%= image_tag("cloud.svg",style: "width: 45px; height: 45px;",class: "scarica") %><br />
+                <%= image_tag("cloud.svg",style: "width: 45px; height: 45px;",id: "cloud-img") %><br />
                 <label style="color:white;" class="fw-bold scarica">Drive</label>
               </div>
             </div>
@@ -127,13 +127,13 @@
               <%= link_to download_note_path(@note,format: "pdf"),style: "text-decoration: none;" do %>
                 <div class="scarica">
                   <%= image_tag("pdf.svg",style: "width: 45px; height: 45px;") %><br />
-                  <label style="color:white;margin-top: 5px;" class="fw-bold">PDF</label>
+                  <label style="color:white;margin-top: 5px;" class="fw-bold">PDF to Local</label>
                 </div>
               <% end %>
               <%= link_to download_note_path(@note,format: "docx"),style: "text-decoration: none;" do %>
                 <div class="scarica">
                   <%= image_tag("word.svg",style: "width: 45px; height: 45px;") %><br />
-                  <label style="color:white; margin-top: 5px;" class="fw-bold">Word</label>
+                  <label style="color:white; margin-top: 5px;" class="fw-bold">Word to Local</label>
                 </div>
               <% end %>
             </div>
@@ -151,13 +151,13 @@
               <%= link_to download_on_my_gd_path(id: @note.id,google_id: file_id, format: "pdf"),style: "text-decoration: none;" do %>
                 <div class="scarica">
                   <%= image_tag("pdf.svg",style: "width: 45px; height: 45px;") %><br />
-                  <label style="color:white;margin-top: 5px;" class="fw-bold">PDF</label>
+                  <label style="color:white;margin-top: 5px;" class="fw-bold">PDF to Cloud</label>
                 </div>
               <% end %>
               <%= link_to download_on_my_gd_path(id: @note.id,google_id: file_id,format: "docx"),style: "text-decoration: none;" do %>
                 <div class="scarica">
                   <%= image_tag("word.svg",style: "width: 45px; height: 45px;") %><br />
-                  <label style="color:white; margin-top: 5px;" class="fw-bold">Word</label>
+                  <label style="color:white; margin-top: 5px;" class="fw-bold">Word to Cloud</label>
                 </div>
               <% end %>
             </div>
@@ -436,8 +436,8 @@
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     const selection_format = document.getElementById("format1");
+    const other_format = document.getElementById("format2");
     const dialog = document.getElementById("dialog");
-    const local = document.getElementById("local");
     const back_img = document.getElementById("back");
     const seleziona_il_formato1 = document.getElementById("seleziona_il_formato1");
     const label_format = document.getElementById("label-format");
@@ -447,6 +447,7 @@
       selection_format.addEventListener("click",function(e){
         dialog.style.height = "270px";
         back_img.style.display = "block";
+        other_format.style.display = "none";
         seleziona_il_formato1.style.display = "flex";
         label_format.style.display ="block";
       })
@@ -465,6 +466,7 @@
         back_img.style.display = "none";
         seleziona_il_formato1.style.display = "none";
         label_format.style.display ="none";
+        other_format.style.display = "block"
     })
     }
 
@@ -474,26 +476,28 @@
   document.addEventListener("DOMContentLoaded", function() {
     const selection_format = document.getElementById("format2");
     const dialog = document.getElementById("dialog");
-    const local = document.getElementById("local");
+    const other_format = document.getElementById("format1");
     const back_img = document.getElementById("back");
     const seleziona_il_formato2 = document.getElementById("seleziona_il_formato2");
     const label_format = document.getElementById("label-format");
 
-       if(selection_format!= null){
-    selection_format.addEventListener("click",function(e){
-      dialog.style.height = "270px";
-      back_img.style.display = "block";
-      seleziona_il_formato2.style.display = "flex";
-      label_format.style.display ="block";
+    if(selection_format!= null){
+      selection_format.addEventListener("click",function(e){
+        dialog.style.height = "270px";
+        other_format.style.display = "none";
+        back_img.style.display = "block";
+        seleziona_il_formato2.style.display = "flex";
+        label_format.style.display ="block";
     })
 
-    back_img.addEventListener("click",function(e){
-      dialog.style.height = "100px";
-      back_img.style.display = "none";
-      seleziona_il_formato2.style.display = "none";
-      label_format.style.display ="none";
-    })
-       }
+      back_img.addEventListener("click",function(e){
+        dialog.style.height = "100px";
+        back_img.style.display = "none";
+        seleziona_il_formato2.style.display = "none";
+        label_format.style.display ="none";
+        other_format.style.display = "block";
+      })
+    }
 
 
   })
@@ -551,12 +555,15 @@
   var mainArea = document.querySelector('.main-area');
   var download_dialog = document.querySelector('.download-open');
   var dialog = document.querySelector('.dialog-container');
+  var format_local = document.getElementById("format1");
+  var format_cloud = document.getElementById("format2");
 
   if (download_dialog != null){
     download_dialog.addEventListener('click',function(event){
       mainArea.style.display = 'block';
       dialog.style.display = 'block';
-
+      format_local.style.display = "block";
+      format_cloud.style.display = "block";
     })
 
 
