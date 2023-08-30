@@ -125,6 +125,9 @@ class NotesController < ApplicationController
     end
     
     if params[:code] != nil
+      redirect_uri = URI.parse("http://localhost:3000/notes/#{@note.id}")
+      redirect_uri.query = URI.encode_www_form({ user_required_format: params[:user_required_format] })
+
       user_credentials = Google::Auth::UserRefreshCredentials.new(
         client_id: "806281785375-kivi2j1putaq08gnv7c84bsg1edps6p1.apps.googleusercontent.com",
         client_secret: "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",
@@ -132,20 +135,48 @@ class NotesController < ApplicationController
           "https://www.googleapis.com/auth/drive",
           "https://spreadsheets.google.com/feeds/",
         ],
-        redirect_uri: "http://localhost:3000/notes/#{@note.id}"
+        redirect_uri: redirect_uri.to_s
       ) 
+      
+      if params[:user_required_format] != nil 
+        user_required_format = params[:user_required_format]
+      end
+
       user_credentials.code = params[:code]
       user_credentials.fetch_access_token!
       session = GoogleDrive::Session.from_credentials(user_credentials)
       file = session.file_by_url(@note.google_drive_link)
+
+      if file_extension == ".pdf"      
+        if user_required_format == "docx"
+          ConvertApi.config.api_secret = 'aTSx7qLnIcyq8oDe'
+          result = ConvertApi.convert('docx', { File: file.web_content_link }, from_format: 'pdf')
+        end
+      end
+  
+      if file_extension == ".docx" 
+        if user_required_format == "pdf"
+          ConvertApi.config.api_secret = 'aTSx7qLnIcyq8oDe'
+          result = ConvertApi.convert('pdf', { File: file.web_content_link }, from_format: 'docx')
+        end
+      end
       
+      io = nil
+      if result != nil
+        io = result.file.io
+      end
+
       folder_name = "ShareYourNotes"
       existing_folder = session.collection_by_title(folder_name)
       if existing_folder
       
-        temp_file = open("https://drive.google.com/uc?id=#{google_id}")
-        path_file = temp_file.path
-        uploaded_file = existing_folder.upload_from_file(path_file,@note.name,convert: false)
+        if io != nil 
+          uploaded_file = existing_folder.upload_from_file(io.path,@note.name,convert: false)
+        else
+          temp_file = open("https://drive.google.com/uc?id=#{google_id}")
+          path_file = temp_file.path
+          uploaded_file = existing_folder.upload_from_file(path_file,@note.name,convert: false)
+        end
       
         redirect_to "http://localhost:3000/notes/#{@note.id}",alert: 'Upload sul tuo google drive effettuato correttamente'
 
@@ -153,9 +184,13 @@ class NotesController < ApplicationController
         # Crea una nuova cartella
         new_folder = session.create_folder(folder_name)
       
+        if io != nil 
+          uploaded_file = new_folder.upload_from_file(io.path,@note.name,convert: false)
+        else
           temp_file = open("https://drive.google.com/uc?id=#{google_id}")
           path_file = temp_file.path
           uploaded_file = new_folder.upload_from_file(path_file,@note.name,convert: false)
+        end
         
 
         redirect_to "http://localhost:3000/notes/#{@note.id}" ,alert: 'Upload sul tuo google drive effettuato correttamente'
@@ -204,13 +239,7 @@ class NotesController < ApplicationController
 
           tempfile.close
           tempfile.unlink
-      
-        
-        
-        
-
-
-
+    
           if uploaded_file 
   
             file_url = uploaded_file.human_url
@@ -512,6 +541,9 @@ class NotesController < ApplicationController
       end
           
     else
+      redirect_uri = URI.parse("http://localhost:3000/notes/#{@note.id}")
+      redirect_uri.query = URI.encode_www_form({ user_required_format: user_required_format })
+
       user_credentials = Google::Auth::UserRefreshCredentials.new(
         client_id: "806281785375-kivi2j1putaq08gnv7c84bsg1edps6p1.apps.googleusercontent.com",
         client_secret: "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",
@@ -519,7 +551,7 @@ class NotesController < ApplicationController
           "https://www.googleapis.com/auth/drive",
           "https://spreadsheets.google.com/feeds/",
         ],
-        redirect_uri: "http://localhost:3000/notes/#{@note.id}"
+        redirect_uri: redirect_uri.to_s
       )
       auth_url = user_credentials.authorization_uri
       redirect_to auth_url.to_s 
