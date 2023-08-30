@@ -29,12 +29,24 @@
             <% end %>
           </p>
         <p class="card-text"> Autore: <%= note.user.username %></p>
-        <%= link_to  remove_note_path(note), method: :delete, style: "text-decoration: none;", style: "text-decoration: none;", data: { confirm: 'Sei sicuro di voler eliminare l\'appunto?' } do%>
-          <%= image_tag("delete.svg",style: "width: 20px; height: 20px; ") %>
-        <% end %>
-        <%= link_to  note.google_drive_link do%>
-          <%= image_tag("Google_Drive_logo.png",style: "width: 20px; height: 20px;") %>
-        <% end %>
+        <% if current_user != note.user %>
+            <% if current_user && current_user.favourite_notes.include?(note) %>
+              <%= link_to remove_favourite_path(note_id: note.id), method: :delete, style: "text-decoration: none;" do%>
+                <%= inline_svg_tag("heart-fill.svg") %>
+              <% end %>
+            <% elsif current_user%>
+              <%= link_to  add_favourite_path(note_id: note.id), method: :post, style: "text-decoration: none;" do%>
+                <%= inline_svg_tag("heart.svg") %>
+              <% end %>
+            <% end %>
+          <% else %>
+            <%= link_to  remove_note_path(note), method: :delete, style: "text-decoration: none;", style: "text-decoration: none;", data: { confirm: 'Sei sicuro di voler eliminare l\'appunto?' } do%>
+              <%= image_tag("delete.svg",style: "width: 20px; height: 20px; ") %>
+            <% end %>
+          <% end %>
+          <%= link_to  note.google_drive_link do%>
+            <%= image_tag("Google_Drive_logo.png",style: "width: 20px; height: 20px;") %>
+          <% end %>
       </div>
     </div>
   <% end %>
