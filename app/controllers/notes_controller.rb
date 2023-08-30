@@ -139,53 +139,26 @@ class NotesController < ApplicationController
       session = GoogleDrive::Session.from_credentials(user_credentials)
       file = session.file_by_url(@note.google_drive_link)
       
-      #user_required_format = nil
-      #if file_extension == ".pdf"      
-      #  if user_required_format == "docx"
-      #    ConvertApi.config.api_secret = 'aTSx7qLnIcyq8oDe'
-      #    result = ConvertApi.convert('docx', { File: file.web_content_link }, from_format: 'pdf')
-      #  end
-      #end
-  
-      #if file_extension == ".docx" 
-      #  if user_required_format == "pdf"
-      #    ConvertApi.config.api_secret = 'aTSx7qLnIcyq8oDe'
-      #    result = ConvertApi.convert('pdf', { File: file.web_content_link }, from_format: 'docx')
-      #  end
-      #end
-
-      #io = result.file.io
       folder_name = "ShareYourNotes"
       existing_folder = session.collection_by_title(folder_name)
-
       if existing_folder
-        # Faccio l'upload
-        temp_file = Tempfile.new
-        open("https://drive.google.com/uc?id=#{google_id}") do |url_file|
-          temp_file.write(url_file.read)
-        end
-        temp_file.close
-        
-        uploaded_file = existing_folder.upload_from_file(temp_file.path,@note.name,convert: false)
-
-        temp_file.unlink
-
+      
+        temp_file = open("https://drive.google.com/uc?id=#{google_id}")
+        path_file = temp_file.path
+        uploaded_file = existing_folder.upload_from_file(path_file,@note.name,convert: false)
+      
         redirect_to "http://localhost:3000/notes/#{@note.id}",alert: 'Upload sul tuo google drive effettuato correttamente'
 
       else
         # Crea una nuova cartella
         new_folder = session.create_folder(folder_name)
-        temp_file = Tempfile.new
-        open("https://drive.google.com/uc?id=#{google_id}") do |url_file|
-          temp_file.write(url_file.read)
-        end
-        temp_file.close
+      
+          temp_file = open("https://drive.google.com/uc?id=#{google_id}")
+          path_file = temp_file.path
+          uploaded_file = new_folder.upload_from_file(path_file,@note.name,convert: false)
         
-        uploaded_file = new_folder.upload_from_file(temp_file.path,@note.name,convert: false)
 
-        temp_file.unlink
-
-        redirect_to "http://localhost:3000/notes/#{@note.id}",alert: 'Upload sul tuo google drive effettuato correttamente'
+        redirect_to "http://localhost:3000/notes/#{@note.id}" ,alert: 'Upload sul tuo google drive effettuato correttamente'
 
       end
     end
@@ -299,51 +272,42 @@ class NotesController < ApplicationController
 
 
         if name.length > 0 && description.length > 0 && @note.tags.length > 0 && @note.topics.length > 0 && @note.faculty_id != nil
+          uploaded_file = destination_folder.upload_from_file(tempfile.path,filename,convert: false)     
+          if uploaded_file 
+            file_url = uploaded_file.human_url
+            @note.google_drive_link = file_url
+
+          else
+            render :new, alert: 'Si è verificato un errore durante il caricamento del file'
           
-        
-        uploaded_file = destination_folder.upload_from_file(tempfile.path,filename,convert: false)
+          end 
 
+          if @note.save
+            redirect_to @note, notice: "L'appunto è stato correttamente caricato"
+          else
+            render :new, alert: "Si è verificato un errore durante il caricamento dell'appunto"
+          end
+        else
 
-      
-       
-              
-              
-             
-                if uploaded_file 
-                  file_url = uploaded_file.human_url
-                  @note.google_drive_link = file_url
-
-                else
-                  render :new, alert: 'Si è verificato un errore durante il caricamento del file'
-                
-                end 
-
-                if @note.save
-                  redirect_to @note, notice: "L'appunto è stato correttamente caricato"
-                else
-                  render :new, alert: "Si è verificato un errore durante il caricamento dell'appunto"
-                end
-              else
-
-                alert = ""
-                if name.length == 0 
-                  alert.concat("Inserire un nome, ")
-                end
-                if description.length == 0 
-                  alert.concat("Inserire una descrizione, ")
-                end
-                if @note.tags.length == 0 
-                  alert.concat("Inserire almeno un Tag, ")
-                end
-                if @note.topics.length == 0 
-                  alert.concat("Inserire almeno un Topic, ")
-                end
-                if @note.faculty_id == nil
-                  alert.concat("Inserire una Facoltà.")
-                end
-                flash[:error] = alert
-                render :new
-              end
+          alert = ""
+          if name.length == 0 
+            alert.concat("Inserire un nome, ")
+          end
+          if description.length == 0 
+            alert.concat("Inserire una descrizione, ")
+          end
+          if @note.tags.length == 0 
+            alert.concat("Inserire almeno un Tag, ")
+          end
+          if @note.topics.length == 0 
+            alert.concat("Inserire almeno un Topic, ")
+          end
+          if @note.faculty_id == nil
+            alert.concat("Inserire una Facoltà.")
+          end
+          flash[:error] = alert
+          render :new
+        end
         
       else
         flash[:error] = "Formato del file non consentito. Sono consentiti solo file PDF, DOCX, MP4, MOV e AVI."
