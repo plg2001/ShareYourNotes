@@ -62,7 +62,8 @@ class UsersController < ApplicationController
 
   def destroy
     begin
-      prova(@user)
+      getNote(@user)
+      getRating(@user)
       @user.destroy
       redirect_to root_path, notice: 'Account eliminato con successo.'
     rescue => e
@@ -70,8 +71,31 @@ class UsersController < ApplicationController
       redirect_to user_path(@user)
     end
   end
+  def getRating(user)
+    ratings = CreateRating.where(user_id: user.id)
+    ratings.each do |rating|
+      note = Note.where(rating.note_id)
+      setUserRating(note.user)
+    end
+  end
 
-  def prova(user)
+
+  def setUserRating(user)
+    sum_ratings = 0
+      i = 0
+      user.notes.each do |note|
+        sum_ratings += note.rating
+        i += 1
+      end
+      if i == 0
+        i = 1
+      end
+      average_rating = sum_ratings / i
+
+      user.update(rating: average_rating)
+  end
+
+  def getNote(user)
     notes = Note.where(user_id: user.id)
     notes.each do |note|
       google_drive_link= note.google_drive_link

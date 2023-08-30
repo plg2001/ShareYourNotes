@@ -450,10 +450,10 @@ class NotesController < ApplicationController
     views = Visualizzazione.where(note_id: params[:id])
     views.delete_all
     delete_G_Drive(note.google_drive_link)
+    setUserRating(note.user)
     note.delete
     redirect_to my_notes_path, notice: 'La nota è stata cancellata con successo.'
   end
-
 
   def delete_G_Drive(google_drive_link)
     session = GoogleDrive::Session.from_config("config.json")
