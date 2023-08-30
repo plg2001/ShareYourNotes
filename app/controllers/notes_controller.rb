@@ -511,6 +511,7 @@ class NotesController < ApplicationController
         io = result.file.io
       end
       existing_folder = session.collection_by_title(folder_name)
+      
       if existing_folder
         if io != nil 
           uploaded_file = existing_folder.upload_from_file(io.path,@note.name,convert: false)
@@ -520,7 +521,6 @@ class NotesController < ApplicationController
           uploaded_file = existing_folder.upload_from_file(path_file,@note.name,convert: false)
         end
        
-     
 
         redirect_to "http://localhost:3000/notes/#{@note.id}",alert: 'Upload sul tuo google drive effettuato correttamente'
 
@@ -557,6 +557,18 @@ class NotesController < ApplicationController
       redirect_to auth_url.to_s 
 
     end
+  end
+
+  def folder_in_trash?(folder_id)
+    response = session.drive.get_file(folder_id)
+    return response.trashed?
+  rescue Google::Apis::ClientError => e
+    # Il file non esiste più, quindi consideralo come se fosse nel cestino
+    return true if e.status_code == 404
+  
+    # Gestisci altri errori se necessario
+  
+    return false
   end
 
   def suggested
