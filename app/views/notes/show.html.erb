@@ -104,15 +104,15 @@
           </div>
         <% end %>
         <% file_extension = @note.format %>
-        <% if user_signed_in? %>
-          <% if ['.mp4', '.avi', '.mov'].exclude?(file_extension.downcase) %>
-            <div class="download-open">
-              <%= image_tag("download.svg",style: "width: 45px; height: 45px;") %>
-              <label class="fw-bold" style="color:black;" >Download</label>
-            </div>
-            <div id="dialog" class="dialog-container ">
-              <span class="dialog-close"><%= image_tag("close.svg") %></span>
-              <span class="dialog-back" id="back"><%= image_tag("back.png") %></span>
+        <% if ['.mp4', '.avi', '.mov'].exclude?(file_extension.downcase) %>
+          <div class="download-open">
+            <%= image_tag("download.svg",style: "width: 45px; height: 45px;") %>
+            <label class="fw-bold" style="color:black;" >Download</label>
+          </div>
+          <div id="dialog" class="dialog-container ">
+            <span class="dialog-close"><%= image_tag("close.svg") %></span>
+            <span class="dialog-back" id="back"><%= image_tag("back.png") %></span>
+            <% if user_signed_in? %>
               <div class="local-cloud">
                 <div class="scarica" id="format1">
                   <%= image_tag("local.svg",style: "width: 45px; height: 45px;",id: "local-img") %><br />
@@ -163,8 +163,10 @@
                 <% end %>
               </div>
               <div class="cssload-zenith" id="load" style="margin-top:50px;display:none;" ></div>
-            </div>
-          <% end %>
+            <% else %>
+              <p style="color:white;margin-top:12px" class="fw-bold">Esegui il <%= link_to "login", signin_path,style:"color:white;"%> o la <%= link_to "registrazione", signup_path ,style:"color:white;"%> per scaricare il file</p>
+            <% end %>
+          </div>
         <% end %>
       </div>
     </div>

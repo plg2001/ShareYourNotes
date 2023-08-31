@@ -169,7 +169,9 @@ class NotesController < ApplicationController
       folder_name = "ShareYourNotes"
       existing_folder = session.collection_by_title(folder_name)
       if existing_folder
-      
+        if folder_in_trash?(existing_folder)
+          existing_folder = session.create_folder(folder_name)
+        end 
         if io != nil 
           uploaded_file = existing_folder.upload_from_file(io.path,@note.name,convert: false)
         else
@@ -178,7 +180,7 @@ class NotesController < ApplicationController
           uploaded_file = existing_folder.upload_from_file(path_file,@note.name,convert: false)
         end
       
-        redirect_to "http://localhost:3000/notes/#{@note.id}",alert: 'Upload sul tuo google drive effettuato correttamente'
+        redirect_to "http://localhost:3000/notes/#{@note.id}",alert: 'Upload sul tuo google drive effettuato correttamente.'
 
       else
         # Crea una nuova cartella
@@ -191,16 +193,14 @@ class NotesController < ApplicationController
           path_file = temp_file.path
           uploaded_file = new_folder.upload_from_file(path_file,@note.name,convert: false)
         end
-        
-
-        redirect_to "http://localhost:3000/notes/#{@note.id}" ,alert: 'Upload sul tuo google drive effettuato correttamente'
-
+      
+        redirect_to "http://localhost:3000/notes/#{@note.id}" ,alert: 'Upload sul tuo google drive effettuato correttamente.'
       end
     end
-   
-
   end
   
+
+
   def new
     @note = Note.new
 
@@ -222,23 +222,20 @@ class NotesController < ApplicationController
       @note.format = File.extname(file_name)
       file_id = params[:file_id]
       
-      
       temp_file = open("https://drive.google.com/uc?id=#{file_id}")
-      tempfile = Tempfile.new(file_name)
-      tempfile.binmode
-      tempfile.write(temp_file.read)
-      tempfile.rewind
+      path_file = temp_file.path
 
       session = GoogleDrive::Session.from_config("config.json")
       destination_folder = session.collection_by_url("https://drive.google.com/drive/folders/1zJPM2hoIzMzuvfefRvQM8NXHee5pOfhL?hl=it")
 
+    
+      
+      uploaded_file = destination_folder.upload_from_file(path_file,file_name,convert: false)
+
+
       @note.faculty_id = params[:note][:faculty_id] unless params[:note][:faculty_id].blank?
       if file_name.length > 0 && description.length > 0 && @note.tags.length > 0 && @note.topics.length > 0 && @note.faculty_id != nil
 
-          uploaded_file = destination_folder.upload_from_file(tempfile.path,file_name,convert: false)
-
-          tempfile.close
-          tempfile.unlink
     
           if uploaded_file 
   
@@ -257,7 +254,7 @@ class NotesController < ApplicationController
         else
 
           alert = ""
-          if name.length == 0 
+          if file_name.length == 0 
             alert.concat("Inserire un nome, ")
           end
           if description.length == 0 
@@ -513,7 +510,11 @@ class NotesController < ApplicationController
       end
       existing_folder = session.collection_by_title(folder_name)
       
+      
       if existing_folder
+        if folder_in_trash?(existing_folder)
+          existing_folder = session.create_folder(folder_name)
+        end
         if io != nil 
           uploaded_file = existing_folder.upload_from_file(io.path,@note.name,convert: false)
         else
@@ -560,9 +561,9 @@ class NotesController < ApplicationController
     end
   end
 
-  def folder_in_trash?(folder_id)
-    response = session.drive.get_file(folder_id)
-    return response.trashed?
+  def folder_in_trash?(folder)
+
+    return folder.trashed?
   rescue Google::Apis::ClientError => e
     # Il file non esiste più, quindi consideralo come se fosse nel cestino
     return true if e.status_code == 404

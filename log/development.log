@@ -1,0 +1,105 @@
+Started GET "/" for ::1 at 2023-08-31 15:30:09 +0200
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mNote Load (0.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" ORDER BY "notes"."rating" DESC LIMIT ?[0m  [["LIMIT", 10]]
+  ↳ app/views/pages/home.html.erb:96
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."rating" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/views/pages/home.html.erb:117
+  Rendered pages/home.html.erb within layouts/application (Duration: 253.7ms | Allocations: 93787)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "notes"."name" FROM "notes"[0m
+  ↳ app/views/layouts/application.html.erb:230
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "users"."username" FROM "users" INNER JOIN "notes" ON "notes"."user_id" = "users"."id"[0m
+  ↳ app/views/layouts/application.html.erb:253
+  [1m[36mFaculty Load (0.1ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:259
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:262
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:270
+  Rendered layout layouts/application.html.erb (Duration: 322.4ms | Allocations: 124298)
+Completed 200 OK in 336ms (Views: 322.7ms | ActiveRecord: 3.8ms | Allocations: 129193)
+
+
+Started GET "/notes/search?search=&Filtro=user&user_search=&faculty=&rating=&after=&before=&order=asc&format=&button=" for ::1 at 2023-08-31 15:30:11 +0200
+Processing by NotesController#search as */*
+  Parameters: {"search"=>"", "Filtro"=>"user", "user_search"=>"", "faculty"=>"", "rating"=>"", "after"=>"", "before"=>"", "order"=>"asc", "button"=>""}
+  Rendering layout layouts/application.html.erb
+  Rendering notes/search.html.erb within layouts/application
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" ORDER BY name ASC[0m
+  ↳ app/views/notes/search.html.erb:2
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:70
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:70
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:70
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:70
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:70
+  Rendered notes/search.html.erb within layouts/application (Duration: 41.8ms | Allocations: 37396)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "notes"."name" FROM "notes"[0m
+  ↳ app/views/layouts/application.html.erb:230
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "users"."username" FROM "users" INNER JOIN "notes" ON "notes"."user_id" = "users"."id"[0m
+  ↳ app/views/layouts/application.html.erb:253
+  [1m[36mFaculty Load (0.1ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:259
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:262
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:270
+  Rendered layout layouts/application.html.erb (Duration: 61.1ms | Allocations: 61111)
+Completed 200 OK in 63ms (Views: 61.3ms | ActiveRecord: 1.2ms | Allocations: 62499)
+
+
+Started GET "/notes/1" for ::1 at 2023-08-31 15:30:12 +0200
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:103:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering notes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/notes/show.html.erb:8
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "visualizzaziones" WHERE "visualizzaziones"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/views/notes/show.html.erb:53
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "note_tags" ON "tags"."id" = "note_tags"."tag_id" WHERE "note_tags"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/views/notes/show.html.erb:180
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT "topics".* FROM "topics" INNER JOIN "note_topics" ON "topics"."id" = "note_topics"."topic_id" WHERE "note_topics"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/views/notes/show.html.erb:188
+  [1m[36mFaculty Load (0.1ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties" WHERE "faculties"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/notes/show.html.erb:196
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "create_ratings"."rating" AS create_ratings_rating FROM "create_ratings" WHERE "create_ratings"."note_id" = ? GROUP BY "create_ratings"."rating"[0m  [["note_id", 1]]
+  ↳ app/views/notes/show.html.erb:202
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/views/notes/show.html.erb:225
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 24]]
+  ↳ app/views/notes/show.html.erb:254
+  Rendered notes/show.html.erb within layouts/application (Duration: 61.5ms | Allocations: 42715)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "notes"."name" FROM "notes"[0m
+  ↳ app/views/layouts/application.html.erb:230
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "users"."username" FROM "users" INNER JOIN "notes" ON "notes"."user_id" = "users"."id"[0m
+  ↳ app/views/layouts/application.html.erb:253
+  [1m[36mFaculty Load (0.1ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:259
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:262
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:270
+  Rendered layout layouts/application.html.erb (Duration: 81.9ms | Allocations: 66347)
+Completed 200 OK in 89ms (Views: 79.6ms | ActiveRecord: 3.4ms | Allocations: 70690)
+
+
