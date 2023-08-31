@@ -419,11 +419,13 @@
               <% end %>
               <% if user_signed_in? %>
                 <%= link_to '#' do %>
-                  <% if current_user.profile_img_url == nil  %>
+                  <% if current_user.profile_img_url == nil || current_user.provider == "facebook"  %>
                     <%= image_tag("person_fill.svg", id: "personal-button", class: "btn btn-primary", style: " background: none; border: 2px solid white ;width: 3.2em; height: 100%;") %>
                   <% else %>
                     <img src="<%= current_user.profile_img_url %>" id= "personal-button" class= "" style= "border-radius:100px;margin-right: 10px;background: none; border: 2px solid white ;width: 50px; height: 50px;">
+                  
                   <% end %>
+                  
                 <% end %>
                 <div id="personal-area" class="personal-area hidden">
                   <span class="close-button">&#10006;</span>
