@@ -62,7 +62,7 @@ class UsersController < ApplicationController
 
   def destroy
     begin
-      getRating(@user)
+      getNote(@user)
       @user.destroy
       redirect_to root_path, notice: 'Account eliminato con successo.'
     rescue => e
