@@ -215,7 +215,7 @@
             <% if current_user.admin %>
               <li class="nav-item me-3 downn"><%= link_to "Admin Dashboard", admin_dashboard_path, class: "nav-link",style:"color:white;" %></li>
             <% else %>
-              <li class="nav-item me-3 downn"><%= link_to 'Crea richiesta', create_richiesta_admin_richiesta_admins_path,class: "nav-link",style:"color:white;" ,method: :post %></li>
+              <li class="nav-item me-3 downn"><%= link_to 'Diventa Amministratore', create_richiesta_admin_richiesta_admins_path,class: "nav-link",style:"color:white;" ,method: :post %></li>
             <% end %>
           <% else %>
             <li class="nav-item me-3 downn"><%= link_to "Sign In", signin_path,class: "nav-link",style:"color:white;"%></li>
