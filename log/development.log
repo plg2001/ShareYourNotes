@@ -17198,3 +17198,896 @@ Started GET "/fonts/bootstrap-icons.woff?1fa40e8900654d2863d011707b9fb6f2" for :
   
 ActionController::RoutingError (No route matches [GET] "/fonts/bootstrap-icons.woff"):
   
+Started GET "/" for ::1 at 2023-09-01 19:51:51 +0200
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mNote Load (0.8ms)[0m  [1m[34mSELECT "notes".* FROM "notes" ORDER BY "notes"."rating" DESC LIMIT ?[0m  [["LIMIT", 10]]
+  ↳ app/views/pages/home.html.erb:96
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."rating" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/views/pages/home.html.erb:117
+  Rendered pages/home.html.erb within layouts/application (Duration: 385.9ms | Allocations: 83191)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT DISTINCT "notes"."name" FROM "notes"[0m
+  ↳ app/views/layouts/application.html.erb:226
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT DISTINCT "users"."username" FROM "users" INNER JOIN "notes" ON "notes"."user_id" = "users"."id"[0m
+  ↳ app/views/layouts/application.html.erb:249
+  [1m[36mFaculty Load (0.9ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:255
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:258
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:266
+  Rendered layout layouts/application.html.erb (Duration: 480.6ms | Allocations: 112186)
+Completed 200 OK in 504ms (Views: 482.9ms | ActiveRecord: 10.0ms | Allocations: 118094)
+
+
+Started GET "/fonts/bootstrap-icons.woff?1fa40e8900654d2863d011707b9fb6f2" for ::1 at 2023-09-01 19:51:52 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/bootstrap-icons.woff"):
+  
+Started GET "/fonts/bootstrap-icons.woff2?1fa40e8900654d2863d011707b9fb6f2" for ::1 at 2023-09-01 19:51:52 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/bootstrap-icons.woff2"):
+  
+Started GET "/signin" for ::1 at 2023-09-01 19:51:58 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 12.3ms | Allocations: 2413)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 40.4ms | Allocations: 6784)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "notes"."name" FROM "notes"[0m
+  ↳ app/views/layouts/application.html.erb:226
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "users"."username" FROM "users" INNER JOIN "notes" ON "notes"."user_id" = "users"."id"[0m
+  ↳ app/views/layouts/application.html.erb:249
+  [1m[36mFaculty Load (0.1ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:258
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:266
+  Rendered layout layouts/application.html.erb (Duration: 72.4ms | Allocations: 28844)
+Completed 200 OK in 83ms (Views: 77.6ms | ActiveRecord: 0.7ms | Allocations: 31137)
+
+
+Started POST "/users/sign_in" for ::1 at 2023-09-01 19:52:24 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"michaelcorelli11@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "michaelcorelli11@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "last_seen" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-09-01 17:52:24.745126"], ["last_seen", "2023-09-01 17:52:24.744026"], ["id", 25]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 303 See Other in 326ms (ActiveRecord: 2.9ms | Allocations: 8512)
+
+
+Started GET "/" for ::1 at 2023-09-01 19:52:24 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:13
+  [1m[36mNote Load (1.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ?[0m  [["user_id", 25]]
+  ↳ app/views/pages/home.html.erb:44:in `flat_map'
+  [1m[36mNoteTopic Load (1.0ms)[0m  [1m[34mSELECT "note_topics".* FROM "note_topics" WHERE "note_topics"."note_id" IN (?, ?)[0m  [["note_id", 3], ["note_id", 2]]
+  ↳ app/views/pages/home.html.erb:44:in `flat_map'
+  [1m[36mNoteTag Load (1.6ms)[0m  [1m[34mSELECT "note_tags".* FROM "note_tags" WHERE "note_tags"."note_id" IN (?, ?)[0m  [["note_id", 3], ["note_id", 2]]
+  ↳ app/views/pages/home.html.erb:44:in `flat_map'
+  [1m[36mNote Load (0.7ms)[0m  [1m[34mSELECT DISTINCT "notes".* FROM "notes" INNER JOIN "note_topics" ON "note_topics"."note_id" = "notes"."id" INNER JOIN "note_tags" ON "note_tags"."note_id" = "notes"."id" WHERE (note_topics.topic_id IN (19,10) OR note_tags.tag_id IN (19,3,4)) AND "notes"."id" NOT IN (?, ?) AND "notes"."user_id" != ?[0m  [["id", 3], ["id", 2], ["user_id", 25]]
+  ↳ app/views/pages/home.html.erb:54
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:61
+  [1m[36mNote Load (0.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" ORDER BY "notes"."rating" DESC LIMIT ?[0m  [["LIMIT", 10]]
+  ↳ app/views/pages/home.html.erb:96
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."rating" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/views/pages/home.html.erb:117
+  Rendered pages/home.html.erb within layouts/application (Duration: 109.1ms | Allocations: 38269)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/layouts/application.html.erb:149
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/layouts/application.html.erb:181
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "notes"."name" FROM "notes"[0m
+  ↳ app/views/layouts/application.html.erb:226
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT DISTINCT "users"."username" FROM "users" INNER JOIN "notes" ON "notes"."user_id" = "users"."id"[0m
+  ↳ app/views/layouts/application.html.erb:249
+  [1m[36mFaculty Load (0.1ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:258
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:266
+  Rendered layout layouts/application.html.erb (Duration: 166.1ms | Allocations: 66036)
+Completed 200 OK in 167ms (Views: 156.7ms | ActiveRecord: 9.8ms | Allocations: 66479)
+
+
+Started GET "/fonts/bootstrap-icons.woff2?1fa40e8900654d2863d011707b9fb6f2" for ::1 at 2023-09-01 19:52:25 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/bootstrap-icons.woff2"):
+  
+Started GET "/fonts/bootstrap-icons.woff?1fa40e8900654d2863d011707b9fb6f2" for ::1 at 2023-09-01 19:52:25 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/bootstrap-icons.woff"):
+  
+Started GET "/notes/search?search=&Filtro=user&user_search=&faculty=&rating=&after=&before=&order=asc&format=&button=" for ::1 at 2023-09-01 19:52:27 +0200
+Processing by NotesController#search as */*
+  Parameters: {"search"=>"", "Filtro"=>"user", "user_search"=>"", "faculty"=>"", "rating"=>"", "after"=>"", "before"=>"", "order"=>"asc", "button"=>""}
+  Rendering layout layouts/application.html.erb
+  Rendering notes/search.html.erb within layouts/application
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" ORDER BY name ASC[0m
+  ↳ app/views/notes/search.html.erb:2
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mNote Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ? AND "notes"."id" = ? LIMIT ?[0m  [["user_id", 25], ["id", 3], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:71
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mNote Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ? AND "notes"."id" = ? LIMIT ?[0m  [["user_id", 25], ["id", 2], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:71
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mNote Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ? AND "notes"."id" = ? LIMIT ?[0m  [["user_id", 25], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:71
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mNote Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ? AND "notes"."id" = ? LIMIT ?[0m  [["user_id", 25], ["id", 5], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:71
+  Rendered notes/search.html.erb within layouts/application (Duration: 196.6ms | Allocations: 70070)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/layouts/application.html.erb:149
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/layouts/application.html.erb:181
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT DISTINCT "notes"."name" FROM "notes"[0m
+  ↳ app/views/layouts/application.html.erb:226
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "users"."username" FROM "users" INNER JOIN "notes" ON "notes"."user_id" = "users"."id"[0m
+  ↳ app/views/layouts/application.html.erb:249
+  [1m[36mFaculty Load (0.5ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:258
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:266
+  Rendered layout layouts/application.html.erb (Duration: 248.2ms | Allocations: 97385)
+Completed 200 OK in 253ms (Views: 247.3ms | ActiveRecord: 5.0ms | Allocations: 98772)
+
+
+Started GET "/fonts/bootstrap-icons.woff2?1fa40e8900654d2863d011707b9fb6f2" for ::1 at 2023-09-01 19:52:27 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/bootstrap-icons.woff2"):
+  
+Started GET "/fonts/bootstrap-icons.woff?1fa40e8900654d2863d011707b9fb6f2" for ::1 at 2023-09-01 19:52:27 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/bootstrap-icons.woff"):
+  
+Started GET "/notes/3" for ::1 at 2023-09-01 19:52:28 +0200
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:103:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:121:in `show'
+  [1m[36mVisualizzazione Load (1.5ms)[0m  [1m[34mSELECT "visualizzaziones".* FROM "visualizzaziones" WHERE "visualizzaziones"."note_id" = ? AND "visualizzaziones"."user_id" = ? LIMIT ?[0m  [["note_id", 3], ["user_id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:122:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering notes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/show.html.erb:8
+  [1m[36mNote Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ? AND "notes"."id" = ? LIMIT ?[0m  [["user_id", 25], ["id", 3], ["LIMIT", 1]]
+  ↳ app/views/notes/show.html.erb:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "visualizzaziones" WHERE "visualizzaziones"."note_id" = ?[0m  [["note_id", 3]]
+  ↳ app/views/notes/show.html.erb:44
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "note_tags" ON "tags"."id" = "note_tags"."tag_id" WHERE "note_tags"."note_id" = ?[0m  [["note_id", 3]]
+  ↳ app/views/notes/show.html.erb:178
+  [1m[36mTopic Load (0.4ms)[0m  [1m[34mSELECT "topics".* FROM "topics" INNER JOIN "note_topics" ON "topics"."id" = "note_topics"."topic_id" WHERE "note_topics"."note_id" = ?[0m  [["note_id", 3]]
+  ↳ app/views/notes/show.html.erb:186
+  [1m[36mFaculty Load (0.3ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties" WHERE "faculties"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/notes/show.html.erb:194
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "create_ratings"."rating" AS create_ratings_rating FROM "create_ratings" WHERE "create_ratings"."note_id" = ? GROUP BY "create_ratings"."rating"[0m  [["note_id", 3]]
+  ↳ app/views/notes/show.html.erb:200
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."note_id" = ?[0m  [["note_id", 3]]
+  ↳ app/views/notes/show.html.erb:222
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/views/notes/show.html.erb:253
+  [1m[36mConversation Load (0.8ms)[0m  [1m[34mSELECT "conversations".* FROM "conversations"[0m
+  ↳ app/views/notes/show.html.erb:298
+  Rendered notes/show.html.erb within layouts/application (Duration: 156.6ms | Allocations: 45242)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/layouts/application.html.erb:149
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/layouts/application.html.erb:181
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "notes"."name" FROM "notes"[0m
+  ↳ app/views/layouts/application.html.erb:226
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "users"."username" FROM "users" INNER JOIN "notes" ON "notes"."user_id" = "users"."id"[0m
+  ↳ app/views/layouts/application.html.erb:249
+  [1m[36mFaculty Load (0.2ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:258
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:266
+  Rendered layout layouts/application.html.erb (Duration: 196.6ms | Allocations: 72444)
+Completed 200 OK in 229ms (Views: 188.7ms | ActiveRecord: 12.8ms | Allocations: 80508)
+
+
+Started GET "/fonts/bootstrap-icons.woff2?1fa40e8900654d2863d011707b9fb6f2" for ::1 at 2023-09-01 19:52:29 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/bootstrap-icons.woff2"):
+  
+Started POST "/notes/3/comments" for ::1 at 2023-09-01 19:53:20 +0200
+Processing by CommentsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "comment"=>{"content"=>"Bellissimi appunti, spiegazione precisa e dettagliata."}, "commit"=>"Add comment", "note_id"=>"3"}
+  [1m[36mNote Load (0.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:3:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+  [1m[36mComment Create (1.0ms)[0m  [1m[32mINSERT INTO "comments" ("content", "note_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Bellissimi appunti, spiegazione precisa e dettagliata."], ["note_id", 3], ["created_at", "2023-09-01 17:53:20.454779"], ["updated_at", "2023-09-01 17:53:20.454779"], ["user_id", 25]]
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+Redirected to http://localhost:3000/notes/3
+Completed 302 Found in 15ms (ActiveRecord: 3.0ms | Allocations: 3839)
+
+
+Started GET "/notes/3" for ::1 at 2023-09-01 19:53:20 +0200
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mNote Load (0.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:103:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:121:in `show'
+  [1m[36mVisualizzazione Load (0.2ms)[0m  [1m[34mSELECT "visualizzaziones".* FROM "visualizzaziones" WHERE "visualizzaziones"."note_id" = ? AND "visualizzaziones"."user_id" = ? LIMIT ?[0m  [["note_id", 3], ["user_id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:122:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering notes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/show.html.erb:8
+  [1m[36mNote Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ? AND "notes"."id" = ? LIMIT ?[0m  [["user_id", 25], ["id", 3], ["LIMIT", 1]]
+  ↳ app/views/notes/show.html.erb:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "visualizzaziones" WHERE "visualizzaziones"."note_id" = ?[0m  [["note_id", 3]]
+  ↳ app/views/notes/show.html.erb:44
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "note_tags" ON "tags"."id" = "note_tags"."tag_id" WHERE "note_tags"."note_id" = ?[0m  [["note_id", 3]]
+  ↳ app/views/notes/show.html.erb:178
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT "topics".* FROM "topics" INNER JOIN "note_topics" ON "topics"."id" = "note_topics"."topic_id" WHERE "note_topics"."note_id" = ?[0m  [["note_id", 3]]
+  ↳ app/views/notes/show.html.erb:186
+  [1m[36mFaculty Load (0.1ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties" WHERE "faculties"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/notes/show.html.erb:194
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "create_ratings"."rating" AS create_ratings_rating FROM "create_ratings" WHERE "create_ratings"."note_id" = ? GROUP BY "create_ratings"."rating"[0m  [["note_id", 3]]
+  ↳ app/views/notes/show.html.erb:200
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."note_id" = ?[0m  [["note_id", 3]]
+  ↳ app/views/notes/show.html.erb:222
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/notes/show.html.erb:224
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/views/notes/show.html.erb:253
+  [1m[36mConversation Load (0.1ms)[0m  [1m[34mSELECT "conversations".* FROM "conversations"[0m
+  ↳ app/views/notes/show.html.erb:298
+  Rendered notes/show.html.erb within layouts/application (Duration: 71.9ms | Allocations: 28639)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/layouts/application.html.erb:149
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/layouts/application.html.erb:181
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "notes"."name" FROM "notes"[0m
+  ↳ app/views/layouts/application.html.erb:226
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "users"."username" FROM "users" INNER JOIN "notes" ON "notes"."user_id" = "users"."id"[0m
+  ↳ app/views/layouts/application.html.erb:249
+  [1m[36mFaculty Load (0.3ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:258
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:266
+  Rendered layout layouts/application.html.erb (Duration: 126.7ms | Allocations: 55637)
+Completed 200 OK in 139ms (Views: 127.0ms | ActiveRecord: 4.0ms | Allocations: 57652)
+
+
+Started GET "/fonts/bootstrap-icons.woff2?1fa40e8900654d2863d011707b9fb6f2" for ::1 at 2023-09-01 19:53:20 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/bootstrap-icons.woff2"):
+  
+Started GET "/notes/search?search=&Filtro=user&user_search=&faculty=&rating=&after=&before=&order=asc&format=&button=" for ::1 at 2023-09-01 19:53:25 +0200
+Processing by NotesController#search as */*
+  Parameters: {"search"=>"", "Filtro"=>"user", "user_search"=>"", "faculty"=>"", "rating"=>"", "after"=>"", "before"=>"", "order"=>"asc", "button"=>""}
+  Rendering layout layouts/application.html.erb
+  Rendering notes/search.html.erb within layouts/application
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" ORDER BY name ASC[0m
+  ↳ app/views/notes/search.html.erb:2
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mNote Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ? AND "notes"."id" = ? LIMIT ?[0m  [["user_id", 25], ["id", 3], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:71
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mNote Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ? AND "notes"."id" = ? LIMIT ?[0m  [["user_id", 25], ["id", 2], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:71
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mNote Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ? AND "notes"."id" = ? LIMIT ?[0m  [["user_id", 25], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:71
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mNote Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ? AND "notes"."id" = ? LIMIT ?[0m  [["user_id", 25], ["id", 5], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:71
+  Rendered notes/search.html.erb within layouts/application (Duration: 147.0ms | Allocations: 68740)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/layouts/application.html.erb:149
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/layouts/application.html.erb:181
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "notes"."name" FROM "notes"[0m
+  ↳ app/views/layouts/application.html.erb:226
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "users"."username" FROM "users" INNER JOIN "notes" ON "notes"."user_id" = "users"."id"[0m
+  ↳ app/views/layouts/application.html.erb:249
+  [1m[36mFaculty Load (0.2ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:255
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:258
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:266
+  Rendered layout layouts/application.html.erb (Duration: 191.4ms | Allocations: 96137)
+Completed 200 OK in 194ms (Views: 189.1ms | ActiveRecord: 3.4ms | Allocations: 96612)
+
+
+Started GET "/fonts/bootstrap-icons.woff2?1fa40e8900654d2863d011707b9fb6f2" for ::1 at 2023-09-01 19:53:26 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/bootstrap-icons.woff2"):
+  
+Started GET "/fonts/bootstrap-icons.woff?1fa40e8900654d2863d011707b9fb6f2" for ::1 at 2023-09-01 19:53:26 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/bootstrap-icons.woff"):
+  
+Started GET "/notes/6" for ::1 at 2023-09-01 19:53:27 +0200
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mNote Load (0.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:103:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:121:in `show'
+  [1m[36mVisualizzazione Load (0.3ms)[0m  [1m[34mSELECT "visualizzaziones".* FROM "visualizzaziones" WHERE "visualizzaziones"."note_id" = ? AND "visualizzaziones"."user_id" = ? LIMIT ?[0m  [["note_id", 6], ["user_id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:122:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering notes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/notes/show.html.erb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "visualizzaziones" WHERE "visualizzaziones"."note_id" = ?[0m  [["note_id", 6]]
+  ↳ app/views/notes/show.html.erb:44
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "note_tags" ON "tags"."id" = "note_tags"."tag_id" WHERE "note_tags"."note_id" = ?[0m  [["note_id", 6]]
+  ↳ app/views/notes/show.html.erb:178
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics" INNER JOIN "note_topics" ON "topics"."id" = "note_topics"."topic_id" WHERE "note_topics"."note_id" = ?[0m  [["note_id", 6]]
+  ↳ app/views/notes/show.html.erb:186
+  [1m[36mFaculty Load (0.3ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties" WHERE "faculties"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/notes/show.html.erb:194
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "create_ratings"."rating" AS create_ratings_rating FROM "create_ratings" WHERE "create_ratings"."note_id" = ? GROUP BY "create_ratings"."rating"[0m  [["note_id", 6]]
+  ↳ app/views/notes/show.html.erb:200
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."note_id" = ?[0m  [["note_id", 6]]
+  ↳ app/views/notes/show.html.erb:222
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 25]]
+  ↳ app/views/notes/show.html.erb:253
+  [1m[36mConversation Load (0.1ms)[0m  [1m[34mSELECT "conversations".* FROM "conversations"[0m
+  ↳ app/views/notes/show.html.erb:298
+  Rendered notes/show.html.erb within layouts/application (Duration: 63.3ms | Allocations: 26074)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/layouts/application.html.erb:149
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/layouts/application.html.erb:181
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "notes"."name" FROM "notes"[0m
+  ↳ app/views/layouts/application.html.erb:226
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "users"."username" FROM "users" INNER JOIN "notes" ON "notes"."user_id" = "users"."id"[0m
+  ↳ app/views/layouts/application.html.erb:249
+  [1m[36mFaculty Load (0.2ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:255
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:258
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:266
+  Rendered layout layouts/application.html.erb (Duration: 106.8ms | Allocations: 53073)
+Completed 200 OK in 115ms (Views: 104.4ms | ActiveRecord: 3.9ms | Allocations: 55066)
+
+
+Started GET "/fonts/bootstrap-icons.woff2?1fa40e8900654d2863d011707b9fb6f2" for ::1 at 2023-09-01 19:53:27 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/bootstrap-icons.woff2"):
+  
+Started GET "/notes/search?search=&Filtro=user&user_search=&faculty=&rating=&after=&before=&order=asc&format=&button=" for ::1 at 2023-09-01 19:53:29 +0200
+Processing by NotesController#search as */*
+  Parameters: {"search"=>"", "Filtro"=>"user", "user_search"=>"", "faculty"=>"", "rating"=>"", "after"=>"", "before"=>"", "order"=>"asc", "button"=>""}
+  Rendering layout layouts/application.html.erb
+  Rendering notes/search.html.erb within layouts/application
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" ORDER BY name ASC[0m
+  ↳ app/views/notes/search.html.erb:2
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mNote Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ? AND "notes"."id" = ? LIMIT ?[0m  [["user_id", 25], ["id", 3], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:71
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mNote Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ? AND "notes"."id" = ? LIMIT ?[0m  [["user_id", 25], ["id", 2], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:71
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mNote Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ? AND "notes"."id" = ? LIMIT ?[0m  [["user_id", 25], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:71
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mNote Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ? AND "notes"."id" = ? LIMIT ?[0m  [["user_id", 25], ["id", 5], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:71
+  Rendered notes/search.html.erb within layouts/application (Duration: 139.6ms | Allocations: 68743)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/layouts/application.html.erb:149
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/layouts/application.html.erb:181
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "notes"."name" FROM "notes"[0m
+  ↳ app/views/layouts/application.html.erb:226
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT DISTINCT "users"."username" FROM "users" INNER JOIN "notes" ON "notes"."user_id" = "users"."id"[0m
+  ↳ app/views/layouts/application.html.erb:249
+  [1m[36mFaculty Load (0.2ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:258
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:266
+  Rendered layout layouts/application.html.erb (Duration: 185.9ms | Allocations: 96138)
+Completed 200 OK in 188ms (Views: 183.9ms | ActiveRecord: 2.9ms | Allocations: 96629)
+
+
+Started GET "/fonts/bootstrap-icons.woff2?1fa40e8900654d2863d011707b9fb6f2" for ::1 at 2023-09-01 19:53:29 +0200
+Started GET "/fonts/bootstrap-icons.woff?1fa40e8900654d2863d011707b9fb6f2" for ::1 at 2023-09-01 19:53:29 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/bootstrap-icons.woff2"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/bootstrap-icons.woff"):
+  
+Started GET "/fonts/bootstrap-icons.woff?1fa40e8900654d2863d011707b9fb6f2" for ::1 at 2023-09-01 19:53:29 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/bootstrap-icons.woff"):
+  
+Started GET "/notes/1" for ::1 at 2023-09-01 19:53:32 +0200
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:103:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:121:in `show'
+  [1m[36mVisualizzazione Load (0.2ms)[0m  [1m[34mSELECT "visualizzaziones".* FROM "visualizzaziones" WHERE "visualizzaziones"."note_id" = ? AND "visualizzaziones"."user_id" = ? LIMIT ?[0m  [["note_id", 1], ["user_id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:122:in `show'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/notes_controller.rb:123:in `show'
+  [1m[36mVisualizzazione Create (2.4ms)[0m  [1m[32mINSERT INTO "visualizzaziones" ("user_id", "note_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 25], ["note_id", 1], ["created_at", "2023-09-01 17:53:32.696318"], ["updated_at", "2023-09-01 17:53:32.696318"]]
+  ↳ app/controllers/notes_controller.rb:123:in `show'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/notes_controller.rb:123:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering notes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/notes/show.html.erb:8
+  [1m[36mNote Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ? AND "notes"."id" = ? LIMIT ?[0m  [["user_id", 25], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/notes/show.html.erb:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "visualizzaziones" WHERE "visualizzaziones"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/views/notes/show.html.erb:44
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "note_tags" ON "tags"."id" = "note_tags"."tag_id" WHERE "note_tags"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/views/notes/show.html.erb:178
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT "topics".* FROM "topics" INNER JOIN "note_topics" ON "topics"."id" = "note_topics"."topic_id" WHERE "note_topics"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/views/notes/show.html.erb:186
+  [1m[36mFaculty Load (0.1ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties" WHERE "faculties"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/notes/show.html.erb:194
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "create_ratings"."rating" AS create_ratings_rating FROM "create_ratings" WHERE "create_ratings"."note_id" = ? GROUP BY "create_ratings"."rating"[0m  [["note_id", 1]]
+  ↳ app/views/notes/show.html.erb:200
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."note_id" = ?[0m  [["note_id", 1]]
+  ↳ app/views/notes/show.html.erb:222
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 24]]
+  ↳ app/views/notes/show.html.erb:253
+  [1m[36mConversation Load (0.1ms)[0m  [1m[34mSELECT "conversations".* FROM "conversations"[0m
+  ↳ app/views/notes/show.html.erb:298
+  Rendered notes/show.html.erb within layouts/application (Duration: 52.0ms | Allocations: 23087)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/layouts/application.html.erb:149
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/layouts/application.html.erb:181
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "notes"."name" FROM "notes"[0m
+  ↳ app/views/layouts/application.html.erb:226
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "users"."username" FROM "users" INNER JOIN "notes" ON "notes"."user_id" = "users"."id"[0m
+  ↳ app/views/layouts/application.html.erb:249
+  [1m[36mFaculty Load (0.2ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:255
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:258
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:266
+  Rendered layout layouts/application.html.erb (Duration: 116.1ms | Allocations: 57980)
+Completed 200 OK in 139ms (Views: 113.6ms | ActiveRecord: 8.1ms | Allocations: 62915)
+
+
+Started GET "/fonts/bootstrap-icons.woff2?1fa40e8900654d2863d011707b9fb6f2" for ::1 at 2023-09-01 19:53:32 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/bootstrap-icons.woff2"):
+  
+Started GET "/notes/search?search=&Filtro=user&user_search=&faculty=&rating=&after=&before=&order=asc&format=&button=" for ::1 at 2023-09-01 19:53:37 +0200
+Processing by NotesController#search as */*
+  Parameters: {"search"=>"", "Filtro"=>"user", "user_search"=>"", "faculty"=>"", "rating"=>"", "after"=>"", "before"=>"", "order"=>"asc", "button"=>""}
+  Rendering layout layouts/application.html.erb
+  Rendering notes/search.html.erb within layouts/application
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" ORDER BY name ASC[0m
+  ↳ app/views/notes/search.html.erb:2
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mNote Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ? AND "notes"."id" = ? LIMIT ?[0m  [["user_id", 25], ["id", 3], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:71
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mNote Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ? AND "notes"."id" = ? LIMIT ?[0m  [["user_id", 25], ["id", 2], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:71
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mNote Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ? AND "notes"."id" = ? LIMIT ?[0m  [["user_id", 25], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:71
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:28
+  [1m[36mNote Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ? AND "notes"."id" = ? LIMIT ?[0m  [["user_id", 25], ["id", 5], ["LIMIT", 1]]
+  ↳ app/views/notes/search.html.erb:71
+  Rendered notes/search.html.erb within layouts/application (Duration: 145.4ms | Allocations: 68737)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/layouts/application.html.erb:149
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/layouts/application.html.erb:181
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT DISTINCT "notes"."name" FROM "notes"[0m
+  ↳ app/views/layouts/application.html.erb:226
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "users"."username" FROM "users" INNER JOIN "notes" ON "notes"."user_id" = "users"."id"[0m
+  ↳ app/views/layouts/application.html.erb:249
+  [1m[36mFaculty Load (0.3ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:258
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:266
+  Rendered layout layouts/application.html.erb (Duration: 188.9ms | Allocations: 96132)
+Completed 200 OK in 191ms (Views: 185.6ms | ActiveRecord: 4.2ms | Allocations: 96590)
+
+
+Started GET "/fonts/bootstrap-icons.woff2?1fa40e8900654d2863d011707b9fb6f2" for ::1 at 2023-09-01 19:53:37 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/bootstrap-icons.woff2"):
+  
+Started GET "/fonts/bootstrap-icons.woff?1fa40e8900654d2863d011707b9fb6f2" for ::1 at 2023-09-01 19:53:37 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/bootstrap-icons.woff"):
+  
+Started GET "/notes/5" for ::1 at 2023-09-01 19:53:39 +0200
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:103:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:121:in `show'
+  [1m[36mVisualizzazione Load (0.3ms)[0m  [1m[34mSELECT "visualizzaziones".* FROM "visualizzaziones" WHERE "visualizzaziones"."note_id" = ? AND "visualizzaziones"."user_id" = ? LIMIT ?[0m  [["note_id", 5], ["user_id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:122:in `show'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/notes_controller.rb:123:in `show'
+  [1m[36mVisualizzazione Create (0.7ms)[0m  [1m[32mINSERT INTO "visualizzaziones" ("user_id", "note_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 25], ["note_id", 5], ["created_at", "2023-09-01 17:53:39.517048"], ["updated_at", "2023-09-01 17:53:39.517048"]]
+  ↳ app/controllers/notes_controller.rb:123:in `show'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/notes_controller.rb:123:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering notes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/show.html.erb:8
+  [1m[36mNote Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ? AND "notes"."id" = ? LIMIT ?[0m  [["user_id", 25], ["id", 5], ["LIMIT", 1]]
+  ↳ app/views/notes/show.html.erb:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "visualizzaziones" WHERE "visualizzaziones"."note_id" = ?[0m  [["note_id", 5]]
+  ↳ app/views/notes/show.html.erb:44
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "note_tags" ON "tags"."id" = "note_tags"."tag_id" WHERE "note_tags"."note_id" = ?[0m  [["note_id", 5]]
+  ↳ app/views/notes/show.html.erb:178
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT "topics".* FROM "topics" INNER JOIN "note_topics" ON "topics"."id" = "note_topics"."topic_id" WHERE "note_topics"."note_id" = ?[0m  [["note_id", 5]]
+  ↳ app/views/notes/show.html.erb:186
+  [1m[36mFaculty Load (0.1ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties" WHERE "faculties"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/notes/show.html.erb:194
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "create_ratings"."rating" AS create_ratings_rating FROM "create_ratings" WHERE "create_ratings"."note_id" = ? GROUP BY "create_ratings"."rating"[0m  [["note_id", 5]]
+  ↳ app/views/notes/show.html.erb:200
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."note_id" = ?[0m  [["note_id", 5]]
+  ↳ app/views/notes/show.html.erb:222
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/views/notes/show.html.erb:253
+  [1m[36mConversation Load (0.1ms)[0m  [1m[34mSELECT "conversations".* FROM "conversations"[0m
+  ↳ app/views/notes/show.html.erb:298
+  Rendered notes/show.html.erb within layouts/application (Duration: 60.2ms | Allocations: 27777)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/layouts/application.html.erb:149
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/layouts/application.html.erb:181
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "notes"."name" FROM "notes"[0m
+  ↳ app/views/layouts/application.html.erb:226
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "users"."username" FROM "users" INNER JOIN "notes" ON "notes"."user_id" = "users"."id"[0m
+  ↳ app/views/layouts/application.html.erb:249
+  [1m[36mFaculty Load (0.3ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:258
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:266
+  Rendered layout layouts/application.html.erb (Duration: 101.9ms | Allocations: 54964)
+Completed 200 OK in 119ms (Views: 99.6ms | ActiveRecord: 6.3ms | Allocations: 58913)
+
+
+Started GET "/fonts/bootstrap-icons.woff2?1fa40e8900654d2863d011707b9fb6f2" for ::1 at 2023-09-01 19:53:39 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/bootstrap-icons.woff2"):
+  
+Started POST "/notes/5/comments" for ::1 at 2023-09-01 19:54:13 +0200
+Processing by CommentsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "comment"=>{"content"=>"Appunti molto interessanti."}, "commit"=>"Add comment", "note_id"=>"5"}
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:3:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("content", "note_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Appunti molto interessanti."], ["note_id", 5], ["created_at", "2023-09-01 17:54:13.714735"], ["updated_at", "2023-09-01 17:54:13.714735"], ["user_id", 25]]
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+Redirected to http://localhost:3000/notes/5
+Completed 302 Found in 8ms (ActiveRecord: 1.9ms | Allocations: 3291)
+
+
+Started GET "/notes/5" for ::1 at 2023-09-01 19:54:13 +0200
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mNote Load (0.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:103:in `show'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:121:in `show'
+  [1m[36mVisualizzazione Load (0.1ms)[0m  [1m[34mSELECT "visualizzaziones".* FROM "visualizzaziones" WHERE "visualizzaziones"."note_id" = ? AND "visualizzaziones"."user_id" = ? LIMIT ?[0m  [["note_id", 5], ["user_id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:122:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering notes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/notes/show.html.erb:8
+  [1m[36mNote Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ? AND "notes"."id" = ? LIMIT ?[0m  [["user_id", 25], ["id", 5], ["LIMIT", 1]]
+  ↳ app/views/notes/show.html.erb:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "visualizzaziones" WHERE "visualizzaziones"."note_id" = ?[0m  [["note_id", 5]]
+  ↳ app/views/notes/show.html.erb:44
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "note_tags" ON "tags"."id" = "note_tags"."tag_id" WHERE "note_tags"."note_id" = ?[0m  [["note_id", 5]]
+  ↳ app/views/notes/show.html.erb:178
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT "topics".* FROM "topics" INNER JOIN "note_topics" ON "topics"."id" = "note_topics"."topic_id" WHERE "note_topics"."note_id" = ?[0m  [["note_id", 5]]
+  ↳ app/views/notes/show.html.erb:186
+  [1m[36mFaculty Load (0.2ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties" WHERE "faculties"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/notes/show.html.erb:194
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "create_ratings"."rating" AS create_ratings_rating FROM "create_ratings" WHERE "create_ratings"."note_id" = ? GROUP BY "create_ratings"."rating"[0m  [["note_id", 5]]
+  ↳ app/views/notes/show.html.erb:200
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."note_id" = ?[0m  [["note_id", 5]]
+  ↳ app/views/notes/show.html.erb:222
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/notes/show.html.erb:224
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/views/notes/show.html.erb:253
+  [1m[36mConversation Load (0.1ms)[0m  [1m[34mSELECT "conversations".* FROM "conversations"[0m
+  ↳ app/views/notes/show.html.erb:298
+  Rendered notes/show.html.erb within layouts/application (Duration: 54.9ms | Allocations: 28417)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/layouts/application.html.erb:149
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/layouts/application.html.erb:181
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "notes"."name" FROM "notes"[0m
+  ↳ app/views/layouts/application.html.erb:226
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "users"."username" FROM "users" INNER JOIN "notes" ON "notes"."user_id" = "users"."id"[0m
+  ↳ app/views/layouts/application.html.erb:249
+  [1m[36mFaculty Load (0.2ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:258
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:266
+  Rendered layout layouts/application.html.erb (Duration: 97.7ms | Allocations: 55530)
+Completed 200 OK in 102ms (Views: 95.5ms | ActiveRecord: 3.1ms | Allocations: 57538)
+
+
+Started GET "/fonts/bootstrap-icons.woff2?1fa40e8900654d2863d011707b9fb6f2" for ::1 at 2023-09-01 19:54:13 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/bootstrap-icons.woff2"):
+  
+Started GET "/" for ::1 at 2023-09-01 19:54:18 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:13
+  [1m[36mNote Load (0.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "favourites" ON "notes"."id" = "favourites"."note_id" WHERE "favourites"."user_id" = ?[0m  [["user_id", 25]]
+  ↳ app/views/pages/home.html.erb:44:in `flat_map'
+  [1m[36mNoteTopic Load (0.3ms)[0m  [1m[34mSELECT "note_topics".* FROM "note_topics" WHERE "note_topics"."note_id" IN (?, ?)[0m  [["note_id", 3], ["note_id", 2]]
+  ↳ app/views/pages/home.html.erb:44:in `flat_map'
+  [1m[36mNoteTag Load (0.4ms)[0m  [1m[34mSELECT "note_tags".* FROM "note_tags" WHERE "note_tags"."note_id" IN (?, ?)[0m  [["note_id", 3], ["note_id", 2]]
+  ↳ app/views/pages/home.html.erb:44:in `flat_map'
+  [1m[36mNote Load (1.1ms)[0m  [1m[34mSELECT DISTINCT "notes".* FROM "notes" INNER JOIN "note_topics" ON "note_topics"."note_id" = "notes"."id" INNER JOIN "note_tags" ON "note_tags"."note_id" = "notes"."id" WHERE (note_topics.topic_id IN (19,10) OR note_tags.tag_id IN (19,3,4)) AND "notes"."id" NOT IN (?, ?) AND "notes"."user_id" != ?[0m  [["id", 3], ["id", 2], ["user_id", 25]]
+  ↳ app/views/pages/home.html.erb:54
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:61
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" ORDER BY "notes"."rating" DESC LIMIT ?[0m  [["LIMIT", 10]]
+  ↳ app/views/pages/home.html.erb:96
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."rating" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/views/pages/home.html.erb:117
+  Rendered pages/home.html.erb within layouts/application (Duration: 119.7ms | Allocations: 25599)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/layouts/application.html.erb:149
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/layouts/application.html.erb:181
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "notes"."name" FROM "notes"[0m
+  ↳ app/views/layouts/application.html.erb:226
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT DISTINCT "users"."username" FROM "users" INNER JOIN "notes" ON "notes"."user_id" = "users"."id"[0m
+  ↳ app/views/layouts/application.html.erb:249
+  [1m[36mFaculty Load (0.1ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:255
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:258
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:266
+  Rendered layout layouts/application.html.erb (Duration: 174.9ms | Allocations: 53121)
+Completed 200 OK in 176ms (Views: 170.9ms | ActiveRecord: 4.6ms | Allocations: 53573)
+
+
+Started GET "/fonts/bootstrap-icons.woff2?1fa40e8900654d2863d011707b9fb6f2" for ::1 at 2023-09-01 19:54:18 +0200
+Started GET "/fonts/bootstrap-icons.woff?1fa40e8900654d2863d011707b9fb6f2" for ::1 at 2023-09-01 19:54:18 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/bootstrap-icons.woff2"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/bootstrap-icons.woff"):
+  
+Started GET "/fonts/bootstrap-icons.woff?1fa40e8900654d2863d011707b9fb6f2" for ::1 at 2023-09-01 19:54:19 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/bootstrap-icons.woff"):
+  
+Started DELETE "/signout" for ::1 at 2023-09-01 19:54:21 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 23ms (ActiveRecord: 0.1ms | Allocations: 5151)
+
+
+Started GET "/" for ::1 at 2023-09-01 19:54:22 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mNote Load (0.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" ORDER BY "notes"."rating" DESC LIMIT ?[0m  [["LIMIT", 10]]
+  ↳ app/views/pages/home.html.erb:96
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:101
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."rating" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/views/pages/home.html.erb:117
+  Rendered pages/home.html.erb within layouts/application (Duration: 35.6ms | Allocations: 20962)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "notes"."name" FROM "notes"[0m
+  ↳ app/views/layouts/application.html.erb:226
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "users"."username" FROM "users" INNER JOIN "notes" ON "notes"."user_id" = "users"."id"[0m
+  ↳ app/views/layouts/application.html.erb:249
+  [1m[36mFaculty Load (0.1ms)[0m  [1m[34mSELECT "faculties".* FROM "faculties"[0m
+  ↳ app/views/layouts/application.html.erb:255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DISTINCT "topics"."name" FROM "topics"[0m
+  ↳ app/views/layouts/application.html.erb:258
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DISTINCT "tags"."name" FROM "tags"[0m
+  ↳ app/views/layouts/application.html.erb:266
+  Rendered layout layouts/application.html.erb (Duration: 65.1ms | Allocations: 43020)
+Completed 200 OK in 67ms (Views: 64.9ms | ActiveRecord: 1.5ms | Allocations: 43455)
+
+
+Started GET "/fonts/bootstrap-icons.woff2?1fa40e8900654d2863d011707b9fb6f2" for ::1 at 2023-09-01 19:54:22 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/bootstrap-icons.woff2"):
+  
