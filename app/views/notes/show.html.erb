@@ -167,6 +167,13 @@
               <p style="color:white;margin-top:12px" class="fw-bold">Esegui il <%= link_to "login", signin_path,style:"color:white;"%> o la <%= link_to "registrazione", signup_path ,style:"color:white;"%> per scaricare il file</p>
             <% end %>
           </div>
+        <% else %>
+          <div class="download-open">
+            <%= link_to video_download_path(@note.id),style: "text-decoration:none;" do %>
+              <%= image_tag("download.svg",style: "width: 45px; height: 45px;") %><br/>
+              <label class="fw-bold" style="color:black;" >Download</label>
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -561,6 +568,7 @@
   var dialog = document.querySelector('.dialog-container');
   var format_local = document.getElementById("format1");
   var format_cloud = document.getElementById("format2");
+  const back_img = document.getElementById("back");
 
   if (download_dialog != null){
     download_dialog.addEventListener('click',function(event){
@@ -581,6 +589,7 @@
       seleziona_il_formato1.style.display = "none";
       seleziona_il_formato2.style.display = "none";
       label_format.style.display ="none";
+      back_img.style.display = "none";
     });
   }
   document.addEventListener("DOMContentLoaded", function() {
