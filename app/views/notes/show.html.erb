@@ -299,8 +299,8 @@
     function Conversazione(){
 
     <% if user_signed_in? %>
-      var senderId = <%= current_user.id %>; // Inserisci qui il modo per ottenere l'ID dell'utente corrente
-      var recipientId = <%= @note.user.id %>; // Inserisci qui il modo per ottenere l'ID dell'utente destinatario
+      var senderId = <%= current_user.id %>;
+      var recipientId = <%= @note.user.id %>;
 
       <% conversation_id = nil %>
       <% Conversation.all.each do |conver| %>
@@ -528,7 +528,6 @@
   });
 </script>
 <script>
-  // Ottieni il riferimento al bottone e al contenitore della div
   const mostraBtn = document.getElementById('mostraBtn');
   const contenitoreDiv = document.getElementById('contenitoreDiv');
 
@@ -550,9 +549,7 @@
     }
   })
 
-  // Aggiungi un gestore di eventi per il clic sul bottone
   mostraBtn.addEventListener('click', function() {
-    // Inverti lo stato di visualizzazione del contenuto
     if (contenitoreDiv.classList.contains('hidden')) {
       contenitoreDiv.classList.remove('hidden');
       mostraBtn.textContent = "Mostra Meno";
@@ -596,33 +593,25 @@
 
     if (<%=user_signed_in? && @note.user.id != current_user.id%>){
 
-    // Seleziona tutti gli elementi SVG delle stelle
     const stars = document.querySelectorAll(".star");
 
-    // Funzione di callback quando il mouse entra nell'elemento SVG
     function handleMouseOver(event) {
-      const starId = event.target.id; // Ottieni l'ID dell'elemento SVG selezionato (ad esempio, "star1")
+      const starId = event.target.id;
 
       stars.forEach(function(star) {
-        // Ottieni l'ID della stella corrente
         const currentStarId = star.id;
 
-        // Confronta l'ID della stella corrente con l'ID dell'elemento SVG su cui è avvenuto l'hover
-        // Se l'ID della stella corrente è minore dell'ID della stella su cui è avvenuto l'hover,
-        // aggiungi la classe "yellow" per cambiarne il colore
         if(currentStarId <= starId) {
           if(star.classList.contains("text-warning") == false)
           star.classList.add("hover-star");
         }
       });
-      // Esegui altre azioni desiderate quando il mouse entra nell'elemento SVG
     }
 
 
 
-    // Funzione di callback quando il mouse esce dall'elemento SVG
     function handleMouseOut(event) {
-      const starId = event.target.id; // Ottieni l'ID dell'elemento SVG selezionato (ad esempio, "star1")
+      const starId = event.target.id;
 
 
 
@@ -633,7 +622,6 @@
       });
     }
 
-    // Aggiungi l'evento di hover a ciascun elemento SVG
     stars.forEach(function(star) {
       star.addEventListener("mouseover", handleMouseOver);
       star.addEventListener("mouseleave", handleMouseOut);

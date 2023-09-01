@@ -4,7 +4,6 @@
   <% current_user.notes.each do |note| %>
     <script>
       $(document).ready(function() {
-        // Aggiungi un gestore di eventi clic alla classe "note-card"
         $(".card").click(function() {
           var note_id = this.id;
           window.location.href =  "/notes/" + note_id;

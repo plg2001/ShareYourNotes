@@ -84,15 +84,12 @@
         type: 'POST',
         url: "/tags/search",
         data: {tag : search_tag.value},
-        dataType: 'json', // Imposta il tipo di dati atteso come JSON
+        dataType: 'json',
         success: function(data) {
-          // Aggiorna il contenuto della pagina con i dati ricevuti dal server
           const optionsList = document.querySelector(".options-list1");
 
 
           const checkedCheckboxes = optionsList.querySelectorAll("input[type='checkbox']:checked");
-
-          // Rimuovi tutti gli elementi dalla lista tranne quelli con casella spuntata
           optionsList.innerHTML = "";
 
           checkedCheckboxes.forEach(function(checkbox) {
@@ -100,7 +97,6 @@
             optionsList.appendChild(parentDiv);
           });
 
-          // Aggiungi nuovi elementi dalla ricerca
           data.forEach(function(tag) {
             let isDuplicate = false;
             optionsList.querySelectorAll("span.__name").forEach(function(existingTag) {
@@ -134,15 +130,13 @@
         type: 'POST',
         url: "/topics/search",
         data: {topic : search_topic.value},
-        dataType: 'json', // Imposta il tipo di dati atteso come JSON
+        dataType: 'json',
         success: function(data) {
-          // Aggiorna il contenuto della pagina con i dati ricevuti dal server
          const optionsList = document.querySelector(".options-list2");
 
 
           const checkedCheckboxes = optionsList.querySelectorAll("input[type='checkbox']:checked");
 
-          // Rimuovi tutti gli elementi dalla lista tranne quelli con casella spuntata
           optionsList.innerHTML = "";
 
           checkedCheckboxes.forEach(function(checkbox) {
@@ -150,7 +144,6 @@
             optionsList.appendChild(parentDiv);
           });
 
-          // Aggiungi nuovi elementi dalla ricerca
           data.forEach(function(topic) {
             let isDuplicate = false;
             optionsList.querySelectorAll("span.__name").forEach(function(existingTopic) {

@@ -55,28 +55,25 @@
                     </div>
                   <% end %>
                   <div id="search-results">
-                    <!-- Qui verranno visualizzati i risultati della ricerca -->
                   </div>
                   <script>
                     $(document).ready(function() {
                       $('#search-form').submit(function(e) {
-                        e.preventDefault(); // Ferma la sottomissione del form normale
-                        var formData = $(this).serialize(); // Ottieni i dati del form
+                        e.preventDefault();
+                        var formData = $(this).serialize();
                         var url = $(this).attr('action');
 
                         $.ajax({
                           type: 'GET',
                           url: url,
                           data: formData,
-                          dataType: 'json', // Imposta il tipo di dati atteso come JSON
+                          dataType: 'json',
                           success: function(data) {
-                            // Aggiorna il contenuto della pagina con i dati ricevuti dal server
                             updateSearchResults(data);
                           
                             
                           },
                           error: function() {
-                            // Gestisci gli errori, se necessario
                           }
                         });
                       });
@@ -85,7 +82,7 @@
                   <script>
                     function updateSearchResults(data) {
                       var searchResultsDiv = document.getElementById("search-results");
-                      searchResultsDiv.innerHTML = ""; // Svuota il contenuto precedente
+                      searchResultsDiv.innerHTML = "";
 
                       if (data.length === 0) {
                         searchResultsDiv.innerHTML = "<p>Nessun utente trovato.</p>";
@@ -124,7 +121,6 @@
                             userLink.appendChild(listItem);
 
                             
-                            // Dentro la funzione updateSearchResults
                             var userImage = document.createElement("img");
                             userImage.style.borderRadius = "100%"
 

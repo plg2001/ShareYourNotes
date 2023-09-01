@@ -5,7 +5,6 @@
     <% @notes.each do |note| %>
       <script>
         $(document).ready(function() {
-          // Aggiungi un gestore di eventi clic alla classe "note-card"
           $(".note-card").click(function() {
             var note_id = this.id;
             window.location.href =  note_id;
@@ -102,7 +101,7 @@
     Array.from(readMoreLinks).forEach(function(link) {
       link.addEventListener("click", function(event) {
         event.preventDefault();
-        event.stopPropagation(); // Aggiungi questa riga per fermare la propagazione dell'evento click
+        event.stopPropagation();
         var contentElement = this.parentNode.querySelector(".truncated");
         contentElement.textContent = this.getAttribute("data-full-content");
         this.parentNode.removeChild(this);
