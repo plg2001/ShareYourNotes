@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:show]
 
   def index
-    @users = User.all # o qualsiasi altra query per ottenere gli utenti desiderati
+    @users = User.all
   end
   
   def show

@@ -5,7 +5,6 @@ require "googleauth"
 
 class FilesController < ApplicationController
   def index
-    # Aggiungi qui il tuo codice per ottenere i titoli dei file da Google Drive
     @files = nil
 
     if params[:code] != nil
@@ -33,9 +32,6 @@ class FilesController < ApplicationController
         refresh_token: current_user.google_drive_refresh_token,
       )
 
-      # Crea il client per l'API Google Drive
-      
-      # Esegui la query per ottenere la lista dei file
       session  = GoogleDrive::Session.from_credentials(user_credentials)
       @files = session.files
       

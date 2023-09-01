@@ -33,7 +33,7 @@ class User < ApplicationRecord
     user = User.where(email: auth.info.email).first
   
     if user
-      # Se l'utente esiste già, aggiorna i valori solo se sono cambiati
+      
       if user.google_drive_access_token != access_token ||
          user.google_drive_refresh_token != refresh_token ||
          user.google_drive_expires_at != expires_at
@@ -45,7 +45,7 @@ class User < ApplicationRecord
         )
       end
     else
-      # Se l'utente non esiste, creane uno nuovo con i valori forniti
+
       password = Devise.friendly_token[0, 20]
       user = User.create!(
         provider: auth.provider,

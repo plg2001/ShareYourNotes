@@ -1,12 +1,11 @@
 
   
-  /* Stile per l'intestazione della pagina */
+ 
   h1 {
     font-size: 24px;
     margin-bottom: 20px;
   }
-  
-  /* Stile per il form */
+
   form {
     background-color: #fff;
     padding: 20px;
@@ -32,13 +31,12 @@
     border-radius: 4px;
   }
   
-  /* Stile per le etichette dei checkbox */
+
   .form-label {
     font-weight: bold;
     color: white;
   }
   
-  /* Stile per il dropdown personalizzato */
   .custom-dropdown {
     position: relative;
   }
@@ -65,13 +63,11 @@
     border-bottom: 1px solid #ccc;
   }
   
-  /* Stile per il dropdown delle facoltà */
   .div-field {
     display: flex;
     flex-direction: column;
   }
   
-  /* Stile per il pulsante di submit */
   .actions {
     margin-top: 20px;
     display: flex;

@@ -183,7 +183,6 @@ class NotesController < ApplicationController
         redirect_to "http://localhost:3000/notes/#{@note.id}",alert: 'Upload sul tuo google drive effettuato correttamente.'
 
       else
-        # Crea una nuova cartella
         new_folder = session.create_folder(folder_name)
       
         if io != nil 
@@ -527,7 +526,6 @@ class NotesController < ApplicationController
         redirect_to "http://localhost:3000/notes/#{@note.id}",alert: 'Upload sul tuo google drive effettuato correttamente'
 
       else
-        # Crea una nuova cartella
         new_folder = session.create_folder(folder_name)
       
         if io != nil 
@@ -565,10 +563,7 @@ class NotesController < ApplicationController
 
     return folder.trashed?
   rescue Google::Apis::ClientError => e
-    # Il file non esiste più, quindi consideralo come se fosse nel cestino
     return true if e.status_code == 404
-  
-    # Gestisci altri errori se necessario
   
     return false
   end

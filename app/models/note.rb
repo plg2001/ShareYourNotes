@@ -5,7 +5,6 @@ class Note < ApplicationRecord
 
 
 
-  # Definisci quali colonne devono essere coinvolte nella ricerca
 
   
   before_save :set_default_uploaded_at

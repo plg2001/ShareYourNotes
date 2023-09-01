@@ -1,16 +1,15 @@
 class RichiestaAdminsController < ApplicationController
   before_action :set_richiesta_admin, only: %i[ show edit update destroy ]
 
-  # GET /richiesta_admins or /richiesta_admins.json
+
   def index
     @richiesta_admins = RichiestaAdmin.all
   end
 
-  # GET /richiesta_admins/1 or /richiesta_admins/1.json
   def show
   end
 
-  # GET /richiesta_admins/new
+
   def new
     @richiesta_admin = RichiestaAdmin.new
   end
@@ -18,18 +17,17 @@ class RichiestaAdminsController < ApplicationController
   def create_richiesta_admin
     @richiesta_admin = current_user.richiesta_admins.new(user_id: current_user.id, content: 'Salve desidero diventare un amministratore del vostro sito')
     if @richiesta_admin.save
-      # La tupla è stata creata con successo
+
       redirect_to root_path, notice: 'Richiesta per diventare amministratore creata con successo.'
     end
   end
   
 
 
-  # GET /richiesta_admins/1/edit
   def edit
   end
 
-  # POST /richiesta_admins or /richiesta_admins.json
+  
   def create
     @richiesta_admin = current_user.richiesta_admins.new(richiesta_admin_params)
 
@@ -45,7 +43,6 @@ class RichiestaAdminsController < ApplicationController
   end
 
   
-  # PATCH/PUT /richiesta_admins/1 or /richiesta_admins/1.json
   def update
     respond_to do |format|
       if @richiesta_admin.update(richiesta_admin_params)
@@ -58,7 +55,6 @@ class RichiestaAdminsController < ApplicationController
     end
   end
 
-  # DELETE /richiesta_admins/1 or /richiesta_admins/1.json
   def destroy
     @richiesta_admin = current_user.richiesta_admins.find(params[:id])
     @richiesta_admin.destroy
@@ -70,12 +66,10 @@ class RichiestaAdminsController < ApplicationController
   end
 
  
-    # Use callbacks to share common setup or constraints between actions.
     def set_richiesta_admin
       @richiesta_admin = RichiestaAdmin.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def richiesta_admin_params
       params.require(:richiesta_admin).permit(:user_id, :content)
     end
