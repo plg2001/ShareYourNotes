@@ -24,15 +24,6 @@
       <% end %>
     <% end %>
   </div>
-  <div class="Author-Message mb-4" >
-    <p class="Autore"><%= link_to @note.user.username, user_path(@note.user), class: 'link' %></p>
-    <% if user_signed_in? %>
-      <% if current_user.id != @note.user.id %>
-        <p class="Message" style="background-color: #f77062;color:black;border: 3px solid black;border-radius: 80px">
-          <%= link_to 'Message me', conversations_path(sender_id: current_user.id, recipient_id: @note.user.id), method: 'post', class: "btn" %></p>
-      <% end %>
-    <% end %>
-  </div>
   <p class="text-center mb-4">
     <% date_string = @note.uploaded_at.to_s %>
     <% parsed_date = DateTime.parse(date_string) %>
@@ -225,10 +216,9 @@
         <iframe src="<%= preview_url %>" width="900px" height="600px"></iframe>
       </div>
     </div>
-  </div>
-  <div class="chart-comment">
+    <div class="chart-comment">
     <div class="comment">
-      <h2 class="fw-bold h2_Comment">Commenti:</h2>
+      <h2 class="fw-bold h2_Comment" style="color:black;">Commenti:</h2>
       <% @note.comments.each do |comment| %>
         <p class="commento"><strong>
             <%= comment.user.username %>:</strong>
@@ -246,6 +236,8 @@
       <% end %>
     </div>
   </div>
+  </div>
+  
 </div>
 <div class="user_box">
   <div class="card1" id="id_card" style="display:none;">
