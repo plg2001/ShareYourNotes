@@ -49,12 +49,9 @@ And("I click {string}") do |button|
   click_button button
 end
 
-# In features/step_definitions/login_steps.rb
-
 Then("I should be on the home page") do
   expect(current_path).to eq root_path
 end
-
 
 Then("I should see {string} in {string}") do |content, content2|
   expect(page.find(content2)).to have_text(content)

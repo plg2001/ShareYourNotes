@@ -39,7 +39,7 @@ Rails.application.routes.draw do
 
   resources :notes do
     member do
-      get 'edit' # Aggiungi una route per l'azione di modifica
+      get 'edit'
     end
   end
 
