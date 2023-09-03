@@ -160,6 +160,8 @@ class NotesController < ApplicationController
           result = ConvertApi.convert('pdf', { File: file.web_content_link }, from_format: 'docx')
         end
       end
+
+      begin
       
       io = nil
       if result != nil
@@ -195,6 +197,10 @@ class NotesController < ApplicationController
       
         redirect_to "http://localhost:3000/notes/#{@note.id}" ,alert: 'Upload sul tuo google drive effettuato correttamente.'
       end
+      rescue
+        flash[:error] = "Si è verificato un errore durante il download dell'appunto"
+        redirect_to @note
+      end
     end
   end
   
@@ -220,6 +226,8 @@ class NotesController < ApplicationController
       @note.topics = Topic.where(id: params[:note][:topic_ids])
       @note.format = File.extname(file_name)
       file_id = params[:file_id]
+
+      begin
       
       temp_file = open("https://drive.google.com/uc?id=#{file_id}")
       path_file = temp_file.path
@@ -271,7 +279,10 @@ class NotesController < ApplicationController
           flash[:error] = alert
           render :new
         end
-      
+      rescue
+        flash[:error] = "Si è verificato un errore durante il caricamento dell'appunto"
+        render :new
+      end
       
     else
 
@@ -503,6 +514,8 @@ class NotesController < ApplicationController
         end
       end
 
+      begin
+      
       io = nil
       if result != nil
         io = result.file.io
@@ -538,6 +551,11 @@ class NotesController < ApplicationController
 
         redirect_to "http://localhost:3000/notes/#{@note.id}" ,alert: 'Upload sul tuo google drive effettuato correttamente'
 
+      end
+      
+      rescue
+        flash[:error] = "Si è verificato un errore durante il caricamento dell'appunto"
+        render :new
       end
           
     else
