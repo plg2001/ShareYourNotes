@@ -408,7 +408,7 @@
                       return true;
                     }
                   </script>
-                  <%= button_tag type: "submit", class: "btn",style: "background: none; border: 2px solid white" do %>
+                  <%= button_tag type: "submit", class: "btn",style: "background: none; border: 2px solid white", onclick: "return validateDateInput()" do %>
                     <%= image_tag("search2.svg") %>
                   <% end %>
                 </div>
