@@ -96,7 +96,7 @@
         <% end %>
         <% file_extension = @note.format %>
         <% if ['.mp4', '.avi', '.mov'].exclude?(file_extension.downcase) %>
-          <div class="download-open">
+          <div class="download-open file_open">
             <%= image_tag("download.svg",style: "width: 45px; height: 45px;") %>
             <label class="fw-bold" style="color:black;" >Download</label>
           </div>
@@ -553,7 +553,7 @@
 </script>
 <script>
   var mainArea = document.querySelector('.main-area');
-  var download_dialog = document.querySelector('.download-open');
+  var download_dialog = document.querySelector('.file_open');
   var dialog = document.querySelector('.dialog-container');
   var format_local = document.getElementById("format1");
   var format_cloud = document.getElementById("format2");
