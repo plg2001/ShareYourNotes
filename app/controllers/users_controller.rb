@@ -17,8 +17,15 @@ class UsersController < ApplicationController
   
   def search
     @search_query = params[:search]
-    @search_result = User.where('username LIKE ? OR id = ?', "%#{@search_query}%", @search_query)
-  
+
+    if @search_query.start_with?("#")
+      @search_query.sub!(/^#/, '')
+      @search_result = User.where('id = ?', @search_query)
+      
+    else
+
+    @search_result = User.where('username LIKE ?', "%#{@search_query}%")
+    end
     respond_to do |format|
       format.html
       format.json { render json: @search_result }
