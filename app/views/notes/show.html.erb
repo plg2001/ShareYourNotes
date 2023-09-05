@@ -83,6 +83,19 @@
               </svg>
             <% end %>
           </div>
+          <script>
+              const rating = <%= @note.rating%>
+              const stars = document.querySelectorAll(".star");
+
+              stars.forEach(function(star){
+               if (star.id <= rating){
+                 star.classList.add("text-warning");
+               }
+               else {
+                 star.classList.add("text-muted");
+               }
+              })
+            </script>
         <% end %>
       </div>
     </div>
