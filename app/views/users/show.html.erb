@@ -2,13 +2,12 @@
 <%= stylesheet_link_tag 'usershow', media: 'all', 'data-turbolinks-track': 'reload' %>
 <div class="container text-center pagina">
  
- <% if @user.provider != nil %>
-  <h1 class='boh fw-bold'style="color:black"><strong><%= @user.username %></strong></h1>
- <%else %>
+
+
+
  
   <h1 class='boh fw-bold'style="color:black"><strong><%= @user.username + "#" + @user.id.to_s%></strong> </h1>
-  
-  <% end %>
+
   
   <p class='boh fw-bold'><%= @user.name %></p>
   <div class="d-flex gap-3 mb-4  justify-content-center" >
