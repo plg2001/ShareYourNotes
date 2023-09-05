@@ -1,5 +1,5 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-    rescue_from ActionController::InvalidAuthenticityToken, with: :handle_invalid_authenticity_token 
+    
     def facebook
         @user = User.from_omniauth(request.env["omniauth.auth"])
         if @user.persisted?
@@ -27,11 +27,5 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         redirect_to root_path
     end
 
-    private
-
-    def handle_invalid_authenticity_token
-        flash[:alert] = "Sessione scaduta. Per favore, effettua di nuovo l'accesso."
-        redirect_to new_user_session_path
-    end
-
+    
 end
