@@ -657,6 +657,7 @@ class NotesController < ApplicationController
     file = session.file_by_url(@note.google_drive_link)
 
     redirect_to file.web_content_link
+    
   end
 
  

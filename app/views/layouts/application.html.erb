@@ -70,8 +70,8 @@
                           dataType: 'json',
                           success: function(data) {
                             updateSearchResults(data);
-                          
-                            
+
+
                           },
                           error: function() {
                           }
@@ -101,26 +101,26 @@
                             listItem.style.marginTop = "20px"
 
 
-                           
+
 
                             var userLink = document.createElement("a");
 
                             userLink.style.textDecoration = "none";
-                           
 
-                           
-                              
-                              
+
+
+
+
                             userLink.style.cursor = "pointer";
                             userLink.setAttribute("data-method","post");
                             userLink.setAttribute("rel","nofollow");
                             userLink.href = "/conversations?recipient_id="+ user.id + "&sender_id=<%= current_user.id %>";
 
-                            
+
 
                             userLink.appendChild(listItem);
 
-                            
+
                             var userImage = document.createElement("img");
                             userImage.style.borderRadius = "100%"
 
@@ -163,7 +163,7 @@
                             listItem.appendChild(userImage);
                             listItem.appendChild(contactInfo);
                             listItem.appendChild(onlineStatus);
-                           
+
                             contactBox.appendChild(userLink);
                             searchResultsDiv.appendChild(contactBox);
 
@@ -172,7 +172,7 @@
 
 
                         searchResultsDiv.appendChild(userList);
-                        
+
                       }
                     }
                   </script>
@@ -419,9 +419,7 @@
                     <%= image_tag("person_fill.svg", id: "personal-button", class: "btn btn-primary", style: " background: none; border: 2px solid white ;width: 3.2em; height: 100%;") %>
                   <% else %>
                     <img src="<%= current_user.profile_img_url %>" id= "personal-button" class= "" style= "border-radius:100px;margin-right: 10px;background: none; border: 2px solid white ;width: 50px; height: 50px;">
-                  
                   <% end %>
-                  
                 <% end %>
                 <div id="personal-area" class="personal-area hidden">
                   <span class="close-button">&#10006;</span>
@@ -480,6 +478,11 @@
             </ul>
           </div>
         </nav>
+        <% if flash[:alert] %>
+          <div class="alert alert-danger">
+            <%= flash[:alert] %>
+          </div>
+        <% end %>
         <% flash.each do |name, message| %>
           <% if current_user.present? %>
             <%= content_tag(:div,message, class: "alert alert-info alert-#{name} fade show",data: { dismiss: "alert", timeout: 3000 }) %>
@@ -488,6 +491,4 @@
         <%= yield %>
       </body>
     </html>
-    <script>
-    </script>
-   
+    <script></script>

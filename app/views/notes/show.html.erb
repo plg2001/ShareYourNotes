@@ -159,10 +159,19 @@
             <% end %>
           </div>
         <% else %>
-          <div class="download-open">
+          <% if user_signed_in? %>
             <%= link_to video_download_path(@note.id),style: "text-decoration:none;" do %>
               <%= image_tag("download.svg",style: "width: 45px; height: 45px;") %><br/>
               <label class="fw-bold" style="color:black;" >Download</label>
+            <% end %>
+          <% else %>
+            <div class="download-open file_open ">
+              <%= image_tag("download.svg",style: "width: 45px; height: 45px;") %>
+              <label class="fw-bold" style="color:black;" >Download</label>
+            </div>
+            <div id="dialog" class="dialog-container ">
+              <span class="dialog-close"><%= image_tag("close.svg") %></span>
+              <p style="color:white;margin-top:12px" class="fw-bold">Esegui il <%= link_to "login", signin_path,style:"color:white;"%> o la <%= link_to "registrazione", signup_path ,style:"color:white;"%> per scaricare il file</p>
             </div>
           <% end %>
         <% end %>
@@ -217,27 +226,26 @@
       </div>
     </div>
     <div class="chart-comment">
-    <div class="comment">
-      <h2 class="fw-bold h2_Comment" style="color:black;">Commenti:</h2>
-      <% @note.comments.each do |comment| %>
-        <p class="commento"><strong>
-            <%= comment.user.username %>:</strong>
-          <span class="comment-content">
-            <%= comment.short_content %>
-          </span>
-          <% if comment.content.length > 100 %>
-            <a href="#" class="read-more" data-full-content="<%= comment.content %>">Mostra altro</a>
-          <% end %>
-        </p>
-      <% end %>
-      <%= form_with(model: [@note, @note.comments.build], url: note_comments_path(@note)) do |form| %>
-        <%= form.text_area :content, id: 'Commento', placeholder: 'Add a comment',cols: "42.5" %>
-        <%= form.submit 'Add comment',class: "btn add_comment",style: "background-color: #f77062;color:black;border: 3px solid black;border-radius: 80px" %>
-      <% end %>
+      <div class="comment">
+        <h2 class="fw-bold h2_Comment" style="color:black;">Commenti:</h2>
+        <% @note.comments.each do |comment| %>
+          <p class="commento"><strong>
+              <%= comment.user.username %>:</strong>
+            <span class="comment-content">
+              <%= comment.short_content %>
+            </span>
+            <% if comment.content.length > 100 %>
+              <a href="#" class="read-more" data-full-content="<%= comment.content %>">Mostra altro</a>
+            <% end %>
+          </p>
+        <% end %>
+        <%= form_with(model: [@note, @note.comments.build], url: note_comments_path(@note)) do |form| %>
+          <%= form.text_area :content, id: 'Commento', placeholder: 'Add a comment',cols: "42.5" %>
+          <%= form.submit 'Add comment',class: "btn add_comment",style: "background-color: #f77062;color:black;border: 3px solid black;border-radius: 80px" %>
+        <% end %>
+      </div>
     </div>
   </div>
-  </div>
-  
 </div>
 <div class="user_box">
   <div class="card1" id="id_card" style="display:none;">
