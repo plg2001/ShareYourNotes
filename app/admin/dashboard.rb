@@ -7,28 +7,29 @@ ActiveAdmin.register_page "Dashboard" do
   end
   
   content title: proc { I18n.t("active_admin.dashboard") } do    
-    panel "Utenti registrati" do
-      table_for User.all do
-        column :username
-        column :email
-        column :encrypted_password
-        column :created_at
-      end
-    end
+   
 
     panel "Tags" do
       table_for Tag.all do
-        column :body
+        column :name
+        column :created_at
+      end
+    end
+    panel "Topic" do
+      table_for Topic.all do
+        column :name
         column :created_at
       end
     end
     
-    panel "Richeste admin" do
-      table_for RichiestaAdmin.all do
-        column :user_id
-        column :content
+    panel "Faculty" do
+      table_for Faculty.all do
+        column :name
+        column :created_at
       end
     end
+    
+    
 
   end 
 end
