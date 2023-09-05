@@ -9,6 +9,7 @@
     <%= stylesheet_link_tag 'chatArea', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag 'chartkick' %>
+    <%= favicon_link_tag 'icon.ico' %>
   </head>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -26,7 +27,7 @@
   <body>
     <div class="main-area"></div>
     <nav id="diver" class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <%= image_tag("book.png",style: "max-width: 2em; max-height: 2em;") %><%= link_to "ShareYourNotes",root_path,class: "navbar-brand" %>
+      <%= image_tag("icon.ico",style: "max-width: 2em; max-height: 2em;") %><%= link_to "ShareYourNotes",root_path,class: "navbar-brand" %>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
