@@ -224,7 +224,7 @@
             <div class="input-group">
               <%= text_field_tag :search, params[:search], placeholder: "Cerca...", class: "form-control side", id: "name-search", list: "name-suggestions", autocomplete: "off" %>
               <datalist id="name-suggestions">
-                <% Note.distinct.limit(5).pluck(:name).each do |name| %>
+                <% Note.distinct.pluck(:name).each do |name| %>
                   <option value="<%= name %>">
                   <% end %>
                 </datalist>
@@ -247,7 +247,7 @@
                     <div id="user-choice" style="display: none;">
                       <%= text_field_tag :user_search, params[:user_search], placeholder: "Cerca per username", class: "form-control", id: "username-search", list: "username-suggestions", autocomplete: "off", style: "height: 2.5em;" %>
                       <datalist id="username-suggestions">
-                        <% User.joins(:notes).distinct.limit(5).pluck(:username).each do |username| %>
+                        <% User.joins(:notes).distinct.pluck(:username).each do |username| %>
                           <option value="<%= username %>">
                           <% end %>
                         </datalist>
