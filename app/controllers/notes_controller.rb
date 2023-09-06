@@ -600,23 +600,20 @@ class NotesController < ApplicationController
 
   def best
     @best_notes = Note.where("rating <= 5").order(rating: :desc)
-    @topic_ids_union = []
-    @tag_ids_union = []
-    @notes_union = []
+    @note_info = []
 
     @best_notes.each do |note|
-      topic_id = note.note_topics.first.topic_id
-      tag_id = note.note_tags.first.tag_id
-      index = @topic_ids_union.index(topic_id)
-      if index && @tag_ids_union[index] == tag_id
-        @notes_union[index] << note
-      else
-        @topic_ids_union << topic_id
-        @tag_ids_union << tag_id
-        @notes_union << [note]
-      end
+      note_info = {
+        note: note,
+        topics: note.note_topics.map { |note_topic| note_topic.topic },
+        tags: note.note_tags.map { |note_tag| note_tag.tag }
+      }
+      @note_info << note_info
     end
+  
+    @grouped_notes = @note_info.group_by { |info| info[:tags].sort + info[:topics].sort }
   end
+  
 
 
   def edit

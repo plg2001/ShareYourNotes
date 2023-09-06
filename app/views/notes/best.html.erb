@@ -101,19 +101,19 @@
 <div class="container">
   <div id="best2" class="hidden">
     <% if @best_notes.any? %>
-  <h2 class="fw-bold" style="color:white;">Note divise per Categorie</h2>
-  <% @topic_ids_union.each_with_index do |topic_id, index| %>
-    <% topic = Topic.find(topic_id) %>
-    <% tag = Tag.find(@tag_ids_union[index]) %>
+      <% @grouped_notes.each do |group, notes| %>
+        <h3 style="color:white;">
+          <%= "#{notes.size > 1 ? 'Note' : 'Nota'} #{notes.size > 1 ? 'associate' : 'associata'} #{notes.size > 1 ? 'ai' : 'al'} #{notes.size > 1 ? 'Tags' : 'Tag'} e #{notes.size > 1 ? 'Topics' : 'Topic'}, #{notes.size} #{notes.size > 1 ? 'note' : 'nota'}: #{group.map(&:name).join(', ')}" %>
+        </h3>
+        <% notes.each do |note_data| %>
+          <% note = note_data[:note] %>
 
-    <h3  style="color:white;"><%= topic.name %> e <%= tag.name %><br> Numero di note associate al topic e tag: <%= @notes_union[index].size %> <% if @notes_union[index].size > 1 %>appunti<% else %>appunto<% end %></h3>
-    <% @notes_union[index].each do |note| %>
-    <div id="<%=note.id%>"class="card my-4" style="cursor:pointer;">
-        <div class="card-body">
-        <div class="d-flex justify-content-between align-items-center mb-2">
-          <h4 class="card-title">
-            <a href="<%= best_note_path(note) %>"><%= note.name %></a>
-          </h4>
+          <div id="<%= note.id %>" class="card my-4" style="cursor:pointer;">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h4 class="card-title">
+                  <a href="<%= best_note_path(note) %>"><%= note.name %></a>
+                </h4>
           <% if current_user && current_user != note.user %>
               <div class="d-flex gap-1 mb-1 BottoniStella justify-content-start align-items-center">
                 <% Note::MAX_RATING.times do |n| %>
@@ -176,7 +176,7 @@
           <% end %>
         </div>
       </div>
-    <% end %>
+      <% end %>
   <% end %>
 <% else %>
   <p class="fw-bold" style="color:white;">Nessuna nota disponibile</p>
